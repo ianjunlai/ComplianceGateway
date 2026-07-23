@@ -1,0 +1,42 @@
+server:
+  port: 8080
+  tomcat:
+    # Deliberately generous so the sync-unbounded condition fails on inference
+    # backpressure, not on an artificially small connector pool.
+    threads:
+      max: 200
+
+spring:
+  application:
+    name: gateway-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: gateway-result-store
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+gateway:
+  topics:
+    request: Audit_Request_Topic
+    result: Audit_Result_Topic
+    dlq: Audit_DLQ_Topic
+  inference:
+    # FastAPI wrapper around the same pipeline, used ONLY by the two sync baselines
+    sync-url: http://localhost:8000/infer
+    # Client-side timeout for sync calls (ms); JMeter timeout must exceed this
+    timeout-ms: 240000
+  throttle:
+    # Sync-throttled condition: HTTP-layer queue with N permits
+    # WORST CASE for a single request = acquire-timeout-ms + inference.timeout-ms
+    # (wait for a turn, THEN the call itself can still time out) = up to 480s here.
+    # Any client timeout calling this endpoint (JMeter sampler, proxy, etc.) MUST
+    # exceed that compound bound with margin, or the client times out before the
+    # gateway can return its own clean 503 — corrupting the failure-mode stats
+    # (client-side SocketTimeoutException vs. gateway's throttle-queue-timeout).
+    permits: 1
+    acquire-timeout-ms: 240000

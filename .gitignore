@@ -1,0 +1,33 @@
+# Java
+gateway-service/target/
+*.class
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Secrets
+.env
+
+# Build artifacts / experiment outputs
+inference-service/artifacts/
+results/
+*.log
+
+# Thesis documents (kept local, not published)
+docs/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS / Office temp
+~$*
+Thumbs.db
+
+# Node (dashboard, if upgraded later)
+node_modules/

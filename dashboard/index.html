@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ComplianceGateway Monitor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>ComplianceGateway <span class="subtitle">— live monitor</span></h1>
+    <div id="conn-status" class="badge offline">connecting…</div>
+  </header>
+
+  <section class="cards">
+    <div class="card"><div class="card-label">Queue depth</div><div class="card-value" id="queue-depth">–</div></div>
+    <div class="card"><div class="card-label">Submitted</div><div class="card-value" id="submitted">–</div></div>
+    <div class="card"><div class="card-label">Completed</div><div class="card-value" id="completed">–</div></div>
+    <div class="card"><div class="card-label">Errors</div><div class="card-value error" id="errors">–</div></div>
+    <div class="card"><div class="card-label">Avg E2E (recent)</div><div class="card-value" id="avg-e2e">–</div></div>
+  </section>
+
+  <section>
+    <h2>Queue depth (last 5 min)</h2>
+    <div id="queue-chart" class="chart"></div>
+  </section>
+
+  <section>
+    <h2>Recent audit results</h2>
+    <table id="recent-table">
+      <thead>
+        <tr>
+          <th>Request</th><th>Source</th><th>Decision</th><th>Strategy</th>
+          <th>Queue wait</th><th>NER</th><th>Retrieval</th><th>Generation</th><th>E2E</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>

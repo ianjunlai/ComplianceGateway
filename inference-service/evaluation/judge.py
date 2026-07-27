@@ -1,19 +1,15 @@
 """LLM-as-judge for Faithfulness.
 
-Judge = Claude (different vendor family from the GPT-4o generator — mitigates
-generator/judge same-source bias). Receives ONLY synthetic queries and system
-outputs — never real student data.
+Judge and generator should be different vendor families to mitigate
+same-source bias (see config.JUDGE_PROVIDER / EXTRACTION_PROVIDER). Receives
+ONLY synthetic queries and system outputs — never real student data.
 
 Faithfulness = supported claims / total claims, judged against:
   - the RETRIEVED context for RAG strategies;
   - the GOLD chunks for zero_shot.
 """
-import json
-import time
-
-import anthropic
-
 import config
+from common.llm_clients import complete_json
 
 _JUDGE_PROMPT = """You are evaluating the faithfulness of a compliance auditor's reasoning.
 
@@ -42,26 +38,10 @@ def judge_faithfulness(reasoning: str, context_text: str, max_attempts: int = 3)
     punishing an honest abstention as maximally unfaithful would invert
     the metric's meaning.
     """
-    client = anthropic.Anthropic()
-    for attempt in range(1, max_attempts + 1):
-        try:
-            response = client.messages.create(
-                model=config.JUDGE_MODEL,
-                max_tokens=2000,
-                messages=[{
-                    "role": "user",
-                    "content": _JUDGE_PROMPT.format(context=context_text, reasoning=reasoning),
-                }],
-            )
-            break
-        except Exception:
-            if attempt == max_attempts:
-                raise
-            time.sleep(2 ** attempt)
-    text = response.content[0].text
-    # tolerate judge wrapping JSON in prose/code fences
-    start, end = text.find("{"), text.rfind("}")
-    data = json.loads(text[start:end + 1])
+    prompt = _JUDGE_PROMPT.format(context=context_text, reasoning=reasoning)
+    data, _usage = complete_json(
+        config.JUDGE_PROVIDER, config.JUDGE_MODEL, prompt, max_attempts=max_attempts,
+    )
     claims = data.get("claims", [])
     supported = sum(1 for c in claims if c.get("verdict") == "SUPPORTED")
     return {

@@ -63,7 +63,7 @@ _CREATE_RELATIONS = """
 UNWIND $rows AS row
 MATCH (a:Entity {node_id: row.source_id}), (b:Entity {node_id: row.target_id})
 CREATE (a)-[:RELATES {rel_id: row.rel_id, type: row.type,
-                      description: row.description, chunk_id: row.chunk_id}]->(b)
+                      description: row.description, chunk_ids: row.chunk_ids}]->(b)
 """
 
 _SET_NODE_VECTORS = """
@@ -140,13 +140,51 @@ def main() -> None:
 
 
 def _rewire_relations(raw_relations: list[dict], name_to_node: dict[str, str]) -> list[dict]:
-    """Relation endpoints follow their entities into canonical node IDs."""
-    out = []
+    """Relation endpoints follow their entities into canonical node IDs, then
+    relations are deduplicated by (source, target, type): the same fact
+    restated across several chunks must not become several near-identical
+    edges. Undeduplicated, this would inflate Hybrid's traversal cost, crowd
+    LightRAG's edge vector index with redundant near-duplicates that push out
+    genuinely distinct relations, and -- since scipy sums duplicate
+    coordinates when building a sparse matrix -- silently give HippoRAG's PPR
+    an accidental frequency-weighting nobody decided on. Every contributing
+    chunk is kept as provenance in chunk_ids.
+    """
+    dropped_self_loop = 0
+    dropped_missing_entity = 0
+    by_key: dict[tuple[str, str, str], dict] = {}
     for r in raw_relations:
         src, tgt = name_to_node.get(r["source"]), name_to_node.get(r["target"])
-        if src and tgt and src != tgt:
-            out.append({**r, "source_id": src, "target_id": tgt})
-    return out
+        if not (src and tgt):
+            dropped_missing_entity += 1
+            continue
+        if src == tgt:
+            # e.g. two ends of a relation merged into the same entity during
+            # dedup -- a spike here often means DEDUP_THRESHOLD merged too
+            # aggressively; cross-check against dedup_report.json
+            dropped_self_loop += 1
+            continue
+        key = (src, tgt, r.get("type", "RELATES"))
+        existing = by_key.get(key)
+        if existing is None:
+            by_key[key] = {
+                "source_id": src, "target_id": tgt, "type": r.get("type", "RELATES"),
+                "description": r.get("description", ""),
+                "chunk_ids": [r["chunk_id"]],
+            }
+        else:
+            existing["chunk_ids"].append(r["chunk_id"])
+    if dropped_self_loop or dropped_missing_entity:
+        log.warning(
+            "Relation rewiring dropped %d relation(s) collapsed to self-loops "
+            "after entity dedup and %d with an unresolvable entity reference",
+            dropped_self_loop, dropped_missing_entity,
+        )
+    deduped = len(raw_relations) - dropped_self_loop - dropped_missing_entity - len(by_key)
+    if deduped:
+        log.info("Merged %d duplicate relation restatement(s) into %d unique edges",
+                 deduped, len(by_key))
+    return list(by_key.values())
 
 
 def _create_vector_index(session, name: str, pattern: str) -> None:
@@ -181,8 +219,7 @@ def _create_graph(driver, entities: list[CanonicalEntity], relations: list[dict]
         ])
         s.run(_CREATE_RELATIONS, rows=[
             {"rel_id": i, "source_id": r["source_id"], "target_id": r["target_id"],
-             "type": r.get("type", "RELATES"), "description": r.get("description", ""),
-             "chunk_id": r["chunk_id"]}
+             "type": r["type"], "description": r["description"], "chunk_ids": r["chunk_ids"]}
             for i, r in enumerate(relations)
         ])
     log.info("Neo4j graph: %d entities, %d relations, %d chunks",
@@ -211,9 +248,12 @@ def _index_entity_edge_vectors(driver, entities: list[CanonicalEntity],
     tracker.add_embeddings("light_rag", len(ent_vectors))
     tracker.add_storage("light_rag", len(ent_vectors) * config.VECTOR_DIM * 4)
 
-    # Edge vectors (LightRAG high-level): embed the relation descriptions
+    # Edge vectors (LightRAG high-level): embed the relation descriptions.
+    # Fallback text uses canonical entity names (not raw extraction strings --
+    # relations are deduplicated onto node IDs and no longer carry those).
+    id_to_name = {e.node_id: e.name for e in entities}
     edge_texts = [
-        r.get("description") or f'{r["source"]} {r.get("type", "")} {r["target"]}'
+        r["description"] or f'{id_to_name[r["source_id"]]} {r["type"]} {id_to_name[r["target_id"]]}'
         for r in relations
     ]
     edge_vectors = embed(edge_texts) if edge_texts else []

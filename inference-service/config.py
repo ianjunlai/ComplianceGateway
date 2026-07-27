@@ -30,12 +30,21 @@ INDEX_ENTITIES = "entity_vec"   # entity linking + LightRAG low-level
 INDEX_EDGES = "edge_vec"        # LightRAG high-level (relationship index)
 VECTOR_DIM = 1024               # bge-large-en-v1.5
 
-# --- Models ---
+# --- Local models (online audit path -- never swapped for a cloud API) ---
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
 SLM_MODEL = os.getenv("SLM_MODEL", "llama3.1:8b-instruct-q4_K_M")
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "BAAI/bge-large-en-v1.5")
+
+# --- Offline cloud models (public legal text / synthetic data / system outputs
+# only). PROVIDER selects the client via common/llm_clients.py; MODEL is
+# whatever that provider calls it. Switching provider is just these two env
+# vars plus that provider's API key -- see .env.example.
+EXTRACTION_PROVIDER = os.getenv("EXTRACTION_PROVIDER", "openai")
 EXTRACTION_MODEL = os.getenv("EXTRACTION_MODEL", "gpt-4o")
+JUDGE_PROVIDER = os.getenv("JUDGE_PROVIDER", "anthropic")
 JUDGE_MODEL = os.getenv("JUDGE_MODEL", "claude-sonnet-5")
+QA_GENERATION_PROVIDER = os.getenv("QA_GENERATION_PROVIDER", "openai")
+QA_GENERATION_MODEL = os.getenv("QA_GENERATION_MODEL", "gpt-4o")
 
 # --- Retrieval hyperparameters (disclosed experimental parameters) ---
 ACTIVE_STRATEGY = os.getenv("ACTIVE_STRATEGY", "hybrid")

@@ -31,10 +31,13 @@ def deduplicate_entities(
     """Greedy merge by embedding similarity.
 
     Returns (canonical entities, alias name -> node_id map for relation
-    rewiring, merge log). The merge log records every cross-name merge for
-    MANDATORY human audit: legally distinct but semantically close terms
-    ("data controller" vs "data processor") can exceed the threshold, and
-    merging them would corrupt the compliance graph.
+    rewiring, merge log). The merge log has one row per distinct (alias,
+    canonical) merge DECISION, sorted rarest-first, for MANDATORY human audit:
+    legally distinct but semantically close terms ("data controller" vs
+    "data processor") can exceed the threshold, and merging them would
+    corrupt the compliance graph. A term merging the same way in many chunks
+    only adds an "occurrences" count, not a repeated row — otherwise routine,
+    high-frequency merges would bury the rare, risky ones.
     O(n^2) similarity is fine at this corpus scale (~a few hundred entities).
     """
     if not raw_entities:
@@ -46,7 +49,11 @@ def deduplicate_entities(
     canonicals: list[CanonicalEntity] = []
     canonical_vecs: list[np.ndarray] = []
     name_to_node: dict[str, str] = {}
-    merge_log: list[dict] = []
+    # Keyed by (alias, canonical name): one audit row per distinct merge
+    # DECISION, not one per occurrence. A common term merging identically in
+    # 30 chunks would otherwise add 30 duplicate rows, burying the rare,
+    # genuinely risky merges the human audit is meant to catch.
+    merge_log_by_pair: dict[tuple[str, str], dict] = {}
 
     for i, ent in enumerate(raw_entities):
         vec = vectors[i]
@@ -58,13 +65,19 @@ def deduplicate_entities(
                 canon = canonicals[best]
                 if ent["name"] != canon.name:
                     # cross-name merge: the risky kind — record for human audit
-                    merge_log.append({
-                        "alias": ent["name"],
-                        "alias_type": ent.get("type", "CONCEPT"),
-                        "canonical": canon.name,
-                        "canonical_type": canon.type,
-                        "similarity": round(float(sims[best]), 4),
-                    })
+                    key = (ent["name"], canon.name)
+                    row = merge_log_by_pair.get(key)
+                    if row is None:
+                        merge_log_by_pair[key] = {
+                            "alias": ent["name"],
+                            "alias_type": ent.get("type", "CONCEPT"),
+                            "canonical": canon.name,
+                            "canonical_type": canon.type,
+                            "similarity": round(float(sims[best]), 4),
+                            "occurrences": 1,
+                        }
+                    else:
+                        row["occurrences"] += 1
                 canon.aliases.add(ent["name"])
                 canon.chunk_ids.add(ent["chunk_id"])
                 canon.chunk_counts[ent["chunk_id"]] = canon.chunk_counts.get(ent["chunk_id"], 0) + 1
@@ -84,4 +97,7 @@ def deduplicate_entities(
             canonical_vecs.append(vec)
             name_to_node[ent["name"]] = node_id
 
+    # Rarest merges first: a one-off borderline merge is exactly what the
+    # audit should surface before scrolling past dozens of routine ones.
+    merge_log = sorted(merge_log_by_pair.values(), key=lambda r: r["occurrences"])
     return canonicals, name_to_node, merge_log

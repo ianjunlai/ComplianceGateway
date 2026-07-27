@@ -5,14 +5,14 @@ permitted; online audit queries never touch this module.
 
 Every call is metered by cost_tracker (shared indexing cost).
 """
-import json
-import time
-
-from openai import OpenAI
+import logging
 
 import config
+from common.llm_clients import complete_json
 from ingestion.chunking import Chunk
 from ingestion.cost_tracker import CostTracker
+
+log = logging.getLogger("extraction")
 
 _EXTRACTION_PROMPT = """You are a legal knowledge-graph extractor.
 From the legal clause below, extract:
@@ -36,33 +36,20 @@ Legal clause [{chunk_id}]:
 
 
 def extract_graph_elements(chunk: Chunk, tracker: CostTracker, max_attempts: int = 3) -> dict:
-    """Returns {"entities": [...], "relations": [...]} for one chunk.
-
-    Retries with exponential backoff: a transient API failure (rate limit,
-    network) must not abort a multi-minute corpus build.
+    """Returns {"entities": [...], "relations": [...]} for one chunk, with
+    malformed entries dropped rather than left to crash far downstream (in
+    dedup.py, which indexes straight into "name"/"source"/"target").
     """
-    client = OpenAI()
     prompt = _EXTRACTION_PROMPT.replace("{chunk_id}", chunk.chunk_id).replace("{text}", chunk.text)
-    for attempt in range(1, max_attempts + 1):
-        try:
-            with tracker.llm_call("extraction"):
-                response = client.chat.completions.create(
-                    model=config.EXTRACTION_MODEL,
-                    messages=[{"role": "user", "content": prompt}],
-                    response_format={"type": "json_object"},
-                    temperature=0,
-                )
-            break
-        except Exception:
-            if attempt == max_attempts:
-                raise
-            time.sleep(2 ** attempt)
-    tracker.add_tokens(
-        "extraction",
-        prompt_tokens=response.usage.prompt_tokens,
-        completion_tokens=response.usage.completion_tokens,
-    )
-    data = json.loads(response.choices[0].message.content)
-    data.setdefault("entities", [])
-    data.setdefault("relations", [])
-    return data
+    with tracker.llm_call("extraction"):
+        data, usage = complete_json(
+            config.EXTRACTION_PROVIDER, config.EXTRACTION_MODEL, prompt, max_attempts=max_attempts,
+        )
+    tracker.add_tokens("extraction", **usage)
+
+    entities = [e for e in data.get("entities", []) if e.get("name")]
+    relations = [r for r in data.get("relations", []) if r.get("source") and r.get("target")]
+    dropped = (len(data.get("entities", [])) - len(entities)) + (len(data.get("relations", [])) - len(relations))
+    if dropped:
+        log.warning("%s: dropped %d malformed entity/relation object(s)", chunk.chunk_id, dropped)
+    return {"entities": entities, "relations": relations}

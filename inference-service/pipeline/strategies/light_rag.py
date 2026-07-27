@@ -35,7 +35,7 @@ RETURN node.node_id AS node_id, node.name AS name, score, chunk_ids
 # expansion step can start from them.
 _EDGE_QUERY = """
 CALL db.index.vector.queryRelationships($index, $k, $vec) YIELD relationship AS r, score
-RETURN r.description AS description, r.chunk_id AS chunk_id, score,
+RETURN r.description AS description, r.chunk_ids AS chunk_ids, score,
        startNode(r).node_id AS source_id, endNode(r).node_id AS target_id
 """
 
@@ -94,9 +94,8 @@ class LightRagStrategy(RetrievalStrategy):
             for hit in edge_hits:
                 score = index_score_to_cosine(hit["score"])
                 edges.append(hit["description"])
-                if hit["chunk_id"]:
-                    chunk_scores[hit["chunk_id"]] = max(
-                        chunk_scores.get(hit["chunk_id"], 0.0), score)
+                for cid in hit["chunk_ids"] or []:
+                    chunk_scores[cid] = max(chunk_scores.get(cid, 0.0), score)
 
             # High-order relatedness: one-hop neighbours of the matched entities
             # and of the entities the matched edges connect

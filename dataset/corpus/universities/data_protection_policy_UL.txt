@@ -1,0 +1,20 @@
+### preamble
+International Transfers of Personal Data
+GDPR sets out rules on the transfer of personal data outside the European Economic Area (‘EEA’) to third 
+countries or organisations. The purpose of the rules is to ensure that personal data retains similar protections to those provided under GDPR regardless of the country to which it is transferred.
+### 1
+1 What is an international transfer?
+An international transfer occurs where:
+• personal data is transferred (electronically or physically) to another organisation/institution outside the EEA or 
+• personal data is accessible by an organisation/institution outside the EEA
+Note that remote access to UL personal data by an employee/student while outside the EEA does not constitute an international transfer. 
+### 2
+2 When is it ok to transfer personal data to another country?
+There are no restrictions on transfers of personal data to the following countries:
+• Other countries within the EEA;
+• Countries that have ‘adequacy decisions’, i.e. those countries that the EU has determined to have adequate protection in place for personal data. The list of these countries is available here.
+• The United States where the organisation/institution to which you wish to make the transfer is included in the US Data Privacy Framework list.
+### 3
+3 The organisation I wish to transfer personal data to is not included in the countries listed at 2 above. Are there any other options available to me?
+You should first consider whether it is really necessary to transfer the personal data to the organisation in question. For example, are the services you require available from another organisation?
+If use of the organisation in the particular third country is unavoidable, there may be options available to you. You must first complete a Transfer Impact Assessment and submit to dataprotection@ul.ie for review. For example, you may be able to enter into a contract with the organisation that will contain certain contractual commitments from the organisation with regard to how they will process any personal data received from UL. These commitments are known as Standard Contractual Clauses (SCCs) and must follow specific wording and format set out by the EU. 

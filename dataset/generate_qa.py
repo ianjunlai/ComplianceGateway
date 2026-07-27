@@ -9,7 +9,7 @@ Stratification (n = 150-200):
 Quality control: after generation, a 15% stratified sample goes to
 human verification — see verification_sample.json output.
 
-Run (needs OPENAI_API_KEY in inference-service/.env):
+Run (needs the QA_GENERATION_PROVIDER's API key in inference-service/.env):
     python generate_qa.py --n 160
 """
 import argparse
@@ -17,7 +17,6 @@ import json
 import random
 import re
 import sys
-import time
 from pathlib import Path
 
 # reuse inference-service chunking + config
@@ -27,8 +26,8 @@ from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).resolve().parents[1] / "inference-service" / ".env")
 
-from openai import OpenAI  # noqa: E402
-
+import config  # noqa: E402
+from common.llm_clients import complete_json  # noqa: E402
 from ingestion.chunking import load_corpus  # noqa: E402
 
 CORPUS_DIR = Path(__file__).parent / "corpus"
@@ -65,9 +64,17 @@ Legal clauses:
 
 _ART_REF_RE = re.compile(r"Article\s+(\d+[a-z]?)")
 
+# A citation immediately followed by one of these is to a DIFFERENT
+# instrument (the EU Treaty, the Charter, another directive/regulation), not
+# to GDPR's own numbering -- e.g. Recital 165 cites "Article 17 TFEU", which
+# would otherwise false-match GDPR's own Article 17 (an unrelated topic,
+# "right to erasure") purely by numeric coincidence.
+_OTHER_INSTRUMENT_MARKERS = ("TFEU", "Charter", "Directive", "Regulation (EC)", "Regulation (EU)")
+
 
 def _reference_pairs(chunks) -> list[tuple]:
-    """(chunk, referenced chunk) pairs via explicit 'Article N' cross-references.
+    """(chunk, referenced chunk) pairs via explicit 'Article N' cross-references
+    to GDPR's own numbering.
 
     Multi-hop questions must combine clauses that are genuinely connected:
     random pairs would test the combination of unrelated text, which no graph
@@ -82,7 +89,13 @@ def _reference_pairs(chunks) -> list[tuple]:
     pairs = []
     for c in chunks:
         own = re.match(r"gdpr-art-(\d+[a-z]?)", c.chunk_id)
-        for ref in set(_ART_REF_RE.findall(c.text)):
+        refs = set()
+        for m in _ART_REF_RE.finditer(c.text):
+            tail = c.text[m.end():m.end() + 20].lstrip()
+            if any(tail.startswith(marker) for marker in _OTHER_INSTRUMENT_MARKERS):
+                continue  # citing a different instrument, not GDPR itself
+            refs.add(m.group(1))
+        for ref in refs:
             if own and ref == own.group(1):
                 continue  # self-reference
             for target in by_art.get(ref, []):
@@ -90,14 +103,36 @@ def _reference_pairs(chunks) -> list[tuple]:
     return pairs
 
 
-def _sample_chunks(chunks, ref_pairs, hop_type: str, k: int):
-    """Returns (sampled chunks, whether a genuine cross-reference pair was used)."""
+def _build_reference_graph(ref_pairs: list[tuple]) -> dict[str, list]:
+    """chunk_id -> genuinely cross-referenced Chunk objects, both directions."""
+    graph: dict[str, list] = {}
+    for a, b in ref_pairs:
+        graph.setdefault(a.chunk_id, []).append(b)
+        graph.setdefault(b.chunk_id, []).append(a)
+    return graph
+
+
+def _sample_chunks(chunks, ref_pairs, ref_graph, hop_type: str, k: int):
+    """Returns (sampled chunks, whether a genuine cross-reference pair was used).
+
+    For k > 2, a third chunk is added only if it is ITSELF genuinely
+    cross-referenced to one of the pair (via ref_graph) — padding with an
+    unrelated random chunk would let a retrieval system get penalised on
+    Recall@K for correctly NOT retrieving a clause the question never
+    actually depends on.
+    """
     if hop_type in ("multi", "trap") and ref_pairs:
         base = list(random.choice(ref_pairs))
         if k > 2:
             used = {b.chunk_id for b in base}
-            pool = [c for c in chunks if c.chunk_id not in used]
-            base += random.sample(pool, k - 2)
+            candidates = [
+                c for c in ref_graph.get(base[0].chunk_id, []) + ref_graph.get(base[1].chunk_id, [])
+                if c.chunk_id not in used
+            ]
+            if candidates:
+                base.append(random.choice(candidates))
+            # else: no genuine third connection exists in this corpus -- fall
+            # back to the pair alone rather than pad with unrelated noise.
         return base, True
     return random.sample(chunks, k), False
 
@@ -107,8 +142,8 @@ def generate(n_total: int, seed: int = 42) -> list[dict]:
     chunks = load_corpus(CORPUS_DIR)
     if not chunks:
         raise SystemExit(f"No corpus under {CORPUS_DIR} — see corpus/README.md")
-    client = OpenAI()
     ref_pairs = _reference_pairs(chunks)
+    ref_graph = _build_reference_graph(ref_pairs)
     print(f"{len(ref_pairs)} cross-reference pairs found in corpus")
     dataset = []
     qid = 0
@@ -116,22 +151,13 @@ def generate(n_total: int, seed: int = 42) -> list[dict]:
         for _ in range(round(n_total * share)):
             qid += 1
             k = {"single": 1, "multi": random.choice([2, 3]), "trap": 2, "unanswerable": 2}[hop_type]
-            sampled, used_ref = _sample_chunks(chunks, ref_pairs, hop_type, k)
+            sampled, used_ref = _sample_chunks(chunks, ref_pairs, ref_graph, hop_type, k)
             clause_block = "\n\n".join(f"[{c.chunk_id}]\n{c.text}" for c in sampled)
-            for attempt in range(1, 4):
-                try:
-                    response = client.chat.completions.create(
-                        model="gpt-4o",
-                        messages=[{"role": "user", "content": _PROMPTS[hop_type] + _FORMAT + clause_block}],
-                        response_format={"type": "json_object"},
-                        temperature=0.8,  # diversity across queries
-                    )
-                    break
-                except Exception:
-                    if attempt == 3:
-                        raise
-                    time.sleep(2 ** attempt)
-            item = json.loads(response.choices[0].message.content)
+            item, _usage = complete_json(
+                config.QA_GENERATION_PROVIDER, config.QA_GENERATION_MODEL,
+                _PROMPTS[hop_type] + _FORMAT + clause_block,
+                temperature=0.8,  # diversity across queries
+            )
             dataset.append({
                 "query_id": f"q-{qid:03d}",
                 "query_text": item["query_text"],

@@ -1,0 +1,6 @@
+title: AI Compliance Gateway
+description: >-
+  Event-driven GraphRAG compliance auditing for federated education systems,
+  running a local Small Language Model under edge constraints.
+theme: jekyll-theme-cayman
+# The site home is index.md; README.md remains the repository readme.

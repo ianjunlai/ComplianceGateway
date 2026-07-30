@@ -14,9 +14,12 @@ data, system outputs). The online audit path never calls a cloud API by
 design -- see pipeline/generation.py, which is local-SLM-only.
 """
 import json
+import logging
 import os
 import time
 from functools import lru_cache
+
+log = logging.getLogger("llm_clients")
 
 _OPENAI_COMPATIBLE_BASE_URLS = {
     "openai": None,  # SDK default (api.openai.com)
@@ -90,7 +93,12 @@ def complete_json(
 
             start, end = text.find("{"), text.rfind("}")
             return json.loads(text[start:end + 1]), usage
-        except Exception:
+        except Exception as e:
             if attempt == max_attempts:
                 raise
+            # Retries are otherwise indistinguishable from a new call in the
+            # HTTP-level request log -- log explicitly so a failure can be
+            # traced back to which call it was for.
+            log.warning("complete_json attempt %d/%d failed (provider=%s, model=%s): %s",
+                       attempt, max_attempts, provider, model, e)
             time.sleep(2 ** attempt)

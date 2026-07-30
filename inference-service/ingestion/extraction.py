@@ -36,14 +36,24 @@ Legal clause [{chunk_id}]:
 
 
 def extract_graph_elements(chunk: Chunk, tracker: CostTracker, max_attempts: int = 3) -> dict:
-    """Returns {"entities": [...], "relations": [...]} for one chunk, with
-    malformed entries dropped rather than left to crash far downstream (in
-    dedup.py, which indexes straight into "name"/"source"/"target").
+    """Returns {"entities": [...], "relations": [...], "usage": {...}} for one
+    chunk, with malformed entries dropped rather than left to crash far
+    downstream (in dedup.py, which indexes straight into
+    "name"/"source"/"target").
+
+    Token usage is returned alongside the data so a caller that caches this
+    result can replay the cost figures too -- indexing cost is a reported
+    metric, and it must not disappear just because extraction was cached.
     """
     prompt = _EXTRACTION_PROMPT.replace("{chunk_id}", chunk.chunk_id).replace("{text}", chunk.text)
     with tracker.llm_call("extraction"):
+        # Generous relative to a single clause's entity/relation count: an
+        # enumerative article (e.g. GDPR Art. 13's list of required
+        # disclosures) can produce more output than the 2000-token default,
+        # and different providers vary in JSON verbosity for the same content.
         data, usage = complete_json(
-            config.EXTRACTION_PROVIDER, config.EXTRACTION_MODEL, prompt, max_attempts=max_attempts,
+            config.EXTRACTION_PROVIDER, config.EXTRACTION_MODEL, prompt,
+            max_attempts=max_attempts, max_tokens=4000,
         )
     tracker.add_tokens("extraction", **usage)
 
@@ -52,4 +62,4 @@ def extract_graph_elements(chunk: Chunk, tracker: CostTracker, max_attempts: int
     dropped = (len(data.get("entities", [])) - len(entities)) + (len(data.get("relations", [])) - len(relations))
     if dropped:
         log.warning("%s: dropped %d malformed entity/relation object(s)", chunk.chunk_id, dropped)
-    return {"entities": entities, "relations": relations}
+    return {"entities": entities, "relations": relations, "usage": usage}

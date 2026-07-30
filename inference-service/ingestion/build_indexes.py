@@ -35,6 +35,7 @@ log = logging.getLogger("build_indexes")
 
 CORPUS_DIR = Path(__file__).resolve().parents[2] / "dataset" / "corpus"
 ARTIFACTS = Path(config.ARTIFACTS_DIR)
+EXTRACTION_CACHE_FILE = ARTIFACTS / "extraction_cache.json"
 
 # Lookup indexes; without them every MATCH below is a label scan.
 _PROPERTY_INDEXES = [
@@ -89,15 +90,32 @@ def main() -> None:
     log.info("Chunked corpus: %d chunks", len(chunks))
 
     # ---- Stage 2 (SHARED): extraction + dedup ------------------------------
+    cache_key = f"{config.EXTRACTION_PROVIDER}:{config.EXTRACTION_MODEL}"
+    cache = _load_extraction_cache(cache_key)
     raw_entities: list[dict] = []
     raw_relations: list[dict] = []
-    for chunk in chunks:
-        data = extract_graph_elements(chunk, tracker)
+    cache_hits = 0
+    for i, chunk in enumerate(chunks, 1):
+        cached = cache.get(chunk.chunk_id)
+        if cached is not None:
+            cache_hits += 1
+            log.info("Extracting %d/%d: %s (cached, no API call)", i, len(chunks), chunk.chunk_id)
+            data = cached
+            # Replay the original token usage so the cost report stays complete
+            # on cached runs (older caches predate this field).
+            if cached.get("usage"):
+                tracker.add_tokens("extraction", **cached["usage"])
+        else:
+            log.info("Extracting %d/%d: %s (~%d tokens)", i, len(chunks), chunk.chunk_id, chunk.approx_tokens)
+            data = extract_graph_elements(chunk, tracker)
+            cache[chunk.chunk_id] = data
+            _save_extraction_cache(cache_key, cache)  # incremental: safe to Ctrl-C between chunks
         for e in data["entities"]:
             raw_entities.append({**e, "chunk_id": chunk.chunk_id})
         for r in data["relations"]:
             raw_relations.append({**r, "chunk_id": chunk.chunk_id})
-    log.info("Extracted %d raw entities, %d relations", len(raw_entities), len(raw_relations))
+    log.info("Extracted %d raw entities, %d relations (%d/%d chunks served from cache)",
+             len(raw_entities), len(raw_relations), cache_hits, len(chunks))
 
     entities, name_to_node, merge_log = deduplicate_entities(raw_entities)
     relations = _rewire_relations(raw_relations, name_to_node)
@@ -137,6 +155,31 @@ def main() -> None:
 
     tracker.save(ARTIFACTS / "indexing_cost_report.json")
     log.info("Done. Cost report -> %s", ARTIFACTS / "indexing_cost_report.json")
+
+
+def _load_extraction_cache(cache_key: str) -> dict:
+    """Per-chunk extraction results keyed by chunk_id, so re-running the
+    pipeline to iterate on dedup/graph logic doesn't re-pay for extraction.
+    Invalidated wholesale if EXTRACTION_PROVIDER/MODEL changed since the
+    cache was written -- a cache built with one model must never be silently
+    reused for another.
+    """
+    if not EXTRACTION_CACHE_FILE.exists():
+        return {}
+    payload = json.loads(EXTRACTION_CACHE_FILE.read_text(encoding="utf-8"))
+    if payload.get("cache_key") != cache_key:
+        log.info("Extraction cache was built with a different provider/model (%s) -- ignoring it",
+                 payload.get("cache_key"))
+        return {}
+    return payload.get("chunks", {})
+
+
+def _save_extraction_cache(cache_key: str, chunks: dict) -> None:
+    ARTIFACTS.mkdir(parents=True, exist_ok=True)
+    EXTRACTION_CACHE_FILE.write_text(
+        json.dumps({"cache_key": cache_key, "chunks": chunks}, indent=2, ensure_ascii=False),
+        encoding="utf-8",
+    )
 
 
 def _rewire_relations(raw_relations: list[dict], name_to_node: dict[str, str]) -> list[dict]:

@@ -1,10 +1,15 @@
 """Indexing-cost accounting.
 
 Accounting protocol:
-  - SHARED costs (one extraction pass feeds all three paradigms): LLM wall-time,
-    token counts, USD estimate — reported once.
+  - SHARED costs (one extraction pass feeds all three paradigms): LLM wall-time
+    and token counts — reported once.
   - PARADIGM-SPECIFIC costs: embedding counts, build wall-time, storage bytes —
     reported per paradigm (hybrid / light_rag / hippo_rag).
+
+Cost is reported in tokens, not currency: token counts are objective and
+reproducible, whereas per-provider prices change and are not comparable across
+vendors. Convert to currency separately if needed, using the provider's
+pricing at a stated date.
 
 Report written to artifacts/indexing_cost_report.json.
 """
@@ -13,9 +18,7 @@ import time
 from contextlib import contextmanager
 from pathlib import Path
 
-# USD per 1M tokens; update to current pricing and record the retrieval date
-PRICE_PER_M_INPUT = 2.50   # gpt-4o input
-PRICE_PER_M_OUTPUT = 10.00  # gpt-4o output
+import config
 
 
 class CostTracker:
@@ -54,17 +57,17 @@ class CostTracker:
         self.storage_bytes[paradigm] = self.storage_bytes.get(paradigm, 0) + num_bytes
 
     def report(self) -> dict:
-        usd = {
-            phase: round(
-                t["prompt"] / 1e6 * PRICE_PER_M_INPUT + t["completion"] / 1e6 * PRICE_PER_M_OUTPUT,
-                4,
-            )
+        tokens = {
+            phase: {**t, "total": t["prompt"] + t["completion"]}
             for phase, t in self.tokens.items()
         }
         return {
+            # Which model produced these token counts -- they are not
+            # comparable across providers without it.
+            "extraction_provider": config.EXTRACTION_PROVIDER,
+            "extraction_model": config.EXTRACTION_MODEL,
             "wall_time_s": {k: round(v, 2) for k, v in self.wall_time_s.items()},
-            "tokens": self.tokens,
-            "estimated_usd": usd,
+            "tokens": tokens,
             "embedding_counts": self.embedding_counts,
             "storage_bytes": self.storage_bytes,
         }

@@ -20,8 +20,7 @@ from pipeline.graph import get_driver
 _TRAVERSAL_QUERY = """
 UNWIND $seed_ids AS seed_id
 MATCH (seed:Entity {node_id: seed_id})
-CALL {
-    WITH seed
+CALL (seed) {
     MATCH (seed)-[:RELATES*1..%(hops)d]-(nbr:Entity)
     RETURN collect(DISTINCT nbr) AS nbrs
 }

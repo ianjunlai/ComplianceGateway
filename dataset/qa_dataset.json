@@ -1,66 +1,1996 @@
 [
   {
     "query_id": "q-001",
-    "query_text": "A university system requests an audit to determine if it needs to submit a draft decision to the Board before adopting standard data protection clauses for transferring international student transcripts.",
+    "query_text": "Has the university complied with GDPR Article 9(2) when processing health data in student disability accommodations by ensuring it was handled exclusively by staff bound by professional secrecy obligations?",
+    "source_system": "uni_c",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-9-2"
+    ],
+    "generator_rationale": "The clause states processing must be done by professionals with secrecy obligations, but does not require it to be handled **exclusively** by such staff since paragraph 3 permits inclusion of **another person** also bound by secrecy."
+  },
+  {
+    "query_id": "q-002",
+    "query_text": "Verify processing of student data for graduate admissions applications received prior to May 25, 2018",
+    "source_system": "uni_b",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-99"
+    ],
+    "generator_rationale": "GDPR Article 99 explicitly states that the regulation only applies from May 25, 2018, meaning any data processing request involving activities before this date would be subject to prior legal frameworks that are not covered by this clause."
+  },
+  {
+    "query_id": "q-003",
+    "query_text": "Does GDPR Article 165 allow a university to share a student's transcript with her religious institution without additional consent for the purpose of verifying community service hours?",
+    "source_system": "uni_a",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "gdpr-rec-165"
+    ],
+    "generator_rationale": "The clause only addresses the status of religious institutions under constitutional law and does not provide any guidance on data sharing permissions with such institutions."
+  },
+  {
+    "query_id": "q-004",
+    "query_text": "Did the university provide a student, at the time of collecting personal data for a scholarship application, with contact details of the data protection officer?",
+    "source_system": "uni_a",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-13"
+    ],
+    "generator_rationale": "Article 13(1)(b) requires providing contact details of the DPO where applicable, but the clause alone doesn't confirm whether a DPO exists or this was done."
+  },
+  {
+    "query_id": "q-005",
+    "query_text": "Request to transfer student grade data to an international organization under an agreement established prior to May 24, 2016.",
+    "source_system": "uni_b",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-96"
+    ],
+    "generator_rationale": "GDPR Article 96 allows existing pre-May 2016 international data transfer agreements to remain valid until modified or terminated."
+  },
+  {
+    "query_id": "q-006",
+    "query_text": "Requesting compliance verification for sharing student transcripts within the European Union universities, under the framework of existing data protection laws.",
+    "source_system": "uni_b",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "gdpr-rec-173"
+    ],
+    "generator_rationale": "The GDPR clause [gdpr-rec-173] indicates that GDPR applies unless specific obligations under Directive 2002/58/EC exist, but does not provide explicit rules on international data transfers in this context."
+  },
+  {
+    "query_id": "q-007",
+    "query_text": "The European Commission requests information from the University of Paris for its 2024 report evaluating the application of Chapter V concerning cross-border data transfers.",
+    "source_system": "uni_d",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-97"
+    ],
+    "generator_rationale": "Article 97(3) explicitly authorizes the Commission to request information from Member States (which include their public institutions like universities) for periodic evaluations under this article."
+  },
+  {
+    "query_id": "q-008",
+    "query_text": "Request to transfer student email addresses from the university's alumni database to a third-party marketing firm for promotional purposes.",
+    "source_system": "uni_b",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-4-1"
+    ],
+    "generator_rationale": "Student email addresses are personal data under Art. 4(1), and the transfer involves processing for a new purpose (marketing) which this clause does not authorize by default as it only defines terms, not granting permissions."
+  },
+  {
+    "query_id": "q-009",
+    "query_text": "Verify whether the university's online grade submission system explicitly discloses the purpose of processing students' personal data for submitting final grades to the registrar, including the consequences if students refuse to provide necessary grade-related information.",
+    "source_system": "uni_c",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-rec-60"
+    ],
+    "generator_rationale": "The clause explicitly mandates informed consent with specific disclosures about processing purposes, consequences of refusal, and profiling activities—none of which appear guaranteed in the query context."
+  },
+  {
+    "query_id": "q-010",
+    "query_text": "Can the university's system process application data using marketing automation tools that fall under the scope of Directive 2002/58/EC?",
+    "source_system": "uni_c",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-95"
+    ],
+    "generator_rationale": "Article 95 prohibits additional obligations for processing covered by Directive 2002/58/EC, so if the processing is already subject to that Directive, it remains governed by those rules rather than additional GDPR requirements."
+  },
+  {
+    "query_id": "q-011",
+    "query_text": "Has the European Commission issued an implementing act confirming that the approved university transcript exchange code drafted by the student records association in Germany has general validity within the European Union?",
+    "source_system": "uni_d",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "gdpr-art-40-2"
+    ],
+    "generator_rationale": "The clause discusses the Commission's role in granting general validity to approved codes via implementing acts, but does not provide specific information about any particular university-related code."
+  },
+  {
+    "query_id": "q-012",
+    "query_text": "Verify that the university has the right to process student grade records for accreditation purposes without offering an opt-out to students.",
+    "source_system": "uni_c",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-rec-69"
+    ],
+    "generator_rationale": "The GDPR clause states that data subjects have the right to object to processing based on public interest or legitimate interests, and the controller must demonstrate compelling legitimate interest overriding the data subject's rights."
+  },
+  {
+    "query_id": "q-013",
+    "query_text": "The University requires access to a student's academic transcript for internal auditing purposes. The student has previously contested the accuracy of their grade data and requested a restriction on processing until verification is complete, but the verification is still pending.",
+    "source_system": "uni_d",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-18"
+    ],
+    "generator_rationale": "Article 18(1)(a) gives the data subject the right to restrict processing when contesting data accuracy during the verification period, and this request falls under that restriction for a processing purpose that is not an allowed exception in paragraph 2."
+  },
+  {
+    "query_id": "q-014",
+    "query_text": "Verify whether the university can share student transcripts with a partner institution for joint research purposes under GDPR.",
+    "source_system": "uni_a",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-rec-79"
+    ],
+    "generator_rationale": "The clause does not address sharing for joint research, nor does it provide any basis to approve such transfer as it focuses solely on allocation of responsibilities and does not grant data sharing permissions."
+  },
+  {
+    "query_id": "q-015",
+    "query_text": "A national job placement service requests access to the full academic transcripts and disciplinary records of all computer science graduates from Trinity College Dublin to verify qualifications for employers.",
+    "source_system": "uni_e",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "tcd-policy-1"
+    ],
+    "generator_rationale": "The clause specifies that Trinity College uses and discloses personal data (including student records) only when permissible by law and to carry out its functions, and this broad third-party request for transcripts and disciplinary records is not verified as permissible or functionally necessary under the stated data protection obligations."
+  },
+  {
+    "query_id": "q-016",
+    "query_text": "Audit request: As part of university processing, the registrar's office needs to transfer unredacted student grades to an external scholarship committee without prior student consent. Does clause [cambridge-policy-2.2] permit this?",
+    "source_system": "uni_b",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "cambridge-policy-2.2"
+    ],
+    "generator_rationale": "Clause 2.2.2 explicitly requires understanding and fulfilling data subjects' rights, which typically includes the right to be informed and consent for data sharing, making such unconsented transfer non-compliant."
+  },
+  {
+    "query_id": "q-017",
+    "query_text": "As part of accepting a transfer student, University B requests an updated transcript from University A. The student previously requested erasure of incorrect grades from their record at University A. Does GDPR Article 19 require University A to notify University B about this erasure when sharing the transcript?",
+    "source_system": "uni_b",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-19"
+    ],
+    "generator_rationale": "Article 19 mandates notification to recipients like University B about the erasure of personal data performed under Article 17(1), unless exceptions apply."
+  },
+  {
+    "query_id": "q-018",
+    "query_text": "The university proposes to implement a new AI-driven automated essay scoring system to grade student assignments, which will make pass/fail decisions based on a student's writing style analysis.",
+    "source_system": "uni_b",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-35-1"
+    ],
+    "generator_rationale": "The automated scoring system constitutes automated processing that produces decisions with significant effects on individuals under Article 35(3)(a), triggering a mandatory data protection impact assessment prior to processing."
+  },
+  {
+    "query_id": "q-019",
+    "query_text": "Has the university designated a representative in the EU as required by Article 80, given that it processes personal data of EU students for online course enrollments, including sensitive health information, on a large scale?",
+    "source_system": "uni_c",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-rec-80"
+    ],
+    "generator_rationale": "The clause requires a representative for non-EU controllers processing EU data subjects' personal data on a large scale involving special categories of data, which applies here, so failure to designate should be denied compliance."
+  },
+  {
+    "query_id": "q-020",
+    "query_text": "Request release of student name and student ID number to an external scholarship committee as part of the application process.",
+    "source_system": "uni_c",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "tcd-policy-5"
+    ],
+    "generator_rationale": "The clause defines student names and ID numbers as personal data (reference: Personal data definition), meaning any disclosure to a third party constitutes processing which requires a legal basis beyond this definition-only clause."
+  },
+  {
+    "query_id": "q-021",
+    "query_text": "We request an assessment to determine whether transferring student transcripts containing health data and religious affiliations to a third-party institution for research purposes is permissible.",
+    "source_system": "uni_c",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-rec-75"
+    ],
+    "generator_rationale": "The clause identifies processing of data concerning health or religion as inherently high-risk due to potential damage to rights and freedoms."
+  },
+  {
+    "query_id": "q-022",
+    "query_text": "The university seeks approval to transfer student transcripts to a partner institution in France.",
+    "source_system": "uni_c",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "ul-policy-2"
+    ],
+    "generator_rationale": "France is within the EEA, and there are no restrictions on transfers to other EEA countries."
+  },
+  {
+    "query_id": "q-023",
+    "query_text": "Audit whether a student can request their academic transcript to be transferred to another university under the right to data portability.",
+    "source_system": "uni_b",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "goettingen-policy-2.1"
+    ],
+    "generator_rationale": "The clause explicitly states that the right to data portability does not exist in the public-law sector."
+  },
+  {
+    "query_id": "q-024",
+    "query_text": "Requesting a review of the university's GDPR compliance procedures for student data transfers to third-country institutions, based on the guidelines issued by the Board under Article 70(1)(d).",
+    "source_system": "uni_d",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "gdpr-art-70-1"
+    ],
+    "generator_rationale": "The clause describes the Board's tasks, including issuing guidelines, but does not provide operational authorization or restrictions that can directly approve/deny a specific data transfer request."
+  },
+  {
+    "query_id": "q-025",
+    "query_text": "Does GDPR Article 24 apply to a non-EU university collecting and profiling the online activity of EU-based prospective students to predict their likelihood of enrollment?",
+    "source_system": "uni_e",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-rec-24"
+    ],
+    "generator_rationale": "The clause explicitly states that processing related to monitoring behavior within the EU for profiling purposes falls under this Regulation when conducted by non-EU entities."
+  },
+  {
+    "query_id": "q-026",
+    "query_text": "A university's health services department requests access to students' health data, including vaccination status and medical history, to monitor and alert campus communities about communicable diseases and potential health threats.",
     "source_system": "uni_a",
     "hop_type": "single",
     "cross_ref_sampled": false,
     "gold_decision": "APPROVE",
     "gold_chunk_ids": [
-      "gdpr-art-64-1"
+      "gdpr-rec-52"
     ],
-    "generator_rationale": "The clause requires communication of draft decisions for adopting standard data protection clauses under Article 64(1)(d), so the university's action triggers the audit requirement."
+    "generator_rationale": "The GDPR clause permits processing of special categories of personal data for public interest purposes, explicitly including monitoring and prevention of communicable diseases."
   },
   {
-    "query_id": "q-002",
-    "query_text": "Please provide all academic grades and transcripts specifically for historical research on our university's alumni records from the early 1900s.",
+    "query_id": "q-027",
+    "query_text": "Request to share student transcripts with a third-country institution under an international exchange program. The university has not provided students with any information about data transfers to third countries.",
+    "source_system": "uni_c",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-13"
+    ],
+    "generator_rationale": "The clause requires disclosure of third country transfers at data collection time, which is absent here."
+  },
+  {
+    "query_id": "q-028",
+    "query_text": "Can the university share student transcripts with a third-party educational institution located outside the European Union that does not have any establishment within the Union, for processing applications from EU students?",
     "source_system": "uni_a",
     "hop_type": "single",
     "cross_ref_sampled": false,
     "gold_decision": "DENY",
     "gold_chunk_ids": [
-      "gdpr-rec-160"
+      "gdpr-rec-23"
     ],
-    "generator_rationale": "The clause specifies that this Regulation (GDPR) does not apply to deceased persons, making their data processing ungoverned by GDPR restrictions for genealogical research."
+    "generator_rationale": "The clause requires controllers not established in the Union to comply with GDPR when processing data related to offering goods or services to EU data subjects, and sharing transcripts for application processing is a targeted service that triggers GDPR applicability."
   },
   {
-    "query_id": "q-003",
-    "query_text": "Does the GDPR permit the transfer of pseudonymised health data collected by Georg-August-Universität Göttingen to a third-party research institute in Switzerland for a collaborative study, considering the university uses binding corporate rules?",
+    "query_id": "q-029",
+    "query_text": "The University requests an audit to confirm whether a retired research staff member is authorized to transfer student grades when acting in an official University capacity.",
+    "source_system": "uni_c",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "cambridge-policy-1.3"
+    ],
+    "generator_rationale": "The clause explicitly includes 'retired but active research staff' as covered staff when working within the University context, which includes transferring student grades in an official capacity."
+  },
+  {
+    "query_id": "q-030",
+    "query_text": "Has Trinity College provided data protection training to university staff, students, and researchers to support compliance with the policy?",
+    "source_system": "uni_d",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "tcd-policy-7.9"
+    ],
+    "generator_rationale": "The clause explicitly states that Trinity College provides training in data protection, among other areas, for staff, students, and researchers to support policy compliance."
+  },
+  {
+    "query_id": "q-031",
+    "query_text": "A request to implement a new campus-wide CCTV surveillance system that monitors all publicly accessible areas.",
+    "source_system": "uni_d",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "tcd-policy-7.3"
+    ],
+    "generator_rationale": "The clause explicitly states that monitoring publicly accessible areas such as CCTV requires a Data Protection Impact Assessment (DPIA), and implementing such a system without completing the required DPIA contact with the Data Protection Officer would violate the policy."
+  },
+  {
+    "query_id": "q-032",
+    "query_text": "Should the university system, acting as an intermediary service provider, be liable for transferring student grades to a third-party educational platform under Directive 2000/31/EC?",
+    "source_system": "uni_b",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "gdpr-rec-21"
+    ],
+    "generator_rationale": "The clause [gdpr-rec-21] states GDPR is without prejudice to Directive 2000/31/EC liability rules, but does not specify whether they apply to this specific data transfer scenario."
+  },
+  {
+    "query_id": "q-033",
+    "query_text": "Has the University of Europe properly protected fundamental rights and freedoms in processing student application forms for the fall semester?",
+    "source_system": "uni_e",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "gdpr-rec-173"
+    ],
+    "generator_rationale": "The clause only discusses the relationship between GDPR and Directive 2002/58/EC, not specific processing requirements for protecting rights and freedoms."
+  },
+  {
+    "query_id": "q-034",
+    "query_text": "Can the Information Compliance Office assist in drafting a core privacy notice for our university's new student portal?",
+    "source_system": "uni_d",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "cambridge-policy-3.4"
+    ],
+    "generator_rationale": "The clause explicitly assigns responsibility for publishing and maintaining core privacy notices to the Information Compliance Office."
+  },
+  {
+    "query_id": "q-035",
+    "query_text": "A university system requests permission to use an automated algorithm to evaluate international student applications for scholarship eligibility based solely on academic performance metrics and financial need data, without any human review.",
+    "source_system": "uni_b",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-rec-71"
+    ],
+    "generator_rationale": "The clause prohibits decisions producing significant effects based solely on automated processing like this scholarship evaluation, unless meeting specific exceptions such as explicit consent or contractual necessity, which are not mentioned here."
+  },
+  {
+    "query_id": "q-036",
+    "query_text": "An audit request submitted to ensure the university system complies with GDPR Article 146 by confirming that all departments maintain documentation proving their non-liability for any damages resulting from improper data processing activities, specifically regarding the processing of student financial aid records.",
+    "source_system": "uni_d",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-rec-146"
+    ],
+    "generator_rationale": "The clause does not impose a requirement to maintain documentation proving non-liability, but rather states that exemption from liability occurs only if the controller proves it is not responsible for the damage."
+  },
+  {
+    "query_id": "q-037",
+    "query_text": "Request to transfer a student's personal data concerning their grades and academic history from our university to another educational institution, where the student has provided consent and the processing is automated.",
+    "source_system": "uni_a",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-20"
+    ],
+    "generator_rationale": "The request aligns with Article 20(1) as it requires transfer of personal data provided by the student, based on consent and carried out by automated means."
+  },
+  {
+    "query_id": "q-038",
+    "query_text": "Can Trinity College Dublin provide a student's academic transcript to a prospective employer without explicit consent, based on legal obligations?",
+    "source_system": "uni_b",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "tcd-policy-1"
+    ],
+    "generator_rationale": "The clause states that personal data processing, including disclosures, must comply with data protection law which strengthens individual rights and requires explicit obligations, so absent specific legal permission, disclosure to a third party like an employer would require consent."
+  },
+  {
+    "query_id": "q-039",
+    "query_text": "Request to verify if the contact details for the Information Compliance Office at the University of Cambridge were last revised before January 1, 2023.",
+    "source_system": "uni_a",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "cambridge-policy-4.1"
+    ],
+    "generator_rationale": "The clause only states that contact details are published on the Information Compliance Office’s webpages, but does not provide any information about the date of last revision or a specific date to compare against."
+  },
+  {
+    "query_id": "q-040",
+    "query_text": "As a university controller, can we transfer student grades to a cloud processor without a contract that specifies the subject-matter, duration, nature, purposes, type of personal data, and categories of data subjects?",
+    "source_system": "uni_e",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-rec-81"
+    ],
+    "generator_rationale": "The clause explicitly requires a contract or legal act that includes these specific elements to govern processing by a processor."
+  },
+  {
+    "query_id": "q-041",
+    "query_text": "The university archives historical student records pseudonymized for research on educational trends across decades. They seek to share this dataset with the university's sociology department for statistical analysis of long-term academic progression patterns.",
+    "source_system": "uni_c",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-rec-156"
+    ],
+    "generator_rationale": "The clause permits processing pseudonymized data for scientific research with safeguards, and this scenario matches those conditions with appropriate technical/organizational measures."
+  },
+  {
+    "query_id": "q-042",
+    "query_text": "Should the University of Edinburgh share a student's academic transcript with the US National Science Foundation based on a US Federal Court subpoena?",
+    "source_system": "uni_e",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-48"
+    ],
+    "generator_rationale": "The EU GDPR Article 48 invalidates the enforceability of the US court subpoena since it lacks a relevant international agreement between the US and EU."
+  },
+  {
+    "query_id": "q-043",
+    "query_text": "A student has submitted an access request to receive a copy of their course grades from the university portal.",
+    "source_system": "uni_c",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "tcd-policy-7.2"
+    ],
+    "generator_rationale": "The right of access explicitly grants individuals the right to make an access request for a copy of their personal data, such as course grades."
+  },
+  {
+    "query_id": "q-044",
+    "query_text": "A university in Germany (EU) uses a cloud service provider based in Ireland (EU) for storing and processing student application data. The German university's central administration is in Berlin, and all decisions regarding purposes and means of data processing are made there. The Irish provider acts solely as a processor, with no decision-making authority. The German supervisory authority wishes to confirm it is the lead authority for an audit of this data processing arrangement.",
+    "source_system": "uni_d",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-rec-36"
+    ],
+    "generator_rationale": "Since the German university (controller) has its central administration and decision-making in Germany, it is the main establishment under GDPR Recital 36, making the German supervisory authority the competent lead authority regardless of where the Irish processor's activities occur."
+  },
+  {
+    "query_id": "q-045",
+    "query_text": "A student requests a review of their transcript accuracy post-transfer from another EU university, citing GDPR data sharing concerns with the receiving institution.",
+    "source_system": "uni_a",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "gdpr-rec-118"
+    ],
+    "generator_rationale": "The clause [gdpr-rec-118] pertains to monitoring financial/judicial oversight of supervisory authorities, which has no direct bearing on academic data processing requests."
+  },
+  {
+    "query_id": "q-046",
+    "query_text": "Verify whether a not-for-profit data protection organization has the authority to independently lodge a GDPR complaint with the supervisory authority on behalf of an unnamed data subject whose rights may have been infringed by the university's grade processing system.",
+    "source_system": "uni_b",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-rec-142"
+    ],
+    "generator_rationale": "The clause permits Member States to enable such organizations to independently lodge complaints without a data subject's specific mandate when they believe rights have been infringed, as long as compensation isn't claimed without mandate."
+  },
+  {
+    "query_id": "q-047",
+    "query_text": "Audit whether the university's collection of browser data on the admissions application portal page is permitted for security and functionality purposes.",
+    "source_system": "uni_c",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "goettingen-policy-4.2"
+    ],
+    "generator_rationale": "The clause explicitly states that automatic data collection about browser details and visit circumstances, including for security reasons, is based on legitimate interest under GDPR Article 6(1)(f), overriding conflicting interests in data secrecy."
+  },
+  {
+    "query_id": "q-048",
+    "query_text": "Did the European Data Protection Board adopt a binding decision concerning a dispute between supervisory authorities about which authority is competent for the main establishment?",
+    "source_system": "uni_c",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "gdpr-art-65"
+    ],
+    "generator_rationale": "Article 65 only outlines the procedures for the Board's binding dispute resolution decisions but does not provide specific details about any actual dispute resolution case."
+  },
+  {
+    "query_id": "q-049",
+    "query_text": "A university research department requests approval to process anonymized student grade data for a statistical analysis study on academic performance trends across different faculties.",
+    "source_system": "uni_e",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-rec-162"
+    ],
+    "generator_rationale": "The clause specifies that processing personal data for statistical purposes is permitted under GDPR, especially when the results are aggregate data not used for individual decisions, which aligns with the university's request for anonymized data analysis."
+  },
+  {
+    "query_id": "q-050",
+    "query_text": "Request approval to share student transcripts with an external research institution for a study on educational outcomes.",
+    "source_system": "uni_c",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "cambridge-policy-4.2"
+    ],
+    "generator_rationale": "The clause only states the policy was last reviewed and approved in March 2023, without addressing transcript sharing or data disclosures."
+  },
+  {
+    "query_id": "q-051",
+    "query_text": "A university seeks to verify whether a student's consent for sharing their transcript with a third-party employer was obtained with a clear, separate consent form not bundled with other agreements.",
+    "source_system": "uni_a",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-7"
+    ],
+    "generator_rationale": "The clause requires consent to be clearly distinguishable and not bundled, so if the university can demonstrate this, the request must be approved."
+  },
+  {
+    "query_id": "q-052",
+    "query_text": "Verify GDPR compliance for requiring consent from enrolled students to process their ID photos for campus security databases, where enrollment contracts state refusal invalidates access to online learning portals.",
+    "source_system": "uni_b",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-rec-43"
+    ],
+    "generator_rationale": "The contract conditions tie service access (online portals) to unnecessary consent for photo processing, creating an imbalance under GDPR Recital 43."
+  },
+  {
+    "query_id": "q-053",
+    "query_text": "Does the GDPR Recital 9 prohibit a German university from sharing student transcripts with a partner university in Spain for a joint degree program if Germany and Spain had previously implemented Directive 95/46/EC differently, potentially leading to varying levels of data protection?",
+    "source_system": "uni_e",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-rec-9"
+    ],
+    "generator_rationale": "Recital 9 states that differences in implementation of Directive 95/46/EC created obstacles to free flow of personal data, implying GDPR was created to eliminate these barriers and explicitly permit such transfers within the Union."
+  },
+  {
+    "query_id": "q-054",
+    "query_text": "Does the university need to designate a Data Protection Officer for processing student applications which include health information?",
+    "source_system": "uni_d",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-37"
+    ],
+    "generator_rationale": "The university, as a public authority, must designate a DPO under Article 37(1)(a) when processing applications containing special categories of data (Article 9 health information)."
+  },
+  {
+    "query_id": "q-055",
+    "query_text": "Request to transfer deceased alumni records including grades and transcripts to a national historical archive for preservation and academic research on totalitarian regimes.",
+    "source_system": "uni_b",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-rec-158"
+    ],
+    "generator_rationale": "The clause explicitly states that GDPR does not apply to deceased persons, thus processing their personal data for archiving is not covered by GDPR restrictions and such a request would be DENIED under GDPR considerations."
+  },
+  {
+    "query_id": "q-056",
+    "query_text": "As part of an ongoing internal audit, please confirm whether Trinity College has the legal authority to deny a request to access personal data in student records if an individual files a complaint with the Data Protection Commission regarding our processing practices.",
+    "source_system": "uni_d",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "tcd-policy-7.11"
+    ],
+    "generator_rationale": "The clause describes the Data Protection Commission's powers and complaint procedures but does not address Trinity College's legal authority to deny data access requests under any circumstances."
+  },
+  {
+    "query_id": "q-057",
+    "query_text": "Can I transfer personal data to a third country using contractual clauses, when that country is on the Commission's list of adequate countries?",
+    "source_system": "uni_e",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-46",
+      "gdpr-art-45-2"
+    ],
+    "generator_rationale": "Article 45(8) requires the Commission to maintain a list of countries providing adequate protection, and Article 46(7) clarifies that transfers to those countries under Article 45(3) decisions are unimpeded, meaning no additional safeguards like contractual clauses are required."
+  },
+  {
+    "query_id": "q-058",
+    "query_text": "A U.S. company not subject to GDPR under Art. 3(2) established outside the EU seeks to transfer EU customer personal data to a Singapore affiliate and claims it adheres to a GDPR code of conduct under Art. 40(3) as the appropriate safeguard. The code of conduct specifies pseudonymisation as per Art. 40(2)(d) but lacks a registered monitoring body as required by Art. 40(4). No certification exists under Art. 42. Request audit decision based on clause combination.",
+    "source_system": "uni_b",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-40-1",
+      "gdpr-art-3",
+      "gdpr-art-42"
+    ],
+    "generator_rationale": "Article 40(3) requires adherence to an approved code of conduct with appropriate safeguards for third-country transfers, but Article 40(4) mandates codes to have mechanisms for mandatory monitoring by an independent body, which is absent here, making the safeguard insufficient for GDPR transfer requirements."
+  },
+  {
+    "query_id": "q-059",
+    "query_text": "Should the Board issue an opinion on a draft decision by a competent supervisory authority to approve standard data protection clauses, as per Article 64(1)(d), when that draft decision also includes the processor's obligation defined in Article 28(3)(h) to contribute to audits?",
+    "source_system": "uni_c",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-64-1",
+      "gdpr-art-28-1",
+      "gdpr-rec-172"
+    ],
+    "generator_rationale": "The Board must issue an opinion under Article 64(1)(d) for a draft decision concerning standard data protection clauses, and since Article 28(3)(h) requires processors to contribute to audits, which is part of ensuring those clauses meet GDPR requirements, the clauses must be combined to confirm that the approval includes audit requirements enforceable through processor contracts."
+  },
+  {
+    "query_id": "q-060",
+    "query_text": "A processor located outside the Union seeks to rely on binding corporate rules approved under [gdpr-art-47-1] to transfer personal data to its group members globally. The processor claims that [gdpr-art-47-1](f) exempts it from liability for any breach by a non-EU member, as long as the processor itself did not cause the breach. Can we proceed with the transfer?",
+    "source_system": "uni_a",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-82",
+      "gdpr-art-79",
+      "gdpr-art-47-1"
+    ],
+    "generator_rationale": "[gdpr-art-47-1](f) requires the processor to accept liability for breaches by non-EU members unless it proves the member wasn't responsible, but [gdpr-art-82](3) still subjects the processor to liability for its own non-compliance, and the exemption under [gdpr-art-47-1](f) doesn't override joint liability for processing damage under [gdpr-art-82](5) if the processor was involved."
+  },
+  {
+    "query_id": "q-061",
+    "query_text": "Request for evaluation: Can the supervisory authority carry out a review on a certification issued under Article 42(7) in order to assess compliance prior to renewal, even if no specific complaint has been received?",
+    "source_system": "uni_a",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-42",
+      "gdpr-art-58-1"
+    ],
+    "generator_rationale": "Article 58(1)(c) grants supervisory authorities the power to carry out a review on certifications issued pursuant to Article 42(7), which itself establishes that certifications are issued for a maximum period of three years and may be renewed if requirements continue to be met, implying that such reviews can be proactive."
+  },
+  {
+    "query_id": "q-062",
+    "query_text": "An online gaming platform processes personal data, including criminal conviction history, of a 14-year-old user. The platform collects this data with parental consent obtained via email verification, but does not implement encryption or pseudonymization. Is this compliant?",
+    "source_system": "uni_a",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-8",
+      "gdpr-art-6-2",
+      "gdpr-art-10"
+    ],
+    "generator_rationale": "The GDPR requires parental consent for under-16 data processing (Article 8), but criminal data requires additional safeguards per Article 10, which are absent here due to lack of encryption/pseudonymization."
+  },
+  {
+    "query_id": "q-063",
+    "query_text": "A company obtained health data about individuals from a publicly accessible medical database without directly collecting it from the data subjects. They plan to transfer this data for statistical processing to a third country without an adequacy decision, using safeguards under Article 46 GDPR. Can this processing and transfer proceed?",
+    "source_system": "uni_b",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-14-1",
+      "gdpr-art-9-1"
+    ],
+    "generator_rationale": "Article 14(1)(e,f) requires informing data subjects about transfers to third countries and safeguards, while Article 9(2)(j) permits processing special categories like health data for statistical purposes, provided the transfer uses legal safeguards from Article 46."
+  },
+  {
+    "query_id": "q-064",
+    "query_text": "Our company collects personal data directly from EU-based customers. We intend to transfer this data to a third country lacking an adequacy decision for processing that is necessary for the legitimate interests pursued by our controller. The data subject has not been informed of the transfer's necessity for compelling legitimate interests nor have they explicitly consented. The transfer is repetitive and involves more than a limited number of data subjects. Is this transfer compliant?",
+    "source_system": "uni_c",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-13",
+      "gdpr-art-49-1"
+    ],
+    "generator_rationale": "Article 49.1 requires explicit consent or compelling legitimate interests safeguards including informing the data subject about the transfer, but Article 13.1(f) mandates that the controller must inform the data subject of safeguards for transfers at data collection time, which has not occurred."
+  },
+  {
+    "query_id": "q-065",
+    "query_text": "An organization called 'Privacy Advocates Network', which is a not-for-profit association active in data protection rights, lodged a complaint with the supervisory authority on behalf of a data subject without obtaining a prior mandate from that individual. The complaint seeks compensation for non-material damages suffered due to a GDPR infringement, citing Article 82. The organization is based in a Member State that has NOT implemented provisions allowing such mandate-free action under their national law. Should the request to process this compensation claim via the organization be approved?",
+    "source_system": "uni_b",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-80",
+      "gdpr-art-82"
+    ],
+    "generator_rationale": "Article 80(2) permits organizations to act without a data subject's mandate only if Member State law provides for such action, but since the relevant Member State has not implemented this provision, the organization lacks standing to independently seek compensation under Article 82."
+  },
+  {
+    "query_id": "q-066",
+    "query_text": "The European Data Protection Board will issue an opinion on the draft decision of a supervisory authority regarding a new adequacy finding for a third country. The Board plans to consult interested parties and make the results public. The Commission has requested this opinion under an urgent time limit, and the Board intends to forward the opinion to both the Commission and the committee under Article 93. Should this consultation and publication proceed?",
     "source_system": "uni_e",
     "hop_type": "multi",
     "cross_ref_sampled": true,
     "gold_decision": "DENY",
     "gold_chunk_ids": [
-      "goettingen-policy-1.2",
-      "gdpr-art-4-1",
-      "gdpr-art-4-2"
+      "gdpr-art-70-2",
+      "gdpr-art-93",
+      "gdpr-art-76"
     ],
-    "generator_rationale": "Binding corporate rules under GDPR Article 4(20) are for transfers within a group of undertakings or enterprises in a joint economic activity, but the third-party institute is not part of such a group with the university, so without another safeguard like an adequacy decision or standard contractual clauses, the transfer is impermissible."
+    "generator_rationale": "Clause (t) allows opinions on draft decisions via the consistency mechanism (which includes adequacy findings under Art 64/65), but Clause 4 and Article 76 require confidentiality and public disclosure only if it does not prejudice confidentiality rules, which Art 76(1) permits the Board to impose when necessary as per its procedure rules."
   },
   {
-    "query_id": "q-004",
-    "query_text": "Audit whether a healthcare app processing genetic data collected directly from users in the EU, without adequacy decision for transfers to a third country, can lawfully process and transfer the data without providing explicit consent mechanisms or information on safeguards.",
+    "query_id": "q-067",
+    "query_text": "A company seeks approval for its proposed Binding Corporate Rules (BCRs) which outline that data subjects can lodge complaints directly with the company's headquarters in a non-EU country. The BCRs state that this non-EU headquarters will handle all complaints internally, and judicial remedies may be sought only in the courts of the non-EU country where the headquarters is located.",
+    "source_system": "uni_e",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-rec-141",
+      "gdpr-art-47-1"
+    ],
+    "generator_rationale": "The company's BCRs unlawfully restrict the data subject's right under [gdpr-rec-141] to lodge a complaint with an EU supervisory authority or seek an effective judicial remedy in the EU as mandated by [gdpr-art-47-1](2)(e) for BCRs, which must explicitly confer such enforceable EU-based rights."
+  },
+  {
+    "query_id": "q-068",
+    "query_text": "A certification body accredited solely by a national accreditation body under Article 43(1)(b) seeks renewal of its accreditation. It claims it has always met the criteria referred to in Article 42(5) and submits documented procedures for handling complaints as required under Article 43(2)(d). However, the competent supervisory authority has determined that the body failed to provide reasons for past certification withdrawals to the authority, as mandated by Article 43(5). Should the accreditation be renewed?",
+    "source_system": "uni_d",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-43-1",
+      "gdpr-art-58-1",
+      "gdpr-art-40-2"
+    ],
+    "generator_rationale": "Article 43(4) permits renewal only if the certification body meets all requirements of Article 43, including Article 43(5)'s obligation to provide reasons for certification withdrawals to the supervisory authority, which was violated."
+  },
+  {
+    "query_id": "q-069",
+    "query_text": "The controller processes health data on a large scale as its core activity. It has designated its Head of Privacy, who has expert knowledge of data protection law but is also the Chief Compliance Officer. Should the DPO's task to conduct staff training be approved?",
     "source_system": "uni_a",
     "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-37",
+      "gdpr-art-9-2",
+      "gdpr-art-39"
+    ],
+    "generator_rationale": "While Article 37 permits the DPO to be a staff member and Article 39 assigns training tasks (lit. b), Article 39(2) requires the DPO's independence and prioritization of DPO duties over conflicts of interest, which is compromised when the DPO holds a conflicting role such as Chief Compliance Officer."
+  },
+  {
+    "query_id": "q-070",
+    "query_text": "Can a supervisory authority approve the use of a new binding corporate rules (BCR) proposal that relies entirely on certification by a body accredited under the national accreditation body, but without the supervisory authority's own authorization?",
+    "source_system": "uni_d",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-58-1",
+      "gdpr-art-28-2",
+      "gdpr-art-43-1"
+    ],
+    "generator_rationale": "Article 58(3)(j) grants supervisory authorities the authorisation power for BCRs under Article 47, while Article 43(1) requires certification bodies to be accredited by either the supervisory authority or the national accreditation body, but the latter must meet criteria established by the supervisory authority, meaning unvetted certification alone cannot substitute for direct authorisation."
+  },
+  {
+    "query_id": "q-071",
+    "query_text": "A data controller, who has obtained personal data from a third-party source about users' browsing behavior on its public institution website, plans to transfer this data to a cloud service provider in a third country without an adequacy decision. The controller intends to rely on Article 6(1)(f) GDPR (legitimate interests) for processing and Article 49(1) second subparagraph for the transfer. The controller has not yet informed the data subjects about this transfer or the safeguards in place. Can we proceed with the transfer?",
+    "source_system": "uni_a",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-14-1",
+      "gdpr-art-6-2",
+      "goettingen-policy-4.2"
+    ],
+    "generator_rationale": "Transferring personal data to a third country requires informing data subjects about safeguards under Article 14(1)(f) GDPR, and failure to provide this information violates transparency obligations, making the transfer unlawful even if other Article 49 conditions might technically apply."
+  },
+  {
+    "query_id": "q-072",
+    "query_text": "Should the Board issue an opinion if a supervisory authority proposes a new mandatory data protection impact assessment list that covers processing operations involving large-scale systematic monitoring of public areas?",
+    "source_system": "uni_c",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-64-1",
+      "gdpr-art-35-1"
+    ],
+    "generator_rationale": "Article 35(4) requires supervisory authorities to establish lists of processing operations requiring impact assessments (triggering Article 64(1)(a)), and such lists must undergo the Board's consistency mechanism per Article 35(6) when having cross-border effects, creating combined compliance necessity."
+  },
+  {
+    "query_id": "q-073",
+    "query_text": "Evaluate the proposed transfer of personal data to a third country that relies on a data protection certification mechanism adopted via implementing act under GDPR Article 42(1).",
+    "source_system": "uni_b",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "gdpr-art-43-2",
+      "gdpr-art-93"
+    ],
+    "generator_rationale": "While certification mechanisms under Article 42(1) and Article 43(2)&(9) provide a potential basis for transfers, the specific procedural requirements for adoption outlined in Article 93(2) have not been addressed, leaving uncertainty about the mechanism's legal validity."
+  },
+  {
+    "query_id": "q-074",
+    "query_text": "A public university in a Member State with no administrative fines in its legal system failed to comply with an order from the supervisory authority within the specified deadline. Can a supervisory authority impose an administrative fine directly on this university?",
+    "source_system": "uni_d",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-84",
+      "gdpr-art-83-2"
+    ],
+    "generator_rationale": "Combining Article 83(9) which requires fines to be initiated by the supervisory authority and imposed by courts in such jurisdictions, and Article 83(7)'s allowance for Member State rules limiting fines on public bodies, the fine cannot be imposed directly by the authority."
+  },
+  {
+    "query_id": "q-075",
+    "query_text": "A controller based in the EU plans to transfer personal data to a third country. They have implemented an approved code of conduct under GDPR Article 40 but no binding corporate rules or Commission-adopted standard clauses. The code of conduct mentions commitments by the third-country processor, but the supervisory authority has not authorized these safeguards. The transfer relies solely on this code of conduct. Should the transfer be approved?",
+    "source_system": "uni_d",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-46",
+      "gdpr-art-40-2"
+    ],
+    "generator_rationale": "While Article 46(2)(e) allows transfers under an approved code of conduct with binding commitments, such code must be 'approved' as per Article 40 requirements, but Article 46(2) explicitly excludes safeguards needing supervisory authority authorization, whereas codes and certifications implicitly rely on the Article 40/42 processes for approval which may or may not involve Commission general validity under Article 40(9); however, the provided scenario references none of these authorizations and omits the Article 46(1) condition about data subject rights being enforceable, making the safeguard insufficient."
+  },
+  {
+    "query_id": "q-076",
+    "query_text": "A European research institute processes genetic data for a public health study under a lawful exception in Article 9(2)(i). A participant withdraws consent and requests erasure of their data under Article 17(1)(b). The institute claims erasure would 'seriously impair' the study under Article 17(3)(d).",
+    "source_system": "uni_d",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-17",
+      "gdpr-art-9-1"
+    ],
+    "generator_rationale": "The research institute must erase the data unless exempted under Article 17(3)(d), but the genetic data processing requires 'suitable and specific safeguards' under Article 9(2)(i)'s exception—which are not met, leaving no valid basis to override erasure."
+  },
+  {
+    "query_id": "q-077",
+    "query_text": "Audit request: Has the controller provided legally sufficient notice to data subjects when their personal data was obtained from a third party without their knowledge, and does that notice include transfers to a third country for research purposes?",
+    "source_system": "uni_e",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "gdpr-art-14-1",
+      "gdpr-art-49-2"
+    ],
+    "generator_rationale": "This request combines Article 14.1(f) which requires disclosure of third country transfers with Article 14.5(b) which provides exceptions for disproportionate effort in research contexts, but without knowing if safeguards under Article 89(1) are applied, a clear APPROVE/DENY is impossible."
+  },
+  {
+    "query_id": "q-078",
+    "query_text": "A data subject requests direct transmission of their health data to another controller under the right to data portability. The data was processed based on consent for research purposes but involved automated processing by multiple entities including professionals bound by secrecy obligations.",
+    "source_system": "uni_b",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-20",
+      "gdpr-art-9-2"
+    ],
+    "generator_rationale": "GDPR Article 20(1) requires processing to be based on consent or contract and automated, which is met here, but Article 20(4) prohibits portability if it adversely affects others' rights, which includes potentially violating Article 9(2)(h)'s protections for health data processed under professional secrecy obligations that require safeguard adherence."
+  },
+  {
+    "query_id": "q-079",
+    "query_text": "The company requests approval for its newly drafted binding corporate rules from a competent supervisory authority. The supervisory authority has circulated its draft decision to approve the rules to the European Data Protection Board but, due to the complexity of the subject matter, the Board extended its deliberation period by six weeks beyond the initial eight-week period. The company now asks whether the supervisory authority can go ahead and approve the binding corporate rules at this stage.",
+    "source_system": "uni_d",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-64-1",
+      "gdpr-art-47-1"
+    ],
+    "generator_rationale": "Article 64(6) prohibits the competent supervisory authority from adopting its draft decision on binding corporate rules (which falls under Article 64(1)(f)) during the extended period defined in Article 64(3)."
+  },
+  {
+    "query_id": "q-080",
+    "query_text": "Can we approve a draft code of conduct submitted by an association of controllers that includes security measures for data transfers to a third country, without an opinion from the Board?",
+    "source_system": "uni_a",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-40-1",
+      "gdpr-art-32",
+      "gdpr-art-64-1"
+    ],
+    "generator_rationale": "Article 40(7) requires supervisory authorities to seek the Board's opinion for cross-border codes, and Article 64(1)(b) confirms that opinions are mandatory when such drafts concern multiple Member States."
+  },
+  {
+    "query_id": "q-081",
+    "query_text": "The Lead Supervisory Authority (LSA) has drafted a decision regarding a multinational corporation's non-compliance and has submitted it to the concerned supervisory authorities in other Member States. One of these authorities has raised a 'relevant and reasoned objection' to the draft within the 4-week period. The LSA, after reviewing this objection, has determined that it will not follow the objection because it believes the objection is not relevant or reasoned. The LSA now seeks to proceed with adopting its original decision without further revision. Should this step be taken?",
+    "source_system": "uni_a",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-60-1",
+      "gdpr-art-63"
+    ],
+    "generator_rationale": "According to GDPR Article 60(4) and Article 63, when a concerned supervisory authority raises a relevant and reasoned objection and the LSA does not follow it (or deems it irrelevant/unreasoned), the LSA must submit the matter to the consistency mechanism instead of proceeding unilaterally."
+  },
+  {
+    "query_id": "q-082",
+    "query_text": "A controller in the EU plans to transfer personal data to a third country that lacks an adequacy decision. They rely on standard contractual clauses adopted by a supervisory authority under GDPR Article 46(2)(d), but these clauses have not yet been approved by the Commission. Additionally, the transfer involves a public interest reason under GDPR Article 49(1)(d), but the specific public interest is not explicitly recognized in Union law or Member State law.",
+    "source_system": "uni_c",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-46",
+      "gdpr-art-45-2",
+      "gdpr-art-49-1"
+    ],
+    "generator_rationale": "The transfer cannot rely solely on Article 46 alone because the supervisory authority's clauses lack Commission approval required for validity under Article 46(2)(d), nor on Article 49 alone because the claimed public interest lacks legal recognition mandated by Article 49(4), making the combination of unapproved safeguards and unrecognized derogation invalid."
+  },
+  {
+    "query_id": "q-083",
+    "query_text": "A company in the EU plans to transfer personal data to a country for which an adequacy decision exists, but after the latest periodic review found developments affecting data protection levels. The transfer is necessary for compelling legitimate interests, lacks explicit consent, and is non-repetitive. The company has implemented additional safeguards and informed the supervisory authority.",
+    "source_system": "uni_d",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-97",
+      "gdpr-art-45-1",
+      "gdpr-art-49-1"
+    ],
+    "generator_rationale": "This scenario requires combining Article 45's periodic review mechanism for adequacy decisions and Article 49's derogation for compelling legitimate interests with safeguards because an adequacy decision exists but is under reevaluation due to new developments, forcing reliance on Article 49 despite the adequacy framework."
+  },
+  {
+    "query_id": "q-084",
+    "query_text": "An association representing health clinics seeks to designate a shared data protection officer for its members processing health data on a large scale. The proposed DPO is a self-employed consultant who previously worked as a hospital data processor under professional secrecy obligations. Should we approve this arrangement?",
+    "source_system": "uni_c",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-37",
+      "gdpr-art-9-2"
+    ],
+    "generator_rationale": "Article 37(4) permits associations to designate a shared DPO for health clinics; Article 9(2)(h) + (3) allows processing by professionals under secrecy obligations where clinics are considered covered entities, validating the DPO's qualification under Article 37(5)."
+  },
+  {
+    "query_id": "q-085",
+    "query_text": "The controller uses publicly accessible social media data to build profiles on data subjects for automated loan eligibility decisions without human intervention. The data was collected 3 weeks ago, and the controller plans to disclose these profiles to a financial institution in a country without an adequacy decision but with standard contractual clauses in place. The controller has not informed data subjects yet. Should we approve the processing and transfer?",
+    "source_system": "uni_e",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-14-1",
+      "gdpr-art-22"
+    ],
+    "generator_rationale": "Article 22 requires safeguards like human intervention for automated decisions (loan eligibility here), but Article 14 mandates informing data subjects about this profiling and the third-country transfer with safeguards before disclosure, which hasn't been done despite nearing the 1-month deadline."
+  },
+  {
+    "query_id": "q-086",
+    "query_text": "A controller, upon completing a data protection impact assessment, has identified high risk in processing personal data for a new health monitoring technology without sufficient mitigating measures. The controller requests the supervisory authority's prior consultation before proceeding. This is their third identical request within a month.",
+    "source_system": "uni_a",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-57-1",
+      "gdpr-art-36"
+    ],
+    "generator_rationale": "Article 36(1) mandates consultation when a DPIA indicates high risk, but under Article 57(1)(f) interpretation via Article 57(4), the authority may charge or refuse manifestly excessive/repetitive requests."
+  },
+  {
+    "query_id": "q-087",
+    "query_text": "A medical researcher at Georg-August-Universität Göttingen plans to process patient data including facial images collected across multiple EU Member States for a study on early detection of neurological disorders. The processing involves automated facial recognition to analyze behavioral characteristics. The research team collaborates with a university hospital in France. Since the central administration is in Göttingen but processing decisions for the study are made by the French team under Göttingen's authority, will this activity comply with GDPR?",
+    "source_system": "uni_d",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "goettingen-policy-1.2",
+      "gdpr-art-4-2"
+    ],
+    "generator_rationale": "This query requires combining the university's identity as controller in [goettingen-policy-1.2], the biometric and health data definitions in [gdpr-art-4-2](14)&(15), and the main establishment rules in [gdpr-art-4-2](16)(a) to determine applicability of safeguards for cross-border special data processing, but insufficient information exists about the French decision-making authority and safeguards implemented."
+  },
+  {
+    "query_id": "q-088",
+    "query_text": "Audit a data controller's procedure for informing data subjects whose personal data was obtained from third-party sources. Specifically, assess if the controller complied with Article 14 disclosure requirements when using such data for automated loan approval decisions that significantly affect applicants.",
+    "source_system": "uni_e",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-14-1",
+      "gdpr-art-22"
+    ],
+    "generator_rationale": "The controller must provide Article 14(1)(f) and 14(2)(g) disclosures for third-country transfers and automated decision-making, but exemptions require safeguards under Article 22 for profiling that must be confirmed via disclosure."
+  },
+  {
+    "query_id": "q-089",
+    "query_text": "As part of a prior consultation under Article 36 of the GDPR, the controller states they have identified high risk in their DPIA but claim to have mitigated it through unspecified safeguards. They have not provided the details of these safeguards as part of their consultation submission to the supervisory authority.",
+    "source_system": "uni_a",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-36",
+      "gdpr-art-35-2"
+    ],
+    "generator_rationale": "Article 36(1) requires consultation when processing poses high risk without mitigation, and Article 36(3)(c) mandates disclosing safeguards to the authority, so failure to provide safeguards during consultation warrants denial."
+  },
+  {
+    "query_id": "q-090",
+    "query_text": "A controller in the European Union seeks to transfer personal data to a processor in a third country not covered by an adequacy decision. The processor holds an active certification under Article 42 issued by a certification body, and provides binding commitments to apply appropriate safeguards including data subject rights as part of the certification mechanism.",
+    "source_system": "uni_d",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-42",
+      "gdpr-art-46"
+    ],
+    "generator_rationale": "GDPR Article 46(2)(f) permits transfers using an Article 42 certification mechanism with binding commitments, and Article 42(2) explicitly allows such mechanisms to demonstrate safeguards for transfers to third-country controllers not subject to GDPR."
+  },
+  {
+    "query_id": "q-091",
+    "query_text": "We are joint controllers working with a data processor in Canada. Can we transfer personal data to Canada based on an adequacy decision under Article 26?",
+    "source_system": "uni_b",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "gdpr-rec-106",
+      "gdpr-art-26"
+    ],
+    "generator_rationale": "Article 26 addresses joint controller responsibilities but does not directly cover adequacy decisions for transfers to third countries, which requires reference to Article 45 and the Commission's role in monitoring such decisions as outlined in gdpr-rec-106."
+  },
+  {
+    "query_id": "q-092",
+    "query_text": "A data subject submitted an erasure request under Article 17(1)(b) citing withdrawal of consent. The controller opposes erasure, stating processing remains necessary under Article 17(3)(e) for legal claim defence. Our documentation shows the data subject previously objected to the same processing under Article 21(1) due to their particular situation.",
+    "source_system": "uni_d",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-17",
+      "gdpr-art-21"
+    ],
+    "generator_rationale": "The objection under Article 21(1) triggers an automatic erasure requirement under Article 17(1)(c) unless overriding grounds exist, but Article 17(3)(e)'s 'legal claims' exception must also consider Article 21(1)'s limitation that such claims must demonstrably override the data subject's interests."
+  },
+  {
+    "query_id": "q-093",
+    "query_text": "A data controller in the EU plans to transfer personal data to a processor in a non-adequate country using a newly developed contractual clauses framework, which has been authorized by their local supervisory authority but has not yet gone through the GDPR Article 63 consistency mechanism. Should this transfer be approved?",
+    "source_system": "uni_c",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-46",
+      "gdpr-art-63",
+      "gdpr-art-45-2"
+    ],
+    "generator_rationale": "The transfer requires authorization under Art 46(3) for contractual safeguards, but Art 46(4) mandates consistency mechanism application via Art 63 for such cases, which has not been completed."
+  },
+  {
+    "query_id": "q-094",
+    "query_text": "A controller in the EU plans to transfer personal data to a processor in a third country not covered by an adequacy decision under Article 45(3). The transfer is based on standard contractual clauses approved by a supervisory authority but not yet adopted by the Commission per Article 46(2)(d). The controller has not sought authorization from the supervisory authority for these clauses.",
+    "source_system": "uni_d",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-46",
+      "gdpr-art-45-2"
+    ],
+    "generator_rationale": "The transfer requires appropriate safeguards under Article 46(1), and while supervisory authority-approved clauses are permitted under Article 46(2)(d) if adopted by the Commission, they fall under Article 46(3)(a) requiring supervisory authority authorization if not adopted by the Commission."
+  },
+  {
+    "query_id": "q-095",
+    "query_text": "Should Supervisory Authority X (SA-X) in Member State A approve a draft decision submitted by Supervisory Authority Y (SA-Y) in Member State B for cross-border processing by Company Z (controller) with its main establishment in Member State B, where the subject matter of the complaint relates exclusively to data subjects in Member State A?",
+    "source_system": "uni_d",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-55",
+      "gdpr-art-56"
+    ],
+    "generator_rationale": "Under Article 56(2), SA-X in Member State A is competent to handle the complaint affecting only its data subjects, and under Article 56(4), SA-X's draft decision must be taken into account by the lead supervisory authority SA-Y."
+  },
+  {
+    "query_id": "q-096",
+    "query_text": "An organization collected personal data from a 14-year-old for an information society service (online gaming platform) with parental consent. They used the data for targeted advertising without re-verifying parental consent when the user turned 15. The user now requests erasure of this advertising-related data.",
+    "source_system": "uni_d",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-17",
+      "gdpr-art-8",
+      "gdpr-art-6-1"
+    ],
+    "generator_rationale": "The processing violates Article 8 due to lack of renewed parental consent verification after the special category of child data changed age, triggering Article 17(1)(f) erasure right compounded by Article 17(1)(d) for unlawful processing under Article 6(1)(a) conditions."
+  },
+  {
+    "query_id": "q-097",
+    "query_text": "The controller must process personal data for scientific research purposes. The data includes information about children collected via an information society service, with parental consent obtained through available technology. A data subject requests erasure under Article 17(1)(f).",
+    "source_system": "uni_e",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-17",
+      "gdpr-art-8"
+    ],
+    "generator_rationale": "The erasure request under Article 17(1)(f) must be denied because Article 17(3)(d) exempts processing necessary for scientific research purposes when erasure would impair the objectives."
+  },
+  {
+    "query_id": "q-098",
+    "query_text": "A US-based e-commerce company, which has no establishment in the EU, received a complaint from an EU data subject regarding unlawful processing of personal data. The complaint was filed with the supervisory authority in France. After four months, the data subject has not received any update on the progress or outcome. The data subject now wants to seek a judicial remedy directly against the French supervisory authority for this inaction.",
+    "source_system": "uni_c",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-77",
+      "gdpr-art-78"
+    ],
+    "generator_rationale": "The data subject has the right to an effective judicial remedy against the supervisory authority under Article 78(2) because more than three months have passed without being informed on the progress or outcome of the complaint originally lodged under Article 77."
+  },
+  {
+    "query_id": "q-099",
+    "query_text": "The controller requests the supervisory authority's approval to use an enhanced data processing system that involves processing sensitive personal data for public health research, claiming reliance on Article 17(3)(c) and (d). The controller has also drafted binding corporate rules that require the supervisory authority's authorization under GDPR. However, the controller has a history of failing to comply with data subjects' requests for erasure under Article 17.",
+    "source_system": "uni_a",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-58-1",
+      "gdpr-art-17"
+    ],
+    "generator_rationale": "While the processing for public health research might be permissible under Article 17(3)(c) and archiving under (d), the supervisory authority must combine this with its corrective power under Article 58(2)(c) to order compliance with data subject erasure requests, and its authorisation power under Article 58(3)(j) to approve binding corporate rules, here the controller's non-compliance history justifies denial via corrective measures."
+  },
+  {
+    "query_id": "q-100",
+    "query_text": "Should the supervisory authority APPROVE a new draft code of conduct that includes provisions for international data transfers, proposed by an association representing small businesses, when the draft relies on binding corporate rules under Article 47 for transfers to third countries?",
+    "source_system": "uni_c",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "gdpr-art-58-1",
+      "gdpr-art-40-1"
+    ],
+    "generator_rationale": "Article 40(5) requires the supervisory authority to approve a draft code only if it provides sufficient appropriate safeguards, but whether binding corporate rules (under Article 47) constitute such safeguards depends on Article 58(3)(j)'s requirement that the authority must approve those rules separately, which is not addressed in this query."
+  },
+  {
+    "query_id": "q-101",
+    "query_text": "A supervisory authority in member state X has implemented an urgent provisional measure to suspend data flows to a third country due to a severe data breach. The measure exceeds 3 months duration and codifies this extension stating it's necessary for final measures. Another supervisory authority requests an urgent opinion from the EDPB on whether this prolonged measure is valid. How should the EDPB rule?",
+    "source_system": "uni_e",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-66",
+      "gdpr-art-60-2"
+    ],
+    "generator_rationale": "The urgency procedure under Article 66(1) limits provisional measures to three months maximum validity, and while Article 66(2) allows for requesting urgent binding decisions when final measures are needed, it does not authorize extending the provisional measure beyond the statutory three-month period."
+  },
+  {
+    "query_id": "q-102",
+    "query_text": "As a supervisory authority, should we impose an administrative fine of 15 million EUR on a controller for transferring personal data to a third country without adequate safeguards, if it's found that the transfer was intentional, they had previous infringements, but they adhere to an approved code of conduct which provides appropriate safeguards?",
+    "source_system": "uni_e",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-83-1",
+      "gdpr-art-40-2",
+      "gdpr-art-58-1"
+    ],
+    "generator_rationale": "Article 83(5) requires the fine to be imposed for infringements of transfers to third countries, but Article 40(8) adherence to approved codes can provide appropriate safeguards which would avoid liability under Article 83, since a safeguard-approved transfer wouldn't be an infringement requiring a fine in the first place."
+  },
+  {
+    "query_id": "q-103",
+    "query_text": "A hospital plans to use patients' health data for a research study to identify genetic markers associated with a specific disease. The data will be encrypted at rest. However, some patients have objected to their data being used for research. The hospital claims their processing is based on substantial public interest under Article 9(2)(g) and argues that the encryption provides appropriate safeguards. Should the hospital proceed with processing the data of those who have objected?",
+    "source_system": "uni_c",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-21",
+      "gdpr-art-6-2",
+      "gdpr-art-9-1"
+    ],
+    "generator_rationale": "Article 21(6) establishes that for scientific research (Article 89(1)), an objection generally requires cessation of processing unless necessary for public interest tasks, and Article 9(1) prohibits sensitive data processing while Article 9(2)(g) allows it only when appropriate safeguards exist, but the objection under Article 21(6) overrides this when invoked based on the data subject's particular situation."
+  },
+  {
+    "query_id": "q-104",
+    "query_text": "An AI system uses facial recognition data to approve mortgage applications at a bank, relying on automated decision-making without human intervention. The processing is based on Article 9(2)(g) for substantial public interest under national law, but no specific safeguards mentioned in GDPR Article 22(3) like human intervention are implemented.",
+    "source_system": "uni_e",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-22",
+      "gdpr-art-9-1"
+    ],
+    "generator_rationale": "While Article 9(2)(g) may allow processing of biometric data under substantial public interest, Article 22(3) requires suitable safeguards including human intervention for exempted automated decisions under 22(2) - but since mortgage decisions typically aren't 'necessary for a contract' per 22(2)(a) and no safeguards exist, the automated denial violates Article 22."
+  },
+  {
+    "query_id": "q-105",
+    "query_text": "A UK company plans to transfer personal data to a US firm using contractual clauses they developed themselves. Has the UK supervisory authority authorized this specific transfer mechanism?",
+    "source_system": "uni_c",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "gdpr-art-46",
+      "gdpr-art-93"
+    ],
+    "generator_rationale": "Article 46(3) requires supervisory authority authorization for such transfers, but Article 93 and the examination procedure are not mentioned in the context of authorization, leaving the authorization status uncertain with the given information."
+  },
+  {
+    "query_id": "q-106",
+    "query_text": "The Supervisory Authority seeks to approve a draft code of conduct that includes provisions for transfers to a third country. The code relies on Article 40 safeguards, but requires a determination of whether the Board must first confirm its compliance with transfer requirements under Article 46.",
+    "source_system": "uni_b",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-57-1",
+      "gdpr-art-40-2"
+    ],
+    "generator_rationale": "Article 40(2) requires the Board to confirm the draft code complies with the Regulation or provides appropriate safeguards before submission to the Commission, enabling the Authority to approve it under Article 57(1)(m)."
+  },
+  {
+    "query_id": "q-107",
+    "query_text": "Can the European Data Protection Board (EDPB) be forced to adopt a binding decision in fewer than 2 weeks if the member states are deadlocked during dispute resolution?",
+    "source_system": "uni_c",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "gdpr-art-74",
+      "gdpr-art-65",
+      "gdpr-art-70-2"
+    ],
+    "generator_rationale": "While Article 65(3) specifies that the Board must decide within two weeks with a simple majority if delayed, and the Chair breaks ties, Article 65(5) tasks the Chair with notifying the decision but does not address enforcement mechanisms or deadlines for the Chair’s notification task."
+  },
+  {
+    "query_id": "q-108",
+    "query_text": "A data subject requests portability of their health data processed under a contract, to be directly transmitted to another healthcare provider. The data contains third-party medical information.",
+    "source_system": "uni_d",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "gdpr-art-20",
+      "gdpr-art-9-2"
+    ],
+    "generator_rationale": "Direct transmission ('gdpr-art-20' paragraph 2) is conditional on not adversely affecting others' rights (paragraph 4), but the audit cannot determine if the third-party information falls under 'obligation of professional secrecy' exceptions ('gdpr-art-9-2' paragraph 3) without specific context."
+  },
+  {
+    "query_id": "q-109",
+    "query_text": "A healthcare app collects users' biometric health data (special category data) with explicit consent for personalized diet planning. It now wants to transfer this data to a third country without adequacy to a cloud service provider for storage. The company informs users at sign-up that their data may be transferred to third countries for storage, with safeguards only described as 'technical measures'. The transfer is necessary for the service provision as the company has no EU data centers. However, it fails to provide specific transfer risks information regarding the absence of adequacy and safeguards during consent acquisition.",
+    "source_system": "uni_c",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-13",
+      "gdpr-art-9-1",
+      "gdpr-art-49-1"
+    ],
+    "generator_rationale": "Article 9 requires explicit consent for health data processing, but Article 49 demands that such consent for transfers must include specific risks disclosure which Article 13(f) mandates as mandatory information, and since the generic 'technical measures' statement fails to satisfy these cumulative requirements while storage necessity alone is insufficient under Article 49(1)(b), the transfer lacks proper legal basis."
+  },
+  {
+    "query_id": "q-110",
+    "query_text": "A company in the EU plans to transfer personal data to a third country for research purposes. The company has not established BCRs, and the Commission has not issued an adequacy decision for the recipient country. Instead, the company contracts with the university in the third country using standard data protection clauses adopted by a supervisory authority, but awaits Commission approval for these clauses. Can this transfer proceed?",
+    "source_system": "uni_b",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [
+      "gdpr-art-46",
+      "gdpr-art-45-1"
+    ],
+    "generator_rationale": "Transferring personal data to a third country requires an adequacy decision under Article 45(1) or safeguards under Article 46 - here, the clauses rely on Article 46(2)(d) for approval, which remains pending, making the assessment inconclusive without knowing the Commission's validating decision."
+  },
+  {
+    "query_id": "q-111",
+    "query_text": "Audit request: On May 24, 2018, a processor in the EU received a request from a national tax authority under Member State law to transfer personal data to a third country, without instructions from the controller. The processor executed the transfer. Should this transfer have been approved?",
+    "source_system": "uni_d",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-94",
+      "gdpr-art-29"
+    ],
+    "generator_rationale": "Article 29 permits processing without controller instructions when required by Member State law, and Article 94(2) converts references to Directive 95/46/EC (including Article 17 establishing processor obligations) into GDPR references, making this lawful under the Regulation."
+  },
+  {
+    "query_id": "q-112",
+    "query_text": "Our national cybersecurity agency has suffered a breach involving encrypted personal data of its employees. They claim that, under Article 34(3)(a), they are exempt from notifying the affected employees because the data was encrypted. However, we must also consider Article 23, which generally applies to controllers, and specifically requires safeguards under Article 23(2)(d) for lawful restrictions. Given that this agency falls under Article 23(1)(d) for public security, do we APPROVE their exemption from notification?",
+    "source_system": "uni_a",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-23",
+      "gdpr-art-34"
+    ],
+    "generator_rationale": "Although the exemption under Article 34(3)(a) applies to encrypted data, the national cybersecurity agency's internal law restricting notification obligations must contain specific safeguards under Article 23(2)(d) to prevent abuse or unlawful transfer, which are missing here."
+  },
+  {
+    "query_id": "q-113",
+    "query_text": "We request all transcripts of verbal consent given by EU data subjects for processing activities under Article 12, where identification was solely verified through biometric data, to be provided within 10 working days without any extensions permitted, even for complex cases.",
+    "source_system": "uni_a",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-92",
+      "gdpr-art-12"
+    ],
+    "generator_rationale": "The request violates Article 12(1) and 12(3) by demanding oral consent transcripts (which GDPR does not require to be recorded) while imposing an inflexible 10-day deadline that ignores lawful extension provisions for complex requests."
+  },
+  {
+    "query_id": "q-114",
+    "query_text": "We formally request audit access to student attendance records categorized by classroom locations and timestamps for legitimate educational research purposes, as consent was initially obtained via the general terms of enrollment agreement upon matriculation.",
+    "source_system": "uni_e",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "goettingen-policy-1.2",
+      "gdpr-art-4-1"
+    ],
+    "generator_rationale": "The request violates GDPR because it relies on broad enrollment consent not meeting the requirement for specific and informed consent for secondary processing like research, and classroom location data may reveal behavioral patterns that constitute profiling under Article 4(4)."
+  },
+  {
+    "query_id": "q-115",
+    "query_text": "Pursuant to GDPR Article 60(2) and mutual agreements between concerned supervisory authorities, we request access to all data processing activities records regarding EU citizens for urgent review due to suspected cross-border infringement risks. We assert legitimate interest under Article 65(1)(a) as a relevant objection has been lodged, demanding immediate disclosure without awaiting the Board's 30-day dispute resolution period to prevent irreversible harm.",
+    "source_system": "uni_b",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-65",
+      "gdpr-art-60-2"
+    ],
+    "generator_rationale": "The request improperly attempts to bypass Article 65(4) which explicitly prohibits adopting decisions during dispute resolution periods, while misrepresenting Article 65(1)(a) as direct authorization rather than a binding outcome prerequisite."
+  },
+  {
+    "query_id": "q-116",
+    "query_text": "We request the transfer of all user consent records from our Irish subsidiary to the German supervisory authority for immediate verification, as we suspect our main establishment in Germany failed to obtain proper consent for cross-border processing activities affecting data subjects primarily in Germany, under urgent need to protect their interests.",
+    "source_system": "uni_c",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-56",
+      "gdpr-art-60-2"
+    ],
+    "generator_rationale": "The request bypasses the Irish lead supervisory authority despite Ireland being the main establishment's location, violating GDPR Article 56(1) and (6) by making Germany the interlocutor instead."
+  },
+  {
+    "query_id": "q-117",
+    "query_text": "Request for immediate disclosure of all personal data processing activities, including detailed information on third-party recipients who have been notified of data erasure, to verify compliance with ongoing consent agreements for legitimate business purposes.",
+    "source_system": "uni_b",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-58-1",
+      "gdpr-art-19"
+    ],
+    "generator_rationale": "The request demands disclosure of third-party recipients beyond what Article 19 permits without a data subject request, and leverages 'consent agreements' to bypass Article 58 limitations on mandatory audits."
+  },
+  {
+    "query_id": "q-118",
+    "query_text": "Please provide all records of communications and transaction history for user ID 48675 for our direct marketing analysis, as we have obtained consent through a clickwrap agreement and have a legitimate interest in understanding customer behavior to improve our services.",
+    "source_system": "uni_c",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-21",
+      "gdpr-art-6-1"
+    ],
+    "generator_rationale": "The data subject has the right to object to processing for direct marketing per GDPR Article 21(2) and (3), and this request explicitly mentions direct marketing, so approval would violate the object right despite claims of consent and legitimate interest."
+  },
+  {
+    "query_id": "q-119",
+    "query_text": "Please release the full archived email dataset for all January 2024 users, including those who later revoked consent, so we can test our pseudonymization algorithms under real-world conditions for ongoing security improvement programs.",
+    "source_system": "uni_b",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-32",
+      "gdpr-art-40-1"
+    ],
+    "generator_rationale": "This request violates GDPR Article 32(4) by demanding access to data of revoked-consent users without instructions from the controller, and breaches Article 32(1)(b) confidentiality principles by seeking identifiable data under the guise of pseudonymization testing."
+  },
+  {
+    "query_id": "q-120",
+    "query_text": "We request data on employees' health records for analyzing workplace productivity trends. All employees have consented explicitly for their data to be used for business optimization purposes.",
+    "source_system": "uni_d",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-35-1",
+      "gdpr-art-9-1"
+    ],
+    "generator_rationale": "The request processes sensitive health data under Article 9(1), and though consent is cited, Article 9(2)(a) prohibits reliance on consent if overridden by Union/Member State law (commonly the case in employment contexts where consent is not freely given)."
+  },
+  {
+    "query_id": "q-121",
+    "query_text": "We are requesting customer location data under Article 9(2)(h) for health research purposes. This processing is covered by our agreement with the data subjects and we have obtained consent via our terms of service. Since we are utilizing pseudonymization as a safeguard and our privacy policy states compliance with GDPR, the DPIA requirement should not apply under Article 35(10) as similar assessments were conducted during our platform's general certification.",
+    "source_system": "uni_c",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-35-1",
+      "gdpr-art-9-2"
+    ],
+    "generator_rationale": "The request improperly attempts to bypass Article 35(3)(b)'s mandatory DPIA requirement by falsely claiming an exemption for health data processing at scale while omitting the involvement of a professional with legal secrecy obligations as required by Article 9(3)."
+  },
+  {
+    "query_id": "q-122",
+    "query_text": "We request certification under Article 42(1) for our data transfer mechanism to a third country, which we developed using technical standards established by the Commission under Article 93(2). The transfer relies on documented consent obtained through our privacy policy that users agreed to.",
+    "source_system": "uni_c",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-43-2",
+      "gdpr-art-93"
+    ],
+    "generator_rationale": "The request improperly invokes Article 93(2) committee procedure as the basis for technical standards when it should reference Article 43(9) for implementing acts on certification mechanisms."
+  },
+  {
+    "query_id": "q-123",
+    "query_text": "We require an audit of the automated decision-making system used for processing loan applications. The system operates solely on automated profiling based on applicants' repayment history, income level, and health data to determine loan eligibility. Applicants gave explicit consent for all processing purposes during account creation, and this is necessary under the credit agreement terms to assess financial risk.",
+    "source_system": "uni_d",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-22",
+      "gdpr-art-9-2"
+    ],
+    "generator_rationale": "The request violates GDPR Article 22(4) by basing automated decisions on health data (special category) without satisfying Article 9(2)(a) or (g) requirements or implementing specific safeguards."
+  },
+  {
+    "query_id": "q-124",
+    "query_text": "Audit request from DPA for binding corporate rules (BCR) compliance: Provide all internal training materials and consent forms processed via BCR mechanisms, including cross-border transfers, under legitimate interests for HR purposes.",
+    "source_system": "uni_b",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-70-1",
+      "gdpr-art-47-2"
+    ],
+    "generator_rationale": "The request illegally mixes BCR requirements (under Article 47) with legitimate interest as a legal basis, which bypasses BCR’s explicit need for cooperation mechanisms and ignores the GDPR prohibition on using legitimate interests for HR data transfers under Article 88."
+  },
+  {
+    "query_id": "q-125",
+    "query_text": "We request an audit to determine compliance with GDPR in our transfer of user behavior analytics data to third-party marketing firms in the USA. Our users have globally acknowledged our privacy policy updates, which include sections on marketing data sharing for legitimate business purposes.",
+    "source_system": "uni_c",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-70-1",
+      "gdpr-art-49-2"
+    ],
+    "generator_rationale": "The request relies on blanket consent via privacy policy acknowledgments for transfers to a third country (USA) under Article 49, without documenting specific safeguards or demonstrating adequacy decisions per GDPR Article 49(2)-mandated assessments."
+  },
+  {
+    "query_id": "q-126",
+    "query_text": "Please provide all personal data processed under certification GDPR-ART-42 for 'legitimate oversight purposes', as we have lawful basis via the data subject's implied consent through continued service usage and our certification agreement allows such disclosures.",
+    "source_system": "uni_b",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-42",
+      "gdpr-art-58-2"
+    ],
+    "generator_rationale": "This request improperly invokes certification as a blanket lawful basis for data disclosure while ignoring that Article 42 certification does not override controller responsibilities or legitimize processing without valid consent under GDPR."
+  },
+  {
+    "query_id": "q-127",
+    "query_text": "Request access to the organization's customer database for legitimate security purposes and training needs, specifically requiring contact details including email addresses for all clients who have consented to receive communications on personal data protection matters, as part of a systematic review by the designated data protection officer.",
+    "source_system": "uni_d",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-37",
+      "gdpr-art-39"
+    ],
+    "generator_rationale": "The request for systematic access to all contact details without specifying legitimate audit scope subtly violates Article 39(2) by disregarding the need to assess processing risks based on nature, scope, and context."
+  },
+  {
+    "query_id": "q-128",
+    "query_text": "We request approval for transferring user data to our non-EU affiliate via our binding corporate privacy policy which has been internally approved and includes commitments to standard data protection practices.",
+    "source_system": "uni_a",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-46",
+      "gdpr-art-40-2"
+    ],
+    "generator_rationale": "The request omits Article 46(2)(b) requirement that Binding Corporate Rules must follow the specific Article 47 adoption process and supervisory authority approval."
+  },
+  {
+    "query_id": "q-129",
+    "query_text": "Under Article 58(1)(e) and (f), and pursuant to our legitimate purposes for auditing compliance with GDPR, we request immediate access to all archived audio recordings of customer service calls stored offsite in a third country, including full customer authentication details, for investigative review. This request follows prior consultation under Article 36 where we believe insufficient risk mitigation exists.",
+    "source_system": "uni_e",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-58-1",
+      "gdpr-art-36"
+    ],
+    "generator_rationale": "The demand for immediate access to sensitive data stored outside EU jurisdiction without adherence to proper procedural law for premises access (Art. 58(1)(f)) and cross-border transfers (Art. 58(2)(j)) undermines safeguards."
+  },
+  {
+    "query_id": "q-130",
+    "query_text": "Please provide access to all customer data processed under the 'Service Improvement Agreement', citing consent obtained during signup for legitimate business purposes including future service enhancements.",
+    "source_system": "uni_c",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-84",
+      "gdpr-art-83-2"
+    ],
+    "generator_rationale": "The request misuses 'future service enhancements' as a blanket legitimate purpose without current specificity, violating GDPR's requirement for purpose limitation as implied by Articles 83-2's overarching compliance focus."
+  },
+  {
+    "query_id": "q-131",
+    "query_text": "Please provide access to all user consent records for our new marketing campaign processor X, which adheres to an unmodified version of the ACME Data Handling Code (a nationally recognized industry code) dated 2018. We rely on this code to demonstrate compliance under GDPR Articles 24(3) and 40.",
+    "source_system": "uni_c",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-24",
+      "gdpr-art-40-1"
+    ],
+    "generator_rationale": "The request bypasses Article 40(5) requirement that codes must be approved by supervisory authorities, as the unmodified 2018 code lacks proof of current approval since GDPR requires codes to be submitted and approved post-GDPR implementation."
+  },
+  {
+    "query_id": "q-132",
+    "query_text": "We request audit access for transfer of pseudonymized behavioral tracking data under Article 28 provisions, citing processor’s adherence to AICPA SOC 2 certification as sufficient guarantee per Article 28(5) EU GDPR.",
+    "source_system": "uni_c",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-rec-172",
+      "gdpr-art-28-2"
+    ],
+    "generator_rationale": "The AICPA SOC 2 certification is not an EU-approved mechanism under Articles 40/42 of GDPR, making it insufficient per Article 28(5) for demonstrating compliance guarantees."
+  },
+  {
+    "query_id": "q-133",
+    "query_text": "We request access to health data processing records under Article 9(2)(h) to verify compliance with automated risk assessment systems for insurance eligibility, as individuals have consented to automated decision-making via updated terms of service. Our legitimate purpose involves audit trails for financial regulatory obligations.",
+    "source_system": "uni_e",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-22",
+      "gdpr-art-9-2"
+    ],
+    "generator_rationale": "This request violates GDPR Article 22(4) by relying on special category health data for profiling-based insurance decisions without lawful Article 9 exception or consent covering automated processing."
+  },
+  {
+    "query_id": "q-134",
+    "query_text": "As per GDPR Article 58(1)(e), we request access to all internal HR records for the purpose of verifying compliance with employment law regarding diversity quotas, which aligns with our legitimate supervisory objectives.",
+    "source_system": "uni_c",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-58-1",
+      "gdpr-art-83-1"
+    ],
+    "generator_rationale": "The request misuses the investigative power for personal data access by diverting it to non-data-protection purposes (employment law diversity checks), violating Article 58(1)(e)'s limitation to tasks necessary for GDPR performance."
+  },
+  {
+    "query_id": "q-135",
+    "query_text": "We require access to the full litigation history of a data subject, including records of complaints filed with supervisory authorities under Article 77 and judicial proceedings under Article 79, for our legitimate business purpose of ensuring compliance with dispute resolutions.",
+    "source_system": "uni_a",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-79",
+      "gdpr-art-77"
+    ],
+    "generator_rationale": "The request improperly accesses personal litigation records (an overreach of 'legitimate interest') while citing compliance purposes, violating GDPR's principle of minimal data collection (Art. 5(1)(c))."
+  },
+  {
+    "query_id": "q-136",
+    "query_text": "Under agreement ID 7XG23, we require access to the full customer purchase history database for the stated legitimate purpose of improving our recommendation algorithms. This includes all historical records as consent was obtained during sign-up for product enhancement purposes.",
+    "source_system": "uni_b",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-rec-170",
+      "gdpr-art-5"
+    ],
+    "generator_rationale": "Accessing all historical records violates Article 5(1)(e) storage limitation since data must not be kept longer than necessary, even with consent for the initial purpose."
+  },
+  {
+    "query_id": "q-137",
+    "query_text": "We request an audit of the consent mechanism used to collect health data for personalized fitness coaching. The consent agreement clearly states the purpose of fitness improvement, references legitimate interests in promoting wellness, and mentions that users can withdraw consent at any time through their account settings.",
+    "source_system": "uni_d",
+    "hop_type": "trap",
     "cross_ref_sampled": true,
     "gold_decision": "DENY",
     "gold_chunk_ids": [
       "gdpr-art-13",
       "gdpr-art-9-1"
     ],
-    "generator_rationale": "Processing genetic data is prohibited under Article 9(1) unless explicit consent under Article 9(2)(a) is obtained, which requires the controller to provide information about transfers under Article 13(1)(f) and both clauses must be satisfied simultaneously."
+    "generator_rationale": "The request violates Article 9(1) GDPR by processing health data without addressing any explicit exceptions, such as requiring explicit consent or appropriate safeguards as detailed in Article 9(2)."
   },
   {
-    "query_id": "q-005",
-    "query_text": "Pursuant to Article 61(1) for mutual assistance and consistency, and considering Article 64(1)(d) for standard contractual clauses, please provide all information related to draft decisions circulated within the Board regarding certification bodies under Article 43(3), including internal correspondence on why prior opinions were not issued on identical matters.",
-    "source_system": "uni_a",
+    "query_id": "q-138",
+    "query_text": "We request access to the company's processing records under GDPR to verify their adherence to our certification mechanism, which was properly obtained and renewed every three years according to Article 42, with all consent and agreements documented for legitimate purposes.",
+    "source_system": "uni_e",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-83-1",
+      "gdpr-art-42"
+    ],
+    "generator_rationale": "The request misuses certification under Article 42 as a blanket shield for access, but certification does not reduce controller responsibility or grant unrestricted access to all processing records beyond the certification's scope."
+  },
+  {
+    "query_id": "q-139",
+    "query_text": "As part of our ongoing compliance audit and in accordance with Article 58(1), we hereby request access to all certification documents and internal assessment reports for every controller certified under GDPR Article 43, including detailed procedural records and complaint resolution histories, to be provided directly by your accreditation body pursuant to our legitimate need to evaluate national certification consistency.",
+    "source_system": "uni_d",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-58-1",
+      "gdpr-art-43-1"
+    ],
+    "generator_rationale": "This request improperly demands that the accreditation body directly provide certification records and complaint histories, which conflicts with Article 58(1)(h) and Article 43(5) as certification bodies are responsible for assessments but supervisory authorities must formally invoke specific corrective powers to obtain such information in a structured legal process."
+  },
+  {
+    "query_id": "q-140",
+    "query_text": "We are conducting a compliance audit under legitimate business interests and require access to all personal data processing records, including employee consent forms and customer agreements, to verify adherence to GDPR standards. This request is based on our contractual obligations and the supervisory authority's power to carry out investigations as per Article 58(1)(b).",
+    "source_system": "uni_e",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-57-1",
+      "gdpr-art-58-1"
+    ],
+    "generator_rationale": "Article 57(3) explicitly states that supervisory authority tasks must be performed free of charge for data subjects, but this request improperly implies mandatory compliance with a privately-initiated audit as if it were a supervisory authority investigation."
+  },
+  {
+    "query_id": "q-141",
+    "query_text": "We require an audit of historical health data processing activities for research purposes involving EU data subjects, conducted without a designated EU representative under Article 27(2)(a) exemption due to its occasional nature and minimal risk. Explicit consent was obtained under Article 9(2)(a) for all datasets, including genetic markers for hereditary disease analysis.",
+    "source_system": "uni_c",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-27",
+      "gdpr-art-9-1"
+    ],
+    "generator_rationale": "The request violates Article 27(1) by claiming Article 27(2)(a) exemption while processing special category genetic data under Article 9(1) at scale, which automatically triggers GDPR representative requirements regardless of stated occasional nature or consent."
+  },
+  {
+    "query_id": "q-142",
+    "query_text": "We request access to all internal communications regarding draft decisions submitted by our supervisory authority to the Board pursuant to Article 64(5), specifically related to our Binding Corporate Rules approval process, to verify compliance with Article 47(l),(m),(n) requirements. We assert legitimate interest under GDPR Article 6(1)(f) for corporate governance audit purposes.",
+    "source_system": "uni_c",
     "hop_type": "trap",
     "cross_ref_sampled": true,
     "gold_decision": "DENY",
     "gold_chunk_ids": [
       "gdpr-art-64-1",
-      "gdpr-art-61"
+      "gdpr-art-47-2"
     ],
-    "generator_rationale": "The request improperly combines Article 64(1)(d), which concerns standard data protection clauses, with unrelated Article 43(3) about certification bodies to create a non-existent obligation for sharing draft opinions."
+    "generator_rationale": "The request demands sensitive procedural documents protected under GDPR Article 64 confidentiality provisions, where disclosure would compromise Board deliberation integrity."
+  },
+  {
+    "query_id": "q-143",
+    "query_text": "We request the record of processing activities with the documentation of suitable safeguards for the transfers to third countries conducted under GDPR Article 49(1) based on explicit consent and legitimate purposes.",
+    "source_system": "uni_e",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-49-2",
+      "gdpr-art-30"
+    ],
+    "generator_rationale": "The request specifically asks for documentation of safeguards under Article 49(1) which requires recording under Article 30, but purposely omits mentioning any risk assessment documentation required by Article 49(2), thereby violating the full documentation mandate."
+  },
+  {
+    "query_id": "q-144",
+    "query_text": "We need to verify compliance with GDPR Article 39 by auditing our DPO's monitoring of data processing. As we process criminal conviction records on a massive scale, our DPO must document regular monitoring activities. We have an existing agreement with payroll to inspect employee access to Article 10 data.",
+    "source_system": "uni_d",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-37",
+      "gdpr-art-39"
+    ],
+    "generator_rationale": "This subtly implies the DPO must be appointed under Article 37(1)(c) due to large-scale processing of criminal conviction data, yet requests auditing of employee processing activities wrongly assumes DPOs should monitor individual staff members instead of overseeing compliance frameworks."
+  },
+  {
+    "query_id": "q-145",
+    "query_text": "Has the organization obtained explicit consent for cookies that track user behavior across third-party websites?",
+    "source_system": "uni_e",
+    "hop_type": "unanswerable",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [],
+    "generator_rationale": "The legal corpus does not mention requirements for obtaining consent regarding cookies tracking across third-party sites."
+  },
+  {
+    "query_id": "q-146",
+    "query_text": "Can a Member State delegate the authority to adopt certification mechanisms criteria to a non-EU entity?",
+    "source_system": "uni_a",
+    "hop_type": "unanswerable",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [],
+    "generator_rationale": "The clauses do not address delegation of regulatory powers outside the European Union framework."
+  },
+  {
+    "query_id": "q-147",
+    "query_text": "Has the Commission received objections from either the European Parliament or the Council regarding a delegated act concerning the conditions for street lighting installations?",
+    "source_system": "uni_d",
+    "hop_type": "unanswerable",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [],
+    "generator_rationale": "The clauses do not contain any information about delegated acts related to street lighting installations or whether objections were raised."
+  },
+  {
+    "query_id": "q-148",
+    "query_text": "Should a controller located in Switzerland relying on an adequacy decision transfer personal data to a third-country financial institution for processing, when the adequacy decision has been revoked but the transfer is necessary for completing a legally binding contract between the data subject and the controller?",
+    "source_system": "uni_d",
+    "hop_type": "unanswerable",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [],
+    "generator_rationale": "The clauses do not provide guidance on transfers based on adequacy decisions that are subsequently revoked, nor do they cover contractual necessity as a basis for transfer when adequacy no longer exists."
+  },
+  {
+    "query_id": "q-149",
+    "query_text": "In the case of a private company processing personal data for commercial purposes, should the one-stop-shop mechanism apply when the data subject files a complaint with a supervisory authority in a member state where the company has no establishment?",
+    "source_system": "uni_b",
+    "hop_type": "unanswerable",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [],
+    "generator_rationale": "Both provided recitals discuss the application of GDPR rules for public bodies or in specific judicial contexts, but neither covers private companies processing data for commercial purposes in relation to the one-stop-shop mechanism when no local establishment exists."
+  },
+  {
+    "query_id": "q-150",
+    "query_text": "Can an individual file a civil lawsuit for damages due to a personal data breach under the GDPR?",
+    "source_system": "uni_e",
+    "hop_type": "unanswerable",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [],
+    "generator_rationale": "The provided clauses only address disclosure rules for public authorities and criminal penalties for infringements, not private individuals' rights to civil remedies."
+  },
+  {
+    "query_id": "q-151",
+    "query_text": "Should the audit team approve a company's request to transfer personal data to an organization in a non-EU country lacking an approved code of conduct?",
+    "source_system": "uni_c",
+    "hop_type": "unanswerable",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [],
+    "generator_rationale": "The provided clauses discuss general validity of codes within the EU and data flow facilitation principles without specifying criteria for third-country transfers lacking approved mechanisms."
+  },
+  {
+    "query_id": "q-152",
+    "query_text": "A private body holding official documents seeks to disclose personal data of non-EU citizens processed during joint operations involving supervisory authorities from three different Member States.",
+    "source_system": "uni_a",
+    "hop_type": "unanswerable",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [],
+    "generator_rationale": "The clauses do not address disclosures involving non-EU citizens' data processed during multi-state operations, leaving compatibility with disclosure rules undetermined."
+  },
+  {
+    "query_id": "q-153",
+    "query_text": "Has the supervisory authority conducted an investigation that involved accessing encrypted emails without obtaining prior judicial authorization?",
+    "source_system": "uni_e",
+    "hop_type": "unanswerable",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [],
+    "generator_rationale": "The clauses discuss procedural safeguards for investigatory powers but do not address encryption specifically or whether it alters the requirements for judicial authorization."
+  },
+  {
+    "query_id": "q-154",
+    "query_text": "Does the association 'DataHandlers Int'l' have the obligation to submit its sector-specific code of conduct for review to the single contact point supervisory authority in a Member State with multiple authorities?",
+    "source_system": "uni_e",
+    "hop_type": "unanswerable",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [],
+    "generator_rationale": "The clauses do not address whether associations must submit codes of conduct to supervisory authorities or any specific contact point."
+  },
+  {
+    "query_id": "q-155",
+    "query_text": "Has the controller maintained records of their processing activities for the past three years?",
+    "source_system": "uni_d",
+    "hop_type": "unanswerable",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [],
+    "generator_rationale": "The clauses do not specify any time duration for which records must be maintained, so it cannot be determined if three years of retention is required."
+  },
+  {
+    "query_id": "q-156",
+    "query_text": "Can a data subject whose personal data was processed during a joint operation involving multiple EU supervisory authorities demand compensation directly from the Member State where the seconding authority operates?",
+    "source_system": "uni_a",
+    "hop_type": "unanswerable",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [],
+    "generator_rationale": "The clauses only address liability between Member States and reimbursement mechanisms for damages caused during joint operations, but do not specify how affected individuals may claim compensation."
+  },
+  {
+    "query_id": "q-157",
+    "query_text": "Should a compliance officer approve a data transfer to a third country that has been assessed by a Member State's supervisory authority as having an adequate level of data protection?",
+    "source_system": "uni_b",
+    "hop_type": "unanswerable",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [],
+    "generator_rationale": "The clauses only address authorization by the Commission, not Member States or their supervisory authorities, leaving obligations for non-Commission adequacy determinations unresolved."
+  },
+  {
+    "query_id": "q-158",
+    "query_text": "Has the data subject rightfully objected to the processing of personal data for targeted advertising based on Article 6(1)(c)?",
+    "source_system": "uni_b",
+    "hop_type": "unanswerable",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [],
+    "generator_rationale": "The provided clauses specify objection rights for processing under Article 6(1)(e) or (f) and direct marketing contexts, but do not address objections for processing grounded on Article 6(1)(c)."
+  },
+  {
+    "query_id": "q-159",
+    "query_text": "Determine whether the supervisory authority is required to investigate a complaint filed by an individual residing outside the European Union regarding data processing activities conducted by a non-EU based controller.",
+    "source_system": "uni_d",
+    "hop_type": "unanswerable",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [],
+    "generator_rationale": "The provided clauses do not address the jurisdictional scope for handling complaints involving non-EU residents or controllers."
+  },
+  {
+    "query_id": "q-160",
+    "query_text": "Was it permissible for company XYZ to transfer customer health records to a pharmaceutical research firm in a non-EU country without an adequacy decision, for the purpose of developing a new cancer treatment?",
+    "source_system": "uni_e",
+    "hop_type": "unanswerable",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [],
+    "generator_rationale": "The clauses only address transfers for public interest or vital interests, but not commercial research purposes in absence of adequacy decisions."
   }
 ]

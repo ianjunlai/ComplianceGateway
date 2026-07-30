@@ -1,0 +1,66 @@
+[
+  {
+    "query_id": "q-001",
+    "query_text": "A university system requests an audit to determine if it needs to submit a draft decision to the Board before adopting standard data protection clauses for transferring international student transcripts.",
+    "source_system": "uni_a",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-64-1"
+    ],
+    "generator_rationale": "The clause requires communication of draft decisions for adopting standard data protection clauses under Article 64(1)(d), so the university's action triggers the audit requirement."
+  },
+  {
+    "query_id": "q-002",
+    "query_text": "Please provide all academic grades and transcripts specifically for historical research on our university's alumni records from the early 1900s.",
+    "source_system": "uni_a",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-rec-160"
+    ],
+    "generator_rationale": "The clause specifies that this Regulation (GDPR) does not apply to deceased persons, making their data processing ungoverned by GDPR restrictions for genealogical research."
+  },
+  {
+    "query_id": "q-003",
+    "query_text": "Does the GDPR permit the transfer of pseudonymised health data collected by Georg-August-Universität Göttingen to a third-party research institute in Switzerland for a collaborative study, considering the university uses binding corporate rules?",
+    "source_system": "uni_e",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "goettingen-policy-1.2",
+      "gdpr-art-4-1",
+      "gdpr-art-4-2"
+    ],
+    "generator_rationale": "Binding corporate rules under GDPR Article 4(20) are for transfers within a group of undertakings or enterprises in a joint economic activity, but the third-party institute is not part of such a group with the university, so without another safeguard like an adequacy decision or standard contractual clauses, the transfer is impermissible."
+  },
+  {
+    "query_id": "q-004",
+    "query_text": "Audit whether a healthcare app processing genetic data collected directly from users in the EU, without adequacy decision for transfers to a third country, can lawfully process and transfer the data without providing explicit consent mechanisms or information on safeguards.",
+    "source_system": "uni_a",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-13",
+      "gdpr-art-9-1"
+    ],
+    "generator_rationale": "Processing genetic data is prohibited under Article 9(1) unless explicit consent under Article 9(2)(a) is obtained, which requires the controller to provide information about transfers under Article 13(1)(f) and both clauses must be satisfied simultaneously."
+  },
+  {
+    "query_id": "q-005",
+    "query_text": "Pursuant to Article 61(1) for mutual assistance and consistency, and considering Article 64(1)(d) for standard contractual clauses, please provide all information related to draft decisions circulated within the Board regarding certification bodies under Article 43(3), including internal correspondence on why prior opinions were not issued on identical matters.",
+    "source_system": "uni_a",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-64-1",
+      "gdpr-art-61"
+    ],
+    "generator_rationale": "The request improperly combines Article 64(1)(d), which concerns standard data protection clauses, with unrelated Article 43(3) about certification bodies to create a non-existent obligation for sharing draft opinions."
+  }
+]

@@ -54,9 +54,13 @@ clauses do not cover). The correct decision is UNKNOWN. Do not reference the cla
 directly.""",
 }
 
+# gold_decision is described rather than shown as "APPROVE|DENY|UNKNOWN":
+# generators sometimes echo that pipe-separated form verbatim as the answer.
 _FORMAT = """
-Return STRICT JSON:
-{"query_text": "...", "gold_decision": "APPROVE|DENY|UNKNOWN", "rationale": "one sentence"}
+Return STRICT JSON with exactly these three keys:
+  "query_text":    the audit request
+  "gold_decision": choose ONE of these three words and nothing else: APPROVE, DENY, UNKNOWN
+  "rationale":     one sentence
 
 Legal clauses:
 """
@@ -137,7 +141,33 @@ def _sample_chunks(chunks, ref_pairs, ref_graph, hop_type: str, k: int):
     return random.sample(chunks, k), False
 
 
-def generate(n_total: int, seed: int = 42) -> list[dict]:
+VALID_DECISIONS = {"APPROVE", "DENY", "UNKNOWN"}
+# The decision each stratum is defined to produce; anything else means the
+# generator ignored the instruction and the item is unusable as ground truth.
+EXPECTED_DECISION = {"trap": "DENY", "unanswerable": "UNKNOWN"}
+
+
+def _validate_item(item: dict, hop_type: str) -> str | None:
+    """Returns a rejection reason, or None if the item is usable.
+
+    Generators sometimes echo the format specification instead of choosing
+    ("APPROVE|DENY|UNKNOWN"), or pick a decision that contradicts the stratum
+    they were asked for. Such an item silently corrupts every metric computed
+    from it -- a decision outside the label set can never be matched by any
+    system, so it depresses accuracy for all strategies equally and invisibly.
+    """
+    if not item.get("query_text", "").strip():
+        return "empty query_text"
+    decision = item.get("gold_decision", "")
+    if decision not in VALID_DECISIONS:
+        return f"gold_decision {decision!r} is not one of {sorted(VALID_DECISIONS)}"
+    expected = EXPECTED_DECISION.get(hop_type)
+    if expected and decision != expected:
+        return f"{hop_type} item must be gold_decision={expected}, got {decision!r}"
+    return None
+
+
+def generate(n_total: int, seed: int = 42, max_retries_per_item: int = 3) -> list[dict]:
     random.seed(seed)
     chunks = load_corpus(CORPUS_DIR)
     if not chunks:
@@ -147,17 +177,30 @@ def generate(n_total: int, seed: int = 42) -> list[dict]:
     print(f"{len(ref_pairs)} cross-reference pairs found in corpus")
     dataset = []
     qid = 0
+    rejected = 0
     for hop_type, share in STRATA.items():
         for _ in range(round(n_total * share)):
             qid += 1
-            k = {"single": 1, "multi": random.choice([2, 3]), "trap": 2, "unanswerable": 2}[hop_type]
-            sampled, used_ref = _sample_chunks(chunks, ref_pairs, ref_graph, hop_type, k)
-            clause_block = "\n\n".join(f"[{c.chunk_id}]\n{c.text}" for c in sampled)
-            item, _usage = complete_json(
-                config.QA_GENERATION_PROVIDER, config.QA_GENERATION_MODEL,
-                _PROMPTS[hop_type] + _FORMAT + clause_block,
-                temperature=0.8,  # diversity across queries
-            )
+            item = sampled = used_ref = None
+            for attempt in range(1, max_retries_per_item + 1):
+                k = {"single": 1, "multi": random.choice([2, 3]), "trap": 2, "unanswerable": 2}[hop_type]
+                sampled, used_ref = _sample_chunks(chunks, ref_pairs, ref_graph, hop_type, k)
+                clause_block = "\n\n".join(f"[{c.chunk_id}]\n{c.text}" for c in sampled)
+                candidate, _usage = complete_json(
+                    config.QA_GENERATION_PROVIDER, config.QA_GENERATION_MODEL,
+                    _PROMPTS[hop_type] + _FORMAT + clause_block,
+                    temperature=0.8,  # diversity across queries
+                )
+                reason = _validate_item(candidate, hop_type)
+                if reason is None:
+                    item = candidate
+                    break
+                rejected += 1
+                print(f"  rejected q-{qid:03d} attempt {attempt}/{max_retries_per_item}: {reason}")
+            if item is None:
+                print(f"  SKIPPED q-{qid:03d} [{hop_type}]: no valid item after "
+                      f"{max_retries_per_item} attempts")
+                continue
             dataset.append({
                 "query_id": f"q-{qid:03d}",
                 "query_text": item["query_text"],
@@ -171,6 +214,8 @@ def generate(n_total: int, seed: int = 42) -> list[dict]:
             })
             print(f"generated {dataset[-1]['query_id']} [{hop_type}] {item['gold_decision']}"
                   + (" (cross-ref pair)" if used_ref else ""))
+    if rejected:
+        print(f"\n{rejected} generation(s) rejected by validation and retried")
     return dataset
 
 

@@ -51,14 +51,17 @@ public class MetricsService {
         Instant start = submittedAt.remove(event.requestId());
         Long e2eMs = start == null ? null : Instant.now().toEpochMilli() - start.toEpochMilli();
 
+        // snake_case throughout, matching AuditResultEvent and the stage-timing
+        // keys nested inside it — this map is hand-built, so the convention has
+        // to be applied here rather than inherited from the record.
         Map<String, Object> row = new LinkedHashMap<>();
-        row.put("requestId", event.requestId());
-        row.put("sourceSystem", event.sourceSystem());
+        row.put("request_id", event.requestId());
+        row.put("source_system", event.sourceSystem());
         row.put("decision", event.decision());
         row.put("strategy", event.strategy());
-        row.put("e2eMs", e2eMs);
-        row.put("stageTimingsMs", event.stageTimingsMs());
-        row.put("completedAt", event.completedAt());
+        row.put("e2e_ms", e2eMs);
+        row.put("stage_timings_ms", event.stageTimingsMs());
+        row.put("completed_at", event.completedAt());
         synchronized (recent) {
             recent.addFirst(row);
             if (recent.size() > RECENT_WINDOW) {
@@ -79,7 +82,7 @@ public class MetricsService {
         snap.put("submitted", sub);
         snap.put("completed", done);
         snap.put("errors", err);
-        snap.put("queueDepth", Math.max(0, sub - done - err));
+        snap.put("queue_depth", Math.max(0, sub - done - err));
         List<Map<String, Object>> recentCopy;
         synchronized (recent) {
             recentCopy = new ArrayList<>(recent);

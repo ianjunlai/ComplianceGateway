@@ -6,10 +6,14 @@ import edu.compliance.gateway.service.AuditProducerService;
 import edu.compliance.gateway.service.MetricsService;
 import edu.compliance.gateway.service.ResultStoreService;
 import edu.compliance.gateway.service.SyncInferenceClient;
+import jakarta.validation.Valid;
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -46,7 +50,7 @@ public class AuditController {
     // ---- EDA mode -------------------------------------------------------
 
     @PostMapping("/audit")
-    public ResponseEntity<AuditSubmittedResponse> submit(@RequestBody AuditRequest request) {
+    public ResponseEntity<AuditSubmittedResponse> submit(@Valid @RequestBody AuditRequest request) {
         String requestId = producer.publish(request.sourceSystem(), request.auditQuery());
         return ResponseEntity.status(HttpStatus.ACCEPTED)
                 .body(new AuditSubmittedResponse(requestId, "QUEUED"));
@@ -63,7 +67,7 @@ public class AuditController {
     // ---- Synchronous baselines -------------------------------------------
 
     @PostMapping("/audit/sync")
-    public ResponseEntity<?> submitSync(@RequestBody AuditRequest request) {
+    public ResponseEntity<?> submitSync(@Valid @RequestBody AuditRequest request) {
         try {
             return ResponseEntity.ok(
                     syncClient.callUnbounded(request.sourceSystem(), request.auditQuery()));
@@ -74,7 +78,7 @@ public class AuditController {
     }
 
     @PostMapping("/audit/sync-throttled")
-    public ResponseEntity<?> submitSyncThrottled(@RequestBody AuditRequest request) {
+    public ResponseEntity<?> submitSyncThrottled(@Valid @RequestBody AuditRequest request) {
         try {
             return ResponseEntity.ok(
                     syncClient.callThrottled(request.sourceSystem(), request.auditQuery()));
@@ -92,5 +96,31 @@ public class AuditController {
     @GetMapping("/metrics")
     public Map<String, Object> metrics() {
         return metrics.snapshot();
+    }
+
+    // ---- Validation ------------------------------------------------------
+
+    /**
+     * Rejects a malformed payload at ingress with the offending field named.
+     *
+     * The default 400 body reports only that validation failed. Naming the
+     * field matters here because the likeliest cause is a client sending the
+     * wrong key — camelCase, say — which binds to null and is otherwise
+     * indistinguishable from an omitted field.
+     */
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public Map<String, Object> onInvalidRequest(MethodArgumentNotValidException e) {
+        // The messages carry the JSON field names; getField() would report the
+        // Java property (sourceSystem), which is not what the client sent.
+        List<String> violations = e.getBindingResult().getFieldErrors().stream()
+                .map(DefaultMessageSourceResolvable::getDefaultMessage)
+                .toList();
+        return Map.of(
+                "error", "invalid audit request",
+                "violations", violations,
+                "expected_fields", Map.of(
+                        "source_system", "string, non-blank",
+                        "audit_query", "string, non-blank"));
     }
 }

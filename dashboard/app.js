@@ -23,16 +23,16 @@ async function poll() {
 }
 
 function render(m) {
-  setText("queue-depth", m.queueDepth);
+  setText("queue-depth", m.queue_depth);
   setText("submitted", m.submitted);
   setText("completed", m.completed);
   setText("errors", m.errors);
 
-  const e2es = (m.recent || []).map(r => r.e2eMs).filter(v => v != null);
+  const e2es = (m.recent || []).map(r => r.e2e_ms).filter(v => v != null);
   setText("avg-e2e", e2es.length
     ? `${Math.round(e2es.reduce((a, b) => a + b, 0) / e2es.length)} ms` : "–");
 
-  history.push(m.queueDepth);
+  history.push(m.queue_depth);
   if (history.length > HISTORY_POINTS) history.shift();
   renderChart();
   renderTable(m.recent || []);
@@ -49,17 +49,17 @@ function renderChart() {
 function renderTable(recent) {
   const tbody = document.querySelector("#recent-table tbody");
   tbody.innerHTML = recent.slice(0, 20).map(r => {
-    const t = r.stageTimingsMs || {};
+    const t = r.stage_timings_ms || {};
     return `<tr>
-      <td class="mono">${short(r.requestId)}</td>
-      <td>${r.sourceSystem ?? ""}</td>
+      <td class="mono">${short(r.request_id)}</td>
+      <td>${r.source_system ?? ""}</td>
       <td><span class="decision ${(r.decision || "").toLowerCase()}">${r.decision ?? ""}</span></td>
       <td>${r.strategy ?? ""}</td>
       <td>${ms(t.queue_wait_ms)}</td>
       <td>${ms(t.ner_ms)}</td>
       <td>${ms(t.retrieval_ms)}</td>
       <td>${ms(t.generation_ms)}</td>
-      <td>${ms(r.e2eMs)}</td>
+      <td>${ms(r.e2e_ms)}</td>
     </tr>`;
   }).join("");
 }

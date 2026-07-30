@@ -1,8 +1,15 @@
 package edu.compliance.gateway.api.dto;
 
-/** HTTP 202 body for the EDA mode. */
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+/**
+ * HTTP 202 body for the EDA mode.
+ *
+ * request_id is snake_case like the rest of the API surface; the JMeter plan
+ * extracts it from here to drive the result-polling loop.
+ */
 public record AuditSubmittedResponse(
-        String requestId,
-        String status
+        @JsonProperty("request_id") String requestId,
+        @JsonProperty("status") String status
 ) {
 }

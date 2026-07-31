@@ -144,11 +144,12 @@ python -m ingestion.build_indexes         # -> Neo4j graph + vector indexes, art
 # 6. Generate the evaluation dataset -- ONLY if you do not already have one
 python ../dataset/generate_qa.py --n 160  # -> dataset/qa_dataset.json + verification_sample.json
 
-# 7. Run the services
+# 7. Run the services -- ONE inference backend at a time, see note below
 #    gateway
 cd ../gateway-service && mvn spring-boot:run
-#    inference consumer (EDA) and sync API (synchronous baselines)
+#    then EITHER the consumer (EDA condition) ...
 cd ../inference-service && python consumer_main.py
+#    ... OR the sync API (both synchronous conditions)
 uvicorn sync_api:app --port 8000
 
 # 8. Reasoning-quality and retrieval experiments (E1, E2)
@@ -160,12 +161,34 @@ python -m evaluation.run_eval --strategy hippo_rag  --judge --run-id <id>
 #    -> results/<strategy>-<run-id>.json  (+ .jsonl written as it goes)
 #    interrupted? rerun the SAME command with --resume appended
 
-# 9. Load experiment (E3): JMeter plans in loadtest/ (see loadtest/README.md)
+# 9. Load experiment (E3)
+jmeter -n -t ../loadtest/compliance_gateway.jmx \
+       -JTHREADS=10 -JRAMP=10 -JDURATION=120 -l results/eda-c10.jtl
+#    one condition per run; enable the matching Thread Group in the GUI first
+#    full profile, failure-mode taxonomy and sizing: loadtest/README.md
 ```
 
 Steps 5 and 6 need only a cloud API key and Docker — no GPU. Steps 7–9 need the
 local GPU. Run each evaluation strategy in its own process, since the active
 strategy is fixed when the process starts.
+
+### Steps 7 and 9 — one inference backend at a time
+
+The consumer and `sync_api` each load their own copy of the 1.3 GB embedding
+model and each drive the same single GPU, so running both costs 4–6 GB before
+Kafka, Neo4j, the gateway, Ollama and JMeter's own 1 GB heap, and a measurement
+taken with both up describes their contention rather than the condition under
+test. On an 11.6 GB machine this drove a single inference from 160 s to over
+26 minutes through paging. Bring up whichever backend the current condition
+needs, and stop it before switching.
+
+Before starting a level, rehearse the JMeter plan against
+`loadtest/stub_inference.py` — same contract, fixed delay instead of a pipeline,
+so extractor and timeout mistakes surface in seconds rather than after an hour
+of real inference. Then measure one request through `POST /api/v1/audit/sync`
+against the real backend and size the concurrency levels from it: EDA drain time
+is roughly `threads × single-request time`, which is what sets the wall-clock
+cost of the whole experiment.
 
 ### Step 4 — moving to another machine
 

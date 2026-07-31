@@ -24,11 +24,16 @@ def decision_metrics(predictions: list[str], golds: list[str]) -> dict:
     false_approvals = sum(1 for p, _ in deny_gold if p == "APPROVE")
     unanswerable = [(p, g) for p, g in zip(predictions, golds) if g == "UNKNOWN"]
 
+    # A rate with an empty denominator is undefined, and is reported as null
+    # rather than 0.0. This matters for the per-stratum breakdown: the
+    # unanswerable stratum contains no APPROVE/DENY gold at all, and a printed
+    # "fpr: 0.0" there reads as "never wrongly approved" when the quantity
+    # simply does not exist for that stratum.
     return {
         "n": n,
-        "accuracy": correct / n if n else 0.0,
-        "abstention_rate": abstained / len(decidable) if decidable else 0.0,
-        "fpr": false_approvals / len(deny_gold) if deny_gold else 0.0,
+        "accuracy": correct / n if n else None,
+        "abstention_rate": abstained / len(decidable) if decidable else None,
+        "fpr": false_approvals / len(deny_gold) if deny_gold else None,
         "unanswerable_accuracy": (
             sum(1 for p, _ in unanswerable if p == "UNKNOWN") / len(unanswerable)
             if unanswerable else None

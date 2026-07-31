@@ -13,12 +13,20 @@ def recall_at_k(retrieved_ids: list[str], gold_ids: list[str], k: int) -> float:
     return len(top_k & set(gold_ids)) / len(gold_ids)
 
 
-def mean_recall(results: list[dict], k: int) -> float:
-    """results: [{"retrieved_chunk_ids": [...], "gold_chunk_ids": [...]}]
-    Unanswerable queries (empty gold) are skipped by definition."""
-    scored = [
+def recall_values(results: list[dict], k: int) -> list[float]:
+    """Per-query Recall@K, for aggregation with a confidence interval.
+
+    results: [{"retrieved_chunk_ids": [...], "gold_chunk_ids": [...]}]
+    Unanswerable queries (empty gold) are skipped by definition.
+    """
+    return [
         recall_at_k(r["retrieved_chunk_ids"], r["gold_chunk_ids"], k)
         for r in results
         if r.get("gold_chunk_ids")
     ]
-    return sum(scored) / len(scored) if scored else 0.0
+
+
+def mean_recall(results: list[dict], k: int) -> float | None:
+    """Mean Recall@K; None when no query in the set has gold chunks."""
+    scored = recall_values(results, k)
+    return sum(scored) / len(scored) if scored else None

@@ -74,7 +74,19 @@ def complete_json(
                     model=model, max_tokens=max_tokens,
                     messages=[{"role": "user", "content": prompt}],
                 )
-                text = response.content[0].text
+                # Current Claude models think by default, so content[0] is a
+                # thinking block, not the answer -- and a thinking block has no
+                # .text at all. Select the text block rather than indexing.
+                text = next(
+                    (b.text for b in response.content if b.type == "text"), ""
+                )
+                if response.stop_reason == "max_tokens":
+                    # Thinking and the reply share the max_tokens budget, so a
+                    # limit sized for the reply alone truncates the JSON.
+                    raise ValueError(
+                        f"LLM output truncated (provider={provider}, model={model}); "
+                        f"thinking shares the {max_tokens}-token budget"
+                    )
                 usage = {"prompt_tokens": response.usage.input_tokens,
                          "completion_tokens": response.usage.output_tokens}
             else:

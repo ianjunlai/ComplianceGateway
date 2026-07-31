@@ -8,6 +8,20 @@ Compares three integration modes under identical load, same pipeline behind all:
 | sync-unbounded | `POST /api/v1/audit/sync` | thread saturation, timeouts (504) |
 | sync-throttled | `POST /api/v1/audit/sync-throttled` | held connections, queue timeouts (503) |
 
+## Request body (all three POST endpoints)
+
+Field names are snake_case, matching the `Audit_Request_Event` contract:
+
+```json
+{"source_system": "uni_a", "audit_query": "..."}
+```
+
+Both fields are required and non-blank; anything else is rejected at ingress
+with `400` and a `violations` list. Note for the JMeter plan: a wrong key name
+(camelCase, say) binds to null and is a validation failure, so a mis-typed body
+shows up as a wall of 400s rather than as a load result — check one sampler
+response before starting a full run.
+
 ## Test profile (per condition)
 
 - Concurrency levels: 1, 10, 25, 50, 100 threads
@@ -44,7 +58,7 @@ JMeter CSV Data Set Config; query bodies sampled from `../dataset/qa_dataset.jso
   (4xx/5xx/timeout, taxonomy per thesis 4.5.3)
 - Gateway `GET /api/v1/metrics` sampled every 5 s during the run
   → queue-depth curve → backlog recovery time := time from load-stop until
-  queueDepth returns to 0
+  `queue_depth` returns to 0
 - 3 repetitions per (condition × level); report mean ± std
 
 ## JMeter plan structure (to be built as compliance_gateway.jmx)
@@ -54,9 +68,9 @@ Test Plan
 ├── CSV Data Set Config (source_systems.csv)
 ├── CSV Data Set Config (queries.csv)
 ├── Thread Group "EDA" (N threads)
-│   ├── HTTP POST /api/v1/audit  → JSON Extractor (requestId)
+│   ├── HTTP POST /api/v1/audit  → JSON Extractor ($.request_id)
 │   └── While Controller (status == PENDING, timeout 300s)
-│       ├── HTTP GET /api/v1/audit/${requestId}
+│       ├── HTTP GET /api/v1/audit/${request_id}
 │       └── Constant Timer 1000 ms
 ├── Thread Group "sync-unbounded": HTTP POST /api/v1/audit/sync
 ├── Thread Group "sync-throttled": HTTP POST /api/v1/audit/sync-throttled

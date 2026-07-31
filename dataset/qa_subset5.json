@@ -1,0 +1,62 @@
+[
+  {
+    "query_id": "q-001",
+    "query_text": "Has the university complied with GDPR Article 9(2) when processing health data in student disability accommodations by ensuring it was handled exclusively by staff bound by professional secrecy obligations?",
+    "source_system": "uni_c",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-9-2"
+    ],
+    "generator_rationale": "The clause states processing must be done by professionals with secrecy obligations, but does not require it to be handled **exclusively** by such staff since paragraph 3 permits inclusion of **another person** also bound by secrecy."
+  },
+  {
+    "query_id": "q-002",
+    "query_text": "Verify processing of student data for graduate admissions applications received prior to May 25, 2018",
+    "source_system": "uni_b",
+    "hop_type": "single",
+    "cross_ref_sampled": false,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-99"
+    ],
+    "generator_rationale": "GDPR Article 99 explicitly states that the regulation only applies from May 25, 2018, meaning any data processing request involving activities before this date would be subject to prior legal frameworks that are not covered by this clause."
+  },
+  {
+    "query_id": "q-057",
+    "query_text": "Can I transfer personal data to a third country using contractual clauses, when that country is on the Commission's list of adequate countries?",
+    "source_system": "uni_e",
+    "hop_type": "multi",
+    "cross_ref_sampled": true,
+    "gold_decision": "APPROVE",
+    "gold_chunk_ids": [
+      "gdpr-art-46",
+      "gdpr-art-45-2"
+    ],
+    "generator_rationale": "Article 45(8) requires the Commission to maintain a list of countries providing adequate protection, and Article 46(7) clarifies that transfers to those countries under Article 45(3) decisions are unimpeded, meaning no additional safeguards like contractual clauses are required."
+  },
+  {
+    "query_id": "q-113",
+    "query_text": "We request all transcripts of verbal consent given by EU data subjects for processing activities under Article 12, where identification was solely verified through biometric data, to be provided within 10 working days without any extensions permitted, even for complex cases.",
+    "source_system": "uni_a",
+    "hop_type": "trap",
+    "cross_ref_sampled": true,
+    "gold_decision": "DENY",
+    "gold_chunk_ids": [
+      "gdpr-art-92",
+      "gdpr-art-12"
+    ],
+    "generator_rationale": "The request violates Article 12(1) and 12(3) by demanding oral consent transcripts (which GDPR does not require to be recorded) while imposing an inflexible 10-day deadline that ignores lawful extension provisions for complex requests."
+  },
+  {
+    "query_id": "q-145",
+    "query_text": "Has the organization obtained explicit consent for cookies that track user behavior across third-party websites?",
+    "source_system": "uni_e",
+    "hop_type": "unanswerable",
+    "cross_ref_sampled": false,
+    "gold_decision": "UNKNOWN",
+    "gold_chunk_ids": [],
+    "generator_rationale": "The legal corpus does not mention requirements for obtaining consent regarding cookies tracking across third-party sites."
+  }
+]

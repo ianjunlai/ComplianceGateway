@@ -10,7 +10,7 @@ See [README.md](README.md) for a shorter quick start.
 |---|---|
 | Java | 21 (LTS) |
 | Python | 3.11 |
-| Docker | Desktop (any recent) |
+| Docker | Desktop (any recent) — optional, see §6 Step 3b |
 | Kafka | `apache/kafka:3.7.0` (KRaft, single broker) |
 | Neo4j | `neo4j:5.24-community` |
 | Spring Boot | 3.3.5 |
@@ -21,6 +21,33 @@ Python dependencies are listed in [inference-service/requirements.txt](inference
 and Java dependencies in [gateway-service/pom.xml](gateway-service/pom.xml).
 Before final submission, freeze exact versions with `pip freeze > requirements.lock.txt`
 so the environment can be recreated byte-for-byte.
+
+### Measurement hardware
+
+All reported results — E1, E2 and E3 — were produced on:
+
+| | |
+|---|---|
+| CPU | 2 × Intel Xeon Silver 4314 @ 2.40 GHz (32 cores / 64 threads) |
+| Memory | 1.0 TiB |
+| GPU | NVIDIA A100 80 GB PCIe, **pinned to device 1** via `CUDA_VISIBLE_DEVICES=1` |
+| OS | Ubuntu 20.04.6 LTS, kernel 5.15 |
+
+This is a shared machine, which matters only for E3: latency and throughput are
+sensitive to another tenant landing on the same GPU, so `nvidia-smi` is recorded
+before and after every concurrency level and any level that overlapped a
+neighbour's job is re-run. E1 and E2 report retrieval and faithfulness scores,
+which do not depend on timing, so contention cannot affect them.
+
+**A GPU is not optional for the online path.** Ollama's official builds support
+CUDA and ROCm only; on a machine with Intel integrated graphics it silently falls
+back to CPU. Decode of `llama3.1:8b-instruct-q4_K_M` is then bound by memory
+bandwidth — on dual-channel DDR5-5600 (~89.6 GB/s against a 4.9 GB model) that is
+roughly 10 tok/s, and a single RAG query costs on the order of 90 s rather than 6.
+E1/E2 merely become an overnight job at that speed, but **E3 stops measuring what
+it is for**: with `inference.timeout-ms` at 240 s and no throughput gain from CPU
+concurrency, the sync-unbounded condition returns 100% 504 from C=10 upward
+instead of degrading gradually, and the EDA backlog at C=100 takes hours to drain.
 
 ## 2. Model versions
 
@@ -123,6 +150,7 @@ chunk IDs.
 ```bash
 # 1. Infrastructure
 docker compose up -d                     # Kafka + Neo4j
+#    no Docker (shared server, no root)? see "Step 3b" below
 
 # 2. Python environment
 cd inference-service
@@ -189,6 +217,55 @@ of real inference. Then measure one request through `POST /api/v1/audit/sync`
 against the real backend and size the concurrency levels from it: EDA drain time
 is roughly `threads × single-request time`, which is what sets the wall-clock
 cost of the whole experiment.
+
+### Step 3b — deployment without Docker
+
+Shared GPU servers frequently forbid Docker. Nothing in this project requires it:
+every service ships a tarball that runs from `$HOME` with no root, and every
+endpoint the code talks to is read from an environment variable, so the whole
+stack relocates without a code change.
+
+**Check for a container runtime first.** `which apptainer singularity podman
+nerdctl` — research clusters commonly carry Apptainer, and if it is there the
+compose images run directly (`apptainer run docker://neo4j:5.24-community`),
+which is closer to the reference deployment than reassembling it by hand. Also
+run `ss -ltn` and see which of 7474 / 7687 / 9092 / 8080 / 8000 / 11434 are
+already occupied; remap the collisions rather than contending for the port.
+
+Otherwise, from tarballs:
+
+```bash
+conda create -n cg python=3.11 && conda activate cg
+conda install -c conda-forge openjdk=21 maven   # Neo4j 5.24 and the gateway both need 21
+pip install -r inference-service/requirements.txt
+
+# Neo4j 5.24 community (unix tarball) — set listen addresses in conf/neo4j.conf if remapped
+bin/neo4j-admin dbms set-initial-password compliance123 && bin/neo4j start
+
+# Kafka 3.7.0, KRaft single node. Set auto.create.topics.enable=false in
+# config/kraft/server.properties to match docker-compose.yml: the gateway creates
+# its three topics explicitly with partitions=1, and silent auto-creation would
+# give them the broker default instead
+bin/kafka-storage.sh format -t $(bin/kafka-storage.sh random-uuid) -c config/kraft/server.properties
+bin/kafka-server-start.sh -daemon config/kraft/server.properties
+
+# Ollama tarball bundles its own CUDA runtime — no root, no systemd unit
+export OLLAMA_MODELS=$HOME/ollama/models
+CUDA_VISIBLE_DEVICES=1 $HOME/ollama/bin/ollama serve &
+ollama pull llama3.1:8b-instruct-q4_K_M
+```
+
+Then point the configuration at whatever ports survived — `NEO4J_URI`,
+`KAFKA_BOOTSTRAP` and `OLLAMA_HOST` in `.env`; `SERVER_PORT`,
+`SPRING_KAFKA_BOOTSTRAP_SERVERS` and `GATEWAY_INFERENCE_SYNC_URL` as environment
+overrides for the gateway.
+
+**Set `CUDA_VISIBLE_DEVICES` on the Python processes too, not just on Ollama.**
+The embedding model is constructed without a device argument
+([pipeline/embeddings.py](inference-service/pipeline/embeddings.py)), so
+sentence-transformers auto-selects `cuda:0` — on a shared box that is whichever
+card other tenants are already using. Pinning both to the same free device is
+also what keeps the E3 measurement attributable to one GPU.
 
 ### Step 4 — moving to another machine
 

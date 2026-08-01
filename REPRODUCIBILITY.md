@@ -123,7 +123,6 @@ chunk IDs.
 ```bash
 # 1. Infrastructure
 docker compose up -d                     # Kafka + Neo4j
-#    shared server, no Docker permission? -> SERVER_DEPLOYMENT.md
 
 # 2. Python environment
 cd inference-service

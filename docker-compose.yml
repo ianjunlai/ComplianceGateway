@@ -32,6 +32,28 @@ services:
     volumes:
       - neo4j-data:/data
 
+  # Second graph store for the public-benchmark validity check. Community
+  # edition serves one database and build_indexes wipes it before rebuilding,
+  # so the GDPR graph and the benchmark graph cannot share an instance —
+  # separate containers, separate volumes, separate ports.
+  #
+  # Behind a profile so `docker compose up -d` never starts it by accident;
+  # nothing points at it until NEO4J_URI says so:
+  #     docker compose --profile benchmark up -d neo4j-benchmark
+  #     NEO4J_URI=bolt://localhost:7688 ...
+  neo4j-benchmark:
+    image: neo4j:5.24-community
+    container_name: cg-neo4j-benchmark
+    profiles: ["benchmark"]
+    ports:
+      - "7475:7474"   # browser UI
+      - "7688:7687"   # bolt
+    environment:
+      NEO4J_AUTH: neo4j/compliance123
+    volumes:
+      - neo4j-benchmark-data:/data
+
 volumes:
   kafka-data:
   neo4j-data:
+  neo4j-benchmark-data:

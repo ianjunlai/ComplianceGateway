@@ -14,8 +14,12 @@ venv/
 
 # Build artifacts / experiment outputs
 inference-service/artifacts/
+inference-service/artifacts_*/
 results/
 *.log
+
+# Benchmark downloads (re-fetchable; the converted copies beside them are not)
+dataset/benchmark/raw/
 
 # Thesis documents (kept local, not published)
 docs/

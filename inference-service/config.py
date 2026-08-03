@@ -59,4 +59,16 @@ PPR_ALPHA = 0.5                # HippoRAG PPR: probability of following an edge
 LIGHTRAG_NEIGHBOUR_DECAY = 0.5  # score multiplier for one-hop-expanded evidence
 
 # --- Artifacts (built offline by ingestion.build_indexes) ---
-ARTIFACTS_DIR = os.path.join(os.path.dirname(__file__), "artifacts")
+# Overridable so a second corpus can be built without overwriting the first:
+# the extraction cache, HippoRAG matrices and chunk_texts.json are all keyed by
+# chunk_id only, so two corpora sharing a directory would silently corrupt each
+# other. The supplementary benchmark run sets this to artifacts_2wiki/.
+ARTIFACTS_DIR = os.getenv(
+    "ARTIFACTS_DIR", os.path.join(os.path.dirname(__file__), "artifacts"))
+
+# Domain of the extraction and query-NER prompts. "legal" is what every
+# reported GDPR result was produced with; "general" is domain-neutral and is
+# used only for the public-benchmark validity check, where a legal extractor
+# applied to Wikipedia would build an empty graph and make the graph strategies
+# look broken for a reason unrelated to their implementation.
+EXTRACTION_PROFILE = os.getenv("EXTRACTION_PROFILE", "legal")

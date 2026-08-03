@@ -15,8 +15,12 @@ Every phase is metered by CostTracker -> artifacts/indexing_cost_report.json.
 
 Run:  python -m ingestion.build_indexes
 """
+import argparse
 import json
 import logging
+import threading
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import numpy as np
@@ -26,7 +30,7 @@ import config
 from ingestion.chunking import Chunk, load_corpus
 from ingestion.cost_tracker import CostTracker
 from ingestion.dedup import CanonicalEntity, deduplicate_entities
-from ingestion.extraction import extract_graph_elements
+from ingestion.extraction import extract_graph_elements, normalise_elements
 from pipeline.embeddings import embed
 from pipeline.graph import get_driver
 
@@ -81,39 +85,43 @@ SET r.embedding = row.embedding
 
 
 def main() -> None:
+    args = _parse_args()
     tracker = CostTracker()
+    tracker.note("extraction_workers", args.workers)
 
     # ---- Stage 1: chunking -------------------------------------------------
-    chunks = load_corpus(CORPUS_DIR)
-    if not chunks:
-        raise SystemExit(f"No corpus found under {CORPUS_DIR} — see dataset/corpus/README.md")
-    log.info("Chunked corpus: %d chunks", len(chunks))
+    if args.corpus_json:
+        chunks = _load_prechunked(Path(args.corpus_json))
+        log.info("Pre-chunked corpus: %d passages from %s", len(chunks), args.corpus_json)
+    else:
+        chunks = load_corpus(CORPUS_DIR)
+        if not chunks:
+            raise SystemExit(f"No corpus found under {CORPUS_DIR} — see dataset/corpus/README.md")
+        log.info("Chunked corpus: %d chunks", len(chunks))
 
     # ---- Stage 2 (SHARED): extraction + dedup ------------------------------
-    cache_key = f"{config.EXTRACTION_PROVIDER}:{config.EXTRACTION_MODEL}"
-    cache = _load_extraction_cache(cache_key)
+    # The profile is part of the key: a cache built by the legal extractor must
+    # never be replayed for a general-domain corpus, and the failure would
+    # otherwise be silent -- a full cache hit and a graph of the wrong shape.
+    cache_key = f"{config.EXTRACTION_PROVIDER}:{config.EXTRACTION_MODEL}:{config.EXTRACTION_PROFILE}"
+    cache = _load_extraction_cache(cache_key, args.reextract)
+    cache_hits = _extract_all(chunks, cache, cache_key, tracker, args.workers)
+
+    # Normalised on the way out of the cache, not only on the way in: a cache
+    # written before a coercion rule existed still has to produce indexable
+    # data, and re-extracting to pick the rule up is not affordable.
     raw_entities: list[dict] = []
     raw_relations: list[dict] = []
-    cache_hits = 0
-    for i, chunk in enumerate(chunks, 1):
-        cached = cache.get(chunk.chunk_id)
-        if cached is not None:
-            cache_hits += 1
-            log.info("Extracting %d/%d: %s (cached, no API call)", i, len(chunks), chunk.chunk_id)
-            data = cached
-            # Replay the original token usage so the cost report stays complete
-            # on cached runs (older caches predate this field).
-            if cached.get("usage"):
-                tracker.add_tokens("extraction", **cached["usage"])
-        else:
-            log.info("Extracting %d/%d: %s (~%d tokens)", i, len(chunks), chunk.chunk_id, chunk.approx_tokens)
-            data = extract_graph_elements(chunk, tracker)
-            cache[chunk.chunk_id] = data
-            _save_extraction_cache(cache_key, cache)  # incremental: safe to Ctrl-C between chunks
-        for e in data["entities"]:
+    salvaged = 0
+    for chunk in chunks:
+        entities, relations, dropped = normalise_elements(cache[chunk.chunk_id])
+        salvaged += dropped
+        for e in entities:
             raw_entities.append({**e, "chunk_id": chunk.chunk_id})
-        for r in data["relations"]:
+        for r in relations:
             raw_relations.append({**r, "chunk_id": chunk.chunk_id})
+    if salvaged:
+        log.info("Normalisation dropped %d malformed element(s) across the corpus", salvaged)
     log.info("Extracted %d raw entities, %d relations (%d/%d chunks served from cache)",
              len(raw_entities), len(raw_relations), cache_hits, len(chunks))
 
@@ -157,20 +165,141 @@ def main() -> None:
     log.info("Done. Cost report -> %s", ARTIFACTS / "indexing_cost_report.json")
 
 
-def _load_extraction_cache(cache_key: str) -> dict:
+def _parse_args() -> argparse.Namespace:
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument(
+        "--corpus-json",
+        help="pre-segmented corpus as a JSON list of {chunk_id, title, text}. "
+             "Bypasses chunking.py, whose Article/Recital parsing and '###' "
+             "markers only describe the GDPR corpus. Used by the public-benchmark run.")
+    p.add_argument(
+        "--reextract", action="store_true",
+        help="discard an extraction cache whose provider/model/profile no longer "
+             "matches, and pay for it again. Without this the mismatch is an error, "
+             "because the usual cause is an edited .env rather than an intent to rebuild.")
+    p.add_argument(
+        "--workers", type=int, default=1,
+        help="concurrent extraction calls. The default of 1 preserves the "
+             "sequential behaviour every reported GDPR figure was produced "
+             "with; the 6k-passage benchmark corpus needs 8 or so to finish in "
+             "an evening rather than overnight.")
+    return p.parse_args()
+
+
+def _load_prechunked(path: Path) -> list[Chunk]:
+    """Corpora that arrive already segmented — a retrieval benchmark ships its
+    passages as the unit of retrieval, and re-splitting them would change the
+    gold labels' meaning."""
+    rows = json.loads(path.read_text(encoding="utf-8"))
+    chunks = [
+        Chunk(chunk_id=r["chunk_id"], source=r.get("source", path.stem),
+              title=r.get("title", ""), text=r["text"])
+        for r in rows
+    ]
+    ids = [c.chunk_id for c in chunks]
+    if len(set(ids)) != len(ids):
+        raise SystemExit(f"{path}: chunk_id values are not unique — gold labels would be ambiguous")
+    return chunks
+
+
+def _extract_all(chunks: list[Chunk], cache: dict, cache_key: str,
+                 tracker: CostTracker, workers: int) -> int:
+    """Fill `cache` for every chunk, in parallel when asked, and return the
+    number served from cache.
+
+    Failures are collected rather than raised in flight: one bad chunk should
+    not discard the hundreds already paid for. The cache is written before
+    raising, so a re-run resumes instead of starting over.
+    """
+    hits = 0
+    for chunk in chunks:
+        cached = cache.get(chunk.chunk_id)
+        if cached is not None:
+            hits += 1
+            # Replay the original token usage so the cost report stays complete
+            # on cached runs (older caches predate this field).
+            if cached.get("usage"):
+                tracker.add_tokens("extraction", **cached["usage"])
+    todo = [c for c in chunks if c.chunk_id not in cache]
+    log.info("Extraction: %d/%d chunks served from cache, %d to fetch (%d worker(s))",
+             hits, len(chunks), len(todo), workers)
+    if not todo:
+        return hits
+
+    lock = threading.Lock()
+    failures: list[tuple[str, BaseException]] = []
+    done = 0
+    started = time.perf_counter()
+
+    with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
+        pending = {pool.submit(extract_graph_elements, c, tracker): c for c in todo}
+        for future in as_completed(pending):
+            chunk = pending[future]
+            try:
+                data = future.result()
+            except BaseException as exc:          # noqa: BLE001 - recorded, re-raised below
+                log.warning("extraction failed for %s: %r", chunk.chunk_id, exc)
+                with lock:
+                    failures.append((chunk.chunk_id, exc))
+                continue
+            with lock:
+                cache[chunk.chunk_id] = data
+                done += 1
+                # Periodic rather than per-chunk: at 8 workers a write per
+                # result rewrites a growing multi-megabyte file often enough to
+                # become the bottleneck.
+                if done % 25 == 0:
+                    _save_extraction_cache(cache_key, cache)
+                    rate = done / (time.perf_counter() - started)
+                    log.info("  extracted %d/%d (%.1f/s, ~%.0f min left)",
+                             done, len(todo), rate, (len(todo) - done) / rate / 60)
+
+    _save_extraction_cache(cache_key, cache)
+    if failures:
+        raise SystemExit(
+            f"{len(failures)} chunk(s) failed extraction; {done} succeeded and are cached. "
+            f"Re-run to retry only the failures. First: {failures[0][0]} {failures[0][1]!r}")
+    return hits
+
+
+def _load_extraction_cache(cache_key: str, reextract: bool = False) -> dict:
     """Per-chunk extraction results keyed by chunk_id, so re-running the
     pipeline to iterate on dedup/graph logic doesn't re-pay for extraction.
     Invalidated wholesale if EXTRACTION_PROVIDER/MODEL changed since the
     cache was written -- a cache built with one model must never be silently
     reused for another.
+
+    Caches written before the profile existed carry a two-part
+    "provider:model" key. There was only one prompt then, the legal one, so
+    such a cache is exactly a "provider:model:legal" cache and is accepted as
+    one. Without this the GDPR cache -- 345 chunks and a 430k-token extraction
+    pass -- would be silently discarded by the introduction of the profile,
+    re-spending the budget and rebuilding a graph the reported results no
+    longer describe.
     """
     if not EXTRACTION_CACHE_FILE.exists():
         return {}
     payload = json.loads(EXTRACTION_CACHE_FILE.read_text(encoding="utf-8"))
-    if payload.get("cache_key") != cache_key:
-        log.info("Extraction cache was built with a different provider/model (%s) -- ignoring it",
-                 payload.get("cache_key"))
+    stored = payload.get("cache_key")
+    if stored is not None and stored.count(":") == 1 and cache_key.endswith(":legal"):
+        stored = f"{stored}:legal"
+    if stored != cache_key and reextract:
+        log.warning("Discarding %d cached chunks built with %r (--reextract)",
+                    len(payload.get("chunks", {})), payload.get("cache_key"))
         return {}
+    if stored != cache_key:
+        # Stop rather than quietly re-extract. Discarding a cache is a decision
+        # worth hundreds of thousands of tokens and a graph the existing
+        # results no longer describe, and the usual cause is an edited .env
+        # rather than an intent to rebuild.
+        raise SystemExit(
+            f"Extraction cache at {EXTRACTION_CACHE_FILE} was built with "
+            f"{payload.get('cache_key')!r} but this run is configured for {cache_key!r}, "
+            f"so all {len(payload.get('chunks', {}))} cached chunks would be re-extracted.\n"
+            f"  - to reuse the cache: set EXTRACTION_PROVIDER/EXTRACTION_MODEL/"
+            f"EXTRACTION_PROFILE back to match it\n"
+            f"  - to build a different corpus: point ARTIFACTS_DIR somewhere else\n"
+            f"  - to genuinely re-extract with the new model: --reextract")
     return payload.get("chunks", {})
 
 

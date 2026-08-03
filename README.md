@@ -29,7 +29,7 @@ Three integration modes: `/audit` (EDA), `/audit/sync` (unbounded),
 
 ## Prerequisites
 
-- Docker Desktop (Kafka, Neo4j)
+- Docker Desktop (Kafka, Neo4j) — no Docker permission? see [SERVER_DEPLOYMENT.md](SERVER_DEPLOYMENT.md)
 - Java 21 + Maven (gateway-service)
 - Python 3.11 (inference-service, dataset scripts)
 - [Ollama](https://ollama.com) with the SLM pulled:

@@ -31,6 +31,7 @@ from ingestion.chunking import Chunk, load_corpus
 from ingestion.cost_tracker import CostTracker
 from ingestion.dedup import CanonicalEntity, deduplicate_entities
 from ingestion.extraction import extract_graph_elements, normalise_elements
+from ingestion.synonyms import build_synonym_edges
 from pipeline.embeddings import embed
 from pipeline.graph import get_driver
 
@@ -139,11 +140,24 @@ def main() -> None:
 
     driver = get_driver()
 
+    # Entity name vectors are needed three times -- synonymy detection, the
+    # entity index, and nothing else should pay for them twice.
+    entity_vectors = embed([e.name for e in entities]) if entities else []
+
     # ---- Stage 3 (SHARED): graph structure ---------------------------------
     # Charged separately: hybrid traversal and LightRAG expansion both depend
     # on it, so attributing it to one paradigm would distort the comparison.
     with tracker.build_phase("shared_graph"):
         _create_graph(driver, entities, relations, chunks)
+
+    # ---- Stage 3b: synonymy edges (HippoRAG's E') --------------------------
+    # Charged to hippo_rag: it is the only paradigm that walks them. Hybrid and
+    # LightRAG traverse :RELATES explicitly, so their neighbourhoods are
+    # unchanged and the comparison stays about retrieval, not about who got a
+    # denser graph.
+    with tracker.build_phase("hippo_rag"):
+        synonym_edges = build_synonym_edges(np.asarray(entity_vectors))
+        _create_synonym_edges(driver, entities, synonym_edges)
 
     # ---- Stage 4a: Hybrid + Vector RAG -------------------------------------
     with tracker.build_phase("hybrid"):
@@ -151,11 +165,11 @@ def main() -> None:
 
     # ---- Stage 4b: LightRAG ------------------------------------------------
     with tracker.build_phase("light_rag"):
-        _index_entity_edge_vectors(driver, entities, relations, tracker)
+        _index_entity_edge_vectors(driver, entities, relations, tracker, entity_vectors)
 
     # ---- Stage 4c: HippoRAG ------------------------------------------------
     with tracker.build_phase("hippo_rag"):
-        _build_hippo_artifacts(entities, relations, chunks, tracker)
+        _build_hippo_artifacts(entities, relations, chunks, tracker, synonym_edges)
 
     with driver.session() as s:
         s.run("CALL db.awaitIndexes()")  # vector indexes populate asynchronously
@@ -331,9 +345,10 @@ def _rewire_relations(raw_relations: list[dict], name_to_node: dict[str, str]) -
             dropped_missing_entity += 1
             continue
         if src == tgt:
-            # e.g. two ends of a relation merged into the same entity during
-            # dedup -- a spike here often means DEDUP_THRESHOLD merged too
-            # aggressively; cross-check against dedup_report.json
+            # e.g. a relation whose two ends carry the same name, so exact-match
+            # dedup gave them one node. Genuine in the source text ("X succeeded
+            # X") rather than an artefact of merging, now that merging is
+            # name-identity only.
             dropped_self_loop += 1
             continue
         key = (src, tgt, r.get("type", "RELATES"))
@@ -398,6 +413,28 @@ def _create_graph(driver, entities: list[CanonicalEntity], relations: list[dict]
              len(entities), len(relations), len(chunks))
 
 
+_CREATE_SYNONYMS = """
+UNWIND $rows AS row
+MATCH (a:Entity {node_id: row.a}), (b:Entity {node_id: row.b})
+CREATE (a)-[:SYNONYM {similarity: row.similarity}]->(b)
+"""
+
+
+def _create_synonym_edges(driver, entities: list[CanonicalEntity],
+                          edges: list[tuple[int, int, float]]) -> None:
+    """HippoRAG's E'. Written to Neo4j as their own relationship type so the
+    connectivity audits can see them, and so no query that says :RELATES picks
+    them up by accident."""
+    if not edges:
+        return
+    rows = [{"a": entities[i].node_id, "b": entities[j].node_id, "similarity": s}
+            for i, j, s in edges]
+    with driver.session() as s:
+        for start in range(0, len(rows), 10_000):
+            s.run(_CREATE_SYNONYMS, rows=rows[start:start + 10_000])
+    log.info("Synonymy edges: %d written (tau=%.2f)", len(rows), config.SYNONYM_THRESHOLD)
+
+
 def _index_chunk_vectors(driver, chunks: list[Chunk], tracker: CostTracker) -> None:
     vectors = embed([c.text for c in chunks])
     tracker.add_embeddings("hybrid", len(vectors))
@@ -414,9 +451,11 @@ def _index_chunk_vectors(driver, chunks: list[Chunk], tracker: CostTracker) -> N
 
 
 def _index_entity_edge_vectors(driver, entities: list[CanonicalEntity],
-                               relations: list[dict], tracker: CostTracker) -> None:
-    # Entity vectors (LightRAG low-level; also used by entity linking)
-    ent_vectors = embed([e.name for e in entities])
+                               relations: list[dict], tracker: CostTracker,
+                               ent_vectors: list | None = None) -> None:
+    # Entity vectors (LightRAG low-level; also used by entity linking and, in
+    # the caller, by synonymy detection -- computed once and passed in)
+    ent_vectors = embed([e.name for e in entities]) if ent_vectors is None else ent_vectors
     tracker.add_embeddings("light_rag", len(ent_vectors))
     tracker.add_storage("light_rag", len(ent_vectors) * config.VECTOR_DIM * 4)
 
@@ -448,7 +487,8 @@ def _index_entity_edge_vectors(driver, entities: list[CanonicalEntity],
 
 
 def _build_hippo_artifacts(
-    entities: list[CanonicalEntity], relations: list[dict], chunks: list[Chunk], tracker: CostTracker
+    entities: list[CanonicalEntity], relations: list[dict], chunks: list[Chunk],
+    tracker: CostTracker, synonym_edges: list[tuple[int, int, float]] | None = None,
 ) -> None:
     """Row-normalized adjacency matrix, node-passage count matrix, and provenance maps.
 
@@ -466,6 +506,17 @@ def _build_hippo_artifacts(
         i, j = node_index[r["source_id"]], node_index[r["target_id"]]
         rows.extend([i, j])  # treat as undirected for PPR connectivity
         cols.extend([j, i])
+    # E' — synonymy. The walk crosses these exactly as it crosses an extracted
+    # relation, which is the point: on 2Wiki the paper's graph is mostly
+    # synonymy edges, and they are what lets probability reach a passage that
+    # names the same thing differently.
+    for i, j, _ in (synonym_edges or []):
+        rows.extend([i, j])
+        cols.extend([j, i])
+    # Duplicate coordinates are SUMMED here, so a pair joined by both an
+    # extracted relation and a synonymy edge ends up weighted 2. Left as is:
+    # two independent reasons to believe two nodes are related is a stronger
+    # link than one, and collapsing it to 1 would discard that.
     adj = sparse.csr_matrix((np.ones(len(rows)), (rows, cols)), shape=(n, n))
 
     # Row-normalize -> column-stochastic transition on transpose (see hippo_rag.py)

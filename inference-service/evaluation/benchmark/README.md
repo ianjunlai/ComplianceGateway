@@ -111,5 +111,6 @@ for every strategy at once and read as a finding.
 
 - `vector_rag` R@5 should land somewhere near ColBERTv2's 68.2 on this corpus. Near zero
   means the id mapping broke, not that dense retrieval failed.
-- The GDPR numbers must still reproduce (`0.537 / 0.537 / 0.196 / 0.171`) with the profile
-  back to `legal` — nothing here is allowed to disturb the existing results.
+- The GDPR numbers must still reproduce (R@10 `0.537 / 0.537 / 0.567 / 0.179`) with the
+  profile back to `legal` and `EXTRACTION_MODEL=qwen-plus` — nothing here is allowed to
+  disturb them.

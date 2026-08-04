@@ -6,6 +6,15 @@ degrade all three graph strategies while leaving vector_rag untouched — the
 exact asymmetry the recall numbers show. The declared entity type gives a cheap
 correctness probe the merge itself never consulted: a merge that folds an ACTOR
 into a CONCEPT changed what the node means, whatever its embedding said.
+
+SUPERSEDED. This measures similarity-based merging, which has since been
+removed: entities are now merged only when their names match exactly, and
+near-identity is expressed as a SYNONYM edge instead, as both source papers
+specify. The script is kept because it is the provenance for
+docs/retrieval_ablation.md §4.3, and that section describes the configuration
+the reported GDPR figures were produced under. It refuses to run against a
+report written by the current pipeline rather than silently reinterpreting
+fields that no longer mean the same thing.
 """
 
 import sys
@@ -19,14 +28,20 @@ import json
 from collections import Counter
 from pathlib import Path
 
-import config
 from pipeline.graph import get_driver
 
 ART = Path(str(_SERVICE / "artifacts"))
 report = json.loads((ART / "dedup_report.json").read_text(encoding="utf-8"))
 
+if report and "alias_type" not in report[0]:
+    raise SystemExit(
+        f"{ART / 'dedup_report.json'} was written by the exact-match dedup, which "
+        f"performs no similarity merging — there is no merge damage to audit.\n"
+        f"This script describes the superseded 0.90-cosine configuration; see the "
+        f"module docstring.")
+
 cross = [m for m in report if m["alias_type"] != m["canonical_type"]]
-print(f"dedup threshold (config)      : {config.DEDUP_THRESHOLD}")
+print("configuration audited        : similarity merge at cosine 0.90 (SUPERSEDED)")
 print(f"merges across different names : {len(report)}")
 print(f"  of which cross-TYPE         : {len(cross)} ({len(cross) / len(report):.0%})\n")
 

@@ -34,11 +34,19 @@ scp    inference-service/.env      user@server:~/ComplianceGateway/inference-ser
 extraction pass. Without it step 5 silently re-runs all 345 extractions — re-spending the
 budget *and* building a graph that differs from the one the reported results came from.
 
-Then edit the copied `.env` on the server. `SLM_MODEL` is currently a laptop stand-in:
+Then edit the copied `.env` on the server. Two values need correcting:
 
 ```
-SLM_MODEL=llama3.1:8b-instruct-q4_K_M
+SLM_MODEL=llama3.1:8b-instruct-q4_K_M      # the laptop stand-in was llama3.2:1b
+EXTRACTION_MODEL=qwen-plus                 # what the GDPR cache was built with
 ```
+
+`EXTRACTION_MODEL` matters more than it looks. The extraction cache is keyed by
+provider, model and prompt profile, and the GDPR cache was written under `qwen-plus`.
+Leaving the laptop's `qwen-plus-2025-07-28` — which belongs to the public-benchmark run —
+makes step 5 stop with a cache-mismatch error rather than silently re-extracting 345
+passages. That guard is deliberate, but it is easier to set the value correctly now than
+to debug the error later.
 
 ## 2. Pick a GPU
 
@@ -106,7 +114,7 @@ Then check the graph and the retrieval layer:
 
 ```bash
 python evaluation/ablation/compare_all_strategies.py
-#   expect  vector_rag 0.537 / hybrid 0.537 / light_rag 0.196 / hippo_rag 0.171
+#   expect R@10  vector_rag 0.537 / hybrid 0.537 / light_rag 0.567 / hippo_rag 0.179
 ```
 
 Takes a couple of minutes and calls no SLM. In Cypher, the counts should be 345 `Chunk`,
@@ -282,9 +290,10 @@ experiments are done.
 `artifacts/` did not transfer. Stop immediately; continuing costs ~430k tokens and produces
 a different graph.
 
-**`compare_all_strategies.py` prints something other than 0.537 / 0.537 / 0.196 / 0.171** —
+**`compare_all_strategies.py` prints something other than 0.537 / 0.537 / 0.567 / 0.179** —
 the graph differs from the measured one. Check the chunk and entity counts before going
-further.
+further. Figures from before August 2026 read 0.196 for light_rag and 0.171 for hippo_rag;
+those predate the retrieval fixes and are not a target to reproduce.
 
 **Inference is far slower than ~6 s per query, or the GPU runs out of memory** —
 `CUDA_VISIBLE_DEVICES` was not exported in that shell, so `cuda:0` landed on a card

@@ -218,7 +218,7 @@ Then confirm the rebuild matches before committing hours of inference:
 # graph: 345 Chunk, 1673 Entity, 3684 RELATES, 4394 MENTIONED_IN
 # SHOW INDEXES -> chunk_vec, entity_vec, edge_vec all ONLINE
 python evaluation/ablation/compare_all_strategies.py
-#   expect  vector_rag 0.537 / hybrid 0.537 / light_rag 0.196 / hippo_rag 0.171
+#   expect R@10  vector_rag 0.537 / hybrid 0.537 / light_rag 0.567 / hippo_rag 0.179
 ```
 
 A mismatch means the graph is not the one the reported retrieval numbers came

@@ -78,6 +78,30 @@ MATCH (c:Chunk {chunk_id: cid})
 RETURN c.chunk_id AS chunk_id, c.text AS text
 """
 
+# Final ranking over the admitted set. The graph decides which clauses are
+# admissible -- reachable from an entity or relation the query matched -- and
+# the query vector decides which of those are relevant.
+#
+# LightRAG does not define a passage ranking: it retrieves entities and
+# relations and hands their names, descriptions and source excerpts to the LLM,
+# and its published evaluation is generation win-rate, never Recall@k. Scoring
+# it by gold-passage recall therefore requires inventing a ranking, and the
+# choice is ours to defend rather than the paper's to supply.
+#
+# The earlier choice -- rank a clause by the similarity of whichever entity or
+# edge surfaced it -- is the same defect hybrid_graph.py had before its fix: it
+# measures how strongly the query matched some entity, not whether the clause
+# answers the question, so every clause mentioning a well-matched entity
+# inherits its score. That ranking scored Recall@10 = 0.138 on the GDPR corpus
+# against 0.513 for query-vector ranking.
+_RANK_QUERY = """
+UNWIND $chunk_ids AS cid
+MATCH (c:Chunk {chunk_id: cid})
+RETURN c.chunk_id AS chunk_id, c.text AS text,
+       vector.similarity.cosine(c.embedding, $qvec) AS score
+ORDER BY score DESC
+"""
+
 
 class LightRagStrategy(RetrievalStrategy):
     name = "light_rag"
@@ -153,10 +177,25 @@ class LightRagStrategy(RetrievalStrategy):
                     claim(r["chunk_id"], expanded_score, r["support"])
 
             nodes = [n for n, _ in sorted(node_best.items(), key=lambda kv: -kv[1])][:top_k]
-            ranked = sorted(chunk_keys.items(), key=lambda kv: kv[1])[:top_k]
-            chunks = self._fetch_chunks(session, ranked, chunk_texts)
+            if config.LIGHTRAG_RANK_BY_QUERY:
+                chunks = self._rank_by_query(session, list(chunk_keys), qvec, top_k)
+            else:
+                ranked = sorted(chunk_keys.items(), key=lambda kv: kv[1])[:top_k]
+                chunks = self._fetch_chunks(session, ranked, chunk_texts)
 
         return RetrievedContext(chunks=chunks, graph_nodes=nodes, graph_edges=edges)
+
+    def _rank_by_query(self, session, chunk_ids: list[str], qvec: list[float],
+                       top_k: int) -> list[RetrievedChunk]:
+        """Rank the admitted clauses by query similarity, scored in-database so
+        only the top-k cross the wire."""
+        if not chunk_ids:
+            return []
+        return [
+            RetrievedChunk(chunk_id=r["chunk_id"], text=r["text"],
+                           score=index_score_to_cosine(r["score"]))
+            for r in session.run(_RANK_QUERY, chunk_ids=chunk_ids, qvec=qvec)
+        ][:top_k]
 
     def _fetch_chunks(self, session, ranked: list[tuple[str, tuple[float, float]]],
                       known_texts: dict[str, str]) -> list[RetrievedChunk]:

@@ -91,11 +91,30 @@ bin/neo4j start
 
 The tarball bundles its own CUDA runtime — no root, no systemd unit.
 
-```bash
-mkdir -p ~/ollama
-curl -L https://ollama.com/download/ollama-linux-amd64.tgz | tar zx -C ~/ollama
-export OLLAMA_MODELS=$HOME/ollama/models        # ~5 GB, watch your home quota
+Ollama ships Linux builds as zstd archives (`.tar.zst`, ~1.4 GB); the older
+`ollama-linux-amd64.tgz` no longer exists and `https://ollama.com/download/...tgz`
+now redirects to a 404.
 
+```bash
+mkdir -p ~/ollama && cd ~/ollama
+curl -L -o ollama.tar.zst \
+  https://github.com/ollama/ollama/releases/latest/download/ollama-linux-amd64.tar.zst
+tar --zstd -xf ollama.tar.zst
+```
+
+**`tar --zstd` needs GNU tar 1.31 or newer, and Ubuntu 20.04 ships 1.30.** Check with
+`tar --version`. If it is older, decompress separately — and if `zstd` is missing too,
+conda has it, so this still needs no root:
+
+```bash
+conda install -c conda-forge zstd -y      # only if `which zstd` finds nothing
+zstd -dc ollama.tar.zst | tar -xf -
+```
+
+Then:
+
+```bash
+export OLLAMA_MODELS=$HOME/ollama/models        # ~5 GB, watch your home quota
 ~/ollama/bin/ollama serve &
 ~/ollama/bin/ollama pull llama3.1:8b-instruct-q4_K_M
 ```

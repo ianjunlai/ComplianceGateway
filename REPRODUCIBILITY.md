@@ -164,8 +164,10 @@ python -m evaluation.run_eval --strategy hippo_rag  --judge --run-id <id>
 
 # 9. Load experiment (E3)
 jmeter -n -t ../loadtest/compliance_gateway.jmx \
-       -JTHREADS=10 -JRAMP=10 -JDURATION=120 -l results/eda-c10.jtl
-#    one condition per run; enable the matching Thread Group in the GUI first
+       -JEDA_THREADS=10 -JRAMP=10 -JDURATION=120 -l results/eda-c10.jtl
+#    one condition per run, selected by which thread count is non-zero:
+#    -JEDA_THREADS / -JSYNC_THREADS / -JTHROTTLE_THREADS (all default to 0)
+#    full 45-run matrix: ./loadtest/run_e3.sh  (see SERVER_DEPLOYMENT.md)
 #    full profile, failure-mode taxonomy and sizing: loadtest/README.md
 ```
 

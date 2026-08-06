@@ -2,10 +2,15 @@
 <jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="ComplianceGateway E3 — integration-mode comparison" enabled="true">
-      <stringProp name="TestPlan.comments">One condition at a time: enable exactly one Thread Group per run, because all three drive the same single-GPU inference backend and running two at once measures their interference rather than either mode.
+      <stringProp name="TestPlan.comments">One condition at a time: all three Thread Groups drive the same single-GPU inference backend, and running two at once measures their interference rather than either mode.
 
-Override from the CLI without editing this file:
-  jmeter -n -t compliance_gateway.jmx -JTHREADS=10 -JDURATION=120 -JMODE=eda -l results/eda-c10.jtl</stringProp>
+The condition is selected by giving exactly one of the three a non-zero thread count. All default to 0, so naming none of them yields zero samples — a visible failure rather than a silent measurement of the wrong thing. Nothing in this file changes between runs.
+
+  jmeter -n -t compliance_gateway.jmx -JPORT=28080 -JEDA_THREADS=10      -l results/eda-c10.jtl
+  jmeter -n -t compliance_gateway.jmx -JPORT=28080 -JSYNC_THREADS=10     -l results/sync-c10.jtl
+  jmeter -n -t compliance_gateway.jmx -JPORT=28080 -JTHROTTLE_THREADS=10 -l results/throttled-c10.jtl
+
+run_e3.sh drives the full 45-run matrix over these properties.</stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
@@ -20,10 +25,23 @@ Override from the CLI without editing this file:
             <stringProp name="Argument.value">${__P(PORT,8080)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="THREADS" elementType="Argument">
-            <stringProp name="Argument.name">THREADS</stringProp>
-            <stringProp name="Argument.value">${__P(THREADS,1)}</stringProp>
+          <elementProp name="EDA_THREADS" elementType="Argument">
+            <stringProp name="Argument.name">EDA_THREADS</stringProp>
+            <stringProp name="Argument.value">${__P(EDA_THREADS,0)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Concurrency for the EDA condition. 0 means this Thread Group starts nothing, which is how a condition is selected from the command line instead of by enabling groups in the GUI. All three default to 0, so a run that names none of them produces zero samples and fails visibly rather than silently measuring the wrong condition.</stringProp>
+          </elementProp>
+          <elementProp name="SYNC_THREADS" elementType="Argument">
+            <stringProp name="Argument.name">SYNC_THREADS</stringProp>
+            <stringProp name="Argument.value">${__P(SYNC_THREADS,0)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Concurrency for sync-unbounded. See EDA_THREADS.</stringProp>
+          </elementProp>
+          <elementProp name="THROTTLE_THREADS" elementType="Argument">
+            <stringProp name="Argument.name">THROTTLE_THREADS</stringProp>
+            <stringProp name="Argument.value">${__P(THROTTLE_THREADS,0)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Concurrency for sync-throttled. See EDA_THREADS.</stringProp>
           </elementProp>
           <elementProp name="RAMP" elementType="Argument">
             <stringProp name="Argument.name">RAMP</stringProp>
@@ -83,7 +101,7 @@ Override from the CLI without editing this file:
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">${THREADS}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${EDA_THREADS}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">${RAMP}</stringProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">${DURATION}</stringProp>
@@ -163,13 +181,13 @@ Override from the CLI without editing this file:
         </hashTree>
       </hashTree>
 
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="sync-unbounded — POST /audit/sync" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="sync-unbounded — POST /audit/sync" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">${THREADS}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${SYNC_THREADS}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">${RAMP}</stringProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">${DURATION}</stringProp>
@@ -202,13 +220,13 @@ Override from the CLI without editing this file:
         <hashTree/>
       </hashTree>
 
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="sync-throttled — POST /audit/sync-throttled" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="sync-throttled — POST /audit/sync-throttled" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">${THREADS}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${THROTTLE_THREADS}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">${RAMP}</stringProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">${DURATION}</stringProp>

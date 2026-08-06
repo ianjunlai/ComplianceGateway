@@ -86,13 +86,37 @@ file. Every knob is a JMeter property, so a sweep needs no edits to the plan:
 
 ```bash
 jmeter -n -t loadtest/compliance_gateway.jmx \
-       -JTHREADS=10 -JRAMP=10 -JDURATION=120 \
+       -JHOST=localhost -JPORT=8080 \
+       -JEDA_THREADS=10 -JRAMP=10 -JDURATION=120 \
        -l results/eda-c10.jtl
 ```
 
-`HOST` (localhost), `PORT` (8080), `THREADS`, `RAMP` and `DURATION` all take
-`-J` overrides. Switch conditions by enabling the matching Thread Group in the
-GUI and disabling the others.
+`HOST` (localhost), `PORT` (8080), `RAMP` and `DURATION` all take `-J` overrides.
+
+**The condition is chosen by which thread count you set**, not by enabling Thread
+Groups in the GUI. Each group reads its own property and all three default to 0,
+and a group with 0 threads starts nothing:
+
+| Condition | Property |
+|---|---|
+| EDA | `-JEDA_THREADS=<C>` |
+| sync-unbounded | `-JSYNC_THREADS=<C>` |
+| sync-throttled | `-JTHROTTLE_THREADS=<C>` |
+
+Naming none of them produces a run with zero samples — visibly wrong, rather
+than quietly measuring a condition you did not intend. There is no longer a
+`THREADS` property; a command still passing `-JTHREADS` gets that empty run.
+
+`run_e3.sh` drives the full 3 × 5 × 3 matrix over these properties, switching
+the inference backend with the condition and checking that a real request
+completes before each level. See [SERVER_DEPLOYMENT.md](../SERVER_DEPLOYMENT.md).
+
+**Set `-JPORT` to whatever the gateway actually bound to.** On a shared machine
+8080 is often taken and the gateway gets moved with `SERVER_PORT`; a plan still
+aimed at 8080 does not fail fast — every sampler is recorded as a connection
+error and the summary only appears at the end, so a full level of GPU time is
+spent before the mistake shows. One `curl` against the submit endpoint,
+expecting 202, costs nothing and settles it.
 
 **Run one condition at a time.** All three drive the same single-GPU backend, so
 two at once measures their interference rather than either mode. Restart the

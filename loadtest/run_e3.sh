@@ -59,6 +59,9 @@ json_field() {  # json_field <json> <key>
 
 BACKEND_PID=""
 BACKEND_KIND=""
+BACKEND_LOG=""
+
+PREFLIGHT_BODY='{"source_system":"uni_a","audit_query":"May a university transfer student data to a US partner?"}'
 
 stop_backend() {
   [[ -z "$BACKEND_PID" ]] && return 0
@@ -71,32 +74,90 @@ stop_backend() {
   sleep 3
 }
 
+# Ready enough to be probed: the process is alive and has reached the point where
+# it accepts work. Not "warm" -- get_model() is lru_cache'd and loads on first
+# use, so the embedding model is still paid for by the first request. That cost
+# belongs to preflight, which has a timeout sized for it; what a fixed sleep here
+# cannot do is notice a backend that died on startup, e.g. a uvicorn whose port
+# was already taken, which then stays invisible until preflight blames the wrong
+# thing.
+wait_ready() {  # wait_ready consumer|sync
+  local kind="$1"
+  for _ in $(seq 1 60); do
+    if ! kill -0 "$BACKEND_PID" 2>/dev/null; then
+      log "ERROR: $kind exited during startup — see $BACKEND_LOG"
+      tail -n 15 "$BACKEND_LOG" 2>/dev/null | sed 's/^/    /'
+      return 1
+    fi
+    if [[ "$kind" == "sync" ]]; then
+      curl -s -o /dev/null --max-time 2 "http://localhost:$SYNC_PORT/openapi.json" && return 0
+    else
+      grep -q "Consumer started" "$BACKEND_LOG" 2>/dev/null && return 0
+    fi
+    sleep 1
+  done
+  log "ERROR: $kind not ready after 60s — see $BACKEND_LOG"
+  return 1
+}
+
 start_backend() {  # start_backend consumer|sync
   local kind="$1"
   [[ "$BACKEND_KIND" == "$kind" ]] && return 0
   stop_backend
   cd "$REPO/inference-service" || exit 1
   if [[ "$kind" == "consumer" ]]; then
+    BACKEND_LOG="$LOGS/consumer.log"
     CUDA_VISIBLE_DEVICES="$CUDA_DEVICE" nohup "$PYTHON" consumer_main.py \
-      > "$LOGS/consumer.log" 2>&1 &
+      > "$BACKEND_LOG" 2>&1 &
   else
+    BACKEND_LOG="$LOGS/sync_api.log"
     CUDA_VISIBLE_DEVICES="$CUDA_DEVICE" nohup "$PYTHON" -m uvicorn sync_api:app \
-      --port "$SYNC_PORT" > "$LOGS/sync_api.log" 2>&1 &
+      --port "$SYNC_PORT" > "$BACKEND_LOG" 2>&1 &
   fi
   BACKEND_PID=$!
   BACKEND_KIND="$kind"
-  log "started $kind (pid $BACKEND_PID), loading the embedding model"
-  sleep 25
+  log "started $kind (pid $BACKEND_PID)"
+  wait_ready "$kind"
 }
 
 # A run that measures nothing looks identical to a healthy one in JMeter's
 # summary: a poll returning PENDING is a 200, so a broken pipeline reports 0%
 # errors. The only honest check is whether a single request actually completes.
-preflight() {
-  local body rid decision
+#
+# The probe must travel the same path the condition will exercise. Probing the
+# EDA endpoint while sync_api is the running backend fails by construction:
+# sync_api serves POST /infer and never touches Kafka, so the request is
+# published to Audit_Request_Topic, nothing consumes it, and the poll returns
+# PENDING until it times out -- which reads as a broken backend when the backend
+# was never asked to do anything.
+preflight() {  # preflight eda|sync|throttled
+  local cond="$1" body rid decision path
+
+  if [[ "$cond" != "eda" ]]; then
+    case "$cond" in
+      sync)      path="/api/v1/audit/sync" ;;
+      throttled) path="/api/v1/audit/sync-throttled" ;;
+      *) log "PREFLIGHT FAILED: unknown condition '$cond'"; return 1 ;;
+    esac
+    # Synchronous: the decision arrives on the same response, no polling. The
+    # timeout exceeds the gateway's own inference timeout (240s) so that a
+    # backend which is merely slow stays distinguishable from one that is
+    # misrouted -- the two need different fixes.
+    body=$(curl -s --max-time 300 -X POST "http://$HOST:$PORT$path" \
+        -H 'Content-Type: application/json' -d "$PREFLIGHT_BODY")
+    decision=$(json_field "$body" decision)
+    if [[ -z "$decision" ]]; then
+      log "PREFLIGHT FAILED ($cond): no decision from $path"
+      log "  response: ${body:0:200}"
+      log "  does the gateway's inference.sync-url point at sync_api on :$SYNC_PORT?"
+      return 1
+    fi
+    log "preflight ok (decision=$decision)"
+    return 0
+  fi
+
   body=$(curl -s --max-time 15 -X POST "http://$HOST:$PORT/api/v1/audit" \
-      -H 'Content-Type: application/json' \
-      -d '{"source_system":"uni_a","audit_query":"May a university transfer student data to a US partner?"}')
+      -H 'Content-Type: application/json' -d "$PREFLIGHT_BODY")
   rid=$(json_field "$body" request_id)
   if [[ -z "$rid" ]]; then
     log "PREFLIGHT FAILED: no request_id from the gateway at $HOST:$PORT"
@@ -108,12 +169,19 @@ preflight() {
     [[ -n "$decision" ]] && { log "preflight ok (decision=$decision)"; return 0; }
     sleep 2
   done
-  log "PREFLIGHT FAILED: request $rid never completed in 120s — is the backend consuming?"
+  log "PREFLIGHT FAILED: request $rid never completed in 120s — is the consumer running?"
   return 1
 }
 
-drain() {
+# EDA only. queue_depth is submitted - completed - errors, and `submitted` is
+# incremented solely by AuditProducerService.publish on the EDA path -- a
+# synchronous request never reaches it. Draining before a sync run would
+# therefore wait on whatever the EDA runs left behind, which is both unrelated
+# to the run about to start and, if anything was ever left unaccounted, a
+# guaranteed 15-minute stall on every single sync run.
+drain() {  # drain eda|sync|throttled
   local depth
+  [[ "$1" != "eda" ]] && return 0
   for _ in $(seq 1 180); do
     depth=$(json_field "$(metrics)" queue_depth)
     [[ "$depth" == "0" || -z "$depth" ]] && return 0
@@ -153,9 +221,11 @@ for rep in $(seq 1 "$REPS"); do
         continue
       fi
 
-      start_backend "$backend"
-      preflight || { log "aborting: fix the backend before spending GPU time on the matrix"; stop_backend; exit 1; }
-      drain
+      start_backend "$backend" \
+        || { log "aborting: the $backend backend did not come up"; stop_backend; exit 1; }
+      preflight "$cond" \
+        || { log "aborting: fix the backend before spending GPU time on the matrix"; stop_backend; exit 1; }
+      drain "$cond"
 
       before=$(metrics); gpu_before=$(gpu_free)
       log "[$done_n/$total] $cond C=$c rep=$rep"
@@ -163,7 +233,7 @@ for rep in $(seq 1 "$REPS"); do
         -JHOST="$HOST" -JPORT="$PORT" -J"$prop"="$c" \
         -JRAMP="$RAMP" -JDURATION="$DURATION" \
         -l "$jtl" > "$LOGS/${cond}-c${c}-rep${rep}.log" 2>&1
-      drain
+      drain "$cond"
       after=$(metrics); gpu_after=$(gpu_free)
 
       samples=$(( $(wc -l < "$jtl" 2>/dev/null || echo 1) - 1 ))

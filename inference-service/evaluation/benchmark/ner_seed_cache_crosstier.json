@@ -1,0 +1,207 @@
+{
+ "ct-001": [
+  "Georg-August-Universität Göttingen",
+  "staff volunteers",
+  "data controller: Georg-August-Universität Göttingen",
+  "student: none",
+  "data categories: health data",
+  "actions: processing, storage",
+  "jurisdictions/destinations: Germany"
+ ],
+ "ct-003": [
+  "University of Cambridge",
+  "student",
+  "non-EU university",
+  "Brazil"
+ ],
+ "ct-004": [
+  "Georg-August-Universität Göttingen",
+  "student",
+  "grades"
+ ],
+ "ct-005": [
+  "data controller: Georg-August-Universität Göttingen",
+  "actors: students",
+  "data categories: student attendance records"
+ ],
+ "ct-007": [
+  "University of Cambridge",
+  "students",
+  "scholarships"
+ ],
+ "ct-008": [
+  "Georg-August-Universität Göttingen",
+  "student"
+ ],
+ "ct-009": [
+  "University of Cambridge",
+  "student",
+  "court",
+  "France"
+ ],
+ "ct-010": [
+  "University of Cambridge",
+  "student",
+  "third-country research partner"
+ ],
+ "ct-011": [
+  "Georg-August-Universität Göttingen",
+  "individuals concerned",
+  "public interest"
+ ],
+ "ct-012": [
+  "data controller: Georg-August-Universität Göttingen",
+  "student",
+  "health data",
+  "disciplinary incident"
+ ],
+ "ct-013": [
+  "University of Cambridge",
+  "student union",
+  "Information Commissioner",
+  "affected students"
+ ],
+ "ct-014": [
+  "University of Cambridge",
+  "staff member"
+ ],
+ "ct-015": [
+  "University of Cambridge",
+  "student"
+ ],
+ "ct-016": [
+  "Trinity College Dublin",
+  "student",
+  "Irish Data Protection Commission"
+ ],
+ "ct-017": [
+  "University of Cambridge",
+  "student",
+  "admissions office"
+ ],
+ "ct-018": [
+  "University of Cambridge",
+  "student"
+ ],
+ "ct-019": [
+  "Göttingen University",
+  "University's outside law firm",
+  "department head",
+  "students"
+ ],
+ "ct-020": [
+  "University of Cambridge (Data Controller)",
+  "Student (Data Subject)"
+ ],
+ "ct-021": [
+  "University of Cambridge",
+  "student",
+  "Cambridge Student Union"
+ ],
+ "ct-022": [
+  "University of Cambridge",
+  "overseas alumni association"
+ ],
+ "ct-023": [
+  "Georg-August-Universität Göttingen",
+  "individuals recorded"
+ ],
+ "ct-024": [
+  "University of Cambridge",
+  "student",
+  "Scotland",
+  "Scottish sheriff court"
+ ],
+ "ct-025": [
+  "Georg-August-Universität Göttingen",
+  "student",
+  "dental insurance",
+  "reimbursement claim"
+ ],
+ "ct-026": [
+  "University of Cambridge (data controller)",
+  "Student (data subject)",
+  "Scholarship Provider (third party)"
+ ],
+ "ct-027": [
+  "Trinity College Dublin",
+  "deceased students"
+ ],
+ "ct-028": [
+  "Georg-August-Universität Göttingen",
+  "student application records",
+  "international humanitarian organization",
+  "supragovernmental obligation"
+ ],
+ "ct-029": [
+  "University of Cambridge",
+  "Student",
+  "Dissertation supervisor",
+  "Colleague"
+ ],
+ "ct-030": [
+  "data controller: University of Cambridge",
+  "data subjects: former student at the University of Cambridge",
+  "data categories: staff meeting notes, emails, academic performance, research data",
+  "actions: request, provide",
+  "jurisdictions/destinations: UK (University of Cambridge)"
+ ],
+ "ct-031": [
+  "Georg-August-Universität Göttingen",
+  "lecturer",
+  "sick leave records",
+  "diagnosis details",
+  "medical certificates"
+ ],
+ "ct-032": [
+  "University of Cambridge",
+  "student"
+ ],
+ "ct-033": [
+  "Trinity College Dublin",
+  "advocacy group",
+  "student"
+ ],
+ "ct-034": [
+  "Georg-August-Universität Göttingen",
+  "European Commission",
+  "German supervisory authority"
+ ],
+ "ct-035": [
+  "University of Limerick",
+  "research participant",
+  "health data",
+  "U.S. collaborator",
+  "Irish DPC",
+  "High Court"
+ ],
+ "ct-036": [
+  "Georg-August-Universität Göttingen",
+  "student applicants",
+  "admission documents",
+  "external legal counsel",
+  "faculty"
+ ],
+ "ct-037": [
+  "University of Limerick",
+  "student",
+  "disciplinary investigation"
+ ],
+ "ct-038": [
+  "University of Cambridge",
+  "undergraduate students",
+  "cloud storage provider",
+  "Belarus"
+ ],
+ "ct-039": [
+  "data controller: Georg-August-Universität Göttingen",
+  "actors: student, janitor",
+  "data categories: CCTV footage",
+  "actions: use, storage (implied)",
+  "jurisdictions/destinations: university premises"
+ ],
+ "ct-040": [
+  "University of Cambridge",
+  "recent graduate"
+ ]
+}

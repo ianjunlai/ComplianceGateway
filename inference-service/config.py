@@ -54,6 +54,14 @@ GENERATION_CONTEXT_K = 5       # chunks the SLM actually sees (fixed, independen
 # on 2Wiki, 21% of gold passage pairs sit 3-4 relations apart and are invisible
 # at 2.
 GRAPH_HOPS = int(os.getenv("GRAPH_HOPS", "2"))
+# Follow Chunk-[:IMPLEMENTS]->Chunk citations one hop past the entity traversal.
+# Off by default: the edges exist only in the three-tier pilot corpus, and every
+# GDPR figure reported so far was produced without them.
+HYBRID_FOLLOW_IMPLEMENTS = os.getenv("HYBRID_FOLLOW_IMPLEMENTS", "0") not in ("0", "false", "False")
+# Entry points the vec_* variants take before expanding. Swept on the pilot:
+# the best value differed between corpora (5 there, 10 on GDPR) and the
+# difference was inside the noise at n=38, so it is disclosed rather than tuned.
+VECTOR_EXPAND_ENTRY_K = int(os.getenv("VECTOR_EXPAND_ENTRY_K", "5"))
 # Query entity -> graph node. HippoRAG specifies the argmax, exactly one node
 # per query entity with no threshold. That is set to 3 here, and the deviation
 # is deliberate: the paper's rule assumes GPT-3.5-quality query NER, and this

@@ -89,11 +89,14 @@ def extract_graph_elements(chunk: Chunk, tracker: CostTracker, max_attempts: int
     prompt = _prompt_template().replace("{chunk_id}", chunk.chunk_id).replace("{text}", chunk.text)
     # The output budget has to scale with the input: entity and relation counts
     # track passage length, and a flat cap silently becomes a length filter.
-    # 4000 was generous for a GDPR clause and still is — it stays the floor —
-    # but a dense 736-word biography exhausted it on all three attempts and the
-    # chunk was simply lost. Raising the cap cannot change any response that
-    # was not being truncated, so this leaves already-extracted corpora alone.
-    max_output = max(4000, 8 * chunk.approx_tokens)
+    # The floor matters as much as the slope, and it is model-dependent: 4000
+    # sufficed for every GDPR clause under qwen-plus, then a 736-word biography
+    # exhausted it on 2Wiki (fixed by the slope), then a 370-word UK provision
+    # cross-referencing four Schedules exhausted it under qwen-plus-latest,
+    # which is simply more verbose. Raising a cap cannot change a response that
+    # was not being truncated, so this is safe for already-extracted corpora
+    # and costs nothing when unused.
+    max_output = max(8000, 8 * chunk.approx_tokens)
     with tracker.llm_call("extraction"):
         data, usage = complete_json(
             config.EXTRACTION_PROVIDER, config.EXTRACTION_MODEL, prompt,

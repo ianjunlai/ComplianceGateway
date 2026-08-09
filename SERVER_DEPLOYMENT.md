@@ -16,37 +16,30 @@ broker and no gateway anywhere in the chain. Skip Part 2 until E1/E2 has finishe
 
 # Part 1 — E1/E2
 
-## 1. Copy the two things git does not carry
+## 1. Clone, and copy the one thing git does not carry
 
-`inference-service/artifacts/` and `inference-service/.env` are gitignored. Run these on
-your **laptop**, after cloning on the server:
+`inference-service/.env` is gitignored — it holds the API key. Everything else, including
+the three-tier corpus and the national Acts it is built from, is in the repository.
 
 ```bash
 # on the server
 git clone https://github.com/ianjunlai/ComplianceGateway.git
+cd ComplianceGateway && git checkout supplementary-experiment
 
 # on the laptop
-scp -r inference-service/artifacts user@server:~/ComplianceGateway/inference-service/
-scp    inference-service/.env      user@server:~/ComplianceGateway/inference-service/
+scp inference-service/.env user@server:~/ComplianceGateway/inference-service/
 ```
 
-`artifacts/extraction_cache.json` is the stored result of a 430,704-token, ~90-minute
-extraction pass. Without it step 5 silently re-runs all 345 extractions — re-spending the
-budget *and* building a graph that differs from the one the reported results came from.
-
-Then edit the copied `.env` on the server. Two values need correcting:
+Then check one value in the copied `.env`:
 
 ```
 SLM_MODEL=llama3.1:8b-instruct-q4_K_M      # the laptop stand-in was llama3.2:1b
-EXTRACTION_MODEL=qwen-plus                 # what the GDPR cache was built with
 ```
 
-`EXTRACTION_MODEL` matters more than it looks. The extraction cache is keyed by
-provider, model and prompt profile, and the GDPR cache was written under `qwen-plus`.
-Leaving the laptop's `qwen-plus-2025-07-28` — which belongs to the public-benchmark run —
-makes step 5 stop with a cache-mismatch error rather than silently re-extracting 345
-passages. That guard is deliberate, but it is easier to set the value correctly now than
-to debug the error later.
+> **`artifacts/` is no longer copied.** The three-tier run extracts all 959 chunks fresh
+> under `EXTRACTION_MODEL=deepseek-v3.2` into a *separate* `artifacts_full/`, so the old
+> GDPR cache would not be reused even if it were present. The GDPR-only cache is keyed by
+> `provider:model:profile` and a mismatch is a hard error, never a silent re-extraction.
 
 ## 2. Pick a GPU
 
@@ -87,6 +80,16 @@ bin/neo4j start
 `bin/neo4j status` should report it running. Default ports are 7687 (bolt) and 7474
 (browser); if either is taken, see the appendix.
 
+> **Step 3 wipes this database** — `build_indexes` opens with `MATCH (n) DETACH DELETE n`,
+> and Community edition serves one database. That is intended here: the 959-chunk
+> three-tier corpus contains the GDPR one. Nothing expensive is lost, because the GDPR
+> extraction cache lives in its own `artifacts/` and that graph can be rebuilt later with
+> no API calls. Preflight prints how many chunks are about to be replaced.
+>
+> To keep both graphs live at once, unpack a second tarball, set
+> `server.bolt.listen_address=:7689` in its `conf/neo4j.conf`, and export
+> `NEO4J_URI=bolt://localhost:7689` before running the script.
+
 ## 5. Ollama
 
 The tarball bundles its own CUDA runtime — no root, no systemd unit.
@@ -119,57 +122,79 @@ export OLLAMA_MODELS=$HOME/ollama/models        # ~5 GB, watch your home quota
 ~/ollama/bin/ollama pull llama3.1:8b-instruct-q4_K_M
 ```
 
-## 6. Build the graph — and stop here if it does not match
+## 6. Run the whole experiment
+
+One script does steps 1–9: assemble the corpus, extract the citation graph, extract
+entities and build the Neo4j graph, generate the questions, then run E2 and E1.
 
 ```bash
-cd ~/ComplianceGateway/inference-service
-python -m ingestion.build_indexes
-```
-
-The log **must** say `345/345 chunks served from cache` and make no API calls. If it starts
-calling the API, stop it: `artifacts/` did not transfer.
-
-Then check the graph and the retrieval layer:
-
-```bash
-python evaluation/ablation/compare_all_strategies.py
-#   expect R@10  vector_rag 0.537 / hybrid 0.537 / light_rag 0.567 / hippo_rag 0.179
-```
-
-Takes a couple of minutes and calls no SLM. In Cypher, the counts should be 345 `Chunk`,
-1,673 `Entity`, 3,684 `RELATES`, 4,394 `MENTIONED_IN`, and `SHOW INDEXES` should list
-`chunk_vec`, `entity_vec` and `edge_vec` all ONLINE.
-
-**A mismatch means the graph is not the one the reported numbers came from**, so nothing
-measured after it would be comparable to the thesis. Fix it before spending GPU time.
-
-## 7. Run E1/E2
-
-Under `tmux`, so a dropped SSH session does not kill a multi-hour job. One strategy per
-process — the active strategy is fixed when the process starts.
-
-```bash
-tmux new -s eval
+tmux new -s exp
 conda activate cg && export CUDA_VISIBLE_DEVICES=1
-cd ~/ComplianceGateway/inference-service
+cd ~/ComplianceGateway
+./run_full_experiment.sh --dry-run     # read the plan first
 
-python -m evaluation.run_eval --strategy zero_shot  --judge --run-id server1
-python -m evaluation.run_eval --strategy vector_rag --judge --run-id server1
-python -m evaluation.run_eval --strategy hybrid     --judge --run-id server1
-python -m evaluation.run_eval --strategy light_rag  --judge --run-id server1
-python -m evaluation.run_eval --strategy hippo_rag  --judge --run-id server1
+mkdir -p results/full                  # tee opens the file before the script creates it
+./run_full_experiment.sh 2>&1 | tee results/full/run.log
 ```
 
-Detach with `Ctrl-b d`, reattach with `tmux attach -t eval`. Expect roughly 1.5–2 hours for
-all five on an A100.
+Detach with `Ctrl-b d`, reattach with `tmux attach -t exp`.
 
-Results land in the repo-root `results/` regardless of the working directory: a `.jsonl`
-appended after every query, and a `.json` summary at the end. If a run dies, rerun the
-**same** command with `--resume` appended — failed queries are retried, scored ones are
-not.
+**Preflight runs first and costs nothing.** It prints the configured models, makes one
+real API call to each so a bad model name fails in seconds rather than at 3 a.m., checks
+Neo4j and Ollama, and reports how many chunks are in the graph that is about to be
+replaced. If it stops, nothing has been spent.
 
-`--judge` adds one qwen-max call per query (800 across all five). It can be dropped now and
-added later against the same `--run-id`.
+| step | what it does | cost |
+|---|---|---|
+| 1–2 | corpus (959 chunks) and citation graph (1,414 edges) | free |
+| 3 | entity extraction + graph build | ~983k tokens, ~1 h |
+| 4–5 | load citation edges, **verify the graph** | free |
+| 6 | generate 78 cross-tier questions | ~180k tokens |
+| 7 | NER seeds (local SLM) | free |
+| 8 | E2 — retrieval, ten variants | free |
+| 9 | E1 — decisions + judge, eight strategies | ~1.25M tokens |
+
+Roughly 2.4M tokens and an overnight run in total.
+
+**Every step that can produce plausible-looking wrong data is followed by a check that
+stops the run.** These are not decoration — each one corresponds to a failure that has
+actually happened here:
+
+- a vector index that is ONLINE but empty (schema survives `DETACH DELETE`), which makes
+  every strategy score zero at once;
+- a build that crashed after chunk embeddings but before entity embeddings, leaving a
+  graph that *looks* populated while `hybrid`, `light_rag` and `hippo_rag` silently
+  retrieve nothing;
+- a gold chunk id that names no chunk, which reports zero recall as if it were a result;
+- a jurisdiction with no cross-tier edges (see §Things that actually go wrong).
+
+## 7. Resuming, and reading the output
+
+Each step skips if its output already exists, so a re-run picks up where it stopped:
+
+```bash
+./run_full_experiment.sh --from 6      # skip corpus + extraction, start at QA generation
+```
+
+E1 keeps a `.jsonl` per strategy and passes `--resume`, so an interrupted strategy
+continues rather than restarting, and one strategy failing does not take the other six
+with it — the script reports which were incomplete.
+
+Results land in the repo-root `results/`:
+
+```
+results/<strategy>-<run-id>.json      E1 summary per strategy
+results/full/logs/e2.log              the E2 retrieval table
+results/full/logs/build.log           extraction and graph build
+```
+
+Then re-score E1 with the corrected metrics — this excludes the unsound `UNKNOWN` labels,
+splits answerable from unanswerable, and adds McNemar's test:
+
+```bash
+cd inference-service
+python -m evaluation.rescore --run-id full<MMDD> --dataset ../dataset/crosstier_qa_full.json
+```
 
 **Part 1 ends here.** You have the E1/E2 results.
 
@@ -420,34 +445,85 @@ against nothing. Set both in `config/kraft/server.properties`.
 
 ## Getting results back
 
-`results/` is gitignored, so committing from it needs `-f`. The simplest route leaves no
-GitHub credential on a machine other people use:
-
 ```bash
+# on the server, after the run finishes
+./collect_results.sh --check     # see what it will take
+./collect_results.sh             # -> compliance-gateway-<runid>-<date>.tar.gz
+
 # on the laptop
-scp -r user@server:~/ComplianceGateway/results/ ./results/
-git add -f results/ && git commit -m "results from the GPU server" && git push
+scp user@server:~/ComplianceGateway/compliance-gateway-*.tar.gz .
+tar xzf compliance-gateway-*.tar.gz -C /path/to/ComplianceGateway
 ```
 
-Raw `.jtl` files reach tens of megabytes at C=100 — `gzip` them first; GitHub warns above
-50 MB per file. If you would rather push directly from the server, create an SSH key there
-and add it as a repository **deploy key** with write access, then delete it when the
-experiments are done.
+A few megabytes, but two files in it are worth about **1.2M tokens**:
+
+| Path | Why it cannot be regenerated free |
+|---|---|
+| `artifacts_full/extraction_cache.json` | ~983k tokens of entity/relation extraction |
+| `dataset/crosstier_qa_full.json` | ~180k tokens — and a re-run produces *different* questions, so earlier results stop being comparable |
+| `results/` | the experiment itself |
+| `ner_seed_cache_full.json` | free in tokens, but needs Ollama and a GPU pass |
+| `indexing_cost_report.json`, `extraction_token_usage_note.md`, `dedup_report.json` | tiny; the provenance the write-up cites |
+
+**Deliberately not in the bundle**, because rebuilding them costs no API calls:
+`chunk_texts.json`, the `hippo_*` matrices, the Neo4j store, and
+`full_corpus.json` / `full_citations.json` (deterministic, and tracked in git).
+
+To bring a fresh machine up to the same state, unpack and rebuild — embeddings
+and database writes only, no tokens:
+
+```bash
+cd inference-service
+ARTIFACTS_DIR=$PWD/artifacts_full python -m ingestion.build_indexes \
+    --corpus-json ../dataset/corpus/full_corpus.json --workers 8
+python -m ingestion.load_implements --edges ../dataset/corpus/full_citations.json
+#   the log must say 959/959 chunks served from cache
+```
+
+> **The cache only replays if the model matches.** It is keyed
+> `provider:model:profile`, so the new machine's `.env` must still request
+> `EXTRACTION_MODEL=deepseek-v3.2` with `EXTRACTION_PROFILE=legal`, and
+> `ARTIFACTS_DIR` must point at `artifacts_full/`. A mismatch stops with an
+> error rather than silently re-extracting — but that is still a wasted trip.
+> `collect_results.sh` prints the key it bundled.
+
+`dataset/` is tracked by git, so `crosstier_qa_full.json` can also just be
+committed from the server. `results/` and `artifacts_*/` are gitignored;
+committing those needs `git add -f`, and raw `.jtl` files from E3 reach tens of
+megabytes — `gzip` them first, GitHub warns above 50 MB per file.
+
+If you would rather push directly from the server, create an SSH key there and add it as a
+repository **deploy key** with write access, then delete it when the experiments are done.
 
 ## Things that actually go wrong
 
-**The build makes API calls instead of reporting `345/345 chunks served from cache`** —
-`artifacts/` did not transfer. Stop immediately; continuing costs ~430k tokens and produces
-a different graph.
+**Step 5 stops with `vector index entity_vec is None, not ONLINE`** — the build died
+between the chunk embeddings and the entity embeddings, usually out of memory. The graph
+looks fine (all chunks present and embedded, `chunk_vec` ONLINE) but `hybrid`, `light_rag`
+and `hippo_rag` would silently retrieve *nothing*, and three strategies at 0.000 reads like
+a finding rather than a crash. Re-run `--from 3`; extraction is cached, so only the
+embedding pass repeats and it costs no tokens. This is the single most valuable check in
+the script — it was written after exactly this happened during testing.
 
-**`compare_all_strategies.py` prints something other than 0.537 / 0.537 / 0.567 / 0.179** —
-the graph differs from the measured one. Check the chunk and entity counts before going
-further. Figures from before August 2026 read 0.196 for light_rag and 0.171 for hippo_rag;
-those predate the retrieval fixes and are not a target to reproduce.
+**Step 2 stops with `only 0 usable sources for de`** — the citation regex stopped matching
+the German Act. Germany cites the GDPR as "Regulation (EU) 2016/679" where the UK and Irish
+Acts name it in prose, so a change to the pattern can remove one jurisdiction's cross-tier
+edges while the other two still look correct. Expected counts are roughly UK 39, DE 26,
+IE 14 distinct usable sources.
+
+**Step 3 stops with a cache-mismatch error** — `EXTRACTION_MODEL` in `.env` no longer
+matches what wrote `artifacts_full/extraction_cache.json`. That guard is deliberate: it
+prevents a graph built half from one model and half from another. Either set the model back
+or pass `--reextract` and pay for it again.
 
 **Inference is far slower than ~6 s per query, or the GPU runs out of memory** —
 `CUDA_VISIBLE_DEVICES` was not exported in that shell, so `cuda:0` landed on a card
 somebody else is using.
 
-**A long run dies when the SSH session drops** — it was not under `tmux`. Restart with the
-same `--run-id` plus `--resume`.
+**A long run dies when the SSH session drops** — it was not under `tmux`. Re-run
+`./run_full_experiment.sh` (or `--from N`); completed steps are skipped and E1 resumes
+per strategy.
+
+**Ollama and the embedding model compete for memory.** Only step 7 (NER seeds) and step 9
+(E1) need Ollama. If the embedding pass in step 3 is killed, stop Ollama for that step and
+start it again before step 7.

@@ -1,0 +1,9900 @@
+[
+ {
+  "source": "gdpr-art-10",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-11",
+  "target": "gdpr-art-15",
+  "type": "CITES",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-11",
+  "target": "gdpr-art-20",
+  "type": "CITES",
+  "citation": "Article 20",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-12",
+  "target": "gdpr-art-13",
+  "type": "CITES",
+  "citation": "Article 13",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-12",
+  "target": "gdpr-art-14-1",
+  "type": "CITES",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-12",
+  "target": "gdpr-art-14-2",
+  "type": "CITES",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-12",
+  "target": "gdpr-art-15",
+  "type": "CITES",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-12",
+  "target": "gdpr-art-22",
+  "type": "CITES",
+  "citation": "Article 22",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-12",
+  "target": "gdpr-art-34",
+  "type": "CITES",
+  "citation": "Article 34",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-12",
+  "target": "gdpr-art-11",
+  "type": "CITES",
+  "citation": "Article 11(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-12",
+  "target": "gdpr-art-21",
+  "type": "CITES",
+  "citation": "Article 21",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-12",
+  "target": "gdpr-art-92",
+  "type": "CITES",
+  "citation": "Article 92",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-13",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-13",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-13",
+  "target": "gdpr-art-47-1",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-13",
+  "target": "gdpr-art-47-2",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-13",
+  "target": "gdpr-art-49-1",
+  "type": "CITES",
+  "citation": "Article 49(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-13",
+  "target": "gdpr-art-9-2",
+  "type": "CITES",
+  "citation": "Article 9(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-13",
+  "target": "gdpr-art-22",
+  "type": "CITES",
+  "citation": "Article 22(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-14-1",
+  "target": "gdpr-art-14-2",
+  "type": "CITES",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-14-1",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-14-1",
+  "target": "gdpr-art-47-1",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-14-1",
+  "target": "gdpr-art-47-2",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-14-1",
+  "target": "gdpr-art-49-1",
+  "type": "CITES",
+  "citation": "Article 49(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-14-1",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-14-1",
+  "target": "gdpr-art-9-2",
+  "type": "CITES",
+  "citation": "Article 9(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-14-1",
+  "target": "gdpr-art-22",
+  "type": "CITES",
+  "citation": "Article 22(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-14-1",
+  "target": "gdpr-art-89",
+  "type": "CITES",
+  "citation": "Article 89(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-15",
+  "target": "gdpr-art-22",
+  "type": "CITES",
+  "citation": "Article 22(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-15",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-17",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-17",
+  "target": "gdpr-art-9-2",
+  "type": "CITES",
+  "citation": "Article 9(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-17",
+  "target": "gdpr-art-21",
+  "type": "CITES",
+  "citation": "Article 21(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-17",
+  "target": "gdpr-art-8",
+  "type": "CITES",
+  "citation": "Article 8(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-17",
+  "target": "gdpr-art-9-1",
+  "type": "CITES",
+  "citation": "Article 9(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-17",
+  "target": "gdpr-art-89",
+  "type": "CITES",
+  "citation": "Article 89(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-18",
+  "target": "gdpr-art-21",
+  "type": "CITES",
+  "citation": "Article 21(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-19",
+  "target": "gdpr-art-16",
+  "type": "CITES",
+  "citation": "Article 16",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-19",
+  "target": "gdpr-art-18",
+  "type": "CITES",
+  "citation": "Article 18",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-2",
+  "target": "gdpr-art-98",
+  "type": "CITES",
+  "citation": "Article 98",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-2",
+  "target": "gdpr-art-12",
+  "type": "CITES",
+  "citation": "Article 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-2",
+  "target": "gdpr-art-15",
+  "type": "CITES",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-20",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-20",
+  "target": "gdpr-art-9-2",
+  "type": "CITES",
+  "citation": "Article 9(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-20",
+  "target": "gdpr-art-17",
+  "type": "CITES",
+  "citation": "Article 17",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-21",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-21",
+  "target": "gdpr-art-89",
+  "type": "CITES",
+  "citation": "Article 89(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-22",
+  "target": "gdpr-art-9-1",
+  "type": "CITES",
+  "citation": "Article 9(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-22",
+  "target": "gdpr-art-9-2",
+  "type": "CITES",
+  "citation": "Article 9(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-23",
+  "target": "gdpr-art-12",
+  "type": "CITES",
+  "citation": "Article 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-23",
+  "target": "gdpr-art-22",
+  "type": "CITES",
+  "citation": "Article 22",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-23",
+  "target": "gdpr-art-5",
+  "type": "CITES",
+  "citation": "Article 5",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-24",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-24",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-24",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-25",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-26",
+  "target": "gdpr-art-13",
+  "type": "CITES",
+  "citation": "Article 13",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-26",
+  "target": "gdpr-art-14-1",
+  "type": "CITES",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-26",
+  "target": "gdpr-art-14-2",
+  "type": "CITES",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-27",
+  "target": "gdpr-art-3",
+  "type": "CITES",
+  "citation": "Article 3(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-27",
+  "target": "gdpr-art-9-1",
+  "type": "CITES",
+  "citation": "Article 9(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-27",
+  "target": "gdpr-art-10",
+  "type": "CITES",
+  "citation": "Article 10",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-28-1",
+  "target": "gdpr-art-28-2",
+  "type": "CITES",
+  "citation": "Article 28",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-28-1",
+  "target": "gdpr-art-32",
+  "type": "CITES",
+  "citation": "Article 32",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-28-1",
+  "target": "gdpr-art-36",
+  "type": "CITES",
+  "citation": "Article 36",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-43-1",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-43-2",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-93",
+  "type": "CITES",
+  "citation": "Article 93(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-82",
+  "type": "CITES",
+  "citation": "Article 82",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-83-1",
+  "type": "CITES",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-83-2",
+  "type": "CITES",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-84",
+  "type": "CITES",
+  "citation": "Article 84",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-30",
+  "target": "gdpr-art-49-1",
+  "type": "CITES",
+  "citation": "Article 49(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-30",
+  "target": "gdpr-art-32",
+  "type": "CITES",
+  "citation": "Article 32(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-30",
+  "target": "gdpr-art-9-1",
+  "type": "CITES",
+  "citation": "Article 9(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-30",
+  "target": "gdpr-art-10",
+  "type": "CITES",
+  "citation": "Article 10",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-32",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-32",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-32",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-33",
+  "target": "gdpr-art-55",
+  "type": "CITES",
+  "citation": "Article 55",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-34",
+  "target": "gdpr-art-33",
+  "type": "CITES",
+  "citation": "Article 33(3)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-35-1",
+  "target": "gdpr-art-35-2",
+  "type": "CITES",
+  "citation": "Article 35",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-35-1",
+  "target": "gdpr-art-9-1",
+  "type": "CITES",
+  "citation": "Article 9(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-35-1",
+  "target": "gdpr-art-10",
+  "type": "CITES",
+  "citation": "Article 10",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-35-1",
+  "target": "gdpr-art-68",
+  "type": "CITES",
+  "citation": "Article 68",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-35-1",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-35-1",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-35-1",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-35-1",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-36",
+  "target": "gdpr-art-35-1",
+  "type": "CITES",
+  "citation": "Article 35",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-36",
+  "target": "gdpr-art-35-2",
+  "type": "CITES",
+  "citation": "Article 35",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-36",
+  "target": "gdpr-art-58-1",
+  "type": "CITES",
+  "citation": "Article 58",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-36",
+  "target": "gdpr-art-58-2",
+  "type": "CITES",
+  "citation": "Article 58",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-37",
+  "target": "gdpr-art-9-1",
+  "type": "CITES",
+  "citation": "Article 9",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-37",
+  "target": "gdpr-art-9-2",
+  "type": "CITES",
+  "citation": "Article 9",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-37",
+  "target": "gdpr-art-10",
+  "type": "CITES",
+  "citation": "Article 10",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-37",
+  "target": "gdpr-art-39",
+  "type": "CITES",
+  "citation": "Article 39",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-38",
+  "target": "gdpr-art-39",
+  "type": "CITES",
+  "citation": "Article 39",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-39",
+  "target": "gdpr-art-35-1",
+  "type": "CITES",
+  "citation": "Article 35",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-39",
+  "target": "gdpr-art-35-2",
+  "type": "CITES",
+  "citation": "Article 35",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-39",
+  "target": "gdpr-art-36",
+  "type": "CITES",
+  "citation": "Article 36",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-4-1",
+  "target": "gdpr-art-4-2",
+  "type": "CITES",
+  "citation": "Article 4",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-4-1",
+  "target": "gdpr-art-4-3",
+  "type": "CITES",
+  "citation": "Article 4",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-4-2",
+  "target": "gdpr-art-27",
+  "type": "CITES",
+  "citation": "Article 27",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-4-2",
+  "target": "gdpr-art-51",
+  "type": "CITES",
+  "citation": "Article 51",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-24",
+  "type": "CITES",
+  "citation": "Article 24",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-25",
+  "type": "CITES",
+  "citation": "Article 25",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-32",
+  "type": "CITES",
+  "citation": "Article 32",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-77",
+  "type": "CITES",
+  "citation": "Article 77",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-79",
+  "type": "CITES",
+  "citation": "Article 79",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-3",
+  "type": "CITES",
+  "citation": "Article 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-41",
+  "type": "CITES",
+  "citation": "Article 41(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-55",
+  "type": "CITES",
+  "citation": "Article 55",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-56",
+  "type": "CITES",
+  "citation": "Article 56",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-2",
+  "target": "gdpr-art-93",
+  "type": "CITES",
+  "citation": "Article 93(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-41",
+  "target": "gdpr-art-57-1",
+  "type": "CITES",
+  "citation": "Article 57",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-41",
+  "target": "gdpr-art-58-1",
+  "type": "CITES",
+  "citation": "Article 58",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-41",
+  "target": "gdpr-art-58-2",
+  "type": "CITES",
+  "citation": "Article 58",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-41",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-41",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-41",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-42",
+  "target": "gdpr-art-3",
+  "type": "CITES",
+  "citation": "Article 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-42",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-42",
+  "target": "gdpr-art-55",
+  "type": "CITES",
+  "citation": "Article 55",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-42",
+  "target": "gdpr-art-56",
+  "type": "CITES",
+  "citation": "Article 56",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-42",
+  "target": "gdpr-art-43-1",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-42",
+  "target": "gdpr-art-43-2",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-42",
+  "target": "gdpr-art-58-1",
+  "type": "CITES",
+  "citation": "Article 58(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-42",
+  "target": "gdpr-art-58-2",
+  "type": "CITES",
+  "citation": "Article 58(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-42",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-43-1",
+  "target": "gdpr-art-43-2",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-43-1",
+  "target": "gdpr-art-57-1",
+  "type": "CITES",
+  "citation": "Article 57",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-43-1",
+  "target": "gdpr-art-58-1",
+  "type": "CITES",
+  "citation": "Article 58",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-43-1",
+  "target": "gdpr-art-58-2",
+  "type": "CITES",
+  "citation": "Article 58",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-43-1",
+  "target": "gdpr-art-55",
+  "type": "CITES",
+  "citation": "Article 55",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-43-1",
+  "target": "gdpr-art-56",
+  "type": "CITES",
+  "citation": "Article 56",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-43-1",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42(5)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-43-1",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-43-2",
+  "target": "gdpr-art-92",
+  "type": "CITES",
+  "citation": "Article 92",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-43-2",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-43-2",
+  "target": "gdpr-art-93",
+  "type": "CITES",
+  "citation": "Article 93(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-45-1",
+  "target": "gdpr-art-45-2",
+  "type": "CITES",
+  "citation": "Article 45",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-45-1",
+  "target": "gdpr-art-93",
+  "type": "CITES",
+  "citation": "Article 93(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-45-2",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-45-2",
+  "target": "gdpr-art-49-1",
+  "type": "CITES",
+  "citation": "Article 49",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-45-2",
+  "target": "gdpr-art-49-2",
+  "type": "CITES",
+  "citation": "Article 49",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-46",
+  "target": "gdpr-art-45-1",
+  "type": "CITES",
+  "citation": "Article 45(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-46",
+  "target": "gdpr-art-45-2",
+  "type": "CITES",
+  "citation": "Article 45(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-46",
+  "target": "gdpr-art-47-1",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-46",
+  "target": "gdpr-art-47-2",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-46",
+  "target": "gdpr-art-93",
+  "type": "CITES",
+  "citation": "Article 93(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-46",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-46",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-46",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-46",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-47-1",
+  "target": "gdpr-art-47-2",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-47-1",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-47-1",
+  "target": "gdpr-art-22",
+  "type": "CITES",
+  "citation": "Article 22",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-47-1",
+  "target": "gdpr-art-79",
+  "type": "CITES",
+  "citation": "Article 79",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-47-1",
+  "target": "gdpr-art-13",
+  "type": "CITES",
+  "citation": "Article 13",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-47-1",
+  "target": "gdpr-art-14-1",
+  "type": "CITES",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-47-1",
+  "target": "gdpr-art-14-2",
+  "type": "CITES",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-47-1",
+  "target": "gdpr-art-37",
+  "type": "CITES",
+  "citation": "Article 37",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-47-2",
+  "target": "gdpr-art-93",
+  "type": "CITES",
+  "citation": "Article 93(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-49-1",
+  "target": "gdpr-art-49-2",
+  "type": "CITES",
+  "citation": "Article 49",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-49-1",
+  "target": "gdpr-art-45-1",
+  "type": "CITES",
+  "citation": "Article 45(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-49-1",
+  "target": "gdpr-art-45-2",
+  "type": "CITES",
+  "citation": "Article 45(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-49-1",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-49-1",
+  "target": "gdpr-art-13",
+  "type": "CITES",
+  "citation": "Article 13",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-49-1",
+  "target": "gdpr-art-14-1",
+  "type": "CITES",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-49-1",
+  "target": "gdpr-art-14-2",
+  "type": "CITES",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-49-2",
+  "target": "gdpr-art-30",
+  "type": "CITES",
+  "citation": "Article 30",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-5",
+  "target": "gdpr-art-89",
+  "type": "CITES",
+  "citation": "Article 89(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-51",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-55",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-55",
+  "target": "gdpr-art-56",
+  "type": "CITES",
+  "citation": "Article 56",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-56",
+  "target": "gdpr-art-55",
+  "type": "CITES",
+  "citation": "Article 55",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-56",
+  "target": "gdpr-art-60-1",
+  "type": "CITES",
+  "citation": "Article 60",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-56",
+  "target": "gdpr-art-60-2",
+  "type": "CITES",
+  "citation": "Article 60",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-56",
+  "target": "gdpr-art-61",
+  "type": "CITES",
+  "citation": "Article 61",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-56",
+  "target": "gdpr-art-62",
+  "type": "CITES",
+  "citation": "Article 62",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-80",
+  "type": "CITES",
+  "citation": "Article 80",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-28-1",
+  "type": "CITES",
+  "citation": "Article 28(8)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-28-2",
+  "type": "CITES",
+  "citation": "Article 28(8)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-35-1",
+  "type": "CITES",
+  "citation": "Article 35(4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-35-2",
+  "type": "CITES",
+  "citation": "Article 35(4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-36",
+  "type": "CITES",
+  "citation": "Article 36(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40(5)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-41",
+  "type": "CITES",
+  "citation": "Article 41",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-43-1",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-43-2",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-47-1",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-47-2",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-58-2",
+  "type": "CITES",
+  "citation": "Article 58(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-58-2",
+  "type": "CITES",
+  "citation": "Article 58",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42(7)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-16",
+  "type": "CITES",
+  "citation": "Article 16",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-17",
+  "type": "CITES",
+  "citation": "Article 17",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-18",
+  "type": "CITES",
+  "citation": "Article 18",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-43-1",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-43-2",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-83-1",
+  "type": "CITES",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-83-2",
+  "type": "CITES",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-36",
+  "type": "CITES",
+  "citation": "Article 36",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40(5)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40(5)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-28-1",
+  "type": "CITES",
+  "citation": "Article 28(8)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-28-2",
+  "type": "CITES",
+  "citation": "Article 28(8)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-47-1",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-47-2",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-59",
+  "target": "gdpr-art-58-2",
+  "type": "CITES",
+  "citation": "Article 58(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-6-1",
+  "target": "gdpr-art-6-2",
+  "type": "CITES",
+  "citation": "Article 6",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-6-1",
+  "target": "gdpr-art-23",
+  "type": "CITES",
+  "citation": "Article 23(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-6-2",
+  "target": "gdpr-art-9-1",
+  "type": "CITES",
+  "citation": "Article 9",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-6-2",
+  "target": "gdpr-art-9-2",
+  "type": "CITES",
+  "citation": "Article 9",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-6-2",
+  "target": "gdpr-art-10",
+  "type": "CITES",
+  "citation": "Article 10",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-60-1",
+  "target": "gdpr-art-60-2",
+  "type": "CITES",
+  "citation": "Article 60",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-60-1",
+  "target": "gdpr-art-61",
+  "type": "CITES",
+  "citation": "Article 61",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-60-1",
+  "target": "gdpr-art-62",
+  "type": "CITES",
+  "citation": "Article 62",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-60-1",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-60-2",
+  "target": "gdpr-art-66",
+  "type": "CITES",
+  "citation": "Article 66",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-61",
+  "target": "gdpr-art-55",
+  "type": "CITES",
+  "citation": "Article 55(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-61",
+  "target": "gdpr-art-66",
+  "type": "CITES",
+  "citation": "Article 66(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-61",
+  "target": "gdpr-art-93",
+  "type": "CITES",
+  "citation": "Article 93(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-62",
+  "target": "gdpr-art-56",
+  "type": "CITES",
+  "citation": "Article 56(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-62",
+  "target": "gdpr-art-55",
+  "type": "CITES",
+  "citation": "Article 55",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-62",
+  "target": "gdpr-art-66",
+  "type": "CITES",
+  "citation": "Article 66(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-35-1",
+  "type": "CITES",
+  "citation": "Article 35(4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-35-2",
+  "type": "CITES",
+  "citation": "Article 35(4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40(7)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40(7)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-41",
+  "type": "CITES",
+  "citation": "Article 41(3)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-43-1",
+  "type": "CITES",
+  "citation": "Article 43(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-43-2",
+  "type": "CITES",
+  "citation": "Article 43(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-28-1",
+  "type": "CITES",
+  "citation": "Article 28(8)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-28-2",
+  "type": "CITES",
+  "citation": "Article 28(8)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-47-1",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-47-2",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-61",
+  "type": "CITES",
+  "citation": "Article 61",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-62",
+  "type": "CITES",
+  "citation": "Article 62",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-65",
+  "type": "CITES",
+  "citation": "Article 65(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-65",
+  "target": "gdpr-art-60-1",
+  "type": "CITES",
+  "citation": "Article 60(4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-65",
+  "target": "gdpr-art-60-2",
+  "type": "CITES",
+  "citation": "Article 60(4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-65",
+  "target": "gdpr-art-64-1",
+  "type": "CITES",
+  "citation": "Article 64(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-66",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-66",
+  "target": "gdpr-art-64-1",
+  "type": "CITES",
+  "citation": "Article 64",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-66",
+  "target": "gdpr-art-65",
+  "type": "CITES",
+  "citation": "Article 65",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-66",
+  "target": "gdpr-art-60-1",
+  "type": "CITES",
+  "citation": "Article 60",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-66",
+  "target": "gdpr-art-60-2",
+  "type": "CITES",
+  "citation": "Article 60",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-67",
+  "target": "gdpr-art-64-1",
+  "type": "CITES",
+  "citation": "Article 64",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-67",
+  "target": "gdpr-art-93",
+  "type": "CITES",
+  "citation": "Article 93(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-68",
+  "target": "gdpr-art-65",
+  "type": "CITES",
+  "citation": "Article 65",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-69",
+  "target": "gdpr-art-70-1",
+  "type": "CITES",
+  "citation": "Article 70",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-69",
+  "target": "gdpr-art-70-2",
+  "type": "CITES",
+  "citation": "Article 70",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-69",
+  "target": "gdpr-art-71",
+  "type": "CITES",
+  "citation": "Article 71",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-70-2",
+  "type": "CITES",
+  "citation": "Article 70",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-64-1",
+  "type": "CITES",
+  "citation": "Article 64",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-65",
+  "type": "CITES",
+  "citation": "Article 65",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-17",
+  "type": "CITES",
+  "citation": "Article 17(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-22",
+  "type": "CITES",
+  "citation": "Article 22(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-33",
+  "type": "CITES",
+  "citation": "Article 33(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-34",
+  "type": "CITES",
+  "citation": "Article 34(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-47-1",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-47-2",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-49-1",
+  "type": "CITES",
+  "citation": "Article 49(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-58-1",
+  "type": "CITES",
+  "citation": "Article 58(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-83-1",
+  "type": "CITES",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-83-2",
+  "type": "CITES",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-54",
+  "type": "CITES",
+  "citation": "Article 54(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-43-1",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-43-2",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-2",
+  "target": "gdpr-art-12",
+  "type": "CITES",
+  "citation": "Article 12(7)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-2",
+  "target": "gdpr-art-64-1",
+  "type": "CITES",
+  "citation": "Article 64(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-70-2",
+  "target": "gdpr-art-65",
+  "type": "CITES",
+  "citation": "Article 65",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-2",
+  "target": "gdpr-art-66",
+  "type": "CITES",
+  "citation": "Article 66",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-2",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40(9)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-2",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40(9)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-2",
+  "target": "gdpr-art-93",
+  "type": "CITES",
+  "citation": "Article 93",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-2",
+  "target": "gdpr-art-76",
+  "type": "CITES",
+  "citation": "Article 76",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-71",
+  "target": "gdpr-art-70-1",
+  "type": "CITES",
+  "citation": "Article 70(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-71",
+  "target": "gdpr-art-65",
+  "type": "CITES",
+  "citation": "Article 65",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-74",
+  "target": "gdpr-art-65",
+  "type": "CITES",
+  "citation": "Article 65",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-74",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-77",
+  "target": "gdpr-art-78",
+  "type": "CITES",
+  "citation": "Article 78",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-78",
+  "target": "gdpr-art-55",
+  "type": "CITES",
+  "citation": "Article 55",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-78",
+  "target": "gdpr-art-56",
+  "type": "CITES",
+  "citation": "Article 56",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-78",
+  "target": "gdpr-art-77",
+  "type": "CITES",
+  "citation": "Article 77",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-79",
+  "target": "gdpr-art-77",
+  "type": "CITES",
+  "citation": "Article 77",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-8",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-80",
+  "target": "gdpr-art-77",
+  "type": "CITES",
+  "citation": "Article 77",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-80",
+  "target": "gdpr-art-78",
+  "type": "CITES",
+  "citation": "Article 78",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-80",
+  "target": "gdpr-art-79",
+  "type": "CITES",
+  "citation": "Article 79",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-80",
+  "target": "gdpr-art-82",
+  "type": "CITES",
+  "citation": "Article 82",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-82",
+  "target": "gdpr-art-79",
+  "type": "CITES",
+  "citation": "Article 79(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-83-2",
+  "type": "CITES",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-58-2",
+  "type": "CITES",
+  "citation": "Article 58(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-25",
+  "type": "CITES",
+  "citation": "Article 25",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-32",
+  "type": "CITES",
+  "citation": "Article 32",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-8",
+  "type": "CITES",
+  "citation": "Article 8",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-11",
+  "type": "CITES",
+  "citation": "Article 11",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-39",
+  "type": "CITES",
+  "citation": "Article 39",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-43-1",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-43-2",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-41",
+  "type": "CITES",
+  "citation": "Article 41(4)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-5",
+  "type": "CITES",
+  "citation": "Article 5",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-6-2",
+  "type": "CITES",
+  "citation": "Article 6",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-7",
+  "type": "CITES",
+  "citation": "Article 7",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-9-1",
+  "type": "CITES",
+  "citation": "Article 9",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-9-2",
+  "type": "CITES",
+  "citation": "Article 9",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-12",
+  "type": "CITES",
+  "citation": "Article 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-22",
+  "type": "CITES",
+  "citation": "Article 22",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-44",
+  "type": "CITES",
+  "citation": "Article 44",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-49-1",
+  "type": "CITES",
+  "citation": "Article 49",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-49-2",
+  "type": "CITES",
+  "citation": "Article 49",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-58-1",
+  "type": "CITES",
+  "citation": "Article 58(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-83-2",
+  "target": "gdpr-art-58-2",
+  "type": "CITES",
+  "citation": "Article 58(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-84",
+  "target": "gdpr-art-83-1",
+  "type": "CITES",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-84",
+  "target": "gdpr-art-83-2",
+  "type": "CITES",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-89",
+  "target": "gdpr-art-15",
+  "type": "CITES",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-89",
+  "target": "gdpr-art-16",
+  "type": "CITES",
+  "citation": "Article 16",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-89",
+  "target": "gdpr-art-18",
+  "type": "CITES",
+  "citation": "Article 18",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-89",
+  "target": "gdpr-art-21",
+  "type": "CITES",
+  "citation": "Article 21",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-89",
+  "target": "gdpr-art-19",
+  "type": "CITES",
+  "citation": "Article 19",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-89",
+  "target": "gdpr-art-20",
+  "type": "CITES",
+  "citation": "Article 20",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-9-1",
+  "target": "gdpr-art-9-2",
+  "type": "CITES",
+  "citation": "Article 9",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-9-1",
+  "target": "gdpr-art-89",
+  "type": "CITES",
+  "citation": "Article 89(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-90",
+  "target": "gdpr-art-58-1",
+  "type": "CITES",
+  "citation": "Article 58(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-92",
+  "target": "gdpr-art-12",
+  "type": "CITES",
+  "citation": "Article 12(8)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-93",
+  "target": "gdpr-art-5",
+  "type": "CITES",
+  "citation": "Article 5",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-97",
+  "target": "gdpr-art-45-1",
+  "type": "CITES",
+  "citation": "Article 45(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-97",
+  "target": "gdpr-art-45-2",
+  "type": "CITES",
+  "citation": "Article 45(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-rec-12",
+  "target": "gdpr-art-16",
+  "type": "CITES",
+  "citation": "Article 16(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-rec-13",
+  "target": "gdpr-art-2",
+  "type": "CITES",
+  "citation": "Article 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-rec-165",
+  "target": "gdpr-art-17",
+  "type": "CITES",
+  "citation": "Article 17",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-rec-172",
+  "target": "gdpr-art-28-2",
+  "type": "CITES",
+  "citation": "Article 28(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-rec-21",
+  "target": "gdpr-art-12",
+  "type": "CITES",
+  "citation": "Article 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-rec-21",
+  "target": "gdpr-art-15",
+  "type": "CITES",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "goettingen-policy-1.2",
+  "target": "gdpr-art-4-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 4(7)",
+  "resolution": "spread"
+ },
+ {
+  "source": "goettingen-policy-1.2",
+  "target": "gdpr-art-4-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 4(7)",
+  "resolution": "spread"
+ },
+ {
+  "source": "goettingen-policy-1.2",
+  "target": "gdpr-art-4-3",
+  "type": "IMPLEMENTS",
+  "citation": "Article 4(7)",
+  "resolution": "spread"
+ },
+ {
+  "source": "goettingen-policy-4.1",
+  "target": "gdpr-art-6-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 6(1)(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "goettingen-policy-4.1",
+  "target": "gdpr-art-7",
+  "type": "IMPLEMENTS",
+  "citation": "Article 7",
+  "resolution": "whole"
+ },
+ {
+  "source": "goettingen-policy-4.1",
+  "target": "gdpr-art-8",
+  "type": "IMPLEMENTS",
+  "citation": "Article 8",
+  "resolution": "whole"
+ },
+ {
+  "source": "tcd-policy-6",
+  "target": "gdpr-art-5",
+  "type": "IMPLEMENTS",
+  "citation": "Article 5",
+  "resolution": "whole"
+ },
+ {
+  "source": "tcd-policy-7.1",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 9",
+  "resolution": "spread"
+ },
+ {
+  "source": "tcd-policy-7.1",
+  "target": "gdpr-art-9-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 9",
+  "resolution": "spread"
+ },
+ {
+  "source": "ie-dpa-s1",
+  "target": "ie-dpa-s7",
+  "type": "CITES",
+  "citation": "section 7",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s2",
+  "target": "ie-dpa-s129",
+  "type": "CITES",
+  "citation": "section 129",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s2",
+  "target": "ie-dpa-s10",
+  "type": "CITES",
+  "citation": "section 10",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s2",
+  "target": "ie-dpa-s15",
+  "type": "CITES",
+  "citation": "section 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s2",
+  "target": "ie-dpa-s18",
+  "type": "CITES",
+  "citation": "section 18",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s2",
+  "target": "ie-dpa-s25",
+  "type": "CITES",
+  "citation": "section 25",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s2",
+  "target": "ie-dpa-s5",
+  "type": "CITES",
+  "citation": "section 5",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s2",
+  "target": "ie-dpa-s37",
+  "type": "CITES",
+  "citation": "section 37",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s2",
+  "target": "ie-dpa-s38",
+  "type": "CITES",
+  "citation": "section 38",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s2",
+  "target": "ie-dpa-s7",
+  "type": "CITES",
+  "citation": "section 7",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s3",
+  "target": "ie-dpa-s105",
+  "type": "CITES",
+  "citation": "section 105",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s4",
+  "target": "ie-dpa-s91",
+  "type": "CITES",
+  "citation": "section 91",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s6",
+  "target": "ie-dpa-s51",
+  "type": "CITES",
+  "citation": "section 51",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s7",
+  "target": "ie-dpa-s1",
+  "type": "CITES",
+  "citation": "section 1",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s7",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s7",
+  "target": "ie-dpa-s4",
+  "type": "CITES",
+  "citation": "section 4",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s7",
+  "target": "ie-dpa-s5",
+  "type": "CITES",
+  "citation": "section 5",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s7",
+  "target": "ie-dpa-s9",
+  "type": "CITES",
+  "citation": "section 9",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s7",
+  "target": "ie-dpa-s11",
+  "type": "CITES",
+  "citation": "section 11",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s7",
+  "target": "ie-dpa-s13",
+  "type": "CITES",
+  "citation": "section 13",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s7",
+  "target": "ie-dpa-s14",
+  "type": "CITES",
+  "citation": "section 14",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s7",
+  "target": "ie-dpa-s8",
+  "type": "CITES",
+  "citation": "section 8",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s8",
+  "target": "ie-dpa-s10",
+  "type": "CITES",
+  "citation": "section 10",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s12",
+  "target": "ie-dpa-s14",
+  "type": "CITES",
+  "citation": "section 14",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s13",
+  "target": "gdpr-art-35-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 35(4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "ie-dpa-s13",
+  "target": "gdpr-art-35-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 35(4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "ie-dpa-s13",
+  "target": "ie-dpa-s15",
+  "type": "CITES",
+  "citation": "section 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s13",
+  "target": "ie-dpa-s12",
+  "type": "CITES",
+  "citation": "section 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s14",
+  "target": "ie-dpa-s1",
+  "type": "CITES",
+  "citation": "section 1",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s15",
+  "target": "ie-dpa-s18",
+  "type": "CITES",
+  "citation": "section 18",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s15",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s18",
+  "target": "ie-dpa-s15",
+  "type": "CITES",
+  "citation": "section 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s19",
+  "target": "ie-dpa-s15",
+  "type": "CITES",
+  "citation": "section 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s23",
+  "target": "ie-dpa-s176",
+  "type": "CITES",
+  "citation": "section 176",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s25",
+  "target": "ie-dpa-s15",
+  "type": "CITES",
+  "citation": "section 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s25",
+  "target": "ie-dpa-s19",
+  "type": "CITES",
+  "citation": "section 19",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s26",
+  "target": "ie-dpa-s154",
+  "type": "CITES",
+  "citation": "section 154",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s27",
+  "target": "ie-dpa-s26",
+  "type": "CITES",
+  "citation": "section 26",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s27",
+  "target": "ie-dpa-s154",
+  "type": "CITES",
+  "citation": "section 154",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s30",
+  "target": "ie-dpa-s29",
+  "type": "CITES",
+  "citation": "section 29",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s30",
+  "target": "ie-dpa-s141",
+  "type": "CITES",
+  "citation": "section 141",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s36",
+  "target": "ie-dpa-s52",
+  "type": "CITES",
+  "citation": "section 52",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s36",
+  "target": "ie-dpa-s19",
+  "type": "CITES",
+  "citation": "section 19",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s38",
+  "target": "ie-dpa-s19",
+  "type": "CITES",
+  "citation": "section 19",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s39",
+  "target": "ie-dpa-s48",
+  "type": "CITES",
+  "citation": "section 48",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s41",
+  "target": "ie-dpa-s47",
+  "type": "CITES",
+  "citation": "section 47",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s45",
+  "target": "ie-dpa-s41",
+  "type": "CITES",
+  "citation": "section 41",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s45",
+  "target": "ie-dpa-s46",
+  "type": "CITES",
+  "citation": "section 46",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s51",
+  "target": "ie-dpa-s36",
+  "type": "CITES",
+  "citation": "section 36",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s51",
+  "target": "ie-dpa-s55",
+  "type": "CITES",
+  "citation": "section 55",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s54",
+  "target": "ie-dpa-s42",
+  "type": "CITES",
+  "citation": "section 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s55",
+  "target": "ie-dpa-s42",
+  "type": "CITES",
+  "citation": "section 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s55",
+  "target": "ie-dpa-s19",
+  "type": "CITES",
+  "citation": "section 19",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s60",
+  "target": "ie-dpa-s19",
+  "type": "CITES",
+  "citation": "section 19",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s65",
+  "target": "ie-dpa-s14",
+  "type": "CITES",
+  "citation": "section 14",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s65",
+  "target": "ie-dpa-s62",
+  "type": "CITES",
+  "citation": "section 62",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s67",
+  "target": "ie-dpa-s9",
+  "type": "CITES",
+  "citation": "section 9",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s67",
+  "target": "ie-dpa-s7",
+  "type": "CITES",
+  "citation": "section 7",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s67",
+  "target": "ie-dpa-s22",
+  "type": "CITES",
+  "citation": "section 22",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s68",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s68",
+  "target": "ie-dpa-s8",
+  "type": "CITES",
+  "citation": "section 8",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s68",
+  "target": "ie-dpa-s38",
+  "type": "CITES",
+  "citation": "section 38",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s68",
+  "target": "ie-dpa-s7",
+  "type": "CITES",
+  "citation": "section 7",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s68",
+  "target": "ie-dpa-s4",
+  "type": "CITES",
+  "citation": "section 4",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s68",
+  "target": "ie-dpa-s60",
+  "type": "CITES",
+  "citation": "section 60",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s68",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s68",
+  "target": "ie-dpa-s50",
+  "type": "CITES",
+  "citation": "section 50",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s68",
+  "target": "ie-dpa-s36",
+  "type": "CITES",
+  "citation": "section 36",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s68",
+  "target": "ie-dpa-s55",
+  "type": "CITES",
+  "citation": "section 55",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s69",
+  "target": "ie-dpa-s84",
+  "type": "CITES",
+  "citation": "section 84",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s69",
+  "target": "ie-dpa-s88",
+  "type": "CITES",
+  "citation": "section 88",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s69",
+  "target": "ie-dpa-s79",
+  "type": "CITES",
+  "citation": "section 79",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s69",
+  "target": "ie-dpa-s87",
+  "type": "CITES",
+  "citation": "section 87",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s69",
+  "target": "ie-dpa-s92",
+  "type": "CITES",
+  "citation": "section 92",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s69",
+  "target": "ie-dpa-s90",
+  "type": "CITES",
+  "citation": "section 90",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s69",
+  "target": "ie-dpa-s91",
+  "type": "CITES",
+  "citation": "section 91",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s70",
+  "target": "ie-dpa-s8",
+  "type": "CITES",
+  "citation": "section 8",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s71",
+  "target": "ie-dpa-s70",
+  "type": "CITES",
+  "citation": "section 70",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s72",
+  "target": "ie-dpa-s71",
+  "type": "CITES",
+  "citation": "section 71",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s73",
+  "target": "ie-dpa-s71",
+  "type": "CITES",
+  "citation": "section 71",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s73",
+  "target": "ie-dpa-s19",
+  "type": "CITES",
+  "citation": "section 19",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s74",
+  "target": "ie-dpa-s92",
+  "type": "CITES",
+  "citation": "section 92",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s76",
+  "target": "ie-dpa-s75",
+  "type": "CITES",
+  "citation": "section 75",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s78",
+  "target": "ie-dpa-s71",
+  "type": "CITES",
+  "citation": "section 71",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s79",
+  "target": "ie-dpa-s90",
+  "type": "CITES",
+  "citation": "section 90",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s81",
+  "target": "ie-dpa-s72",
+  "type": "CITES",
+  "citation": "section 72",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s87",
+  "target": "ie-dpa-s86",
+  "type": "CITES",
+  "citation": "section 86",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s87",
+  "target": "ie-dpa-s94",
+  "type": "CITES",
+  "citation": "section 94",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s88",
+  "target": "ie-dpa-s84",
+  "type": "CITES",
+  "citation": "section 84",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s90",
+  "target": "ie-dpa-s94",
+  "type": "CITES",
+  "citation": "section 94",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s91",
+  "target": "ie-dpa-s93",
+  "type": "CITES",
+  "citation": "section 93",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s92",
+  "target": "ie-dpa-s93",
+  "type": "CITES",
+  "citation": "section 93",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s92",
+  "target": "ie-dpa-s71",
+  "type": "CITES",
+  "citation": "section 71",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s92",
+  "target": "ie-dpa-s73",
+  "type": "CITES",
+  "citation": "section 73",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s92",
+  "target": "ie-dpa-s94",
+  "type": "CITES",
+  "citation": "section 94",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s92",
+  "target": "ie-dpa-s95",
+  "type": "CITES",
+  "citation": "section 95",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s93",
+  "target": "ie-dpa-s90",
+  "type": "CITES",
+  "citation": "section 90",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s93",
+  "target": "ie-dpa-s91",
+  "type": "CITES",
+  "citation": "section 91",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s94",
+  "target": "ie-dpa-s70",
+  "type": "CITES",
+  "citation": "section 70",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s94",
+  "target": "ie-dpa-s3",
+  "type": "CITES",
+  "citation": "section 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s94",
+  "target": "ie-dpa-s88",
+  "type": "CITES",
+  "citation": "section 88",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s94",
+  "target": "ie-dpa-s90",
+  "type": "CITES",
+  "citation": "section 90",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s94",
+  "target": "ie-dpa-s91",
+  "type": "CITES",
+  "citation": "section 91",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s94",
+  "target": "ie-dpa-s92",
+  "type": "CITES",
+  "citation": "section 92",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s94",
+  "target": "ie-dpa-s95",
+  "type": "CITES",
+  "citation": "section 95",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s94",
+  "target": "ie-dpa-s128",
+  "type": "CITES",
+  "citation": "section 128",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s95",
+  "target": "ie-dpa-s94",
+  "type": "CITES",
+  "citation": "section 94",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s95",
+  "target": "ie-dpa-s132",
+  "type": "CITES",
+  "citation": "section 132",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s95",
+  "target": "ie-dpa-s128",
+  "type": "CITES",
+  "citation": "section 128",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s96",
+  "target": "ie-dpa-s100",
+  "type": "CITES",
+  "citation": "section 100",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s96",
+  "target": "ie-dpa-s70",
+  "type": "CITES",
+  "citation": "section 70",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s96",
+  "target": "ie-dpa-s97",
+  "type": "CITES",
+  "citation": "section 97",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s96",
+  "target": "ie-dpa-s71",
+  "type": "CITES",
+  "citation": "section 71",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s97",
+  "target": "ie-dpa-s96",
+  "type": "CITES",
+  "citation": "section 96",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s98",
+  "target": "ie-dpa-s96",
+  "type": "CITES",
+  "citation": "section 96",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s99",
+  "target": "ie-dpa-s97",
+  "type": "CITES",
+  "citation": "section 97",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s99",
+  "target": "ie-dpa-s96",
+  "type": "CITES",
+  "citation": "section 96",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s99",
+  "target": "ie-dpa-s70",
+  "type": "CITES",
+  "citation": "section 70",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s100",
+  "target": "ie-dpa-s96",
+  "type": "CITES",
+  "citation": "section 96",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s100",
+  "target": "ie-dpa-s70",
+  "type": "CITES",
+  "citation": "section 70",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s100",
+  "target": "ie-dpa-s69",
+  "type": "CITES",
+  "citation": "section 69",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s101",
+  "target": "ie-dpa-s95",
+  "type": "CITES",
+  "citation": "section 95",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s101",
+  "target": "ie-dpa-s103",
+  "type": "CITES",
+  "citation": "section 103",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s101",
+  "target": "ie-dpa-s84",
+  "type": "CITES",
+  "citation": "section 84",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s103",
+  "target": "ie-dpa-s101",
+  "type": "CITES",
+  "citation": "section 101",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s103",
+  "target": "ie-dpa-s104",
+  "type": "CITES",
+  "citation": "section 104",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s105",
+  "target": "ie-dpa-s139",
+  "type": "CITES",
+  "citation": "section 139",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s105",
+  "target": "ie-dpa-s3",
+  "type": "CITES",
+  "citation": "section 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s105",
+  "target": "ie-dpa-s117",
+  "type": "CITES",
+  "citation": "section 117",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s105",
+  "target": "ie-dpa-s132",
+  "type": "CITES",
+  "citation": "section 132",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s105",
+  "target": "ie-dpa-s110",
+  "type": "CITES",
+  "citation": "section 110",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s105",
+  "target": "ie-dpa-s140",
+  "type": "CITES",
+  "citation": "section 140",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s106",
+  "target": "ie-dpa-s116",
+  "type": "CITES",
+  "citation": "section 116",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s107",
+  "target": "gdpr-art-58-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 58(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "ie-dpa-s107",
+  "target": "ie-dpa-s110",
+  "type": "CITES",
+  "citation": "section 110",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s108",
+  "target": "ie-dpa-s150",
+  "type": "CITES",
+  "citation": "section 150",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s108",
+  "target": "ie-dpa-s109",
+  "type": "CITES",
+  "citation": "section 109",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s108",
+  "target": "ie-dpa-s116",
+  "type": "CITES",
+  "citation": "section 116",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s109",
+  "target": "ie-dpa-s108",
+  "type": "CITES",
+  "citation": "section 108",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s109",
+  "target": "ie-dpa-s113",
+  "type": "CITES",
+  "citation": "section 113",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s110",
+  "target": "ie-dpa-s109",
+  "type": "CITES",
+  "citation": "section 109",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s110",
+  "target": "ie-dpa-s113",
+  "type": "CITES",
+  "citation": "section 113",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s110",
+  "target": "ie-dpa-s135",
+  "type": "CITES",
+  "citation": "section 135",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s113",
+  "target": "ie-dpa-s109",
+  "type": "CITES",
+  "citation": "section 109",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s115",
+  "target": "ie-dpa-s111",
+  "type": "CITES",
+  "citation": "section 111",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s116",
+  "target": "ie-dpa-s111",
+  "type": "CITES",
+  "citation": "section 111",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s116",
+  "target": "ie-dpa-s112",
+  "type": "CITES",
+  "citation": "section 112",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s116",
+  "target": "ie-dpa-s113",
+  "type": "CITES",
+  "citation": "section 113",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s116",
+  "target": "ie-dpa-s114",
+  "type": "CITES",
+  "citation": "section 114",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s118",
+  "target": "ie-dpa-s120",
+  "type": "CITES",
+  "citation": "section 120",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s118",
+  "target": "ie-dpa-s119",
+  "type": "CITES",
+  "citation": "section 119",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s118",
+  "target": "ie-dpa-s127",
+  "type": "CITES",
+  "citation": "section 127",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s118",
+  "target": "ie-dpa-s123",
+  "type": "CITES",
+  "citation": "section 123",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s119",
+  "target": "ie-dpa-s120",
+  "type": "CITES",
+  "citation": "section 120",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s120",
+  "target": "ie-dpa-s119",
+  "type": "CITES",
+  "citation": "section 119",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s120",
+  "target": "ie-dpa-s128",
+  "type": "CITES",
+  "citation": "section 128",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s120",
+  "target": "ie-dpa-s150",
+  "type": "CITES",
+  "citation": "section 150",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s121",
+  "target": "ie-dpa-s119",
+  "type": "CITES",
+  "citation": "section 119",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s121",
+  "target": "ie-dpa-s128",
+  "type": "CITES",
+  "citation": "section 128",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s121",
+  "target": "ie-dpa-s122",
+  "type": "CITES",
+  "citation": "section 122",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s121",
+  "target": "ie-dpa-s126",
+  "type": "CITES",
+  "citation": "section 126",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s122",
+  "target": "ie-dpa-s121",
+  "type": "CITES",
+  "citation": "section 121",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s123",
+  "target": "ie-dpa-s122",
+  "type": "CITES",
+  "citation": "section 122",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s123",
+  "target": "ie-dpa-s134",
+  "type": "CITES",
+  "citation": "section 134",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s126",
+  "target": "ie-dpa-s124",
+  "type": "CITES",
+  "citation": "section 124",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s126",
+  "target": "ie-dpa-s125",
+  "type": "CITES",
+  "citation": "section 125",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s127",
+  "target": "ie-dpa-s124",
+  "type": "CITES",
+  "citation": "section 124",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s128",
+  "target": "ie-dpa-s119",
+  "type": "CITES",
+  "citation": "section 119",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s128",
+  "target": "ie-dpa-s120",
+  "type": "CITES",
+  "citation": "section 120",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s129",
+  "target": "ie-dpa-s24",
+  "type": "CITES",
+  "citation": "section 24",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s130",
+  "target": "ie-dpa-s131",
+  "type": "CITES",
+  "citation": "section 131",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s131",
+  "target": "ie-dpa-s130",
+  "type": "CITES",
+  "citation": "section 130",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s132",
+  "target": "ie-dpa-s150",
+  "type": "CITES",
+  "citation": "section 150",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s133",
+  "target": "ie-dpa-s109",
+  "type": "CITES",
+  "citation": "section 109",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s133",
+  "target": "ie-dpa-s122",
+  "type": "CITES",
+  "citation": "section 122",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s133",
+  "target": "ie-dpa-s150",
+  "type": "CITES",
+  "citation": "section 150",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s134",
+  "target": "gdpr-art-58-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 58(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "ie-dpa-s134",
+  "target": "gdpr-art-66",
+  "type": "IMPLEMENTS",
+  "citation": "Article 66",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s137",
+  "target": "ie-dpa-s110",
+  "type": "CITES",
+  "citation": "section 110",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s137",
+  "target": "ie-dpa-s138",
+  "type": "CITES",
+  "citation": "section 138",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s138",
+  "target": "ie-dpa-s137",
+  "type": "CITES",
+  "citation": "section 137",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s140",
+  "target": "ie-dpa-s139",
+  "type": "CITES",
+  "citation": "section 139",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s140",
+  "target": "ie-dpa-s111",
+  "type": "CITES",
+  "citation": "section 111",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s140",
+  "target": "ie-dpa-s113",
+  "type": "CITES",
+  "citation": "section 113",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s140",
+  "target": "ie-dpa-s138",
+  "type": "CITES",
+  "citation": "section 138",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s141",
+  "target": "ie-dpa-s111",
+  "type": "CITES",
+  "citation": "section 111",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s141",
+  "target": "ie-dpa-s3",
+  "type": "CITES",
+  "citation": "section 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s141",
+  "target": "ie-dpa-s115",
+  "type": "CITES",
+  "citation": "section 115",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s141",
+  "target": "ie-dpa-s142",
+  "type": "CITES",
+  "citation": "section 142",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s142",
+  "target": "ie-dpa-s150",
+  "type": "CITES",
+  "citation": "section 150",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s142",
+  "target": "ie-dpa-s111",
+  "type": "CITES",
+  "citation": "section 111",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s142",
+  "target": "ie-dpa-s116",
+  "type": "CITES",
+  "citation": "section 116",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s142",
+  "target": "ie-dpa-s133",
+  "type": "CITES",
+  "citation": "section 133",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s142",
+  "target": "ie-dpa-s141",
+  "type": "CITES",
+  "citation": "section 141",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s143",
+  "target": "ie-dpa-s142",
+  "type": "CITES",
+  "citation": "section 142",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s147",
+  "target": "ie-dpa-s10",
+  "type": "CITES",
+  "citation": "section 10",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s148",
+  "target": "gdpr-art-80",
+  "type": "IMPLEMENTS",
+  "citation": "Article 80(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s148",
+  "target": "ie-dpa-s108",
+  "type": "CITES",
+  "citation": "section 108",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s148",
+  "target": "ie-dpa-s120",
+  "type": "CITES",
+  "citation": "section 120",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s149",
+  "target": "ie-dpa-s134",
+  "type": "CITES",
+  "citation": "section 134",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s149",
+  "target": "ie-dpa-s127",
+  "type": "CITES",
+  "citation": "section 127",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s149",
+  "target": "ie-dpa-s135",
+  "type": "CITES",
+  "citation": "section 135",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s150",
+  "target": "ie-dpa-s135",
+  "type": "CITES",
+  "citation": "section 135",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s150",
+  "target": "ie-dpa-s132",
+  "type": "CITES",
+  "citation": "section 132",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s150",
+  "target": "ie-dpa-s133",
+  "type": "CITES",
+  "citation": "section 133",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s150",
+  "target": "ie-dpa-s108",
+  "type": "CITES",
+  "citation": "section 108",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s150",
+  "target": "ie-dpa-s121",
+  "type": "CITES",
+  "citation": "section 121",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s150",
+  "target": "ie-dpa-s109",
+  "type": "CITES",
+  "citation": "section 109",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s150",
+  "target": "ie-dpa-s122",
+  "type": "CITES",
+  "citation": "section 122",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s150",
+  "target": "ie-dpa-s111",
+  "type": "CITES",
+  "citation": "section 111",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s151",
+  "target": "ie-dpa-s130",
+  "type": "CITES",
+  "citation": "section 130",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s155",
+  "target": "ie-dpa-s138",
+  "type": "CITES",
+  "citation": "section 138",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s157",
+  "target": "ie-dpa-s158",
+  "type": "CITES",
+  "citation": "section 158",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s158",
+  "target": "ie-dpa-s87",
+  "type": "CITES",
+  "citation": "section 87",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s158",
+  "target": "ie-dpa-s71",
+  "type": "CITES",
+  "citation": "section 71",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s159",
+  "target": "gdpr-art-28-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 28(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "ie-dpa-s159",
+  "target": "gdpr-art-28-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 28(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "ie-dpa-s159",
+  "target": "ie-dpa-s158",
+  "type": "CITES",
+  "citation": "section 158",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s161",
+  "target": "ie-dpa-s117",
+  "type": "CITES",
+  "citation": "section 117",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s161",
+  "target": "ie-dpa-s128",
+  "type": "CITES",
+  "citation": "section 128",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s162",
+  "target": "gdpr-art-12",
+  "type": "IMPLEMENTS",
+  "citation": "Article 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s162",
+  "target": "gdpr-art-22",
+  "type": "IMPLEMENTS",
+  "citation": "Article 22",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s162",
+  "target": "gdpr-art-34",
+  "type": "IMPLEMENTS",
+  "citation": "Article 34",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s162",
+  "target": "ie-dpa-s87",
+  "type": "CITES",
+  "citation": "section 87",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s162",
+  "target": "ie-dpa-s71",
+  "type": "CITES",
+  "citation": "section 71",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s163",
+  "target": "gdpr-art-45-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 45(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "ie-dpa-s163",
+  "target": "gdpr-art-45-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 45(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "ie-dpa-s163",
+  "target": "gdpr-art-46",
+  "type": "IMPLEMENTS",
+  "citation": "Article 46(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s167",
+  "target": "ie-dpa-s9",
+  "type": "CITES",
+  "citation": "section 9",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s167",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s168",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s169",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s169",
+  "target": "ie-dpa-s24",
+  "type": "CITES",
+  "citation": "section 24",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s170",
+  "target": "ie-dpa-s24",
+  "type": "CITES",
+  "citation": "section 24",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s172",
+  "target": "ie-dpa-s24",
+  "type": "CITES",
+  "citation": "section 24",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s172",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s172",
+  "target": "ie-dpa-s26",
+  "type": "CITES",
+  "citation": "section 26",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s172",
+  "target": "ie-dpa-s19",
+  "type": "CITES",
+  "citation": "section 19",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s172",
+  "target": "ie-dpa-s8",
+  "type": "CITES",
+  "citation": "section 8",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s173",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s173",
+  "target": "ie-dpa-s61",
+  "type": "CITES",
+  "citation": "section 61",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s174",
+  "target": "ie-dpa-s16",
+  "type": "CITES",
+  "citation": "section 16",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s175",
+  "target": "ie-dpa-s13",
+  "type": "CITES",
+  "citation": "section 13",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s175",
+  "target": "ie-dpa-s15",
+  "type": "CITES",
+  "citation": "section 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s175",
+  "target": "ie-dpa-s16",
+  "type": "CITES",
+  "citation": "section 16",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s175",
+  "target": "ie-dpa-s39",
+  "type": "CITES",
+  "citation": "section 39",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s175",
+  "target": "ie-dpa-s40",
+  "type": "CITES",
+  "citation": "section 40",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s176",
+  "target": "ie-dpa-s10",
+  "type": "CITES",
+  "citation": "section 10",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s176",
+  "target": "ie-dpa-s8",
+  "type": "CITES",
+  "citation": "section 8",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s177",
+  "target": "ie-dpa-s8",
+  "type": "CITES",
+  "citation": "section 8",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s177",
+  "target": "ie-dpa-s10",
+  "type": "CITES",
+  "citation": "section 10",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s177",
+  "target": "ie-dpa-s24",
+  "type": "CITES",
+  "citation": "section 24",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s178",
+  "target": "ie-dpa-s24",
+  "type": "CITES",
+  "citation": "section 24",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s180",
+  "target": "ie-dpa-s142",
+  "type": "CITES",
+  "citation": "section 142",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s181",
+  "target": "ie-dpa-s142",
+  "type": "CITES",
+  "citation": "section 142",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s182",
+  "target": "ie-dpa-s77",
+  "type": "CITES",
+  "citation": "section 77",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s183",
+  "target": "ie-dpa-s77",
+  "type": "CITES",
+  "citation": "section 77",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s183",
+  "target": "ie-dpa-s1",
+  "type": "CITES",
+  "citation": "section 1",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s184",
+  "target": "ie-dpa-s1",
+  "type": "CITES",
+  "citation": "section 1",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s186",
+  "target": "ie-dpa-s51",
+  "type": "CITES",
+  "citation": "section 51",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s186",
+  "target": "ie-dpa-s1",
+  "type": "CITES",
+  "citation": "section 1",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s187",
+  "target": "ie-dpa-s33",
+  "type": "CITES",
+  "citation": "section 33",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s188",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s188",
+  "target": "ie-dpa-s33",
+  "type": "CITES",
+  "citation": "section 33",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s188",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s189",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s189",
+  "target": "ie-dpa-s28",
+  "type": "CITES",
+  "citation": "section 28",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s190",
+  "target": "ie-dpa-s28",
+  "type": "CITES",
+  "citation": "section 28",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s190",
+  "target": "ie-dpa-s38",
+  "type": "CITES",
+  "citation": "section 38",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s191",
+  "target": "ie-dpa-s38",
+  "type": "CITES",
+  "citation": "section 38",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s191",
+  "target": "ie-dpa-s14",
+  "type": "CITES",
+  "citation": "section 14",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s192",
+  "target": "ie-dpa-s14",
+  "type": "CITES",
+  "citation": "section 14",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s192",
+  "target": "ie-dpa-s9",
+  "type": "CITES",
+  "citation": "section 9",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s192",
+  "target": "ie-dpa-s30",
+  "type": "CITES",
+  "citation": "section 30",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s193",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s193",
+  "target": "ie-dpa-s30",
+  "type": "CITES",
+  "citation": "section 30",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s193",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s194",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s194",
+  "target": "ie-dpa-s86",
+  "type": "CITES",
+  "citation": "section 86",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s195",
+  "target": "ie-dpa-s86",
+  "type": "CITES",
+  "citation": "section 86",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s195",
+  "target": "ie-dpa-s12",
+  "type": "CITES",
+  "citation": "section 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s196",
+  "target": "ie-dpa-s12",
+  "type": "CITES",
+  "citation": "section 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s196",
+  "target": "ie-dpa-s7",
+  "type": "CITES",
+  "citation": "section 7",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s196",
+  "target": "ie-dpa-s66",
+  "type": "CITES",
+  "citation": "section 66",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s197",
+  "target": "ie-dpa-s66",
+  "type": "CITES",
+  "citation": "section 66",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s197",
+  "target": "ie-dpa-s39",
+  "type": "CITES",
+  "citation": "section 39",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s198",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s198",
+  "target": "ie-dpa-s39",
+  "type": "CITES",
+  "citation": "section 39",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s198",
+  "target": "ie-dpa-s4",
+  "type": "CITES",
+  "citation": "section 4",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s199",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s200",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s202",
+  "target": "ie-dpa-s12",
+  "type": "CITES",
+  "citation": "section 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s202",
+  "target": "ie-dpa-s13",
+  "type": "CITES",
+  "citation": "section 13",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s202",
+  "target": "ie-dpa-s41",
+  "type": "CITES",
+  "citation": "section 41",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s202",
+  "target": "ie-dpa-s42",
+  "type": "CITES",
+  "citation": "section 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s202",
+  "target": "ie-dpa-s43",
+  "type": "CITES",
+  "citation": "section 43",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s202",
+  "target": "ie-dpa-s45",
+  "type": "CITES",
+  "citation": "section 45",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s202",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s203",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s203",
+  "target": "ie-dpa-s12",
+  "type": "CITES",
+  "citation": "section 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s204",
+  "target": "ie-dpa-s12",
+  "type": "CITES",
+  "citation": "section 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s204",
+  "target": "ie-dpa-s19",
+  "type": "CITES",
+  "citation": "section 19",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s205",
+  "target": "ie-dpa-s19",
+  "type": "CITES",
+  "citation": "section 19",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s205",
+  "target": "ie-dpa-s67",
+  "type": "CITES",
+  "citation": "section 67",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s206",
+  "target": "ie-dpa-s67",
+  "type": "CITES",
+  "citation": "section 67",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s207",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s207",
+  "target": "ie-dpa-s8",
+  "type": "CITES",
+  "citation": "section 8",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s207",
+  "target": "ie-dpa-s21",
+  "type": "CITES",
+  "citation": "section 21",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s208",
+  "target": "ie-dpa-s76",
+  "type": "CITES",
+  "citation": "section 76",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s208",
+  "target": "ie-dpa-s94",
+  "type": "CITES",
+  "citation": "section 94",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s208",
+  "target": "ie-dpa-s8",
+  "type": "CITES",
+  "citation": "section 8",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s208",
+  "target": "ie-dpa-s7",
+  "type": "CITES",
+  "citation": "section 7",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s208",
+  "target": "ie-dpa-s107",
+  "type": "CITES",
+  "citation": "section 107",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s208",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s209",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s210",
+  "target": "ie-dpa-s26",
+  "type": "CITES",
+  "citation": "section 26",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s210",
+  "target": "ie-dpa-s45",
+  "type": "CITES",
+  "citation": "section 45",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s210",
+  "target": "ie-dpa-s23",
+  "type": "CITES",
+  "citation": "section 23",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s211",
+  "target": "ie-dpa-s23",
+  "type": "CITES",
+  "citation": "section 23",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s211",
+  "target": "ie-dpa-s201",
+  "type": "CITES",
+  "citation": "section 201",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s212",
+  "target": "ie-dpa-s201",
+  "type": "CITES",
+  "citation": "section 201",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s213",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s213",
+  "target": "ie-dpa-s52",
+  "type": "CITES",
+  "citation": "section 52",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s213",
+  "target": "ie-dpa-s88",
+  "type": "CITES",
+  "citation": "section 88",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s213",
+  "target": "ie-dpa-s12",
+  "type": "CITES",
+  "citation": "section 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s214",
+  "target": "ie-dpa-s12",
+  "type": "CITES",
+  "citation": "section 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s215",
+  "target": "ie-dpa-s28",
+  "type": "CITES",
+  "citation": "section 28",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s216",
+  "target": "ie-dpa-s28",
+  "type": "CITES",
+  "citation": "section 28",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s217",
+  "target": "gdpr-art-21",
+  "type": "IMPLEMENTS",
+  "citation": "Article 21",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s218",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s218",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s218",
+  "target": "ie-dpa-s42",
+  "type": "CITES",
+  "citation": "section 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s218",
+  "target": "ie-dpa-s93",
+  "type": "CITES",
+  "citation": "section 93",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s218",
+  "target": "ie-dpa-s56",
+  "type": "CITES",
+  "citation": "section 56",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s219",
+  "target": "ie-dpa-s56",
+  "type": "CITES",
+  "citation": "section 56",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s220",
+  "target": "ie-dpa-s1",
+  "type": "CITES",
+  "citation": "section 1",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s221",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s221",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s221",
+  "target": "ie-dpa-s186",
+  "type": "CITES",
+  "citation": "section 186",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s221",
+  "target": "ie-dpa-s176",
+  "type": "CITES",
+  "citation": "section 176",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s222",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s222",
+  "target": "ie-dpa-s8",
+  "type": "CITES",
+  "citation": "section 8",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s223",
+  "target": "ie-dpa-s8",
+  "type": "CITES",
+  "citation": "section 8",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s223",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s225",
+  "target": "gdpr-art-32",
+  "type": "IMPLEMENTS",
+  "citation": "Article 32",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s225",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s225",
+  "target": "ie-dpa-s15",
+  "type": "CITES",
+  "citation": "section 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s226",
+  "target": "ie-dpa-s15",
+  "type": "CITES",
+  "citation": "section 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s226",
+  "target": "ie-dpa-s41",
+  "type": "CITES",
+  "citation": "section 41",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s227",
+  "target": "ie-dpa-s41",
+  "type": "CITES",
+  "citation": "section 41",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s227",
+  "target": "ie-dpa-s7",
+  "type": "CITES",
+  "citation": "section 7",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s228",
+  "target": "ie-dpa-s7",
+  "type": "CITES",
+  "citation": "section 7",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s229",
+  "target": "ie-dpa-s40",
+  "type": "CITES",
+  "citation": "section 40",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s229",
+  "target": "ie-dpa-s42",
+  "type": "CITES",
+  "citation": "section 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s229",
+  "target": "ie-dpa-s43",
+  "type": "CITES",
+  "citation": "section 43",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s229",
+  "target": "ie-dpa-s12",
+  "type": "CITES",
+  "citation": "section 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s230",
+  "target": "ie-dpa-s12",
+  "type": "CITES",
+  "citation": "section 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s230",
+  "target": "ie-dpa-s62",
+  "type": "CITES",
+  "citation": "section 62",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s231",
+  "target": "ie-dpa-s62",
+  "type": "CITES",
+  "citation": "section 62",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s232",
+  "target": "ie-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s232",
+  "target": "ie-dpa-s9",
+  "type": "CITES",
+  "citation": "section 9",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-s232",
+  "target": "ie-dpa-s35",
+  "type": "CITES",
+  "citation": "section 35",
+  "resolution": "whole"
+ },
+ {
+  "source": "ie-dpa-sch3-p1",
+  "target": "ie-dpa-s138",
+  "type": "CITES",
+  "citation": "section 138",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s1",
+  "target": "gdpr-art-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s1",
+  "target": "de-bdsg-s8",
+  "type": "CITES",
+  "citation": "section 8",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s4",
+  "target": "gdpr-art-13",
+  "type": "IMPLEMENTS",
+  "citation": "Article 13",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s4",
+  "target": "gdpr-art-14-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "de-bdsg-s4",
+  "target": "gdpr-art-14-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "de-bdsg-s4",
+  "target": "de-bdsg-s32",
+  "type": "CITES",
+  "citation": "section 32",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s5",
+  "target": "de-bdsg-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s5",
+  "target": "de-bdsg-s7",
+  "type": "CITES",
+  "citation": "section 7",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s6",
+  "target": "de-bdsg-s7",
+  "type": "CITES",
+  "citation": "section 7",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s7",
+  "target": "de-bdsg-s67",
+  "type": "CITES",
+  "citation": "section 67",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s7",
+  "target": "de-bdsg-s69",
+  "type": "CITES",
+  "citation": "section 69",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s9",
+  "target": "de-bdsg-s29",
+  "type": "CITES",
+  "citation": "section 29",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s12",
+  "target": "de-bdsg-s10",
+  "type": "CITES",
+  "citation": "section 10",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s12",
+  "target": "de-bdsg-s13",
+  "type": "CITES",
+  "citation": "section 13",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s12",
+  "target": "de-bdsg-s15",
+  "type": "CITES",
+  "citation": "section 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s13",
+  "target": "de-bdsg-s28",
+  "type": "CITES",
+  "citation": "section 28",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s14",
+  "target": "de-bdsg-s69",
+  "type": "CITES",
+  "citation": "section 69",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s14",
+  "target": "de-bdsg-s60",
+  "type": "CITES",
+  "citation": "section 60",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s15",
+  "target": "gdpr-art-58-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 58 (2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "de-bdsg-s16",
+  "target": "gdpr-art-58-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 58",
+  "resolution": "spread"
+ },
+ {
+  "source": "de-bdsg-s16",
+  "target": "gdpr-art-58-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 58",
+  "resolution": "spread"
+ },
+ {
+  "source": "de-bdsg-s16",
+  "target": "de-bdsg-s30",
+  "type": "CITES",
+  "citation": "section 30",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s16",
+  "target": "de-bdsg-s40",
+  "type": "CITES",
+  "citation": "section 40",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s18",
+  "target": "gdpr-art-85",
+  "type": "IMPLEMENTS",
+  "citation": "Article 85",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s18",
+  "target": "gdpr-art-91",
+  "type": "IMPLEMENTS",
+  "citation": "Article 91",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s19",
+  "target": "gdpr-art-56",
+  "type": "IMPLEMENTS",
+  "citation": "Article 56 (1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s19",
+  "target": "gdpr-art-65",
+  "type": "IMPLEMENTS",
+  "citation": "Article 65 (6)",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s19",
+  "target": "de-bdsg-s18",
+  "type": "CITES",
+  "citation": "section 18",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s20",
+  "target": "gdpr-art-78",
+  "type": "IMPLEMENTS",
+  "citation": "Article 78 (1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s20",
+  "target": "de-bdsg-s61",
+  "type": "CITES",
+  "citation": "section 61",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s20",
+  "target": "de-bdsg-s63",
+  "type": "CITES",
+  "citation": "section 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s20",
+  "target": "de-bdsg-s80",
+  "type": "CITES",
+  "citation": "section 80",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s21",
+  "target": "gdpr-art-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s21",
+  "target": "de-bdsg-s63",
+  "type": "CITES",
+  "citation": "section 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s21",
+  "target": "de-bdsg-s47",
+  "type": "CITES",
+  "citation": "section 47",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s22",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 9 (1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "de-bdsg-s23",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 9 (1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "de-bdsg-s23",
+  "target": "gdpr-art-9-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 9 (2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "de-bdsg-s23",
+  "target": "de-bdsg-s11",
+  "type": "CITES",
+  "citation": "section 11",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s23",
+  "target": "de-bdsg-s22",
+  "type": "CITES",
+  "citation": "section 22",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s24",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 9 (1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "de-bdsg-s24",
+  "target": "gdpr-art-9-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 9 (2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "de-bdsg-s24",
+  "target": "de-bdsg-s22",
+  "type": "CITES",
+  "citation": "section 22",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s25",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 9 (1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "de-bdsg-s25",
+  "target": "gdpr-art-9-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 9 (2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "de-bdsg-s25",
+  "target": "de-bdsg-s23",
+  "type": "CITES",
+  "citation": "section 23",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s25",
+  "target": "de-bdsg-s22",
+  "type": "CITES",
+  "citation": "section 22",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s26",
+  "target": "gdpr-art-7",
+  "type": "IMPLEMENTS",
+  "citation": "Article 7 (3)",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s26",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 9 (1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "de-bdsg-s26",
+  "target": "gdpr-art-88",
+  "type": "IMPLEMENTS",
+  "citation": "Article 88 (2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s26",
+  "target": "gdpr-art-5",
+  "type": "IMPLEMENTS",
+  "citation": "Article 5",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s26",
+  "target": "de-bdsg-s22",
+  "type": "CITES",
+  "citation": "section 22",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s27",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 9 (1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "de-bdsg-s27",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s27",
+  "target": "gdpr-art-16",
+  "type": "IMPLEMENTS",
+  "citation": "Article 16",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s27",
+  "target": "gdpr-art-18",
+  "type": "IMPLEMENTS",
+  "citation": "Article 18",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s27",
+  "target": "gdpr-art-21",
+  "type": "IMPLEMENTS",
+  "citation": "Article 21",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s27",
+  "target": "de-bdsg-s22",
+  "type": "CITES",
+  "citation": "section 22",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s28",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 9 (1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "de-bdsg-s28",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s28",
+  "target": "gdpr-art-16",
+  "type": "IMPLEMENTS",
+  "citation": "Article 16",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s28",
+  "target": "gdpr-art-20",
+  "type": "IMPLEMENTS",
+  "citation": "Article 20",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s28",
+  "target": "gdpr-art-21",
+  "type": "IMPLEMENTS",
+  "citation": "Article 21",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s28",
+  "target": "de-bdsg-s22",
+  "type": "CITES",
+  "citation": "section 22",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s29",
+  "target": "gdpr-art-14-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 14 (5)",
+  "resolution": "spread"
+ },
+ {
+  "source": "de-bdsg-s29",
+  "target": "gdpr-art-14-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 14 (5)",
+  "resolution": "spread"
+ },
+ {
+  "source": "de-bdsg-s29",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s29",
+  "target": "gdpr-art-34",
+  "type": "IMPLEMENTS",
+  "citation": "Article 34 (3)",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s29",
+  "target": "gdpr-art-13",
+  "type": "IMPLEMENTS",
+  "citation": "Article 13 (3)",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s30",
+  "target": "de-bdsg-s37",
+  "type": "CITES",
+  "citation": "section 37",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s32",
+  "target": "gdpr-art-13",
+  "type": "IMPLEMENTS",
+  "citation": "Article 13 (4)",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s33",
+  "target": "gdpr-art-14-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 14 (5)",
+  "resolution": "spread"
+ },
+ {
+  "source": "de-bdsg-s33",
+  "target": "gdpr-art-14-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 14 (5)",
+  "resolution": "spread"
+ },
+ {
+  "source": "de-bdsg-s33",
+  "target": "de-bdsg-s29",
+  "type": "CITES",
+  "citation": "section 29",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s34",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s34",
+  "target": "gdpr-art-18",
+  "type": "IMPLEMENTS",
+  "citation": "Article 18",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s34",
+  "target": "de-bdsg-s27",
+  "type": "CITES",
+  "citation": "section 27",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s34",
+  "target": "de-bdsg-s33",
+  "type": "CITES",
+  "citation": "section 33",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s35",
+  "target": "gdpr-art-17",
+  "type": "IMPLEMENTS",
+  "citation": "Article 17 (1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s35",
+  "target": "gdpr-art-18",
+  "type": "IMPLEMENTS",
+  "citation": "Article 18",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s36",
+  "target": "gdpr-art-21",
+  "type": "IMPLEMENTS",
+  "citation": "Article 21 (1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s37",
+  "target": "gdpr-art-22",
+  "type": "IMPLEMENTS",
+  "citation": "Article 22 (1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s37",
+  "target": "de-bdsg-s22",
+  "type": "CITES",
+  "citation": "section 22",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s38",
+  "target": "gdpr-art-35-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 35",
+  "resolution": "spread"
+ },
+ {
+  "source": "de-bdsg-s38",
+  "target": "gdpr-art-35-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 35",
+  "resolution": "spread"
+ },
+ {
+  "source": "de-bdsg-s38",
+  "target": "de-bdsg-s6",
+  "type": "CITES",
+  "citation": "section 6",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s39",
+  "target": "de-bdsg-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s39",
+  "target": "de-bdsg-s4",
+  "type": "CITES",
+  "citation": "section 4",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s39",
+  "target": "de-bdsg-s10",
+  "type": "CITES",
+  "citation": "section 10",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s39",
+  "target": "de-bdsg-s1",
+  "type": "CITES",
+  "citation": "section 1",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s40",
+  "target": "gdpr-art-6-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 6 (4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "de-bdsg-s40",
+  "target": "gdpr-art-6-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 6 (4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "de-bdsg-s40",
+  "target": "gdpr-art-38",
+  "type": "IMPLEMENTS",
+  "citation": "Article 38 (6)",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s40",
+  "target": "de-bdsg-s18",
+  "type": "CITES",
+  "citation": "section 18",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s40",
+  "target": "de-bdsg-s3",
+  "type": "CITES",
+  "citation": "section 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s40",
+  "target": "de-bdsg-s11",
+  "type": "CITES",
+  "citation": "section 11",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s40",
+  "target": "de-bdsg-s13",
+  "type": "CITES",
+  "citation": "section 13",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s40",
+  "target": "de-bdsg-s16",
+  "type": "CITES",
+  "citation": "section 16",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s41",
+  "target": "gdpr-art-83-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 83 (4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "de-bdsg-s41",
+  "target": "gdpr-art-83-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 83 (4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "de-bdsg-s41",
+  "target": "de-bdsg-s17",
+  "type": "CITES",
+  "citation": "section 17",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s41",
+  "target": "de-bdsg-s68",
+  "type": "CITES",
+  "citation": "section 68",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s41",
+  "target": "de-bdsg-s56",
+  "type": "CITES",
+  "citation": "section 56",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s41",
+  "target": "de-bdsg-s69",
+  "type": "CITES",
+  "citation": "section 69",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s42",
+  "target": "gdpr-art-33",
+  "type": "IMPLEMENTS",
+  "citation": "Article 33",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s42",
+  "target": "gdpr-art-34",
+  "type": "IMPLEMENTS",
+  "citation": "Article 34 (1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s42",
+  "target": "de-bdsg-s52",
+  "type": "CITES",
+  "citation": "section 52",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s43",
+  "target": "gdpr-art-33",
+  "type": "IMPLEMENTS",
+  "citation": "Article 33",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s43",
+  "target": "gdpr-art-34",
+  "type": "IMPLEMENTS",
+  "citation": "Article 34 (1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s43",
+  "target": "de-bdsg-s30",
+  "type": "CITES",
+  "citation": "section 30",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s43",
+  "target": "de-bdsg-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s43",
+  "target": "de-bdsg-s52",
+  "type": "CITES",
+  "citation": "section 52",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s44",
+  "target": "gdpr-art-27",
+  "type": "IMPLEMENTS",
+  "citation": "Article 27 (1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s45",
+  "target": "de-bdsg-s11",
+  "type": "CITES",
+  "citation": "section 11",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s49",
+  "target": "de-bdsg-s45",
+  "type": "CITES",
+  "citation": "section 45",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s50",
+  "target": "de-bdsg-s45",
+  "type": "CITES",
+  "citation": "section 45",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s56",
+  "target": "de-bdsg-s55",
+  "type": "CITES",
+  "citation": "section 55",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s56",
+  "target": "de-bdsg-s45",
+  "type": "CITES",
+  "citation": "section 45",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s56",
+  "target": "de-bdsg-s57",
+  "type": "CITES",
+  "citation": "section 57",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s57",
+  "target": "de-bdsg-s60",
+  "type": "CITES",
+  "citation": "section 60",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s57",
+  "target": "de-bdsg-s56",
+  "type": "CITES",
+  "citation": "section 56",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s58",
+  "target": "de-bdsg-s45",
+  "type": "CITES",
+  "citation": "section 45",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s58",
+  "target": "de-bdsg-s56",
+  "type": "CITES",
+  "citation": "section 56",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s58",
+  "target": "de-bdsg-s57",
+  "type": "CITES",
+  "citation": "section 57",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s59",
+  "target": "de-bdsg-s57",
+  "type": "CITES",
+  "citation": "section 57",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s59",
+  "target": "de-bdsg-s58",
+  "type": "CITES",
+  "citation": "section 58",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s59",
+  "target": "de-bdsg-s55",
+  "type": "CITES",
+  "citation": "section 55",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s59",
+  "target": "de-bdsg-s56",
+  "type": "CITES",
+  "citation": "section 56",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s60",
+  "target": "de-bdsg-s45",
+  "type": "CITES",
+  "citation": "section 45",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s60",
+  "target": "de-bdsg-s61",
+  "type": "CITES",
+  "citation": "section 61",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s61",
+  "target": "de-bdsg-s60",
+  "type": "CITES",
+  "citation": "section 60",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s62",
+  "target": "de-bdsg-s76",
+  "type": "CITES",
+  "citation": "section 76",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s62",
+  "target": "de-bdsg-s64",
+  "type": "CITES",
+  "citation": "section 64",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s65",
+  "target": "de-bdsg-s42",
+  "type": "CITES",
+  "citation": "section 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s66",
+  "target": "de-bdsg-s65",
+  "type": "CITES",
+  "citation": "section 65",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s66",
+  "target": "de-bdsg-s56",
+  "type": "CITES",
+  "citation": "section 56",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s66",
+  "target": "de-bdsg-s42",
+  "type": "CITES",
+  "citation": "section 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s69",
+  "target": "de-bdsg-s67",
+  "type": "CITES",
+  "citation": "section 67",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s70",
+  "target": "de-bdsg-s64",
+  "type": "CITES",
+  "citation": "section 64",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s75",
+  "target": "de-bdsg-s58",
+  "type": "CITES",
+  "citation": "section 58",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s78",
+  "target": "de-bdsg-s45",
+  "type": "CITES",
+  "citation": "section 45",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s79",
+  "target": "de-bdsg-s78",
+  "type": "CITES",
+  "citation": "section 78",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s80",
+  "target": "de-bdsg-s78",
+  "type": "CITES",
+  "citation": "section 78",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s80",
+  "target": "de-bdsg-s79",
+  "type": "CITES",
+  "citation": "section 79",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s80",
+  "target": "de-bdsg-s45",
+  "type": "CITES",
+  "citation": "section 45",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s81",
+  "target": "de-bdsg-s78",
+  "type": "CITES",
+  "citation": "section 78",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s81",
+  "target": "de-bdsg-s79",
+  "type": "CITES",
+  "citation": "section 79",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s84",
+  "target": "de-bdsg-s42",
+  "type": "CITES",
+  "citation": "section 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s84",
+  "target": "de-bdsg-s45",
+  "type": "CITES",
+  "citation": "section 45",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s85",
+  "target": "gdpr-art-13",
+  "type": "IMPLEMENTS",
+  "citation": "Article 13 (1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s85",
+  "target": "de-bdsg-s16",
+  "type": "CITES",
+  "citation": "section 16",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s85",
+  "target": "de-bdsg-s32",
+  "type": "CITES",
+  "citation": "section 32",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s86",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 9 (1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "de-bdsg-s86",
+  "target": "gdpr-art-13",
+  "type": "IMPLEMENTS",
+  "citation": "Article 13",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s86",
+  "target": "gdpr-art-16",
+  "type": "IMPLEMENTS",
+  "citation": "Article 16",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s86",
+  "target": "gdpr-art-19",
+  "type": "IMPLEMENTS",
+  "citation": "Article 19",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s86",
+  "target": "gdpr-art-21",
+  "type": "IMPLEMENTS",
+  "citation": "Article 21",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s86",
+  "target": "de-bdsg-s1",
+  "type": "CITES",
+  "citation": "section 1",
+  "resolution": "whole"
+ },
+ {
+  "source": "de-bdsg-s86",
+  "target": "de-bdsg-s22",
+  "type": "CITES",
+  "citation": "section 22",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s3",
+  "target": "uk-dpa-s5",
+  "type": "CITES",
+  "citation": "section 5",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s3",
+  "target": "uk-dpa-s114",
+  "type": "CITES",
+  "citation": "section 114",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s3",
+  "target": "uk-dpa-s114A",
+  "type": "CITES",
+  "citation": "section 114A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s3",
+  "target": "uk-dpa-s205",
+  "type": "CITES",
+  "citation": "section 205",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s3",
+  "target": "uk-dpa-s206",
+  "type": "CITES",
+  "citation": "section 206",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s4",
+  "target": "gdpr-art-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s5",
+  "target": "uk-dpa-s3",
+  "type": "CITES",
+  "citation": "section 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s6",
+  "target": "gdpr-art-4-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 4(7)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s6",
+  "target": "gdpr-art-4-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 4(7)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s6",
+  "target": "gdpr-art-4-3",
+  "type": "IMPLEMENTS",
+  "citation": "Article 4(7)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s6",
+  "target": "uk-dpa-s209",
+  "type": "CITES",
+  "citation": "section 209",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s6",
+  "target": "uk-dpa-s210",
+  "type": "CITES",
+  "citation": "section 210",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s7",
+  "target": "uk-dpa-s13",
+  "type": "CITES",
+  "citation": "section 13",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s7",
+  "target": "uk-dpa-s27",
+  "type": "CITES",
+  "citation": "section 27",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s8",
+  "target": "gdpr-art-6-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 6(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "uk-dpa-s9A",
+  "target": "uk-dpa-s25",
+  "type": "CITES",
+  "citation": "section 25",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s10",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 9(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "uk-dpa-s10",
+  "target": "gdpr-art-9-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 9(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "uk-dpa-s10",
+  "target": "gdpr-art-10",
+  "type": "IMPLEMENTS",
+  "citation": "Article 10(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s11",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 9(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s11",
+  "target": "gdpr-art-9-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 9(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s11",
+  "target": "gdpr-art-10",
+  "type": "IMPLEMENTS",
+  "citation": "Article 10",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s11",
+  "target": "uk-dpa-s10",
+  "type": "CITES",
+  "citation": "section 10",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s12",
+  "target": "gdpr-art-12",
+  "type": "IMPLEMENTS",
+  "citation": "Article 12(5)",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s12",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "citation": "Article 15(3)",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s13",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "citation": "Article 15(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s13",
+  "target": "uk-dpa-s145",
+  "type": "CITES",
+  "citation": "section 145",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s13",
+  "target": "uk-dpa-s159",
+  "type": "CITES",
+  "citation": "section 159",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s14",
+  "target": "gdpr-art-22",
+  "type": "IMPLEMENTS",
+  "citation": "Article 22(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s14",
+  "target": "gdpr-art-12",
+  "type": "IMPLEMENTS",
+  "citation": "Article 12(3)",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-13",
+  "type": "IMPLEMENTS",
+  "citation": "Article 13",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-21",
+  "type": "IMPLEMENTS",
+  "citation": "Article 21",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-34",
+  "type": "IMPLEMENTS",
+  "citation": "Article 34",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-23",
+  "type": "IMPLEMENTS",
+  "citation": "Article 23(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-85",
+  "type": "IMPLEMENTS",
+  "citation": "Article 85(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-16",
+  "type": "IMPLEMENTS",
+  "citation": "Article 16",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-18",
+  "type": "IMPLEMENTS",
+  "citation": "Article 18",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-19",
+  "type": "IMPLEMENTS",
+  "citation": "Article 19",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-20",
+  "type": "IMPLEMENTS",
+  "citation": "Article 20",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "uk-dpa-s21",
+  "type": "CITES",
+  "citation": "section 21",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "uk-dpa-s26",
+  "type": "CITES",
+  "citation": "section 26",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s16",
+  "target": "uk-dpa-s15",
+  "type": "CITES",
+  "citation": "section 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s17",
+  "target": "gdpr-art-43-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s17",
+  "target": "gdpr-art-43-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s17",
+  "target": "gdpr-art-42",
+  "type": "IMPLEMENTS",
+  "citation": "Article 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s17A",
+  "target": "gdpr-art-45-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 45(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "uk-dpa-s17A",
+  "target": "uk-dpa-s17B",
+  "type": "CITES",
+  "citation": "section 17B",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s17B",
+  "target": "uk-dpa-s17A",
+  "type": "CITES",
+  "citation": "section 17A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s17C",
+  "target": "gdpr-art-46",
+  "type": "IMPLEMENTS",
+  "citation": "Article 46",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s17C",
+  "target": "uk-dpa-s119A",
+  "type": "CITES",
+  "citation": "section 119A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s18",
+  "target": "uk-dpa-s17A",
+  "type": "CITES",
+  "citation": "section 17A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s19",
+  "target": "gdpr-art-89",
+  "type": "IMPLEMENTS",
+  "citation": "Article 89(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s19",
+  "target": "uk-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s19",
+  "target": "uk-dpa-s1",
+  "type": "CITES",
+  "citation": "section 1",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s21",
+  "target": "uk-dpa-s3",
+  "type": "CITES",
+  "citation": "section 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s21",
+  "target": "uk-dpa-s82",
+  "type": "CITES",
+  "citation": "section 82",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s21",
+  "target": "uk-dpa-s7",
+  "type": "CITES",
+  "citation": "section 7",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s24",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "citation": "Article 15(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s24",
+  "target": "uk-dpa-s17A",
+  "type": "CITES",
+  "citation": "section 17A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s24",
+  "target": "uk-dpa-s119A",
+  "type": "CITES",
+  "citation": "section 119A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s24",
+  "target": "uk-dpa-s170",
+  "type": "CITES",
+  "citation": "section 170",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s24",
+  "target": "uk-dpa-s12",
+  "type": "CITES",
+  "citation": "section 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s25",
+  "target": "uk-dpa-s24",
+  "type": "CITES",
+  "citation": "section 24",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s26",
+  "target": "uk-dpa-s17A",
+  "type": "CITES",
+  "citation": "section 17A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s26",
+  "target": "uk-dpa-s115",
+  "type": "CITES",
+  "citation": "section 115",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s26",
+  "target": "uk-dpa-s119",
+  "type": "CITES",
+  "citation": "section 119",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s26",
+  "target": "uk-dpa-s119A",
+  "type": "CITES",
+  "citation": "section 119A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s26",
+  "target": "uk-dpa-s142",
+  "type": "CITES",
+  "citation": "section 142",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s26",
+  "target": "uk-dpa-s170",
+  "type": "CITES",
+  "citation": "section 170",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s26",
+  "target": "uk-dpa-s187",
+  "type": "CITES",
+  "citation": "section 187",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s27",
+  "target": "uk-dpa-s26",
+  "type": "CITES",
+  "citation": "section 26",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s28",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 9(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "uk-dpa-s28",
+  "target": "gdpr-art-32",
+  "type": "IMPLEMENTS",
+  "citation": "Article 32",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s28",
+  "target": "uk-dpa-s115",
+  "type": "CITES",
+  "citation": "section 115",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s29",
+  "target": "uk-dpa-s82A",
+  "type": "CITES",
+  "citation": "section 82A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s29",
+  "target": "uk-dpa-s30",
+  "type": "CITES",
+  "citation": "section 30",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s30",
+  "target": "uk-dpa-s73",
+  "type": "CITES",
+  "citation": "section 73",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s33",
+  "target": "uk-dpa-s35",
+  "type": "CITES",
+  "citation": "section 35",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s33",
+  "target": "uk-dpa-s3",
+  "type": "CITES",
+  "citation": "section 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s34",
+  "target": "uk-dpa-s35",
+  "type": "CITES",
+  "citation": "section 35",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s34",
+  "target": "uk-dpa-s36",
+  "type": "CITES",
+  "citation": "section 36",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s34",
+  "target": "uk-dpa-s37",
+  "type": "CITES",
+  "citation": "section 37",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s34",
+  "target": "uk-dpa-s38",
+  "type": "CITES",
+  "citation": "section 38",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s34",
+  "target": "uk-dpa-s39",
+  "type": "CITES",
+  "citation": "section 39",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s34",
+  "target": "uk-dpa-s40",
+  "type": "CITES",
+  "citation": "section 40",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s34",
+  "target": "uk-dpa-s41",
+  "type": "CITES",
+  "citation": "section 41",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s35",
+  "target": "uk-dpa-s42",
+  "type": "CITES",
+  "citation": "section 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s42",
+  "target": "uk-dpa-s35",
+  "type": "CITES",
+  "citation": "section 35",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s42",
+  "target": "uk-dpa-s34",
+  "type": "CITES",
+  "citation": "section 34",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s42",
+  "target": "uk-dpa-s61",
+  "type": "CITES",
+  "citation": "section 61",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s42A",
+  "target": "uk-dpa-s35",
+  "type": "CITES",
+  "citation": "section 35",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s42A",
+  "target": "uk-dpa-s205",
+  "type": "CITES",
+  "citation": "section 205",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s43",
+  "target": "uk-dpa-s44",
+  "type": "CITES",
+  "citation": "section 44",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s43",
+  "target": "uk-dpa-s45",
+  "type": "CITES",
+  "citation": "section 45",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s43",
+  "target": "uk-dpa-s46",
+  "type": "CITES",
+  "citation": "section 46",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s43",
+  "target": "uk-dpa-s49",
+  "type": "CITES",
+  "citation": "section 49",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s43",
+  "target": "uk-dpa-s51",
+  "type": "CITES",
+  "citation": "section 51",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s44",
+  "target": "uk-dpa-s69",
+  "type": "CITES",
+  "citation": "section 69",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s44",
+  "target": "uk-dpa-s45",
+  "type": "CITES",
+  "citation": "section 45",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s44",
+  "target": "uk-dpa-s46",
+  "type": "CITES",
+  "citation": "section 46",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s44",
+  "target": "uk-dpa-s47",
+  "type": "CITES",
+  "citation": "section 47",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s44",
+  "target": "uk-dpa-s51",
+  "type": "CITES",
+  "citation": "section 51",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s44",
+  "target": "uk-dpa-s167",
+  "type": "CITES",
+  "citation": "section 167",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s45",
+  "target": "uk-dpa-s46",
+  "type": "CITES",
+  "citation": "section 46",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s45",
+  "target": "uk-dpa-s47",
+  "type": "CITES",
+  "citation": "section 47",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s45",
+  "target": "uk-dpa-s54",
+  "type": "CITES",
+  "citation": "section 54",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s45",
+  "target": "uk-dpa-s51",
+  "type": "CITES",
+  "citation": "section 51",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s45",
+  "target": "uk-dpa-s167",
+  "type": "CITES",
+  "citation": "section 167",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s45A",
+  "target": "uk-dpa-s44",
+  "type": "CITES",
+  "citation": "section 44",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s45A",
+  "target": "uk-dpa-s51",
+  "type": "CITES",
+  "citation": "section 51",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s45A",
+  "target": "uk-dpa-s165",
+  "type": "CITES",
+  "citation": "section 165",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s45A",
+  "target": "uk-dpa-s167",
+  "type": "CITES",
+  "citation": "section 167",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s45A",
+  "target": "uk-dpa-s35",
+  "type": "CITES",
+  "citation": "section 35",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s47",
+  "target": "uk-dpa-s35",
+  "type": "CITES",
+  "citation": "section 35",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s47",
+  "target": "uk-dpa-s46",
+  "type": "CITES",
+  "citation": "section 46",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s48",
+  "target": "uk-dpa-s51",
+  "type": "CITES",
+  "citation": "section 51",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s48",
+  "target": "uk-dpa-s167",
+  "type": "CITES",
+  "citation": "section 167",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s48",
+  "target": "uk-dpa-s54",
+  "type": "CITES",
+  "citation": "section 54",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s48",
+  "target": "uk-dpa-s47",
+  "type": "CITES",
+  "citation": "section 47",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s50",
+  "target": "uk-dpa-s49",
+  "type": "CITES",
+  "citation": "section 49",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s50A",
+  "target": "uk-dpa-s50B",
+  "type": "CITES",
+  "citation": "section 50B",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s50C",
+  "target": "uk-dpa-s50D",
+  "type": "CITES",
+  "citation": "section 50D",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s50D",
+  "target": "uk-dpa-s50A",
+  "type": "CITES",
+  "citation": "section 50A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s50D",
+  "target": "uk-dpa-s50C",
+  "type": "CITES",
+  "citation": "section 50C",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s51",
+  "target": "uk-dpa-s44",
+  "type": "CITES",
+  "citation": "section 44",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s51",
+  "target": "uk-dpa-s45",
+  "type": "CITES",
+  "citation": "section 45",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s51",
+  "target": "uk-dpa-s45A",
+  "type": "CITES",
+  "citation": "section 45A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s51",
+  "target": "uk-dpa-s46",
+  "type": "CITES",
+  "citation": "section 46",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s51",
+  "target": "uk-dpa-s47",
+  "type": "CITES",
+  "citation": "section 47",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s51",
+  "target": "uk-dpa-s142",
+  "type": "CITES",
+  "citation": "section 142",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s51",
+  "target": "uk-dpa-s167",
+  "type": "CITES",
+  "citation": "section 167",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s52",
+  "target": "uk-dpa-s45",
+  "type": "CITES",
+  "citation": "section 45",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s52",
+  "target": "uk-dpa-s53",
+  "type": "CITES",
+  "citation": "section 53",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s53",
+  "target": "uk-dpa-s45",
+  "type": "CITES",
+  "citation": "section 45",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s54",
+  "target": "uk-dpa-s45",
+  "type": "CITES",
+  "citation": "section 45",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s54",
+  "target": "uk-dpa-s52",
+  "type": "CITES",
+  "citation": "section 52",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s54",
+  "target": "uk-dpa-s53",
+  "type": "CITES",
+  "citation": "section 53",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s55",
+  "target": "uk-dpa-s56",
+  "type": "CITES",
+  "citation": "section 56",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s55",
+  "target": "uk-dpa-s66",
+  "type": "CITES",
+  "citation": "section 66",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s55",
+  "target": "uk-dpa-s67",
+  "type": "CITES",
+  "citation": "section 67",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s55",
+  "target": "uk-dpa-s69",
+  "type": "CITES",
+  "citation": "section 69",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s55",
+  "target": "uk-dpa-s71A",
+  "type": "CITES",
+  "citation": "section 71A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s56",
+  "target": "uk-dpa-s71A",
+  "type": "CITES",
+  "citation": "section 71A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s59",
+  "target": "uk-dpa-s71A",
+  "type": "CITES",
+  "citation": "section 71A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s61",
+  "target": "uk-dpa-s66",
+  "type": "CITES",
+  "citation": "section 66",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s61",
+  "target": "uk-dpa-s59",
+  "type": "CITES",
+  "citation": "section 59",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s65",
+  "target": "uk-dpa-s64",
+  "type": "CITES",
+  "citation": "section 64",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s66",
+  "target": "uk-dpa-s71A",
+  "type": "CITES",
+  "citation": "section 71A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s68",
+  "target": "uk-dpa-s67",
+  "type": "CITES",
+  "citation": "section 67",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s68",
+  "target": "uk-dpa-s52",
+  "type": "CITES",
+  "citation": "section 52",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s69",
+  "target": "uk-dpa-s71",
+  "type": "CITES",
+  "citation": "section 71",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s70",
+  "target": "uk-dpa-s71",
+  "type": "CITES",
+  "citation": "section 71",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s71",
+  "target": "uk-dpa-s64",
+  "type": "CITES",
+  "citation": "section 64",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s71",
+  "target": "uk-dpa-s65",
+  "type": "CITES",
+  "citation": "section 65",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s71A",
+  "target": "uk-dpa-s56",
+  "type": "CITES",
+  "citation": "section 56",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s72",
+  "target": "uk-dpa-s73",
+  "type": "CITES",
+  "citation": "section 73",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s72",
+  "target": "uk-dpa-s77",
+  "type": "CITES",
+  "citation": "section 77",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s72",
+  "target": "uk-dpa-s78",
+  "type": "CITES",
+  "citation": "section 78",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s73",
+  "target": "uk-dpa-s74A",
+  "type": "CITES",
+  "citation": "section 74A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s73",
+  "target": "uk-dpa-s75",
+  "type": "CITES",
+  "citation": "section 75",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s73",
+  "target": "uk-dpa-s76",
+  "type": "CITES",
+  "citation": "section 76",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s73",
+  "target": "uk-dpa-s77",
+  "type": "CITES",
+  "citation": "section 77",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s74A",
+  "target": "uk-dpa-s74B",
+  "type": "CITES",
+  "citation": "section 74B",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-section-74AA",
+  "target": "uk-dpa-s73",
+  "type": "CITES",
+  "citation": "section 73",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-section-74AB",
+  "target": "uk-dpa-s207",
+  "type": "CITES",
+  "citation": "section 207",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s74B",
+  "target": "uk-dpa-s74A",
+  "type": "CITES",
+  "citation": "section 74A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s77",
+  "target": "uk-dpa-s73",
+  "type": "CITES",
+  "citation": "section 73",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s78",
+  "target": "uk-dpa-s73",
+  "type": "CITES",
+  "citation": "section 73",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s78A",
+  "target": "uk-dpa-s67",
+  "type": "CITES",
+  "citation": "section 67",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s78A",
+  "target": "uk-dpa-s68",
+  "type": "CITES",
+  "citation": "section 68",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s78A",
+  "target": "uk-dpa-s119",
+  "type": "CITES",
+  "citation": "section 119",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s78A",
+  "target": "uk-dpa-s142",
+  "type": "CITES",
+  "citation": "section 142",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s78A",
+  "target": "uk-dpa-s170",
+  "type": "CITES",
+  "citation": "section 170",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s78A",
+  "target": "uk-dpa-s187",
+  "type": "CITES",
+  "citation": "section 187",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s78A",
+  "target": "uk-dpa-s35",
+  "type": "CITES",
+  "citation": "section 35",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s78A",
+  "target": "uk-dpa-s42",
+  "type": "CITES",
+  "citation": "section 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s78A",
+  "target": "uk-dpa-s73",
+  "type": "CITES",
+  "citation": "section 73",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s78A",
+  "target": "uk-dpa-s78",
+  "type": "CITES",
+  "citation": "section 78",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s79",
+  "target": "uk-dpa-s78A",
+  "type": "CITES",
+  "citation": "section 78A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s82",
+  "target": "uk-dpa-s82A",
+  "type": "CITES",
+  "citation": "section 82A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s82A",
+  "target": "uk-dpa-s82D",
+  "type": "CITES",
+  "citation": "section 82D",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s82A",
+  "target": "uk-dpa-s104",
+  "type": "CITES",
+  "citation": "section 104",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s82B",
+  "target": "uk-dpa-s82C",
+  "type": "CITES",
+  "citation": "section 82C",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s84",
+  "target": "uk-dpa-s82A",
+  "type": "CITES",
+  "citation": "section 82A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s84",
+  "target": "uk-dpa-s86",
+  "type": "CITES",
+  "citation": "section 86",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s84",
+  "target": "uk-dpa-s82C",
+  "type": "CITES",
+  "citation": "section 82C",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s84",
+  "target": "uk-dpa-s3",
+  "type": "CITES",
+  "citation": "section 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s85",
+  "target": "uk-dpa-s86",
+  "type": "CITES",
+  "citation": "section 86",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s85",
+  "target": "uk-dpa-s87",
+  "type": "CITES",
+  "citation": "section 87",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s85",
+  "target": "uk-dpa-s88",
+  "type": "CITES",
+  "citation": "section 88",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s85",
+  "target": "uk-dpa-s89",
+  "type": "CITES",
+  "citation": "section 89",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s85",
+  "target": "uk-dpa-s90",
+  "type": "CITES",
+  "citation": "section 90",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s85",
+  "target": "uk-dpa-s91",
+  "type": "CITES",
+  "citation": "section 91",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s91A",
+  "target": "uk-dpa-s86",
+  "type": "CITES",
+  "citation": "section 86",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s91A",
+  "target": "uk-dpa-s205",
+  "type": "CITES",
+  "citation": "section 205",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s92",
+  "target": "uk-dpa-s93",
+  "type": "CITES",
+  "citation": "section 93",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s92",
+  "target": "uk-dpa-s94",
+  "type": "CITES",
+  "citation": "section 94",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s92",
+  "target": "uk-dpa-s96",
+  "type": "CITES",
+  "citation": "section 96",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s92",
+  "target": "uk-dpa-s98",
+  "type": "CITES",
+  "citation": "section 98",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s92",
+  "target": "uk-dpa-s99",
+  "type": "CITES",
+  "citation": "section 99",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s92",
+  "target": "uk-dpa-s100",
+  "type": "CITES",
+  "citation": "section 100",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s94",
+  "target": "uk-dpa-s100",
+  "type": "CITES",
+  "citation": "section 100",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s94",
+  "target": "uk-dpa-s104",
+  "type": "CITES",
+  "citation": "section 104",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s95",
+  "target": "uk-dpa-s94",
+  "type": "CITES",
+  "citation": "section 94",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s99",
+  "target": "uk-dpa-s104",
+  "type": "CITES",
+  "citation": "section 104",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s100",
+  "target": "uk-dpa-s86",
+  "type": "CITES",
+  "citation": "section 86",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s100",
+  "target": "uk-dpa-s104",
+  "type": "CITES",
+  "citation": "section 104",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s101",
+  "target": "uk-dpa-s102",
+  "type": "CITES",
+  "citation": "section 102",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s101",
+  "target": "uk-dpa-s107",
+  "type": "CITES",
+  "citation": "section 107",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s101",
+  "target": "uk-dpa-s108",
+  "type": "CITES",
+  "citation": "section 108",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s109",
+  "target": "uk-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s110",
+  "target": "uk-dpa-s86",
+  "type": "CITES",
+  "citation": "section 86",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s110",
+  "target": "uk-dpa-s108",
+  "type": "CITES",
+  "citation": "section 108",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s110",
+  "target": "uk-dpa-s119",
+  "type": "CITES",
+  "citation": "section 119",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s110",
+  "target": "uk-dpa-s142",
+  "type": "CITES",
+  "citation": "section 142",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s110",
+  "target": "uk-dpa-s170",
+  "type": "CITES",
+  "citation": "section 170",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s110",
+  "target": "uk-dpa-s174",
+  "type": "CITES",
+  "citation": "section 174",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s111",
+  "target": "uk-dpa-s110",
+  "type": "CITES",
+  "citation": "section 110",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s115",
+  "target": "gdpr-art-57-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 57",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s115",
+  "target": "gdpr-art-58-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 58",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s115",
+  "target": "gdpr-art-58-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 58",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s115",
+  "target": "gdpr-art-42",
+  "type": "IMPLEMENTS",
+  "citation": "Article 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s115",
+  "target": "gdpr-art-43-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s115",
+  "target": "gdpr-art-43-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s115",
+  "target": "uk-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s115",
+  "target": "uk-dpa-s28",
+  "type": "CITES",
+  "citation": "section 28",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s115",
+  "target": "uk-dpa-s142",
+  "type": "CITES",
+  "citation": "section 142",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s115",
+  "target": "uk-dpa-s146",
+  "type": "CITES",
+  "citation": "section 146",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s115",
+  "target": "uk-dpa-s154",
+  "type": "CITES",
+  "citation": "section 154",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s115",
+  "target": "uk-dpa-s149",
+  "type": "CITES",
+  "citation": "section 149",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s115",
+  "target": "uk-dpa-s155",
+  "type": "CITES",
+  "citation": "section 155",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s116",
+  "target": "uk-dpa-s2",
+  "type": "CITES",
+  "citation": "section 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s119",
+  "target": "uk-dpa-s3",
+  "type": "CITES",
+  "citation": "section 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s119A",
+  "target": "gdpr-art-46",
+  "type": "IMPLEMENTS",
+  "citation": "Article 46",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s119A",
+  "target": "uk-dpa-s17C",
+  "type": "CITES",
+  "citation": "section 17C",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s120",
+  "target": "gdpr-art-50",
+  "type": "IMPLEMENTS",
+  "citation": "Article 50",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s120",
+  "target": "uk-dpa-s3",
+  "type": "CITES",
+  "citation": "section 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s120C",
+  "target": "uk-dpa-s120A",
+  "type": "CITES",
+  "citation": "section 120A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s120C",
+  "target": "uk-dpa-s108",
+  "type": "CITES",
+  "citation": "section 108",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s120C",
+  "target": "uk-dpa-s21",
+  "type": "CITES",
+  "citation": "section 21",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s120D",
+  "target": "uk-dpa-s111",
+  "type": "CITES",
+  "citation": "section 111",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s124B",
+  "target": "uk-dpa-s121",
+  "type": "CITES",
+  "citation": "section 121",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s124B",
+  "target": "uk-dpa-s124A",
+  "type": "CITES",
+  "citation": "section 124A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s124C",
+  "target": "uk-dpa-s121",
+  "type": "CITES",
+  "citation": "section 121",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s125",
+  "target": "uk-dpa-s121",
+  "type": "CITES",
+  "citation": "section 121",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s126",
+  "target": "uk-dpa-s125",
+  "type": "CITES",
+  "citation": "section 125",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s126",
+  "target": "uk-dpa-s121",
+  "type": "CITES",
+  "citation": "section 121",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s127",
+  "target": "uk-dpa-s125",
+  "type": "CITES",
+  "citation": "section 125",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s129",
+  "target": "gdpr-art-58-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 58(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "uk-dpa-s129",
+  "target": "uk-dpa-s124A",
+  "type": "CITES",
+  "citation": "section 124A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s130",
+  "target": "uk-dpa-s27",
+  "type": "CITES",
+  "citation": "section 27",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s135",
+  "target": "gdpr-art-57-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 57(4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s136",
+  "target": "gdpr-art-57-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 57(4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s136",
+  "target": "uk-dpa-s134",
+  "type": "CITES",
+  "citation": "section 134",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s137",
+  "target": "uk-dpa-s108",
+  "type": "CITES",
+  "citation": "section 108",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s137",
+  "target": "uk-dpa-s1",
+  "type": "CITES",
+  "citation": "section 1",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s138",
+  "target": "uk-dpa-s137",
+  "type": "CITES",
+  "citation": "section 137",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s138",
+  "target": "uk-dpa-s182",
+  "type": "CITES",
+  "citation": "section 182",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s138",
+  "target": "uk-dpa-s108",
+  "type": "CITES",
+  "citation": "section 108",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s139",
+  "target": "uk-dpa-s120A",
+  "type": "CITES",
+  "citation": "section 120A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s139",
+  "target": "uk-dpa-s108",
+  "type": "CITES",
+  "citation": "section 108",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s139",
+  "target": "uk-dpa-s21",
+  "type": "CITES",
+  "citation": "section 21",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s139",
+  "target": "uk-dpa-s120C",
+  "type": "CITES",
+  "citation": "section 120C",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s139",
+  "target": "uk-dpa-s120D",
+  "type": "CITES",
+  "citation": "section 120D",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s139",
+  "target": "uk-dpa-s161A",
+  "type": "CITES",
+  "citation": "section 161A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s142",
+  "target": "gdpr-art-27",
+  "type": "IMPLEMENTS",
+  "citation": "Article 27",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s142",
+  "target": "uk-dpa-s149",
+  "type": "CITES",
+  "citation": "section 149",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s142",
+  "target": "uk-dpa-s162",
+  "type": "CITES",
+  "citation": "section 162",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s142",
+  "target": "uk-dpa-s3",
+  "type": "CITES",
+  "citation": "section 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s143",
+  "target": "gdpr-art-27",
+  "type": "IMPLEMENTS",
+  "citation": "Article 27",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s143",
+  "target": "uk-dpa-s174",
+  "type": "CITES",
+  "citation": "section 174",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s143",
+  "target": "uk-dpa-s5",
+  "type": "CITES",
+  "citation": "section 5",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s143",
+  "target": "uk-dpa-s44",
+  "type": "CITES",
+  "citation": "section 44",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s143",
+  "target": "uk-dpa-s144",
+  "type": "CITES",
+  "citation": "section 144",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s145",
+  "target": "uk-dpa-s142",
+  "type": "CITES",
+  "citation": "section 142",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s146",
+  "target": "uk-dpa-s162",
+  "type": "CITES",
+  "citation": "section 162",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s146",
+  "target": "uk-dpa-s149",
+  "type": "CITES",
+  "citation": "section 149",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s147",
+  "target": "uk-dpa-s5",
+  "type": "CITES",
+  "citation": "section 5",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-12",
+  "type": "IMPLEMENTS",
+  "citation": "Article 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-22",
+  "type": "IMPLEMENTS",
+  "citation": "Article 22",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-25",
+  "type": "IMPLEMENTS",
+  "citation": "Article 25",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-39",
+  "type": "IMPLEMENTS",
+  "citation": "Article 39",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-44",
+  "type": "IMPLEMENTS",
+  "citation": "Article 44",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-49-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 49",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-49-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 49",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-41",
+  "type": "IMPLEMENTS",
+  "citation": "Article 41",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-42",
+  "type": "IMPLEMENTS",
+  "citation": "Article 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-43-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-43-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "uk-dpa-s150",
+  "type": "CITES",
+  "citation": "section 150",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "uk-dpa-s64",
+  "type": "CITES",
+  "citation": "section 64",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "uk-dpa-s67",
+  "type": "CITES",
+  "citation": "section 67",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "uk-dpa-s73",
+  "type": "CITES",
+  "citation": "section 73",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "uk-dpa-s137",
+  "type": "CITES",
+  "citation": "section 137",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "uk-dpa-s142",
+  "type": "CITES",
+  "citation": "section 142",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s150",
+  "target": "uk-dpa-s149",
+  "type": "CITES",
+  "citation": "section 149",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s150",
+  "target": "uk-dpa-s162",
+  "type": "CITES",
+  "citation": "section 162",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s151",
+  "target": "gdpr-art-16",
+  "type": "IMPLEMENTS",
+  "citation": "Article 16",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s151",
+  "target": "gdpr-art-17",
+  "type": "IMPLEMENTS",
+  "citation": "Article 17",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s151",
+  "target": "gdpr-art-18",
+  "type": "IMPLEMENTS",
+  "citation": "Article 18",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s151",
+  "target": "uk-dpa-s46",
+  "type": "CITES",
+  "citation": "section 46",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s151",
+  "target": "uk-dpa-s38",
+  "type": "CITES",
+  "citation": "section 38",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s151",
+  "target": "uk-dpa-s89",
+  "type": "CITES",
+  "citation": "section 89",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s152",
+  "target": "uk-dpa-s149",
+  "type": "CITES",
+  "citation": "section 149",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s152",
+  "target": "uk-dpa-s174",
+  "type": "CITES",
+  "citation": "section 174",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s152",
+  "target": "uk-dpa-s58",
+  "type": "CITES",
+  "citation": "section 58",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s155",
+  "target": "gdpr-art-83-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 83(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "uk-dpa-s155",
+  "target": "uk-dpa-s149",
+  "type": "CITES",
+  "citation": "section 149",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s155",
+  "target": "uk-dpa-s57",
+  "type": "CITES",
+  "citation": "section 57",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s155",
+  "target": "uk-dpa-s156",
+  "type": "CITES",
+  "citation": "section 156",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s155",
+  "target": "uk-dpa-s157",
+  "type": "CITES",
+  "citation": "section 157",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s156",
+  "target": "uk-dpa-s149",
+  "type": "CITES",
+  "citation": "section 149",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s156",
+  "target": "uk-dpa-s174",
+  "type": "CITES",
+  "citation": "section 174",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s156",
+  "target": "uk-dpa-s209",
+  "type": "CITES",
+  "citation": "section 209",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s156",
+  "target": "uk-dpa-s58",
+  "type": "CITES",
+  "citation": "section 58",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s157",
+  "target": "gdpr-art-83-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s157",
+  "target": "gdpr-art-83-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s157",
+  "target": "uk-dpa-s35",
+  "type": "CITES",
+  "citation": "section 35",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s157",
+  "target": "uk-dpa-s86",
+  "type": "CITES",
+  "citation": "section 86",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s158",
+  "target": "uk-dpa-s137",
+  "type": "CITES",
+  "citation": "section 137",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s159",
+  "target": "gdpr-art-83-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s159",
+  "target": "gdpr-art-83-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s159",
+  "target": "uk-dpa-s157",
+  "type": "CITES",
+  "citation": "section 157",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s159",
+  "target": "uk-dpa-s158",
+  "type": "CITES",
+  "citation": "section 158",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s160",
+  "target": "uk-dpa-s142",
+  "type": "CITES",
+  "citation": "section 142",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s160",
+  "target": "uk-dpa-s146",
+  "type": "CITES",
+  "citation": "section 146",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s160",
+  "target": "uk-dpa-s150",
+  "type": "CITES",
+  "citation": "section 150",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s160",
+  "target": "uk-dpa-s161",
+  "type": "CITES",
+  "citation": "section 161",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s161",
+  "target": "uk-dpa-s160",
+  "type": "CITES",
+  "citation": "section 160",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s161A",
+  "target": "uk-dpa-s160",
+  "type": "CITES",
+  "citation": "section 160",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s161A",
+  "target": "uk-dpa-s142",
+  "type": "CITES",
+  "citation": "section 142",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s161A",
+  "target": "uk-dpa-s31",
+  "type": "CITES",
+  "citation": "section 31",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s162",
+  "target": "uk-dpa-s153",
+  "type": "CITES",
+  "citation": "section 153",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s162",
+  "target": "uk-dpa-s174",
+  "type": "CITES",
+  "citation": "section 174",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s163",
+  "target": "uk-dpa-s162",
+  "type": "CITES",
+  "citation": "section 162",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s164",
+  "target": "uk-dpa-s142",
+  "type": "CITES",
+  "citation": "section 142",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s164",
+  "target": "uk-dpa-s146",
+  "type": "CITES",
+  "citation": "section 146",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s164",
+  "target": "uk-dpa-s150",
+  "type": "CITES",
+  "citation": "section 150",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s164B",
+  "target": "uk-dpa-s164A",
+  "type": "CITES",
+  "citation": "section 164A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s165",
+  "target": "uk-dpa-s166",
+  "type": "CITES",
+  "citation": "section 166",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s166",
+  "target": "gdpr-art-77",
+  "type": "IMPLEMENTS",
+  "citation": "Article 77",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s166",
+  "target": "uk-dpa-s165",
+  "type": "CITES",
+  "citation": "section 165",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s167",
+  "target": "gdpr-art-79",
+  "type": "IMPLEMENTS",
+  "citation": "Article 79(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s167",
+  "target": "uk-dpa-s58",
+  "type": "CITES",
+  "citation": "section 58",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s168",
+  "target": "gdpr-art-82",
+  "type": "IMPLEMENTS",
+  "citation": "Article 82",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s169",
+  "target": "uk-dpa-s58",
+  "type": "CITES",
+  "citation": "section 58",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s170",
+  "target": "gdpr-art-28-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 28(10)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s170",
+  "target": "gdpr-art-28-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 28(10)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s170",
+  "target": "uk-dpa-s59",
+  "type": "CITES",
+  "citation": "section 59",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s171",
+  "target": "gdpr-art-28-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 28(10)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s171",
+  "target": "gdpr-art-28-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 28(10)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-s171",
+  "target": "uk-dpa-s172",
+  "type": "CITES",
+  "citation": "section 172",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s171",
+  "target": "uk-dpa-s59",
+  "type": "CITES",
+  "citation": "section 59",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s172",
+  "target": "uk-dpa-s171",
+  "type": "CITES",
+  "citation": "section 171",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s173",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s173",
+  "target": "gdpr-art-20",
+  "type": "IMPLEMENTS",
+  "citation": "Article 20",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s173",
+  "target": "uk-dpa-s45",
+  "type": "CITES",
+  "citation": "section 45",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s173",
+  "target": "uk-dpa-s94",
+  "type": "CITES",
+  "citation": "section 94",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s174",
+  "target": "gdpr-art-79",
+  "type": "IMPLEMENTS",
+  "citation": "Article 79",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s174",
+  "target": "gdpr-art-82",
+  "type": "IMPLEMENTS",
+  "citation": "Article 82",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s174",
+  "target": "uk-dpa-s167",
+  "type": "CITES",
+  "citation": "section 167",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s174",
+  "target": "uk-dpa-s169",
+  "type": "CITES",
+  "citation": "section 169",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s174",
+  "target": "uk-dpa-s162",
+  "type": "CITES",
+  "citation": "section 162",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s176",
+  "target": "uk-dpa-s174",
+  "type": "CITES",
+  "citation": "section 174",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s178",
+  "target": "uk-dpa-s124",
+  "type": "CITES",
+  "citation": "section 124",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s180",
+  "target": "gdpr-art-79",
+  "type": "IMPLEMENTS",
+  "citation": "Article 79",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s180",
+  "target": "gdpr-art-82",
+  "type": "IMPLEMENTS",
+  "citation": "Article 82",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s180",
+  "target": "uk-dpa-s145",
+  "type": "CITES",
+  "citation": "section 145",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s180",
+  "target": "uk-dpa-s152",
+  "type": "CITES",
+  "citation": "section 152",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s180",
+  "target": "uk-dpa-s156",
+  "type": "CITES",
+  "citation": "section 156",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s180",
+  "target": "uk-dpa-s167",
+  "type": "CITES",
+  "citation": "section 167",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s180",
+  "target": "uk-dpa-s168",
+  "type": "CITES",
+  "citation": "section 168",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s180",
+  "target": "uk-dpa-s142",
+  "type": "CITES",
+  "citation": "section 142",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s180",
+  "target": "uk-dpa-s164",
+  "type": "CITES",
+  "citation": "section 164",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s180A",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s180A",
+  "target": "gdpr-art-20",
+  "type": "IMPLEMENTS",
+  "citation": "Article 20",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s180A",
+  "target": "uk-dpa-s45",
+  "type": "CITES",
+  "citation": "section 45",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s180A",
+  "target": "uk-dpa-s94",
+  "type": "CITES",
+  "citation": "section 94",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s181",
+  "target": "uk-dpa-s146",
+  "type": "CITES",
+  "citation": "section 146",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s181",
+  "target": "uk-dpa-s17",
+  "type": "CITES",
+  "citation": "section 17",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s181",
+  "target": "uk-dpa-s149",
+  "type": "CITES",
+  "citation": "section 149",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s181",
+  "target": "uk-dpa-s142",
+  "type": "CITES",
+  "citation": "section 142",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s181",
+  "target": "uk-dpa-s155",
+  "type": "CITES",
+  "citation": "section 155",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s182",
+  "target": "uk-dpa-s30",
+  "type": "CITES",
+  "citation": "section 30",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s182",
+  "target": "uk-dpa-s211",
+  "type": "CITES",
+  "citation": "section 211",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s182",
+  "target": "uk-dpa-s212",
+  "type": "CITES",
+  "citation": "section 212",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s182",
+  "target": "uk-dpa-s213",
+  "type": "CITES",
+  "citation": "section 213",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s182",
+  "target": "uk-dpa-s18",
+  "type": "CITES",
+  "citation": "section 18",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s182",
+  "target": "uk-dpa-s7",
+  "type": "CITES",
+  "citation": "section 7",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s183",
+  "target": "uk-dpa-s3",
+  "type": "CITES",
+  "citation": "section 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s183A",
+  "target": "uk-dpa-s106",
+  "type": "CITES",
+  "citation": "section 106",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s183B",
+  "target": "uk-dpa-s5",
+  "type": "CITES",
+  "citation": "section 5",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s183B",
+  "target": "uk-dpa-s183A",
+  "type": "CITES",
+  "citation": "section 183A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s183B",
+  "target": "uk-dpa-s106",
+  "type": "CITES",
+  "citation": "section 106",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s185",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s185",
+  "target": "gdpr-art-20",
+  "type": "IMPLEMENTS",
+  "citation": "Article 20",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s185",
+  "target": "uk-dpa-s45",
+  "type": "CITES",
+  "citation": "section 45",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s185",
+  "target": "uk-dpa-s94",
+  "type": "CITES",
+  "citation": "section 94",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s186",
+  "target": "uk-dpa-s186A",
+  "type": "CITES",
+  "citation": "section 186A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s186",
+  "target": "uk-dpa-s15",
+  "type": "CITES",
+  "citation": "section 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s186",
+  "target": "uk-dpa-s78A",
+  "type": "CITES",
+  "citation": "section 78A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s186A",
+  "target": "uk-dpa-s186",
+  "type": "CITES",
+  "citation": "section 186",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s186A",
+  "target": "uk-dpa-s5",
+  "type": "CITES",
+  "citation": "section 5",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s186A",
+  "target": "uk-dpa-s106",
+  "type": "CITES",
+  "citation": "section 106",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s187",
+  "target": "gdpr-art-80",
+  "type": "IMPLEMENTS",
+  "citation": "Article 80(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s187",
+  "target": "gdpr-art-77",
+  "type": "IMPLEMENTS",
+  "citation": "Article 77",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s187",
+  "target": "gdpr-art-78",
+  "type": "IMPLEMENTS",
+  "citation": "Article 78",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s187",
+  "target": "gdpr-art-79",
+  "type": "IMPLEMENTS",
+  "citation": "Article 79",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s187",
+  "target": "gdpr-art-82",
+  "type": "IMPLEMENTS",
+  "citation": "Article 82",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s187",
+  "target": "uk-dpa-s165",
+  "type": "CITES",
+  "citation": "section 165",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s187",
+  "target": "uk-dpa-s166",
+  "type": "CITES",
+  "citation": "section 166",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s187",
+  "target": "uk-dpa-s167",
+  "type": "CITES",
+  "citation": "section 167",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s188",
+  "target": "gdpr-art-80",
+  "type": "IMPLEMENTS",
+  "citation": "Article 80(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s188",
+  "target": "uk-dpa-s187",
+  "type": "CITES",
+  "citation": "section 187",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s189",
+  "target": "gdpr-art-80",
+  "type": "IMPLEMENTS",
+  "citation": "Article 80(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s189",
+  "target": "gdpr-art-77",
+  "type": "IMPLEMENTS",
+  "citation": "Article 77",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s189",
+  "target": "gdpr-art-78",
+  "type": "IMPLEMENTS",
+  "citation": "Article 78",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s189",
+  "target": "gdpr-art-79",
+  "type": "IMPLEMENTS",
+  "citation": "Article 79",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s189",
+  "target": "gdpr-art-82",
+  "type": "IMPLEMENTS",
+  "citation": "Article 82",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s189",
+  "target": "uk-dpa-s187",
+  "type": "CITES",
+  "citation": "section 187",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s190",
+  "target": "gdpr-art-80",
+  "type": "IMPLEMENTS",
+  "citation": "Article 80(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s190",
+  "target": "gdpr-art-82",
+  "type": "IMPLEMENTS",
+  "citation": "Article 82",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s190",
+  "target": "uk-dpa-s189",
+  "type": "CITES",
+  "citation": "section 189",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s190",
+  "target": "uk-dpa-s166",
+  "type": "CITES",
+  "citation": "section 166",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s192",
+  "target": "uk-dpa-s191",
+  "type": "CITES",
+  "citation": "section 191",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s193",
+  "target": "uk-dpa-s192",
+  "type": "CITES",
+  "citation": "section 192",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s193",
+  "target": "uk-dpa-s191",
+  "type": "CITES",
+  "citation": "section 191",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s194",
+  "target": "uk-dpa-s192",
+  "type": "CITES",
+  "citation": "section 192",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s195",
+  "target": "uk-dpa-s125",
+  "type": "CITES",
+  "citation": "section 125",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s195",
+  "target": "uk-dpa-s66",
+  "type": "CITES",
+  "citation": "section 66",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s195",
+  "target": "uk-dpa-s19",
+  "type": "CITES",
+  "citation": "section 19",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s195",
+  "target": "uk-dpa-s107",
+  "type": "CITES",
+  "citation": "section 107",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s195",
+  "target": "uk-dpa-s3",
+  "type": "CITES",
+  "citation": "section 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s196",
+  "target": "uk-dpa-s119",
+  "type": "CITES",
+  "citation": "section 119",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s196",
+  "target": "uk-dpa-s132",
+  "type": "CITES",
+  "citation": "section 132",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s196",
+  "target": "uk-dpa-s170",
+  "type": "CITES",
+  "citation": "section 170",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s197",
+  "target": "uk-dpa-s173",
+  "type": "CITES",
+  "citation": "section 173",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s197",
+  "target": "uk-dpa-s136",
+  "type": "CITES",
+  "citation": "section 136",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s199",
+  "target": "uk-dpa-s119",
+  "type": "CITES",
+  "citation": "section 119",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s199",
+  "target": "uk-dpa-s132",
+  "type": "CITES",
+  "citation": "section 132",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s199",
+  "target": "uk-dpa-s144",
+  "type": "CITES",
+  "citation": "section 144",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s199",
+  "target": "uk-dpa-s148",
+  "type": "CITES",
+  "citation": "section 148",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s199",
+  "target": "uk-dpa-s170",
+  "type": "CITES",
+  "citation": "section 170",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s199",
+  "target": "uk-dpa-s171",
+  "type": "CITES",
+  "citation": "section 171",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s199",
+  "target": "uk-dpa-s173",
+  "type": "CITES",
+  "citation": "section 173",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s199",
+  "target": "uk-dpa-s184",
+  "type": "CITES",
+  "citation": "section 184",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s199",
+  "target": "uk-dpa-s27",
+  "type": "CITES",
+  "citation": "section 27",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s200",
+  "target": "uk-dpa-s67",
+  "type": "CITES",
+  "citation": "section 67",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s202",
+  "target": "uk-dpa-s27",
+  "type": "CITES",
+  "citation": "section 27",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s202",
+  "target": "uk-dpa-s166",
+  "type": "CITES",
+  "citation": "section 166",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s203",
+  "target": "uk-dpa-s27",
+  "type": "CITES",
+  "citation": "section 27",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s203",
+  "target": "uk-dpa-s166",
+  "type": "CITES",
+  "citation": "section 166",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s204",
+  "target": "uk-dpa-s53",
+  "type": "CITES",
+  "citation": "section 53",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s204",
+  "target": "uk-dpa-s36",
+  "type": "CITES",
+  "citation": "section 36",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s204",
+  "target": "uk-dpa-s41",
+  "type": "CITES",
+  "citation": "section 41",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s204",
+  "target": "uk-dpa-s43",
+  "type": "CITES",
+  "citation": "section 43",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s204",
+  "target": "uk-dpa-s39",
+  "type": "CITES",
+  "citation": "section 39",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s204",
+  "target": "uk-dpa-s80",
+  "type": "CITES",
+  "citation": "section 80",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s204",
+  "target": "uk-dpa-s44",
+  "type": "CITES",
+  "citation": "section 44",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s204",
+  "target": "uk-dpa-s3",
+  "type": "CITES",
+  "citation": "section 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s204",
+  "target": "uk-dpa-s15",
+  "type": "CITES",
+  "citation": "section 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s204",
+  "target": "uk-dpa-s25",
+  "type": "CITES",
+  "citation": "section 25",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s204",
+  "target": "uk-dpa-s28",
+  "type": "CITES",
+  "citation": "section 28",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s204",
+  "target": "uk-dpa-s5",
+  "type": "CITES",
+  "citation": "section 5",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s204",
+  "target": "uk-dpa-s11",
+  "type": "CITES",
+  "citation": "section 11",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s204",
+  "target": "uk-dpa-s18",
+  "type": "CITES",
+  "citation": "section 18",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s204",
+  "target": "uk-dpa-s102",
+  "type": "CITES",
+  "citation": "section 102",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s205",
+  "target": "uk-dpa-s119A",
+  "type": "CITES",
+  "citation": "section 119A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s205",
+  "target": "uk-dpa-s125",
+  "type": "CITES",
+  "citation": "section 125",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s205",
+  "target": "uk-dpa-s161",
+  "type": "CITES",
+  "citation": "section 161",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s205",
+  "target": "uk-dpa-s176",
+  "type": "CITES",
+  "citation": "section 176",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s205",
+  "target": "uk-dpa-s178",
+  "type": "CITES",
+  "citation": "section 178",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s205",
+  "target": "uk-dpa-s182",
+  "type": "CITES",
+  "citation": "section 182",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s205",
+  "target": "uk-dpa-s183",
+  "type": "CITES",
+  "citation": "section 183",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s205",
+  "target": "uk-dpa-s192",
+  "type": "CITES",
+  "citation": "section 192",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s205",
+  "target": "uk-dpa-s197",
+  "type": "CITES",
+  "citation": "section 197",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s205",
+  "target": "uk-dpa-s5",
+  "type": "CITES",
+  "citation": "section 5",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s205",
+  "target": "uk-dpa-s3",
+  "type": "CITES",
+  "citation": "section 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s207",
+  "target": "gdpr-art-3",
+  "type": "IMPLEMENTS",
+  "citation": "Article 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s207",
+  "target": "uk-dpa-s120",
+  "type": "CITES",
+  "citation": "section 120",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s207",
+  "target": "uk-dpa-s3",
+  "type": "CITES",
+  "citation": "section 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s209",
+  "target": "uk-dpa-s119",
+  "type": "CITES",
+  "citation": "section 119",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s209",
+  "target": "uk-dpa-s170",
+  "type": "CITES",
+  "citation": "section 170",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s209",
+  "target": "uk-dpa-s171",
+  "type": "CITES",
+  "citation": "section 171",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s209",
+  "target": "uk-dpa-s173",
+  "type": "CITES",
+  "citation": "section 173",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s210",
+  "target": "uk-dpa-s170",
+  "type": "CITES",
+  "citation": "section 170",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s210",
+  "target": "uk-dpa-s171",
+  "type": "CITES",
+  "citation": "section 171",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s210",
+  "target": "uk-dpa-s173",
+  "type": "CITES",
+  "citation": "section 173",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s212",
+  "target": "uk-dpa-s1",
+  "type": "CITES",
+  "citation": "section 1",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s212",
+  "target": "uk-dpa-s182",
+  "type": "CITES",
+  "citation": "section 182",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s212",
+  "target": "uk-dpa-s204",
+  "type": "CITES",
+  "citation": "section 204",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s212",
+  "target": "uk-dpa-s209",
+  "type": "CITES",
+  "citation": "section 209",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s212",
+  "target": "uk-dpa-s213",
+  "type": "CITES",
+  "citation": "section 213",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s212",
+  "target": "uk-dpa-s124",
+  "type": "CITES",
+  "citation": "section 124",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s212",
+  "target": "uk-dpa-s125",
+  "type": "CITES",
+  "citation": "section 125",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s212",
+  "target": "uk-dpa-s177",
+  "type": "CITES",
+  "citation": "section 177",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s212",
+  "target": "uk-dpa-s178",
+  "type": "CITES",
+  "citation": "section 178",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s212",
+  "target": "uk-dpa-s179",
+  "type": "CITES",
+  "citation": "section 179",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s213",
+  "target": "uk-dpa-s8",
+  "type": "CITES",
+  "citation": "section 8",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s214",
+  "target": "uk-dpa-s199",
+  "type": "CITES",
+  "citation": "section 199",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s214",
+  "target": "uk-dpa-s188",
+  "type": "CITES",
+  "citation": "section 188",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-s214",
+  "target": "uk-dpa-s211",
+  "type": "CITES",
+  "citation": "section 211",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-sch21-p2",
+  "target": "uk-dpa-s3",
+  "type": "CITES",
+  "citation": "section 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-sch21-p4",
+  "target": "uk-dpa-s17A",
+  "type": "CITES",
+  "citation": "section 17A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-sch21-p7",
+  "target": "gdpr-art-46",
+  "type": "IMPLEMENTS",
+  "citation": "Article 46(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-sch21-p7",
+  "target": "gdpr-art-45-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 45(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-sch21-p7",
+  "target": "gdpr-art-45-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 45(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-sch21-p7",
+  "target": "uk-dpa-s8",
+  "type": "CITES",
+  "citation": "section 8",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-sch21-p7",
+  "target": "uk-dpa-s17A",
+  "type": "CITES",
+  "citation": "section 17A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-sch21-p9",
+  "target": "gdpr-art-46",
+  "type": "IMPLEMENTS",
+  "citation": "Article 46(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-sch21-p9",
+  "target": "gdpr-art-45-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 45(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-sch21-p9",
+  "target": "gdpr-art-45-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 45(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-sch21-p9",
+  "target": "gdpr-art-4-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 4(20)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-sch21-p9",
+  "target": "gdpr-art-4-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 4(20)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-sch21-p9",
+  "target": "gdpr-art-4-3",
+  "type": "IMPLEMENTS",
+  "citation": "Article 4(20)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-sch21-p9",
+  "target": "uk-dpa-s8",
+  "type": "CITES",
+  "citation": "section 8",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-sch21-p9",
+  "target": "uk-dpa-s17A",
+  "type": "CITES",
+  "citation": "section 17A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-sch21-p10",
+  "target": "uk-dpa-s74A",
+  "type": "CITES",
+  "citation": "section 74A",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-sch21-p13",
+  "target": "uk-dpa-s186",
+  "type": "CITES",
+  "citation": "section 186",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-sch21-p14",
+  "target": "uk-dpa-s27",
+  "type": "CITES",
+  "citation": "section 27",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-sch21-p15",
+  "target": "uk-dpa-s132",
+  "type": "CITES",
+  "citation": "section 132",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-sch21-p16",
+  "target": "gdpr-art-83-1",
+  "type": "IMPLEMENTS",
+  "citation": "Article 83(5)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-sch21-p16",
+  "target": "gdpr-art-83-2",
+  "type": "IMPLEMENTS",
+  "citation": "Article 83(5)",
+  "resolution": "spread"
+ },
+ {
+  "source": "uk-dpa-sch21-p16",
+  "target": "uk-dpa-s157",
+  "type": "CITES",
+  "citation": "section 157",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-sch21-p16",
+  "target": "uk-dpa-s155",
+  "type": "CITES",
+  "citation": "section 155",
+  "resolution": "whole"
+ },
+ {
+  "source": "uk-dpa-sch21-p17",
+  "target": "gdpr-art-63",
+  "type": "IMPLEMENTS",
+  "citation": "Article 63",
+  "resolution": "whole"
+ }
+]

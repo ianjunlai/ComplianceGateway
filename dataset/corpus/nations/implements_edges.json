@@ -1,0 +1,1748 @@
+[
+ {
+  "source": "ie-dpa-s13",
+  "target": "gdpr-art-35-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 35(4)",
+  "resolution": "spread",
+  "context": "aph 1 of Schedule 2 and its function, as supervisory authority, under Article 35(4) and (5) of the Data Protection Regulation. (4) A Commissioner or member of staff"
+ },
+ {
+  "source": "ie-dpa-s13",
+  "target": "gdpr-art-35-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 35(4)",
+  "resolution": "spread",
+  "context": "aph 1 of Schedule 2 and its function, as supervisory authority, under Article 35(4) and (5) of the Data Protection Regulation. (4) A Commissioner or member of staff"
+ },
+ {
+  "source": "ie-dpa-s68",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 15",
+  "resolution": "whole",
+  "context": "(ii) in Regulation 4(1), by— (I) the substitution of “a request under Article 15 of the Data Protection Regulation” for “a request under section 4(1)(a) o"
+ },
+ {
+  "source": "ie-dpa-s107",
+  "target": "gdpr-art-58-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 58(2)",
+  "resolution": "exact",
+  "context": "spect of the complaint; “corrective power” means a power conferred by Article 58(2) of the Data Protection Regulation; “infringement” means an infringement o"
+ },
+ {
+  "source": "ie-dpa-s134",
+  "target": "gdpr-art-58-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 58(2)",
+  "resolution": "exact",
+  "context": "134. (1) Without prejudice to Articles 58(2) and 66 of the Data Protection Regulation and subsection (4), the Commission, whe"
+ },
+ {
+  "source": "ie-dpa-s134",
+  "target": "gdpr-art-66",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 66",
+  "resolution": "whole",
+  "context": "134. (1) Without prejudice to Articles 58(2) and 66 of the Data Protection Regulation and subsection (4), the Commission, whe"
+ },
+ {
+  "source": "ie-dpa-s148",
+  "target": "gdpr-art-80",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 80(1)",
+  "resolution": "whole",
+  "context": "ata subject by a body mandated by the data subject in accordance with Article 80(1) of the Data Protection Regulation or section 120 , as the case may be. (2"
+ },
+ {
+  "source": "ie-dpa-s159",
+  "target": "gdpr-art-28-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 28(3)",
+  "resolution": "spread",
+  "context": "”, in relation to personal data, means rules made for the purposes of Article 28(3) of the Data Protection Regulation and Article 22(3) of the Directive, gov"
+ },
+ {
+  "source": "ie-dpa-s159",
+  "target": "gdpr-art-28-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 28(3)",
+  "resolution": "spread",
+  "context": "”, in relation to personal data, means rules made for the purposes of Article 28(3) of the Data Protection Regulation and Article 22(3) of the Directive, gov"
+ },
+ {
+  "source": "ie-dpa-s162",
+  "target": "gdpr-art-12",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 12",
+  "resolution": "whole",
+  "context": "162. The rights and obligations provided for in— (a) Articles 12 to 22 and 34 of the Data Protection Regulation (as well as Article 5 in so far as its"
+ },
+ {
+  "source": "ie-dpa-s162",
+  "target": "gdpr-art-22",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 22",
+  "resolution": "whole",
+  "context": "162. The rights and obligations provided for in— (a) Articles 12 to 22 and 34 of the Data Protection Regulation (as well as Article 5 in so far as its"
+ },
+ {
+  "source": "ie-dpa-s162",
+  "target": "gdpr-art-34",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 34",
+  "resolution": "whole",
+  "context": "162. The rights and obligations provided for in— (a) Articles 12 to 22 and 34 of the Data Protection Regulation (as well as Article 5 in so far as its"
+ },
+ {
+  "source": "ie-dpa-s163",
+  "target": "gdpr-art-45-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 45(3)",
+  "resolution": "spread",
+  "context": "the place concerned is the subject of an implementing act pursuant to Article 45(3) of the Data Protection Regulation or, as the case may be, Article 36(3) o"
+ },
+ {
+  "source": "ie-dpa-s163",
+  "target": "gdpr-art-45-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 45(3)",
+  "resolution": "spread",
+  "context": "the place concerned is the subject of an implementing act pursuant to Article 45(3) of the Data Protection Regulation or, as the case may be, Article 36(3) o"
+ },
+ {
+  "source": "ie-dpa-s163",
+  "target": "gdpr-art-46",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 46(2)",
+  "resolution": "whole",
+  "context": "means a standard data protection clause to which point (c) or (d) of Article 46(2) of the Data Protection Regulation applies. Court may order destruction, e"
+ },
+ {
+  "source": "ie-dpa-s173",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 15",
+  "resolution": "whole",
+  "context": "f right of access to personal data in certain circumstances 140D. (1) Article 15 (Right of access) of the Data Protection Regulation is restricted to the extent necessary a"
+ },
+ {
+  "source": "ie-dpa-s188",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 15",
+  "resolution": "whole",
+  "context": "by the substitution of the following section for section 33: “33. (1) Article 15 (Right of access) of the Data Protection Regulation is restricted, to the extent necessary"
+ },
+ {
+  "source": "ie-dpa-s193",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 15",
+  "resolution": "whole",
+  "context": "by the substitution of the following section for section 30: “30. (1) Article 15 (Right of access) of the Data Protection Regulation is restricted, to the extent necessary"
+ },
+ {
+  "source": "ie-dpa-s198",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 15",
+  "resolution": "whole",
+  "context": "n (1), (b) in that designated subsection (1), by the substitution of “Article 15 (Right of access) of the Data Protection Regulation is restricted, to the extent necessary"
+ },
+ {
+  "source": "ie-dpa-s217",
+  "target": "gdpr-art-21",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 21",
+  "resolution": "whole",
+  "context": "the substitution of the following subsection for subsection (2): “(2) Article 21 (Right to object) of the Data Protection Regulation shall not apply to processing of person"
+ },
+ {
+  "source": "ie-dpa-s218",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 15",
+  "resolution": "whole",
+  "context": "tion of right of access to personal data in certain circumstances 93. Article 15 (Right of access) of the Data Protection Regulation is restricted, to the extent necessary"
+ },
+ {
+  "source": "ie-dpa-s221",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 15",
+  "resolution": "whole",
+  "context": "ion of right of access to personal data in certain circumstances 186. Article 15 (Right of access) of the Data Protection Regulation, in so far as it relates to personal da"
+ },
+ {
+  "source": "ie-dpa-s225",
+  "target": "gdpr-art-32",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "IE",
+  "citation": "Article 32",
+  "resolution": "whole",
+  "context": "a Protection Regulation Application of Data Protection Regulation 27. Article 32 of the Data Protection Regulation shall apply to a deceased individual’s"
+ },
+ {
+  "source": "de-bdsg-s1",
+  "target": "gdpr-art-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 2",
+  "resolution": "whole",
+  "context": "opean Union with regard to processing for purposes in accordance with Article 2 of Regulation (EU) 2016/679. Other states shall be regarded as thir"
+ },
+ {
+  "source": "de-bdsg-s4",
+  "target": "gdpr-art-13",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 13",
+  "resolution": "whole",
+  "context": "n, that person shall be informed of the processing in accordance with Articles 13 and 14 of Regulation (EU) 2016/679. Section 32 shall apply accordingly. (5"
+ },
+ {
+  "source": "de-bdsg-s4",
+  "target": "gdpr-art-14-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 14",
+  "resolution": "spread",
+  "context": "n, that person shall be informed of the processing in accordance with Articles 13 and 14 of Regulation (EU) 2016/679. Section 32 shall apply accordingly. (5"
+ },
+ {
+  "source": "de-bdsg-s4",
+  "target": "gdpr-art-14-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 14",
+  "resolution": "spread",
+  "context": "n, that person shall be informed of the processing in accordance with Articles 13 and 14 of Regulation (EU) 2016/679. Section 32 shall apply accordingly. (5"
+ },
+ {
+  "source": "de-bdsg-s15",
+  "target": "gdpr-art-58-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 58 (2)",
+  "resolution": "exact",
+  "context": "ures taken, including penalties and measures taken in accordance with Article 58 (2) of Regulation (EU) 2016/679. The Federal Commissioner shall submit"
+ },
+ {
+  "source": "de-bdsg-s16",
+  "target": "gdpr-art-58-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 58",
+  "resolution": "spread",
+  "context": "thin the scope of Regulation (EU) 2016/679, the powers referred to in Article 58 of Regulation (EU) 2016/679. If the Federal Commissioner concludes"
+ },
+ {
+  "source": "de-bdsg-s16",
+  "target": "gdpr-art-58-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 58",
+  "resolution": "spread",
+  "context": "thin the scope of Regulation (EU) 2016/679, the powers referred to in Article 58 of Regulation (EU) 2016/679. If the Federal Commissioner concludes"
+ },
+ {
+  "source": "de-bdsg-s18",
+  "target": "gdpr-art-85",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 85",
+  "resolution": "whole",
+  "context": "shall consult the specific supervisory authorities established under Articles 85 and 91 of Regulation (EU) 2016/679 if these authorities are affected by th"
+ },
+ {
+  "source": "de-bdsg-s18",
+  "target": "gdpr-art-91",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 91",
+  "resolution": "whole",
+  "context": "shall consult the specific supervisory authorities established under Articles 85 and 91 of Regulation (EU) 2016/679 if these authorities are affected by th"
+ },
+ {
+  "source": "de-bdsg-s19",
+  "target": "gdpr-art-56",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 56 (1)",
+  "resolution": "whole",
+  "context": "or its single establishment in the European Union, as referred to in Article 56 (1) of Regulation (EU) 2016/679. Article 56 (1) in conjunction with Art"
+ },
+ {
+  "source": "de-bdsg-s19",
+  "target": "gdpr-art-65",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 65 (6)",
+  "resolution": "whole",
+  "context": "shall fulfil the obligations referred to in Article 60 (7) to (9) and Article 65 (6) of Regulation (EU) 2016/679. Within the Federal Commissioner’s area"
+ },
+ {
+  "source": "de-bdsg-s20",
+  "target": "gdpr-art-78",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 78 (1)",
+  "resolution": "whole",
+  "context": "authority of the Federation or a Land concerning rights according to Article 78 (1) and (2) of Regulation (EU) 2016/679 and Section 61. The first sentence shal"
+ },
+ {
+  "source": "de-bdsg-s21",
+  "target": "gdpr-art-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 2",
+  "resolution": "whole",
+  "context": "mplementing provisions for processing for purposes in accordance with Article 2 of Regulation (EU) 2016/679 Chapter 1 Legal basis for processing pe"
+ },
+ {
+  "source": "de-bdsg-s22",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 9 (1)",
+  "resolution": "exact",
+  "context": "cessing of special categories of personal data (1) By derogation from Article 9 (1) of Regulation (EU) 2016/679, the processing of special categories o"
+ },
+ {
+  "source": "de-bdsg-s23",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 9 (1)",
+  "resolution": "exact",
+  "context": "e processing of special categories of personal data as referred to in Article 9 (1) of Regulation (EU) 2016/679 for a purpose other than the one for wh"
+ },
+ {
+  "source": "de-bdsg-s23",
+  "target": "gdpr-art-9-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 9 (2)",
+  "resolution": "exact",
+  "context": "f the conditions of subsection 1 are met and an exception pursuant to Article 9 (2) of Regulation (EU) 2016/679 or pursuant to Section 22 applies."
+ },
+ {
+  "source": "de-bdsg-s24",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 9 (1)",
+  "resolution": "exact",
+  "context": "e processing of special categories of personal data as referred to in Article 9 (1) of Regulation (EU) 2016/679 for a purpose other than the one for wh"
+ },
+ {
+  "source": "de-bdsg-s24",
+  "target": "gdpr-art-9-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 9 (2)",
+  "resolution": "exact",
+  "context": "f the conditions of subsection 1 are met and an exception pursuant to Article 9 (2) of Regulation (EU) 2016/679 or pursuant to Section 22 applies."
+ },
+ {
+  "source": "de-bdsg-s25",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 9 (1)",
+  "resolution": "exact",
+  "context": "The transfer of special categories of personal data as referred to in Article 9 (1) of Regulation (EU) 2016/679 shall be permitted if the conditions of"
+ },
+ {
+  "source": "de-bdsg-s25",
+  "target": "gdpr-art-9-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 9 (2)",
+  "resolution": "exact",
+  "context": "conditions of subsection 1 or 2 are met and an exception pursuant to Article 9 (2) of Regulation (EU) 2016/679 or pursuant to Section 22 applies. Sub-"
+ },
+ {
+  "source": "de-bdsg-s26",
+  "target": "gdpr-art-7",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 7 (3)",
+  "resolution": "whole",
+  "context": "rocessing and of the employee’s right to withdraw consent pursuant to Article 7 (3) of Regulation (EU) 2016/679. (3) By derogation from Article 9 (1) o"
+ },
+ {
+  "source": "de-bdsg-s26",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 9 (1)",
+  "resolution": "exact",
+  "context": "to Article 7 (3) of Regulation (EU) 2016/679. (3) By derogation from Article 9 (1) of Regulation (EU) 2016/679, the processing of special categories o"
+ },
+ {
+  "source": "de-bdsg-s26",
+  "target": "gdpr-art-88",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 88 (2)",
+  "resolution": "whole",
+  "context": "of collective agreements. The negotiating partners shall comply with Article 88 (2) of Regulation (EU) 2016/679. (5) The controller must take appropria"
+ },
+ {
+  "source": "de-bdsg-s26",
+  "target": "gdpr-art-5",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 5",
+  "resolution": "whole",
+  "context": "ticular with the principles for processing personal data described in Article 5 of Regulation (EU) 2016/679. (6) The rights of participation of sta"
+ },
+ {
+  "source": "de-bdsg-s27",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 9 (1)",
+  "resolution": "exact",
+  "context": "storical research and for statistical purposes (1) By derogation from Article 9 (1) of Regulation (EU) 2016/679, the processing of special categories o"
+ },
+ {
+  "source": "de-bdsg-s27",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 15",
+  "resolution": "whole",
+  "context": "22 (2), second sentence. (2) The rights of data subjects provided in Articles 15, 16, 18 and 21 of Regulation (EU) 2016/679 shall be limited to the extent that the"
+ },
+ {
+  "source": "de-bdsg-s27",
+  "target": "gdpr-art-16",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 16",
+  "resolution": "whole",
+  "context": "22 (2), second sentence. (2) The rights of data subjects provided in Articles 15, 16, 18 and 21 of Regulation (EU) 2016/679 shall be limited to the extent that the"
+ },
+ {
+  "source": "de-bdsg-s27",
+  "target": "gdpr-art-18",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 18",
+  "resolution": "whole",
+  "context": "22 (2), second sentence. (2) The rights of data subjects provided in Articles 15, 16, 18 and 21 of Regulation (EU) 2016/679 shall be limited to the extent that the"
+ },
+ {
+  "source": "de-bdsg-s27",
+  "target": "gdpr-art-21",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 21",
+  "resolution": "whole",
+  "context": "22 (2), second sentence. (2) The rights of data subjects provided in Articles 15, 16, 18 and 21 of Regulation (EU) 2016/679 shall be limited to the extent that the"
+ },
+ {
+  "source": "de-bdsg-s28",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 9 (1)",
+  "resolution": "exact",
+  "context": "for archiving purposes in the public interest (1) By derogation from Article 9 (1) of Regulation (EU) 2016/679, the processing of special categories o"
+ },
+ {
+  "source": "de-bdsg-s28",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 15",
+  "resolution": "whole",
+  "context": "Section 22 (2), second sentence. (2) The right of access according to Article 15 of Regulation (EU) 2016/679 shall not apply if the archival materia"
+ },
+ {
+  "source": "de-bdsg-s28",
+  "target": "gdpr-art-16",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 16",
+  "resolution": "whole",
+  "context": "fort. (3) The right of the data subject to rectification according to Article 16 of Regulation (EU) 2016/679 shall not apply if the personal data ar"
+ },
+ {
+  "source": "de-bdsg-s28",
+  "target": "gdpr-art-20",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 20",
+  "resolution": "whole",
+  "context": "es. (4) The rights provided in Article 18 (1) (a), (b) and (d) and in Articles 20 and 21 of Regulation (EU) 2016/679 shall not apply as far as these rights"
+ },
+ {
+  "source": "de-bdsg-s28",
+  "target": "gdpr-art-21",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 21",
+  "resolution": "whole",
+  "context": "es. (4) The rights provided in Article 18 (1) (a), (b) and (d) and in Articles 20 and 21 of Regulation (EU) 2016/679 shall not apply as far as these rights"
+ },
+ {
+  "source": "de-bdsg-s29",
+  "target": "gdpr-art-14-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 14 (5)",
+  "resolution": "spread",
+  "context": "the case of secrecy obligations (1) In addition to the exceptions in Article 14 (5) of Regulation (EU) 2016/679, the obligation to provide information"
+ },
+ {
+  "source": "de-bdsg-s29",
+  "target": "gdpr-art-14-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 14 (5)",
+  "resolution": "spread",
+  "context": "the case of secrecy obligations (1) In addition to the exceptions in Article 14 (5) of Regulation (EU) 2016/679, the obligation to provide information"
+ },
+ {
+  "source": "de-bdsg-s29",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 15",
+  "resolution": "whole",
+  "context": "gitimate interests of a third party. The right of access according to Article 15 of Regulation (EU) 2016/679 shall not apply as far as access would"
+ },
+ {
+  "source": "de-bdsg-s29",
+  "target": "gdpr-art-34",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 34 (3)",
+  "resolution": "whole",
+  "context": "egitimate interests of a third party. In addition to the exception in Article 34 (3) of Regulation (EU) 2016/679, the obligation to inform the data subj"
+ },
+ {
+  "source": "de-bdsg-s29",
+  "target": "gdpr-art-13",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 13 (3)",
+  "resolution": "whole",
+  "context": "g body shall not be obligated to inform the data subject according to Article 13 (3) of Regulation (EU) 2016/679 unless the data subject has an overridi"
+ },
+ {
+  "source": "de-bdsg-s32",
+  "target": "gdpr-art-13",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 13 (4)",
+  "resolution": "whole",
+  "context": "e collected from the data subject (1) In addition to the exception in Article 13 (4) of Regulation (EU) 2016/679, the obligation to provide information"
+ },
+ {
+  "source": "de-bdsg-s33",
+  "target": "gdpr-art-14-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 14 (5)",
+  "resolution": "spread",
+  "context": "en obtained from the data subject (1) In addition to the exception in Article 14 (5) of Regulation (EU) 2016/679 and in Section 29 (1), first sentence,"
+ },
+ {
+  "source": "de-bdsg-s33",
+  "target": "gdpr-art-14-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 14 (5)",
+  "resolution": "spread",
+  "context": "en obtained from the data subject (1) In addition to the exception in Article 14 (5) of Regulation (EU) 2016/679 and in Section 29 (1), first sentence,"
+ },
+ {
+  "source": "de-bdsg-s34",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 15",
+  "resolution": "whole",
+  "context": "(1), second sentence, the data subject’s right of access according to Article 15 of Regulation (EU) 2016/679 shall not apply if 1. the data subject"
+ },
+ {
+  "source": "de-bdsg-s34",
+  "target": "gdpr-art-18",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 18",
+  "resolution": "whole",
+  "context": "oring; processing for other purposes shall be restricted according to Article 18 of Regulation (EU) 2016/679. (3) If a public body of the Federation"
+ },
+ {
+  "source": "de-bdsg-s35",
+  "target": "gdpr-art-17",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 17 (1)",
+  "resolution": "whole",
+  "context": "ller shall not be obligated to erase personal data in accordance with Article 17 (1) of Regulation (EU) 2016/679 in addition to the exceptions given in"
+ },
+ {
+  "source": "de-bdsg-s35",
+  "target": "gdpr-art-18",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 18",
+  "resolution": "whole",
+  "context": "2016/679. In this case, restriction of processing in accordance with Article 18 of Regulation (EU) 2016/679 shall apply in place of erasure. The fi"
+ },
+ {
+  "source": "de-bdsg-s36",
+  "target": "gdpr-art-21",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 21 (1)",
+  "resolution": "whole",
+  "context": "Section 36 Right to object The right to object according to Article 21 (1) of Regulation (EU) 2016/679 with regard to a public body shall not"
+ },
+ {
+  "source": "de-bdsg-s37",
+  "target": "gdpr-art-22",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 22 (1)",
+  "resolution": "whole",
+  "context": "2 (2) (a) and (c) of Regulation (EU) 2016/679, the right according to Article 22 (1) of Regulation (EU) 2016/679 not to be subject to a decision based s"
+ },
+ {
+  "source": "de-bdsg-s38",
+  "target": "gdpr-art-35-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 35",
+  "resolution": "spread",
+  "context": "processing subject to a data protection impact assessment pursuant to Article 35 of Regulation (EU) 2016/679, or if they commercially process person"
+ },
+ {
+  "source": "de-bdsg-s38",
+  "target": "gdpr-art-35-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 35",
+  "resolution": "spread",
+  "context": "processing subject to a data protection impact assessment pursuant to Article 35 of Regulation (EU) 2016/679, or if they commercially process person"
+ },
+ {
+  "source": "de-bdsg-s40",
+  "target": "gdpr-art-6-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 6 (4)",
+  "resolution": "spread",
+  "context": "ies. Processing for another purpose shall be permitted in addition to Article 6 (4) of Regulation (EU) 2016/679 if 1. it is obviously in the interest o"
+ },
+ {
+  "source": "de-bdsg-s40",
+  "target": "gdpr-art-6-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 6 (4)",
+  "resolution": "spread",
+  "context": "ies. Processing for another purpose shall be permitted in addition to Article 6 (4) of Regulation (EU) 2016/679 if 1. it is obviously in the interest o"
+ },
+ {
+  "source": "de-bdsg-s40",
+  "target": "gdpr-art-38",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 38 (6)",
+  "resolution": "whole",
+  "context": "asks or if there is a serious conflict of interests as referred to in Article 38 (6) of Regulation (EU) 2016/679. (7) The application of the Trade Regul"
+ },
+ {
+  "source": "de-bdsg-s41",
+  "target": "gdpr-art-83-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 83 (4)",
+  "resolution": "spread",
+  "context": "rative Offences Act shall apply accordingly to violations pursuant to Article 83 (4) to (6) of Regulation (EU) 2016/679. Sections 17, 35 and 36 of the Administ"
+ },
+ {
+  "source": "de-bdsg-s41",
+  "target": "gdpr-art-83-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 83 (4)",
+  "resolution": "spread",
+  "context": "rative Offences Act shall apply accordingly to violations pursuant to Article 83 (4) to (6) of Regulation (EU) 2016/679. Sections 17, 35 and 36 of the Administ"
+ },
+ {
+  "source": "de-bdsg-s42",
+  "target": "gdpr-art-33",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 33",
+  "resolution": "whole",
+  "context": "shall be entitled to file complaints. (4) A notification pursuant to Article 33 of Regulation (EU) 2016/679 or a communication pursuant to Article"
+ },
+ {
+  "source": "de-bdsg-s42",
+  "target": "gdpr-art-34",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 34 (1)",
+  "resolution": "whole",
+  "context": "Article 33 of Regulation (EU) 2016/679 or a communication pursuant to Article 34 (1) of Regulation (EU) 2016/679 may be used in criminal proceedings aga"
+ },
+ {
+  "source": "de-bdsg-s43",
+  "target": "gdpr-art-33",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 33",
+  "resolution": "whole",
+  "context": "e subject to any administrative fines. (4) A notification pursuant to Article 33 of Regulation (EU) 2016/679 or a communication pursuant to Article"
+ },
+ {
+  "source": "de-bdsg-s43",
+  "target": "gdpr-art-34",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 34 (1)",
+  "resolution": "whole",
+  "context": "Article 33 of Regulation (EU) 2016/679 or a communication pursuant to Article 34 (1) of Regulation (EU) 2016/679 may be used in proceedings pursuant to"
+ },
+ {
+  "source": "de-bdsg-s44",
+  "target": "gdpr-art-27",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 27 (1)",
+  "resolution": "whole",
+  "context": "e controller or processor has designated a representative pursuant to Article 27 (1) of Regulation (EU) 2016/679, this representative shall also be an a"
+ },
+ {
+  "source": "de-bdsg-s85",
+  "target": "gdpr-art-13",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 13 (1)",
+  "resolution": "whole",
+  "context": "e subject to the obligation to provide information in accordance with Article 13 (1) and (2) of Regulation (EU) 2016/679 1. in the cases referred to in Section"
+ },
+ {
+  "source": "de-bdsg-s86",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 9 (1)",
+  "resolution": "exact",
+  "context": "data, including special categories of personal data as referred to in Article 9 (1) of Regulation (EU) 2016/679, also without the knowledge of the data"
+ },
+ {
+  "source": "de-bdsg-s86",
+  "target": "gdpr-art-13",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 13",
+  "resolution": "whole",
+  "context": "ucted solely for the purposes listed in subsection 1, first sentence, Articles 13 to 16, 19 and 21 of Regulation (EU) 2016/679 shall not apply. (3) When processing sp"
+ },
+ {
+  "source": "de-bdsg-s86",
+  "target": "gdpr-art-16",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 16",
+  "resolution": "whole",
+  "context": "ucted solely for the purposes listed in subsection 1, first sentence, Articles 13 to 16, 19 and 21 of Regulation (EU) 2016/679 shall not apply. (3) When processing sp"
+ },
+ {
+  "source": "de-bdsg-s86",
+  "target": "gdpr-art-19",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 19",
+  "resolution": "whole",
+  "context": "ucted solely for the purposes listed in subsection 1, first sentence, Articles 13 to 16, 19 and 21 of Regulation (EU) 2016/679 shall not apply. (3) When processing sp"
+ },
+ {
+  "source": "de-bdsg-s86",
+  "target": "gdpr-art-21",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "DE",
+  "citation": "Article 21",
+  "resolution": "whole",
+  "context": "ucted solely for the purposes listed in subsection 1, first sentence, Articles 13 to 16, 19 and 21 of Regulation (EU) 2016/679 shall not apply. (3) When processing sp"
+ },
+ {
+  "source": "uk-dpa-s4",
+  "target": "gdpr-art-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 2",
+  "resolution": "whole",
+  "context": "processing of personal data to which the UK GDPR applies by virtue of Article 2 of the UK GDPR, and supplements, and must be read with"
+ },
+ {
+  "source": "uk-dpa-s6",
+  "target": "gdpr-art-4-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 4(7)",
+  "resolution": "spread",
+  "context": "The definition of “controller” in Article 4(7) of the UK GDPR has effect subject to— subsection (2),"
+ },
+ {
+  "source": "uk-dpa-s6",
+  "target": "gdpr-art-4-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 4(7)",
+  "resolution": "spread",
+  "context": "The definition of “controller” in Article 4(7) of the UK GDPR has effect subject to— subsection (2),"
+ },
+ {
+  "source": "uk-dpa-s6",
+  "target": "gdpr-art-4-3",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 4(7)",
+  "resolution": "spread",
+  "context": "The definition of “controller” in Article 4(7) of the UK GDPR has effect subject to— subsection (2),"
+ },
+ {
+  "source": "uk-dpa-s8",
+  "target": "gdpr-art-6-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 6(1)",
+  "resolution": "exact",
+  "context": "In Article 6(1) of the UK GDPR (lawfulness of processing), the referen"
+ },
+ {
+  "source": "uk-dpa-s10",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 9(1)",
+  "resolution": "exact",
+  "context": "(3) make provision about the processing of personal data described in Article 9(1) of the UK GDPR (prohibition on processing of special c"
+ },
+ {
+  "source": "uk-dpa-s10",
+  "target": "gdpr-art-9-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 9(2)",
+  "resolution": "exact",
+  "context": "The processing meets the requirement in point (b), (h), (i) or (j) of Article 9(2) of the UK GDPR for authorisation by, or a basis in, th"
+ },
+ {
+  "source": "uk-dpa-s10",
+  "target": "gdpr-art-10",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 10(1)",
+  "resolution": "whole",
+  "context": "ontrol of official authority. The processing meets the requirement in Article 10(1) of the UK GDPR for authorisation by the law of the Uni"
+ },
+ {
+  "source": "uk-dpa-s11",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 9(3)",
+  "resolution": "spread",
+  "context": "s carried out subject to the conditions and safeguards referred to in Article 9(3) of the UK GDPR (obligation of secrecy) include circums"
+ },
+ {
+  "source": "uk-dpa-s11",
+  "target": "gdpr-art-9-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 9(3)",
+  "resolution": "spread",
+  "context": "s carried out subject to the conditions and safeguards referred to in Article 9(3) of the UK GDPR (obligation of secrecy) include circums"
+ },
+ {
+  "source": "uk-dpa-s11",
+  "target": "gdpr-art-10",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 10",
+  "resolution": "whole",
+  "context": "owes a duty of confidentiality under an enactment or rule of law. In Article 10 of the UK GDPR and section 10, references to personal"
+ },
+ {
+  "source": "uk-dpa-s12",
+  "target": "gdpr-art-12",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 12(5)",
+  "resolution": "whole",
+  "context": "ecify limits on the fees that a controller may charge in reliance on— Article 12(5) of the UK GDPR (reasonable fees when responding to man"
+ },
+ {
+  "source": "uk-dpa-s12",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 15(3)",
+  "resolution": "whole",
+  "context": "es when responding to manifestly unfounded or excessive requests), or Article 15(3) of the UK GDPR (reasonable fees for provision of furth"
+ },
+ {
+  "source": "uk-dpa-s13",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 15(1)",
+  "resolution": "whole",
+  "context": "of the Consumer Credit Act 1974). The controller's obligations under Article 15(1) to (3) of the UK GDPR (confirmation of processing, access to"
+ },
+ {
+  "source": "uk-dpa-s14",
+  "target": "gdpr-art-22",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 22(1)",
+  "resolution": "whole",
+  "context": "n for the purposes of Article 22(2)(b) of the UK GDPR (exception from Article 22(1) of the UK GDPR for significant decisions based solely"
+ },
+ {
+  "source": "uk-dpa-s14",
+  "target": "gdpr-art-12",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 12(3)",
+  "resolution": "whole",
+  "context": "r subsection (4), the controller must, within the period described in Article 12(3) of the UK GDPR— consider the request, including any in"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-13",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 13",
+  "resolution": "whole",
+  "context": "ovision adapting or restricting the application of rules contained in Articles 13 to 21 and 34 of the UK GDPR in specified circumstances (of a kind d"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-21",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 21",
+  "resolution": "whole",
+  "context": "ovision adapting or restricting the application of rules contained in Articles 13 to 21 and 34 of the UK GDPR in specified circumstances (of a kind d"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-34",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 34",
+  "resolution": "whole",
+  "context": "ovision adapting or restricting the application of rules contained in Articles 13 to 21 and 34 of the UK GDPR in specified circumstances (of a kind d"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-23",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 23(1)",
+  "resolution": "whole",
+  "context": "R in specified circumstances (of a kind described in Article 6(3) and Article 23(1) of the UK GDPR); Part 2 makes provision restricting th"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 15",
+  "resolution": "whole",
+  "context": "f the UK GDPR); Part 3 makes provision restricting the application of Article 15 of the UK GDPR where this is necessary to protect the"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-85",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 85(2)",
+  "resolution": "whole",
+  "context": "for reasons relating to freedom of expression (of a kind described in Article 85(2) of the UK GDPR); Part 6 makes provision containing der"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-16",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 16",
+  "resolution": "whole",
+  "context": "art 6 makes provision containing derogations from rights contained in Articles 15, 16, 18, 19, 20 and 21 of the UK GDPR for scientific or historical research p"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-18",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 18",
+  "resolution": "whole",
+  "context": "art 6 makes provision containing derogations from rights contained in Articles 15, 16, 18, 19, 20 and 21 of the UK GDPR for scientific or historical research p"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-19",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 19",
+  "resolution": "whole",
+  "context": "art 6 makes provision containing derogations from rights contained in Articles 15, 16, 18, 19, 20 and 21 of the UK GDPR for scientific or historical research p"
+ },
+ {
+  "source": "uk-dpa-s15",
+  "target": "gdpr-art-20",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 20",
+  "resolution": "whole",
+  "context": "art 6 makes provision containing derogations from rights contained in Articles 15, 16, 18, 19, 20 and 21 of the UK GDPR for scientific or historical research p"
+ },
+ {
+  "source": "uk-dpa-s17",
+  "target": "gdpr-art-43-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 43",
+  "resolution": "spread",
+  "context": "rrying out of the body's functions under this section, Schedule 5 and Article 43 of the UK GDPR. The UK national accreditation body mus"
+ },
+ {
+  "source": "uk-dpa-s17",
+  "target": "gdpr-art-43-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 43",
+  "resolution": "spread",
+  "context": "rrying out of the body's functions under this section, Schedule 5 and Article 43 of the UK GDPR. The UK national accreditation body mus"
+ },
+ {
+  "source": "uk-dpa-s17",
+  "target": "gdpr-art-42",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 42",
+  "resolution": "whole",
+  "context": "provider” means a person who issues certification for the purposes of Article 42 of the UK GDPR; “the UK national accreditation body” m"
+ },
+ {
+  "source": "uk-dpa-s17A",
+  "target": "gdpr-art-45-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 45(2)",
+  "resolution": "exact",
+  "context": "fer may rely on those regulations for the purposes of subsection (2). Article 45(2) of the UK GDPR makes provision about the assessment of"
+ },
+ {
+  "source": "uk-dpa-s17C",
+  "target": "gdpr-art-46",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 46",
+  "resolution": "whole",
+  "context": "ta to a third country or an international organisation in reliance on Article 46 of the UK GDPR (and see also section 119A). The Secret"
+ },
+ {
+  "source": "uk-dpa-s19",
+  "target": "gdpr-art-89",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 89(1)",
+  "resolution": "whole",
+  "context": "istical purposes. Such processing does not satisfy the requirement in Article 89(1) of the UK GDPR for the processing to be subject to app"
+ },
+ {
+  "source": "uk-dpa-s24",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 15(1)",
+  "resolution": "whole",
+  "context": "ic processing situations). A controller is not obliged to comply with Article 15(1) to (3) of the UK GDPR (right of access by the data subject) i"
+ },
+ {
+  "source": "uk-dpa-s28",
+  "target": "gdpr-art-9-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 9(1)",
+  "resolution": "exact",
+  "context": "Article 9(1) of the UK GDPR (prohibition on processing of special c"
+ },
+ {
+  "source": "uk-dpa-s28",
+  "target": "gdpr-art-32",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 32",
+  "resolution": "whole",
+  "context": "appropriate safeguards for the rights and freedoms of data subjects. Article 32 of the UK GDPR (security of processing) does not apply"
+ },
+ {
+  "source": "uk-dpa-s115",
+  "target": "gdpr-art-57-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 57",
+  "resolution": "spread",
+  "context": "General functions are conferred on the Commissioner by— Article 57 of the UK GDPR (tasks), and Article 58 of the UK GDPR"
+ },
+ {
+  "source": "uk-dpa-s115",
+  "target": "gdpr-art-58-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 58",
+  "resolution": "spread",
+  "context": "ferred on the Commissioner by— Article 57 of the UK GDPR (tasks), and Article 58 of the UK GDPR (powers), (and see also the Commissione"
+ },
+ {
+  "source": "uk-dpa-s115",
+  "target": "gdpr-art-58-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 58",
+  "resolution": "spread",
+  "context": "ferred on the Commissioner by— Article 57 of the UK GDPR (tasks), and Article 58 of the UK GDPR (powers), (and see also the Commissione"
+ },
+ {
+  "source": "uk-dpa-s115",
+  "target": "gdpr-art-42",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 42",
+  "resolution": "whole",
+  "context": "ertification body to withdraw, or not to issue, a certification under Articles 42 and 43 of the UK GDPR. The Commissioner's powers under Articl"
+ },
+ {
+  "source": "uk-dpa-s115",
+  "target": "gdpr-art-43-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 43",
+  "resolution": "spread",
+  "context": "ertification body to withdraw, or not to issue, a certification under Articles 42 and 43 of the UK GDPR. The Commissioner's powers under Articl"
+ },
+ {
+  "source": "uk-dpa-s115",
+  "target": "gdpr-art-43-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 43",
+  "resolution": "spread",
+  "context": "ertification body to withdraw, or not to issue, a certification under Articles 42 and 43 of the UK GDPR. The Commissioner's powers under Articl"
+ },
+ {
+  "source": "uk-dpa-s119A",
+  "target": "gdpr-art-46",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 46",
+  "resolution": "whole",
+  "context": "ta to a third country or an international organisation in reliance on Article 46 of the UK GDPR (and see also section 17C). The Commiss"
+ },
+ {
+  "source": "uk-dpa-s120",
+  "target": "gdpr-art-50",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 50",
+  "resolution": "whole",
+  "context": "ith the processing of personal data to which the UK GDPR applies, see Article 50 of the UK GDPR (international co-operation for the pro"
+ },
+ {
+  "source": "uk-dpa-s129",
+  "target": "gdpr-art-58-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 58(1)",
+  "resolution": "exact",
+  "context": "The Commissioner's functions under Article 58(1) of the UK GDPR and paragraph 1 of Schedule 13 include"
+ },
+ {
+  "source": "uk-dpa-s135",
+  "target": "gdpr-art-57-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 57(4)",
+  "resolution": "spread",
+  "context": "Commissioner does not already have such powers and obligations under Article 57(4) of the UK GDPR."
+ },
+ {
+  "source": "uk-dpa-s136",
+  "target": "gdpr-art-57-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 57(4)",
+  "resolution": "spread",
+  "context": "ssioner proposes to charge in accordance with— section 134 or 135, or Article 57(4) of the UK GDPR. Before publishing the guidance, the Co"
+ },
+ {
+  "source": "uk-dpa-s142",
+  "target": "gdpr-art-27",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 27",
+  "resolution": "whole",
+  "context": "cludes a representative of a controller or processor designated under Article 27 of the UK GDPR (representatives of controllers or proc"
+ },
+ {
+  "source": "uk-dpa-s143",
+  "target": "gdpr-art-27",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 27",
+  "resolution": "whole",
+  "context": "ven to a representative of a controller or processor designated under Article 27 of the UK GDPR, the reference to the person providing"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-12",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 12",
+  "resolution": "whole",
+  "context": "er 2 of Part 4 of this Act (principles of processing); a provision of Articles 12 to 22 of the UK GDPR or Part 3 or 4 of this Act conferring r"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-22",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 22",
+  "resolution": "whole",
+  "context": "er 2 of Part 4 of this Act (principles of processing); a provision of Articles 12 to 22 of the UK GDPR or Part 3 or 4 of this Act conferring r"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-25",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 25",
+  "resolution": "whole",
+  "context": "or 4 of this Act conferring rights on a data subject; a provision of Articles 25 to 39 of the UK GDPR or section 64 or 65 of this Act (obliga"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-39",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 39",
+  "resolution": "whole",
+  "context": "or 4 of this Act conferring rights on a data subject; a provision of Articles 25 to 39 of the UK GDPR or section 64 or 65 of this Act (obliga"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-44",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 44",
+  "resolution": "whole",
+  "context": "ountries, non-Convention countries and international organisations in Articles 44 to 49 of the UK GDPR or in sections 73 to 78 or 109 of this"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-49-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 49",
+  "resolution": "spread",
+  "context": "ountries, non-Convention countries and international organisations in Articles 44 to 49 of the UK GDPR or in sections 73 to 78 or 109 of this"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-49-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 49",
+  "resolution": "spread",
+  "context": "ountries, non-Convention countries and international organisations in Articles 44 to 49 of the UK GDPR or in sections 73 to 78 or 109 of this"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-41",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 41",
+  "resolution": "whole",
+  "context": "ng body has failed, or is failing, to comply with an obligation under Article 41 of the UK GDPR (monitoring of approved codes of conduc"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-42",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 42",
+  "resolution": "whole",
+  "context": "tation, has failed, or is failing, to comply with an obligation under Article 42 or 43 of the UK GDPR (certification of controllers and proce"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-43-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 43",
+  "resolution": "spread",
+  "context": "tation, has failed, or is failing, to comply with an obligation under Article 42 or 43 of the UK GDPR (certification of controllers and proce"
+ },
+ {
+  "source": "uk-dpa-s149",
+  "target": "gdpr-art-43-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 43",
+  "resolution": "spread",
+  "context": "tation, has failed, or is failing, to comply with an obligation under Article 42 or 43 of the UK GDPR (certification of controllers and proce"
+ },
+ {
+  "source": "uk-dpa-s151",
+  "target": "gdpr-art-16",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 16",
+  "resolution": "whole",
+  "context": ", or to comply with a data subject's request to exercise rights under Article 16, 17 or 18 of the UK GDPR (right to rectification, erasure or res"
+ },
+ {
+  "source": "uk-dpa-s151",
+  "target": "gdpr-art-17",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 17",
+  "resolution": "whole",
+  "context": ", or to comply with a data subject's request to exercise rights under Article 16, 17 or 18 of the UK GDPR (right to rectification, erasure or res"
+ },
+ {
+  "source": "uk-dpa-s151",
+  "target": "gdpr-art-18",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 18",
+  "resolution": "whole",
+  "context": ", or to comply with a data subject's request to exercise rights under Article 16, 17 or 18 of the UK GDPR (right to rectification, erasure or res"
+ },
+ {
+  "source": "uk-dpa-s155",
+  "target": "gdpr-art-83-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 83(1)",
+  "resolution": "exact",
+  "context": "concerns a matter to which the UK GDPR applies, the matters listed in Article 83(1) and (2) of the UK GDPR; to the extent that the notice concerns"
+ },
+ {
+  "source": "uk-dpa-s157",
+  "target": "gdpr-art-83-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 83",
+  "resolution": "spread",
+  "context": "y that may be imposed by a penalty notice is— the amount specified in Article 83 of the UK GDPR, or if an amount is not specified there"
+ },
+ {
+  "source": "uk-dpa-s157",
+  "target": "gdpr-art-83-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 83",
+  "resolution": "spread",
+  "context": "y that may be imposed by a penalty notice is— the amount specified in Article 83 of the UK GDPR, or if an amount is not specified there"
+ },
+ {
+  "source": "uk-dpa-s159",
+  "target": "gdpr-art-83-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 83",
+  "resolution": "spread",
+  "context": "For the purposes of Article 83 of the UK GDPR and section 157, the Secretary of State"
+ },
+ {
+  "source": "uk-dpa-s159",
+  "target": "gdpr-art-83-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 83",
+  "resolution": "spread",
+  "context": "For the purposes of Article 83 of the UK GDPR and section 157, the Secretary of State"
+ },
+ {
+  "source": "uk-dpa-s166",
+  "target": "gdpr-art-77",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 77",
+  "resolution": "whole",
+  "context": "es where, after a data subject makes a complaint under section 165 or Article 77 of the UK GDPR, the Commissioner— fails to take approp"
+ },
+ {
+  "source": "uk-dpa-s167",
+  "target": "gdpr-art-79",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 79(1)",
+  "resolution": "whole",
+  "context": "a subject includes an application made in exercise of the right under Article 79(1) of the UK GDPR (right to an effective remedy against a"
+ },
+ {
+  "source": "uk-dpa-s168",
+  "target": "gdpr-art-82",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 82",
+  "resolution": "whole",
+  "context": "In Article 82 of the UK GDPR (right to compensation for material or"
+ },
+ {
+  "source": "uk-dpa-s170",
+  "target": "gdpr-art-28-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 28(10)",
+  "resolution": "spread",
+  "context": "not include the consent of a person who is a controller by virtue of Article 28(10) of the UK GDPR or section 59(8) or 105(3) of this Act"
+ },
+ {
+  "source": "uk-dpa-s170",
+  "target": "gdpr-art-28-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 28(10)",
+  "resolution": "spread",
+  "context": "not include the consent of a person who is a controller by virtue of Article 28(10) of the UK GDPR or section 59(8) or 105(3) of this Act"
+ },
+ {
+  "source": "uk-dpa-s171",
+  "target": "gdpr-art-28-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 28(10)",
+  "resolution": "spread",
+  "context": "not include the consent of a person who is a controller by virtue of Article 28(10) of the UK GDPR or section 59(8) or 105(3) of this Act"
+ },
+ {
+  "source": "uk-dpa-s171",
+  "target": "gdpr-art-28-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 28(10)",
+  "resolution": "spread",
+  "context": "not include the consent of a person who is a controller by virtue of Article 28(10) of the UK GDPR or section 59(8) or 105(3) of this Act"
+ },
+ {
+  "source": "uk-dpa-s173",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 15",
+  "resolution": "whole",
+  "context": "st. In this section, “data subject access right” means a right under— Article 15 of the UK GDPR (right of access by the data subject);"
+ },
+ {
+  "source": "uk-dpa-s173",
+  "target": "gdpr-art-20",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 20",
+  "resolution": "whole",
+  "context": "der— Article 15 of the UK GDPR (right of access by the data subject); Article 20 of the UK GDPR (right to data portability); section 45"
+ },
+ {
+  "source": "uk-dpa-s174",
+  "target": "gdpr-art-79",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 79",
+  "resolution": "whole",
+  "context": "ings under section 167 (including proceedings on an application under Article 79 of the UK GDPR), or proceedings under Article 82 of th"
+ },
+ {
+  "source": "uk-dpa-s174",
+  "target": "gdpr-art-82",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 82",
+  "resolution": "whole",
+  "context": "an application under Article 79 of the UK GDPR), or proceedings under Article 82 of the UK GDPR or section 169. The Commissioner may ma"
+ },
+ {
+  "source": "uk-dpa-s180",
+  "target": "gdpr-art-79",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 79",
+  "resolution": "whole",
+  "context": "lty notices and processing for the special purposes); section 167 and Article 79 of the UK GDPR (compliance orders); sections 168 and 1"
+ },
+ {
+  "source": "uk-dpa-s180",
+  "target": "gdpr-art-82",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 82",
+  "resolution": "whole",
+  "context": "ticle 79 of the UK GDPR (compliance orders); sections 168 and 169 and Article 82 of the UK GDPR (compensation). In relation to the proc"
+ },
+ {
+  "source": "uk-dpa-s180A",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 15",
+  "resolution": "whole",
+  "context": "a data subject is entitled to information by virtue of a right under— Article 15 of the UK GDPR (right of access by the data subject);"
+ },
+ {
+  "source": "uk-dpa-s180A",
+  "target": "gdpr-art-20",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 20",
+  "resolution": "whole",
+  "context": "der— Article 15 of the UK GDPR (right of access by the data subject); Article 20 of the UK GDPR (right to data portability); section 45"
+ },
+ {
+  "source": "uk-dpa-s185",
+  "target": "gdpr-art-15",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 15",
+  "resolution": "whole",
+  "context": "rd. In this section, “data subject access right” means a right under— Article 15 of the UK GDPR (right of access by the data subject);"
+ },
+ {
+  "source": "uk-dpa-s185",
+  "target": "gdpr-art-20",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 20",
+  "resolution": "whole",
+  "context": "der— Article 15 of the UK GDPR (right of access by the data subject); Article 20 of the UK GDPR (right to data portability); section 45"
+ },
+ {
+  "source": "uk-dpa-s187",
+  "target": "gdpr-art-80",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 80(1)",
+  "resolution": "whole",
+  "context": "tion to the processing of personal data to which the UK GDPR applies, Article 80(1) of the UK GDPR (representation of data subjects)— ..."
+ },
+ {
+  "source": "uk-dpa-s187",
+  "target": "gdpr-art-77",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 77",
+  "resolution": "whole",
+  "context": "n subsections (3) and (4) to exercise the data subject's rights under Articles 77, 78 and 79 of the UK GDPR (rights to lodge complaints and to an e"
+ },
+ {
+  "source": "uk-dpa-s187",
+  "target": "gdpr-art-78",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 78",
+  "resolution": "whole",
+  "context": "n subsections (3) and (4) to exercise the data subject's rights under Articles 77, 78 and 79 of the UK GDPR (rights to lodge complaints and to an e"
+ },
+ {
+  "source": "uk-dpa-s187",
+  "target": "gdpr-art-79",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 79",
+  "resolution": "whole",
+  "context": "n subsections (3) and (4) to exercise the data subject's rights under Articles 77, 78 and 79 of the UK GDPR (rights to lodge complaints and to an e"
+ },
+ {
+  "source": "uk-dpa-s187",
+  "target": "gdpr-art-82",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 82",
+  "resolution": "whole",
+  "context": "ch a body or organisation to exercise the data subject's rights under Article 82 of the UK GDPR (right to compensation). In relation to"
+ },
+ {
+  "source": "uk-dpa-s188",
+  "target": "gdpr-art-80",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 80(1)",
+  "resolution": "whole",
+  "context": "ive body is authorised to exercise on the data subject's behalf under Article 80(1) of the UK GDPR or section 187. The power under subsect"
+ },
+ {
+  "source": "uk-dpa-s189",
+  "target": "gdpr-art-80",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 80(1)",
+  "resolution": "whole",
+  "context": "of the report before Parliament. Those matters are— the operation of Article 80(1) of the UK GDPR, the operation of section 187, the meri"
+ },
+ {
+  "source": "uk-dpa-s189",
+  "target": "gdpr-art-77",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 77",
+  "resolution": "whole",
+  "context": "the UK GDPR to exercise some or all of a data subject's rights under Articles 77, 78 and 79 of the UK GDPR without being authorised to do so by th"
+ },
+ {
+  "source": "uk-dpa-s189",
+  "target": "gdpr-art-78",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 78",
+  "resolution": "whole",
+  "context": "the UK GDPR to exercise some or all of a data subject's rights under Articles 77, 78 and 79 of the UK GDPR without being authorised to do so by th"
+ },
+ {
+  "source": "uk-dpa-s189",
+  "target": "gdpr-art-79",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 79",
+  "resolution": "whole",
+  "context": "the UK GDPR to exercise some or all of a data subject's rights under Articles 77, 78 and 79 of the UK GDPR without being authorised to do so by th"
+ },
+ {
+  "source": "uk-dpa-s189",
+  "target": "gdpr-art-82",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 82",
+  "resolution": "whole",
+  "context": "aking equivalent provision in relation to data subjects' rights under Article 82 of the UK GDPR (right to compensation), and the merits"
+ },
+ {
+  "source": "uk-dpa-s190",
+  "target": "gdpr-art-80",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 80(2)",
+  "resolution": "whole",
+  "context": "the Secretary of State may by regulations— exercise the powers under Article 80(2) of the UK GDPR in relation to England and Wales and No"
+ },
+ {
+  "source": "uk-dpa-s190",
+  "target": "gdpr-art-82",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 82",
+  "resolution": "whole",
+  "context": "rticle 80(1) of the UK GDPR to exercise a data subject's rights under Article 82 of the UK GDPR in England and Wales and Northern Irela"
+ },
+ {
+  "source": "uk-dpa-s207",
+  "target": "gdpr-art-3",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 3",
+  "resolution": "whole",
+  "context": "he types of such processing to which the UK GDPR applies by virtue of Article 3 of the UK GDPR. In the case of the processing of perso"
+ },
+ {
+  "source": "uk-dpa-sch21-p7",
+  "target": "gdpr-art-46",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 46(1)",
+  "resolution": "whole",
+  "context": "Subject to paragraph 8, the appropriate safeguards referred to in Article 46(1) of the UK GDPR may be provided for on and after IP com"
+ },
+ {
+  "source": "uk-dpa-sch21-p9",
+  "target": "gdpr-art-46",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 46(1)",
+  "resolution": "whole",
+  "context": "The appropriate safeguards referred to in Article 46(1) of the UK GDPR may be provided for on and after IP com"
+ },
+ {
+  "source": "uk-dpa-sch21-p9",
+  "target": "gdpr-art-4-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 4(20)",
+  "resolution": "spread",
+  "context": "ment of such data; “binding corporate rules” has the meaning given in Article 4(20) of the UK GDPR. This paragraph has effect in addition"
+ },
+ {
+  "source": "uk-dpa-sch21-p9",
+  "target": "gdpr-art-4-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 4(20)",
+  "resolution": "spread",
+  "context": "ment of such data; “binding corporate rules” has the meaning given in Article 4(20) of the UK GDPR. This paragraph has effect in addition"
+ },
+ {
+  "source": "uk-dpa-sch21-p9",
+  "target": "gdpr-art-4-3",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 4(20)",
+  "resolution": "spread",
+  "context": "ment of such data; “binding corporate rules” has the meaning given in Article 4(20) of the UK GDPR. This paragraph has effect in addition"
+ },
+ {
+  "source": "uk-dpa-sch21-p16",
+  "target": "gdpr-art-83-1",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 83(5)",
+  "resolution": "spread",
+  "context": "t was directly applicable to the United Kingdom) or the applied GDPR— Article 83(5) and (6) of the UK GDPR and section 157(5)(a) and (b) of this A"
+ },
+ {
+  "source": "uk-dpa-sch21-p16",
+  "target": "gdpr-art-83-2",
+  "type": "IMPLEMENTS",
+  "jurisdiction": "UK",
+  "citation": "Article 83(5)",
+  "resolution": "spread",
+  "context": "t was directly applicable to the United Kingdom) or the applied GDPR— Article 83(5) and (6) of the UK GDPR and section 157(5)(a) and (b) of this A"
+ }
+]

@@ -35,3 +35,8 @@ Thumbs.db
 
 # Node (dashboard, if upgraded later)
 node_modules/
+
+# legislation.gov.uk XML: 8k public "key-<md5>" effect URIs trip GitHub push
+# protection as Mailgun keys. Derived nations.chunks.json is committed instead;
+# see dataset/corpus/sources.md.
+dataset/corpus/nations/*.xml

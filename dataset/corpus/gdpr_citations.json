@@ -1,0 +1,2571 @@
+[
+ {
+  "source": "gdpr-art-2",
+  "target": "gdpr-art-98",
+  "type": "CITES",
+  "citation": "Article 98",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-2",
+  "target": "gdpr-art-12",
+  "type": "CITES",
+  "citation": "Article 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-2",
+  "target": "gdpr-art-15",
+  "type": "CITES",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-4-1",
+  "target": "gdpr-art-4-2",
+  "type": "CITES",
+  "citation": "Article 4",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-4-1",
+  "target": "gdpr-art-4-3",
+  "type": "CITES",
+  "citation": "Article 4",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-4-2",
+  "target": "gdpr-art-27",
+  "type": "CITES",
+  "citation": "Article 27",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-4-2",
+  "target": "gdpr-art-51",
+  "type": "CITES",
+  "citation": "Article 51",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-5",
+  "target": "gdpr-art-89",
+  "type": "CITES",
+  "citation": "Article 89(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-6-1",
+  "target": "gdpr-art-6-2",
+  "type": "CITES",
+  "citation": "Article 6",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-6-1",
+  "target": "gdpr-art-23",
+  "type": "CITES",
+  "citation": "Article 23(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-6-2",
+  "target": "gdpr-art-9-1",
+  "type": "CITES",
+  "citation": "Article 9",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-6-2",
+  "target": "gdpr-art-9-2",
+  "type": "CITES",
+  "citation": "Article 9",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-6-2",
+  "target": "gdpr-art-10",
+  "type": "CITES",
+  "citation": "Article 10",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-8",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-9-1",
+  "target": "gdpr-art-9-2",
+  "type": "CITES",
+  "citation": "Article 9",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-9-1",
+  "target": "gdpr-art-89",
+  "type": "CITES",
+  "citation": "Article 89(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-10",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-11",
+  "target": "gdpr-art-15",
+  "type": "CITES",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-11",
+  "target": "gdpr-art-20",
+  "type": "CITES",
+  "citation": "Article 20",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-12",
+  "target": "gdpr-art-13",
+  "type": "CITES",
+  "citation": "Article 13",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-12",
+  "target": "gdpr-art-14-1",
+  "type": "CITES",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-12",
+  "target": "gdpr-art-14-2",
+  "type": "CITES",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-12",
+  "target": "gdpr-art-15",
+  "type": "CITES",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-12",
+  "target": "gdpr-art-22",
+  "type": "CITES",
+  "citation": "Article 22",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-12",
+  "target": "gdpr-art-34",
+  "type": "CITES",
+  "citation": "Article 34",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-12",
+  "target": "gdpr-art-11",
+  "type": "CITES",
+  "citation": "Article 11(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-12",
+  "target": "gdpr-art-21",
+  "type": "CITES",
+  "citation": "Article 21",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-12",
+  "target": "gdpr-art-92",
+  "type": "CITES",
+  "citation": "Article 92",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-13",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-13",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-13",
+  "target": "gdpr-art-47-1",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-13",
+  "target": "gdpr-art-47-2",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-13",
+  "target": "gdpr-art-49-1",
+  "type": "CITES",
+  "citation": "Article 49(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-13",
+  "target": "gdpr-art-9-2",
+  "type": "CITES",
+  "citation": "Article 9(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-13",
+  "target": "gdpr-art-22",
+  "type": "CITES",
+  "citation": "Article 22(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-14-1",
+  "target": "gdpr-art-14-2",
+  "type": "CITES",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-14-1",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-14-1",
+  "target": "gdpr-art-47-1",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-14-1",
+  "target": "gdpr-art-47-2",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-14-1",
+  "target": "gdpr-art-49-1",
+  "type": "CITES",
+  "citation": "Article 49(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-14-1",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-14-1",
+  "target": "gdpr-art-9-2",
+  "type": "CITES",
+  "citation": "Article 9(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-14-1",
+  "target": "gdpr-art-22",
+  "type": "CITES",
+  "citation": "Article 22(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-14-1",
+  "target": "gdpr-art-89",
+  "type": "CITES",
+  "citation": "Article 89(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-15",
+  "target": "gdpr-art-22",
+  "type": "CITES",
+  "citation": "Article 22(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-15",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-17",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-17",
+  "target": "gdpr-art-9-2",
+  "type": "CITES",
+  "citation": "Article 9(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-17",
+  "target": "gdpr-art-21",
+  "type": "CITES",
+  "citation": "Article 21(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-17",
+  "target": "gdpr-art-8",
+  "type": "CITES",
+  "citation": "Article 8(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-17",
+  "target": "gdpr-art-9-1",
+  "type": "CITES",
+  "citation": "Article 9(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-17",
+  "target": "gdpr-art-89",
+  "type": "CITES",
+  "citation": "Article 89(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-18",
+  "target": "gdpr-art-21",
+  "type": "CITES",
+  "citation": "Article 21(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-19",
+  "target": "gdpr-art-16",
+  "type": "CITES",
+  "citation": "Article 16",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-19",
+  "target": "gdpr-art-17",
+  "type": "CITES",
+  "citation": "Article 17(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-19",
+  "target": "gdpr-art-18",
+  "type": "CITES",
+  "citation": "Article 18",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-20",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-20",
+  "target": "gdpr-art-9-2",
+  "type": "CITES",
+  "citation": "Article 9(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-20",
+  "target": "gdpr-art-17",
+  "type": "CITES",
+  "citation": "Article 17",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-21",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-21",
+  "target": "gdpr-art-89",
+  "type": "CITES",
+  "citation": "Article 89(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-22",
+  "target": "gdpr-art-9-1",
+  "type": "CITES",
+  "citation": "Article 9(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-22",
+  "target": "gdpr-art-9-2",
+  "type": "CITES",
+  "citation": "Article 9(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-23",
+  "target": "gdpr-art-12",
+  "type": "CITES",
+  "citation": "Article 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-23",
+  "target": "gdpr-art-22",
+  "type": "CITES",
+  "citation": "Article 22",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-23",
+  "target": "gdpr-art-34",
+  "type": "CITES",
+  "citation": "Article 34",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-23",
+  "target": "gdpr-art-5",
+  "type": "CITES",
+  "citation": "Article 5",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-24",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-24",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-24",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-25",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-26",
+  "target": "gdpr-art-13",
+  "type": "CITES",
+  "citation": "Article 13",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-26",
+  "target": "gdpr-art-14-1",
+  "type": "CITES",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-26",
+  "target": "gdpr-art-14-2",
+  "type": "CITES",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-27",
+  "target": "gdpr-art-3",
+  "type": "CITES",
+  "citation": "Article 3(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-27",
+  "target": "gdpr-art-9-1",
+  "type": "CITES",
+  "citation": "Article 9(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-27",
+  "target": "gdpr-art-10",
+  "type": "CITES",
+  "citation": "Article 10",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-28-1",
+  "target": "gdpr-art-28-2",
+  "type": "CITES",
+  "citation": "Article 28",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-28-1",
+  "target": "gdpr-art-32",
+  "type": "CITES",
+  "citation": "Article 32",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-28-1",
+  "target": "gdpr-art-36",
+  "type": "CITES",
+  "citation": "Article 36",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-43-1",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-43-2",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-93",
+  "type": "CITES",
+  "citation": "Article 93(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-82",
+  "type": "CITES",
+  "citation": "Article 82",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-83-1",
+  "type": "CITES",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-83-2",
+  "type": "CITES",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-28-2",
+  "target": "gdpr-art-84",
+  "type": "CITES",
+  "citation": "Article 84",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-30",
+  "target": "gdpr-art-49-1",
+  "type": "CITES",
+  "citation": "Article 49(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-30",
+  "target": "gdpr-art-32",
+  "type": "CITES",
+  "citation": "Article 32(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-30",
+  "target": "gdpr-art-9-1",
+  "type": "CITES",
+  "citation": "Article 9(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-30",
+  "target": "gdpr-art-10",
+  "type": "CITES",
+  "citation": "Article 10",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-32",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-32",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-32",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-33",
+  "target": "gdpr-art-55",
+  "type": "CITES",
+  "citation": "Article 55",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-34",
+  "target": "gdpr-art-33",
+  "type": "CITES",
+  "citation": "Article 33(3)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-35-1",
+  "target": "gdpr-art-35-2",
+  "type": "CITES",
+  "citation": "Article 35",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-35-1",
+  "target": "gdpr-art-9-1",
+  "type": "CITES",
+  "citation": "Article 9(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-35-1",
+  "target": "gdpr-art-10",
+  "type": "CITES",
+  "citation": "Article 10",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-35-1",
+  "target": "gdpr-art-68",
+  "type": "CITES",
+  "citation": "Article 68",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-35-1",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-35-1",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-35-1",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-35-1",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-36",
+  "target": "gdpr-art-35-1",
+  "type": "CITES",
+  "citation": "Article 35",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-36",
+  "target": "gdpr-art-35-2",
+  "type": "CITES",
+  "citation": "Article 35",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-36",
+  "target": "gdpr-art-58-1",
+  "type": "CITES",
+  "citation": "Article 58",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-36",
+  "target": "gdpr-art-58-2",
+  "type": "CITES",
+  "citation": "Article 58",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-37",
+  "target": "gdpr-art-9-1",
+  "type": "CITES",
+  "citation": "Article 9",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-37",
+  "target": "gdpr-art-9-2",
+  "type": "CITES",
+  "citation": "Article 9",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-37",
+  "target": "gdpr-art-10",
+  "type": "CITES",
+  "citation": "Article 10",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-37",
+  "target": "gdpr-art-39",
+  "type": "CITES",
+  "citation": "Article 39",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-38",
+  "target": "gdpr-art-39",
+  "type": "CITES",
+  "citation": "Article 39",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-39",
+  "target": "gdpr-art-35-1",
+  "type": "CITES",
+  "citation": "Article 35",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-39",
+  "target": "gdpr-art-35-2",
+  "type": "CITES",
+  "citation": "Article 35",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-39",
+  "target": "gdpr-art-36",
+  "type": "CITES",
+  "citation": "Article 36",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-24",
+  "type": "CITES",
+  "citation": "Article 24",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-25",
+  "type": "CITES",
+  "citation": "Article 25",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-32",
+  "type": "CITES",
+  "citation": "Article 32",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-77",
+  "type": "CITES",
+  "citation": "Article 77",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-79",
+  "type": "CITES",
+  "citation": "Article 79",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-3",
+  "type": "CITES",
+  "citation": "Article 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-41",
+  "type": "CITES",
+  "citation": "Article 41(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-55",
+  "type": "CITES",
+  "citation": "Article 55",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-56",
+  "type": "CITES",
+  "citation": "Article 56",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-1",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-40-2",
+  "target": "gdpr-art-93",
+  "type": "CITES",
+  "citation": "Article 93(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-41",
+  "target": "gdpr-art-57-1",
+  "type": "CITES",
+  "citation": "Article 57",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-41",
+  "target": "gdpr-art-58-1",
+  "type": "CITES",
+  "citation": "Article 58",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-41",
+  "target": "gdpr-art-58-2",
+  "type": "CITES",
+  "citation": "Article 58",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-41",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-41",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-41",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-42",
+  "target": "gdpr-art-3",
+  "type": "CITES",
+  "citation": "Article 3",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-42",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-42",
+  "target": "gdpr-art-55",
+  "type": "CITES",
+  "citation": "Article 55",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-42",
+  "target": "gdpr-art-56",
+  "type": "CITES",
+  "citation": "Article 56",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-42",
+  "target": "gdpr-art-43-1",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-42",
+  "target": "gdpr-art-43-2",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-42",
+  "target": "gdpr-art-58-1",
+  "type": "CITES",
+  "citation": "Article 58(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-42",
+  "target": "gdpr-art-58-2",
+  "type": "CITES",
+  "citation": "Article 58(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-42",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-43-1",
+  "target": "gdpr-art-43-2",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-43-1",
+  "target": "gdpr-art-57-1",
+  "type": "CITES",
+  "citation": "Article 57",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-43-1",
+  "target": "gdpr-art-58-1",
+  "type": "CITES",
+  "citation": "Article 58",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-43-1",
+  "target": "gdpr-art-58-2",
+  "type": "CITES",
+  "citation": "Article 58",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-43-1",
+  "target": "gdpr-art-55",
+  "type": "CITES",
+  "citation": "Article 55",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-43-1",
+  "target": "gdpr-art-56",
+  "type": "CITES",
+  "citation": "Article 56",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-43-1",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42(5)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-43-1",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-43-2",
+  "target": "gdpr-art-92",
+  "type": "CITES",
+  "citation": "Article 92",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-43-2",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-43-2",
+  "target": "gdpr-art-93",
+  "type": "CITES",
+  "citation": "Article 93(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-45-1",
+  "target": "gdpr-art-45-2",
+  "type": "CITES",
+  "citation": "Article 45",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-45-1",
+  "target": "gdpr-art-93",
+  "type": "CITES",
+  "citation": "Article 93(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-45-2",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-45-2",
+  "target": "gdpr-art-49-1",
+  "type": "CITES",
+  "citation": "Article 49",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-45-2",
+  "target": "gdpr-art-49-2",
+  "type": "CITES",
+  "citation": "Article 49",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-46",
+  "target": "gdpr-art-45-1",
+  "type": "CITES",
+  "citation": "Article 45(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-46",
+  "target": "gdpr-art-45-2",
+  "type": "CITES",
+  "citation": "Article 45(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-46",
+  "target": "gdpr-art-47-1",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-46",
+  "target": "gdpr-art-47-2",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-46",
+  "target": "gdpr-art-93",
+  "type": "CITES",
+  "citation": "Article 93(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-46",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-46",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-46",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-46",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-47-1",
+  "target": "gdpr-art-47-2",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-47-1",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-47-1",
+  "target": "gdpr-art-22",
+  "type": "CITES",
+  "citation": "Article 22",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-47-1",
+  "target": "gdpr-art-79",
+  "type": "CITES",
+  "citation": "Article 79",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-47-1",
+  "target": "gdpr-art-13",
+  "type": "CITES",
+  "citation": "Article 13",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-47-1",
+  "target": "gdpr-art-14-1",
+  "type": "CITES",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-47-1",
+  "target": "gdpr-art-14-2",
+  "type": "CITES",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-47-1",
+  "target": "gdpr-art-37",
+  "type": "CITES",
+  "citation": "Article 37",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-47-2",
+  "target": "gdpr-art-93",
+  "type": "CITES",
+  "citation": "Article 93(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-49-1",
+  "target": "gdpr-art-49-2",
+  "type": "CITES",
+  "citation": "Article 49",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-49-1",
+  "target": "gdpr-art-45-1",
+  "type": "CITES",
+  "citation": "Article 45(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-49-1",
+  "target": "gdpr-art-45-2",
+  "type": "CITES",
+  "citation": "Article 45(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-49-1",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-49-1",
+  "target": "gdpr-art-13",
+  "type": "CITES",
+  "citation": "Article 13",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-49-1",
+  "target": "gdpr-art-14-1",
+  "type": "CITES",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-49-1",
+  "target": "gdpr-art-14-2",
+  "type": "CITES",
+  "citation": "Article 14",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-49-2",
+  "target": "gdpr-art-30",
+  "type": "CITES",
+  "citation": "Article 30",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-51",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-55",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-55",
+  "target": "gdpr-art-56",
+  "type": "CITES",
+  "citation": "Article 56",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-56",
+  "target": "gdpr-art-55",
+  "type": "CITES",
+  "citation": "Article 55",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-56",
+  "target": "gdpr-art-60-1",
+  "type": "CITES",
+  "citation": "Article 60",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-56",
+  "target": "gdpr-art-60-2",
+  "type": "CITES",
+  "citation": "Article 60",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-56",
+  "target": "gdpr-art-61",
+  "type": "CITES",
+  "citation": "Article 61",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-56",
+  "target": "gdpr-art-62",
+  "type": "CITES",
+  "citation": "Article 62",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-80",
+  "type": "CITES",
+  "citation": "Article 80",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-28-1",
+  "type": "CITES",
+  "citation": "Article 28(8)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-28-2",
+  "type": "CITES",
+  "citation": "Article 28(8)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-35-1",
+  "type": "CITES",
+  "citation": "Article 35(4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-35-2",
+  "type": "CITES",
+  "citation": "Article 35(4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-36",
+  "type": "CITES",
+  "citation": "Article 36(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40(5)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-41",
+  "type": "CITES",
+  "citation": "Article 41",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-43-1",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-43-2",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-47-1",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-47-2",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-57-1",
+  "target": "gdpr-art-58-2",
+  "type": "CITES",
+  "citation": "Article 58(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-58-2",
+  "type": "CITES",
+  "citation": "Article 58",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42(7)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-16",
+  "type": "CITES",
+  "citation": "Article 16",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-17",
+  "type": "CITES",
+  "citation": "Article 17",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-18",
+  "type": "CITES",
+  "citation": "Article 18",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-19",
+  "type": "CITES",
+  "citation": "Article 19",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-43-1",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-43-2",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-83-1",
+  "type": "CITES",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-83-2",
+  "type": "CITES",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-36",
+  "type": "CITES",
+  "citation": "Article 36",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40(5)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40(5)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-28-1",
+  "type": "CITES",
+  "citation": "Article 28(8)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-28-2",
+  "type": "CITES",
+  "citation": "Article 28(8)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-47-1",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-58-1",
+  "target": "gdpr-art-47-2",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-59",
+  "target": "gdpr-art-58-2",
+  "type": "CITES",
+  "citation": "Article 58(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-60-1",
+  "target": "gdpr-art-60-2",
+  "type": "CITES",
+  "citation": "Article 60",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-60-1",
+  "target": "gdpr-art-61",
+  "type": "CITES",
+  "citation": "Article 61",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-60-1",
+  "target": "gdpr-art-62",
+  "type": "CITES",
+  "citation": "Article 62",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-60-1",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-60-2",
+  "target": "gdpr-art-66",
+  "type": "CITES",
+  "citation": "Article 66",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-61",
+  "target": "gdpr-art-55",
+  "type": "CITES",
+  "citation": "Article 55(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-61",
+  "target": "gdpr-art-66",
+  "type": "CITES",
+  "citation": "Article 66(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-61",
+  "target": "gdpr-art-93",
+  "type": "CITES",
+  "citation": "Article 93(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-62",
+  "target": "gdpr-art-56",
+  "type": "CITES",
+  "citation": "Article 56(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-62",
+  "target": "gdpr-art-55",
+  "type": "CITES",
+  "citation": "Article 55",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-62",
+  "target": "gdpr-art-66",
+  "type": "CITES",
+  "citation": "Article 66(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-35-1",
+  "type": "CITES",
+  "citation": "Article 35(4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-35-2",
+  "type": "CITES",
+  "citation": "Article 35(4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40(7)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40(7)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-41",
+  "type": "CITES",
+  "citation": "Article 41(3)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-43-1",
+  "type": "CITES",
+  "citation": "Article 43(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-43-2",
+  "type": "CITES",
+  "citation": "Article 43(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-46",
+  "type": "CITES",
+  "citation": "Article 46(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-28-1",
+  "type": "CITES",
+  "citation": "Article 28(8)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-28-2",
+  "type": "CITES",
+  "citation": "Article 28(8)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-47-1",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-47-2",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-61",
+  "type": "CITES",
+  "citation": "Article 61",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-62",
+  "type": "CITES",
+  "citation": "Article 62",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-64-1",
+  "target": "gdpr-art-65",
+  "type": "CITES",
+  "citation": "Article 65(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-65",
+  "target": "gdpr-art-60-1",
+  "type": "CITES",
+  "citation": "Article 60(4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-65",
+  "target": "gdpr-art-60-2",
+  "type": "CITES",
+  "citation": "Article 60(4)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-65",
+  "target": "gdpr-art-64-1",
+  "type": "CITES",
+  "citation": "Article 64(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-66",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-66",
+  "target": "gdpr-art-64-1",
+  "type": "CITES",
+  "citation": "Article 64",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-66",
+  "target": "gdpr-art-65",
+  "type": "CITES",
+  "citation": "Article 65",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-66",
+  "target": "gdpr-art-60-1",
+  "type": "CITES",
+  "citation": "Article 60",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-66",
+  "target": "gdpr-art-60-2",
+  "type": "CITES",
+  "citation": "Article 60",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-67",
+  "target": "gdpr-art-64-1",
+  "type": "CITES",
+  "citation": "Article 64",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-67",
+  "target": "gdpr-art-93",
+  "type": "CITES",
+  "citation": "Article 93(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-68",
+  "target": "gdpr-art-65",
+  "type": "CITES",
+  "citation": "Article 65",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-69",
+  "target": "gdpr-art-70-1",
+  "type": "CITES",
+  "citation": "Article 70",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-69",
+  "target": "gdpr-art-70-2",
+  "type": "CITES",
+  "citation": "Article 70",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-69",
+  "target": "gdpr-art-71",
+  "type": "CITES",
+  "citation": "Article 71",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-70-2",
+  "type": "CITES",
+  "citation": "Article 70",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-64-1",
+  "type": "CITES",
+  "citation": "Article 64",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-65",
+  "type": "CITES",
+  "citation": "Article 65",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-17",
+  "type": "CITES",
+  "citation": "Article 17(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-22",
+  "type": "CITES",
+  "citation": "Article 22(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-33",
+  "type": "CITES",
+  "citation": "Article 33(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-34",
+  "type": "CITES",
+  "citation": "Article 34(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-47-1",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-47-2",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-49-1",
+  "type": "CITES",
+  "citation": "Article 49(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-58-1",
+  "type": "CITES",
+  "citation": "Article 58(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-83-1",
+  "type": "CITES",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-83-2",
+  "type": "CITES",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-54",
+  "type": "CITES",
+  "citation": "Article 54(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-43-1",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-1",
+  "target": "gdpr-art-43-2",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-2",
+  "target": "gdpr-art-12",
+  "type": "CITES",
+  "citation": "Article 12(7)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-2",
+  "target": "gdpr-art-64-1",
+  "type": "CITES",
+  "citation": "Article 64(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-70-2",
+  "target": "gdpr-art-65",
+  "type": "CITES",
+  "citation": "Article 65",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-2",
+  "target": "gdpr-art-66",
+  "type": "CITES",
+  "citation": "Article 66",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-2",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40(9)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-2",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40(9)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-70-2",
+  "target": "gdpr-art-93",
+  "type": "CITES",
+  "citation": "Article 93",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-70-2",
+  "target": "gdpr-art-76",
+  "type": "CITES",
+  "citation": "Article 76",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-71",
+  "target": "gdpr-art-70-1",
+  "type": "CITES",
+  "citation": "Article 70(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-71",
+  "target": "gdpr-art-65",
+  "type": "CITES",
+  "citation": "Article 65",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-74",
+  "target": "gdpr-art-65",
+  "type": "CITES",
+  "citation": "Article 65",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-74",
+  "target": "gdpr-art-63",
+  "type": "CITES",
+  "citation": "Article 63",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-77",
+  "target": "gdpr-art-78",
+  "type": "CITES",
+  "citation": "Article 78",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-78",
+  "target": "gdpr-art-55",
+  "type": "CITES",
+  "citation": "Article 55",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-78",
+  "target": "gdpr-art-56",
+  "type": "CITES",
+  "citation": "Article 56",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-78",
+  "target": "gdpr-art-77",
+  "type": "CITES",
+  "citation": "Article 77",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-79",
+  "target": "gdpr-art-77",
+  "type": "CITES",
+  "citation": "Article 77",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-80",
+  "target": "gdpr-art-77",
+  "type": "CITES",
+  "citation": "Article 77",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-80",
+  "target": "gdpr-art-78",
+  "type": "CITES",
+  "citation": "Article 78",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-80",
+  "target": "gdpr-art-79",
+  "type": "CITES",
+  "citation": "Article 79",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-80",
+  "target": "gdpr-art-82",
+  "type": "CITES",
+  "citation": "Article 82",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-82",
+  "target": "gdpr-art-79",
+  "type": "CITES",
+  "citation": "Article 79(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-83-2",
+  "type": "CITES",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-58-2",
+  "type": "CITES",
+  "citation": "Article 58(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-25",
+  "type": "CITES",
+  "citation": "Article 25",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-32",
+  "type": "CITES",
+  "citation": "Article 32",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-40-1",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-40-2",
+  "type": "CITES",
+  "citation": "Article 40",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-42",
+  "type": "CITES",
+  "citation": "Article 42",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-8",
+  "type": "CITES",
+  "citation": "Article 8",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-11",
+  "type": "CITES",
+  "citation": "Article 11",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-39",
+  "type": "CITES",
+  "citation": "Article 39",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-43-1",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-43-2",
+  "type": "CITES",
+  "citation": "Article 43",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-41",
+  "type": "CITES",
+  "citation": "Article 41(4)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-5",
+  "type": "CITES",
+  "citation": "Article 5",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-6-1",
+  "type": "CITES",
+  "citation": "Article 6",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-6-2",
+  "type": "CITES",
+  "citation": "Article 6",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-7",
+  "type": "CITES",
+  "citation": "Article 7",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-9-1",
+  "type": "CITES",
+  "citation": "Article 9",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-9-2",
+  "type": "CITES",
+  "citation": "Article 9",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-12",
+  "type": "CITES",
+  "citation": "Article 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-22",
+  "type": "CITES",
+  "citation": "Article 22",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-44",
+  "type": "CITES",
+  "citation": "Article 44",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-49-1",
+  "type": "CITES",
+  "citation": "Article 49",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-49-2",
+  "type": "CITES",
+  "citation": "Article 49",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-83-1",
+  "target": "gdpr-art-58-1",
+  "type": "CITES",
+  "citation": "Article 58(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-83-2",
+  "target": "gdpr-art-58-2",
+  "type": "CITES",
+  "citation": "Article 58(2)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-84",
+  "target": "gdpr-art-83-1",
+  "type": "CITES",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-84",
+  "target": "gdpr-art-83-2",
+  "type": "CITES",
+  "citation": "Article 83",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-89",
+  "target": "gdpr-art-15",
+  "type": "CITES",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-89",
+  "target": "gdpr-art-16",
+  "type": "CITES",
+  "citation": "Article 16",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-89",
+  "target": "gdpr-art-18",
+  "type": "CITES",
+  "citation": "Article 18",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-89",
+  "target": "gdpr-art-21",
+  "type": "CITES",
+  "citation": "Article 21",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-89",
+  "target": "gdpr-art-19",
+  "type": "CITES",
+  "citation": "Article 19",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-89",
+  "target": "gdpr-art-20",
+  "type": "CITES",
+  "citation": "Article 20",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-90",
+  "target": "gdpr-art-58-1",
+  "type": "CITES",
+  "citation": "Article 58(1)",
+  "resolution": "exact"
+ },
+ {
+  "source": "gdpr-art-92",
+  "target": "gdpr-art-12",
+  "type": "CITES",
+  "citation": "Article 12(8)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-92",
+  "target": "gdpr-art-43-1",
+  "type": "CITES",
+  "citation": "Article 43(8)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-92",
+  "target": "gdpr-art-43-2",
+  "type": "CITES",
+  "citation": "Article 43(8)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-93",
+  "target": "gdpr-art-5",
+  "type": "CITES",
+  "citation": "Article 5",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-art-97",
+  "target": "gdpr-art-45-1",
+  "type": "CITES",
+  "citation": "Article 45(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-art-97",
+  "target": "gdpr-art-45-2",
+  "type": "CITES",
+  "citation": "Article 45(3)",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-rec-1",
+  "target": "gdpr-art-8",
+  "type": "CITES",
+  "citation": "Article 8(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-rec-1",
+  "target": "gdpr-art-16",
+  "type": "CITES",
+  "citation": "Article 16(1)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-rec-12",
+  "target": "gdpr-art-16",
+  "type": "CITES",
+  "citation": "Article 16(2)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-rec-13",
+  "target": "gdpr-art-2",
+  "type": "CITES",
+  "citation": "Article 2",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-rec-21",
+  "target": "gdpr-art-12",
+  "type": "CITES",
+  "citation": "Article 12",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-rec-21",
+  "target": "gdpr-art-15",
+  "type": "CITES",
+  "citation": "Article 15",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-rec-106",
+  "target": "gdpr-art-25",
+  "type": "CITES",
+  "citation": "Article 25(6)",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-rec-141",
+  "target": "gdpr-art-47-1",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-rec-141",
+  "target": "gdpr-art-47-2",
+  "type": "CITES",
+  "citation": "Article 47",
+  "resolution": "spread"
+ },
+ {
+  "source": "gdpr-rec-153",
+  "target": "gdpr-art-11",
+  "type": "CITES",
+  "citation": "Article 11",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-rec-165",
+  "target": "gdpr-art-17",
+  "type": "CITES",
+  "citation": "Article 17",
+  "resolution": "whole"
+ },
+ {
+  "source": "gdpr-rec-170",
+  "target": "gdpr-art-5",
+  "type": "CITES",
+  "citation": "Article 5",
+  "resolution": "whole"
+ }
+]

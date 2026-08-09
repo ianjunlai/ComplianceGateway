@@ -46,9 +46,15 @@ def slugify_university_name(name: str) -> str:
 @dataclass
 class Chunk:
     chunk_id: str
-    source: str        # "gdpr" | university id, e.g. "cambridge"
+    source: str        # "gdpr" | national act, e.g. "uk_dpa_2018" | university id
     title: str
     text: str
+    # Where the provision sits in the hierarchy of law, and which state it binds.
+    # Both default to "" so the single-tier GDPR chunkers below need no change;
+    # the three-tier corpus JSON supplies them. Stored on the node so a strategy
+    # can filter by jurisdiction in Cypher instead of parsing chunk_id prefixes.
+    tier: str = ""          # "regional" | "national" | "institutional"
+    jurisdiction: str = ""  # "EU" | "UK" | "IE" | "DE"
 
     @property
     def approx_tokens(self) -> int:

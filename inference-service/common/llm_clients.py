@@ -21,6 +21,10 @@ from functools import lru_cache
 
 log = logging.getLogger("llm_clients")
 
+# Alias resolutions already reported, so a 600-call judging pass warns once per
+# model rather than 600 times.
+_ALIAS_SEEN: set[str] = set()
+
 _OPENAI_COMPATIBLE_BASE_URLS = {
     "openai": None,  # SDK default (api.openai.com)
     "alibaba": "https://dashscope.aliyuncs.com/compatible-mode/v1",
@@ -54,6 +58,11 @@ def _client(provider: str):
 def complete_json(
     provider: str, model: str, prompt: str, *,
     max_tokens: int = 2000, temperature: float = 0, max_attempts: int = 3,
+    # NOTE: some model names are floating aliases -- "qwen-plus" and
+    # "qwen-plus-latest" both move with releases -- so the provider may answer
+    # with a different, pinned model than the one requested. The response echoes
+    # what actually served it, and that is what belongs in the write-up; the
+    # configured name is a request, not a record.
 ) -> tuple[dict, dict]:
     """Runs a JSON-producing chat completion, retried with backoff.
 
@@ -102,6 +111,16 @@ def complete_json(
                 text = response.choices[0].message.content
                 usage = {"prompt_tokens": response.usage.prompt_tokens,
                          "completion_tokens": response.usage.completion_tokens}
+                served = getattr(response, "model", None)
+                if served and served != model:
+                    # Record what answered, not what was asked for: an alias
+                    # moves between releases and the write-up has to name the
+                    # model that produced the numbers.
+                    if served not in _ALIAS_SEEN:
+                        _ALIAS_SEEN.add(served)
+                        log.warning("provider resolved model %r -> %r; report the latter",
+                                    model, served)
+                    usage["served_model"] = served
 
             start, end = text.find("{"), text.rfind("}")
             return json.loads(text[start:end + 1]), usage

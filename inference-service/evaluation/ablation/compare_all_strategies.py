@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-"""Retrieval quality of all five strategies, as actually implemented.
+"""Retrieval quality of every strategy, as actually implemented.
 
 Run before committing to the full evaluation: a strategy that cannot retrieve
 its gold clauses will not produce a meaningful decision-accuracy number either,
 and finding that out after 40 hours of local inference is expensive.
 
-Only the retrieval step runs — no generation. NER seeds come from the cache
-built by compare_hybrid_variants.py, so every strategy is scored on the same
-seeds and the run costs no SLM time.
+Only the retrieval step runs — no generation. NER seeds come from a prebuilt
+cache, so every strategy is scored on the same seeds and the run costs no SLM
+time. Pass --strategies to add the vec_* provenance variants.
 """
 
 import argparse
@@ -32,7 +32,8 @@ NER_CACHE = HERE / "ner_seed_cache.json"
 DATASET = (_REPO / "dataset" / "qa_dataset.json")
 SEED = 42
 
-STRATEGIES = ["vector_rag", "hybrid", "light_rag", "hippo_rag"]  # zero_shot retrieves nothing
+# zero_shot retrieves nothing, so it has no place in a retrieval comparison.
+DEFAULT_STRATEGIES = ["vector_rag", "hybrid", "light_rag", "hippo_rag"]
 BASELINE = "vector_rag"   # the comparator every graph strategy has to beat
 
 def recall_at_k(retrieved, gold, k):
@@ -46,7 +47,16 @@ def main() -> None:
     ap.add_argument("--paired-ci", action="store_true",
                     help="bootstrap CI for each strategy's R@5 difference against "
                          f"{BASELINE}, over the same queries")
+    ap.add_argument("--strategies", default=",".join(DEFAULT_STRATEGIES),
+                    help="comma-separated; add vec_relates,vec_cites,vec_both to "
+                         "compare edge provenance at a fixed entry mechanism")
     args = ap.parse_args()
+
+    strategies = [s.strip() for s in args.strategies.split(",") if s.strip()]
+    if BASELINE not in strategies:
+        # Every reported difference is against this baseline, so running without
+        # it would print a paired CI against a strategy that was never scored.
+        raise SystemExit(f"--strategies must include {BASELINE}")
 
     cache = json.loads(Path(args.ner_cache).read_text(encoding="utf-8"))
     items = [q for q in json.loads(Path(args.dataset).read_text(encoding="utf-8"))
@@ -59,12 +69,12 @@ def main() -> None:
     print(f"dataset: {args.dataset}\n")
 
     hop_types = sorted({q["hop_type"] for q in items})
-    r10 = {s: defaultdict(list) for s in STRATEGIES}
-    r5 = {s: [] for s in STRATEGIES}
-    r2 = {s: [] for s in STRATEGIES}     # R@2 is what the HippoRAG paper reports
-    empties = {s: 0 for s in STRATEGIES}
+    r10 = {s: defaultdict(list) for s in strategies}
+    r5 = {s: [] for s in strategies}
+    r2 = {s: [] for s in strategies}     # R@2 is what the HippoRAG paper reports
+    empties = {s: 0 for s in strategies}
 
-    for name in STRATEGIES:
+    for name in strategies:
         strategy = build_strategy(name)
         for q in items:
             ctx = strategy.retrieve(q["query_text"], cache[q["query_id"]], config.RETRIEVAL_K)
@@ -80,7 +90,7 @@ def main() -> None:
               + "".join(f"{h:>10}" for h in hop_types) + f"{'empty':>8}")
     print(header)
     print("-" * len(header.strip()))
-    for name in STRATEGIES:
+    for name in strategies:
         allv = [v for h in hop_types for v in r10[name][h]]
         row = (f"{name:<12}{sum(r2[name])/len(r2[name]):>8.3f}"
                f"{sum(r5[name])/len(r5[name]):>8.3f}{sum(allv)/len(allv):>8.3f}")
@@ -96,7 +106,7 @@ def main() -> None:
         # per-query differences and is not inflated by variation in query
         # difficulty that both strategies share.
         print(f"\nR@5 difference against {BASELINE}, 95% bootstrap CI over {len(items)} queries")
-        for name in STRATEGIES:
+        for name in strategies:
             if name == BASELINE:
                 continue
             deltas = [a - b for a, b in zip(r5[name], r5[BASELINE])]

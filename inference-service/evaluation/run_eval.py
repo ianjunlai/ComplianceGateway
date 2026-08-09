@@ -114,6 +114,10 @@ def main() -> None:
                 })
                 if args.judge:
                     row["faithfulness"] = _judge_row(q, result, chunk_texts)
+                    rubric = _rubric_row(q, result, chunk_texts)
+                    if rubric is not None:
+                        row["rubric_score"] = rubric["rubric_score"]
+                        row["rubric_items"] = rubric["items"]
                 log.info("%s gold=%s pred=%s", q["query_id"], q["gold_decision"], result.decision)
             except Exception as e:  # noqa: BLE001 — one bad query must not end the run
                 # Recorded, never silently dropped: a query the system could not
@@ -142,12 +146,31 @@ def _judge_row(q: dict, result, chunk_texts: dict[str, str]) -> float | None:
     """
     from evaluation.judge import judge_faithfulness
 
-    if config.ACTIVE_STRATEGY == "zero_shot":
-        ids = q["gold_chunk_ids"]
-    else:
-        ids = result.retrieved_chunk_ids[: config.GENERATION_CONTEXT_K]
-    context = "\n\n".join(f"[{cid}]\n{chunk_texts.get(cid, '')}" for cid in ids)
+    context = _reference_context(q, result, chunk_texts)
     return judge_faithfulness(result.reasoning, context)["faithfulness"]
+
+
+def _reference_context(q: dict, result, chunk_texts: dict[str, str]) -> str:
+    if config.ACTIVE_STRATEGY == "zero_shot":
+        return "\n\n".join(f"[{cid}]\n{chunk_texts.get(cid, '')}"
+                           for cid in q["gold_chunk_ids"])
+    ids = result.retrieved_chunk_ids[: config.GENERATION_CONTEXT_K]
+    return "\n\n".join(f"[{cid}]\n{chunk_texts.get(cid, '')}" for cid in ids)
+
+
+def _rubric_row(q: dict, result, chunk_texts: dict[str, str]) -> dict | None:
+    """Completeness against the scenario the question was built from.
+
+    Returns None for datasets without a `scenario` block, so the single-tier
+    runs are unaffected. Scored against the same context as faithfulness — an
+    item the SLM could not have addressed because the clause was never
+    retrieved is a retrieval failure, and that is exactly what this is meant
+    to attribute.
+    """
+    from evaluation.judge import judge_decision_rubric
+
+    context = _reference_context(q, result, chunk_texts)
+    return judge_decision_rubric(result.reasoning, context, q)
 
 
 def _summarize(rows: list[dict]) -> dict:
@@ -180,6 +203,19 @@ def _summarize(rows: list[dict]) -> dict:
     if faith_vals:
         summary["faithfulness"] = bootstrap_ci(faith_vals)
         summary["faithfulness_n_scored"] = len(faith_vals)  # claims-free abstentions excluded
+    rubric_vals = [r["rubric_score"] for r in rows if r.get("rubric_score") is not None]
+    if rubric_vals:
+        summary["rubric"] = bootstrap_ci(rubric_vals)
+        summary["rubric_n_scored"] = len(rubric_vals)
+        # Per item, so a low total can be attributed. "applies_national_law"
+        # failing while the rest pass is the signature the three-tier corpus
+        # was built to expose: the answer used the GDPR and ignored the state.
+        summary["rubric_by_item"] = {
+            item: round(sum(1 for r in rows
+                            if r.get("rubric_items", {}).get(item) == "MET")
+                        / len(rubric_vals), 3)
+            for item in sorted({i for r in rows for i in r.get("rubric_items", {})})
+        }
     # per hop_type breakdown (single/multi/trap/unanswerable)
     summary["by_hop_type"] = {
         ht: decision_metrics(

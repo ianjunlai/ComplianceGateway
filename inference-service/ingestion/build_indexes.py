@@ -47,11 +47,15 @@ _PROPERTY_INDEXES = [
     "CREATE INDEX chunk_id_idx IF NOT EXISTS FOR (c:Chunk) ON (c.chunk_id)",
     "CREATE INDEX entity_id_idx IF NOT EXISTS FOR (e:Entity) ON (e.node_id)",
     "CREATE INDEX rel_id_idx IF NOT EXISTS FOR ()-[r:RELATES]-() ON (r.rel_id)",
+    # A jurisdiction filter is a pre-filter on the candidate set, so it runs on
+    # every query of the jurisdiction-aware strategy rather than once.
+    "CREATE INDEX chunk_juris_idx IF NOT EXISTS FOR (c:Chunk) ON (c.jurisdiction)",
 ]
 
 _CREATE_CHUNKS = """
 UNWIND $rows AS row
-CREATE (:Chunk {chunk_id: row.chunk_id, text: row.text, source: row.source, title: row.title})
+CREATE (:Chunk {chunk_id: row.chunk_id, text: row.text, source: row.source,
+                title: row.title, tier: row.tier, jurisdiction: row.jurisdiction})
 """
 
 _CREATE_ENTITIES = """
@@ -173,7 +177,19 @@ def main() -> None:
 
     with driver.session() as s:
         s.run("CALL db.awaitIndexes()")  # vector indexes populate asynchronously
-    log.info("Vector indexes populated")
+        embedded = s.run("MATCH (c:Chunk) WHERE c.embedding IS NOT NULL "
+                         "RETURN count(c) AS n").single()["n"]
+    # A vector index survives `MATCH (n) DETACH DELETE n` -- it is schema, not
+    # data -- so a build that dies before writing vectors leaves an index that
+    # is ONLINE and empty. Retrieval then returns nothing without raising, and
+    # every strategy scores zero at once, which reads as a finding rather than
+    # as a broken build. Cheap to assert, expensive to discover later.
+    if embedded != len(chunks):
+        raise SystemExit(
+            f"{embedded} of {len(chunks)} chunks carry an embedding. The vector "
+            f"indexes exist but are not fully populated, and retrieval against "
+            f"them would silently return nothing.")
+    log.info("Vector indexes populated: %d/%d chunks embedded", embedded, len(chunks))
 
     tracker.save(ARTIFACTS / "indexing_cost_report.json")
     log.info("Done. Cost report -> %s", ARTIFACTS / "indexing_cost_report.json")
@@ -207,7 +223,8 @@ def _load_prechunked(path: Path) -> list[Chunk]:
     rows = json.loads(path.read_text(encoding="utf-8"))
     chunks = [
         Chunk(chunk_id=r["chunk_id"], source=r.get("source", path.stem),
-              title=r.get("title", ""), text=r["text"])
+              title=r.get("title", ""), text=r["text"],
+              tier=r.get("tier", ""), jurisdiction=r.get("jurisdiction", ""))
         for r in rows
     ]
     ids = [c.chunk_id for c in chunks]
@@ -393,7 +410,8 @@ def _create_graph(driver, entities: list[CanonicalEntity], relations: list[dict]
             s.run(stmt)
 
         s.run(_CREATE_CHUNKS, rows=[
-            {"chunk_id": c.chunk_id, "text": c.text, "source": c.source, "title": c.title}
+            {"chunk_id": c.chunk_id, "text": c.text, "source": c.source, "title": c.title,
+             "tier": c.tier, "jurisdiction": c.jurisdiction}
             for c in chunks
         ])
         s.run(_CREATE_ENTITIES, rows=[
@@ -432,7 +450,11 @@ def _create_synonym_edges(driver, entities: list[CanonicalEntity],
     with driver.session() as s:
         for start in range(0, len(rows), 10_000):
             s.run(_CREATE_SYNONYMS, rows=rows[start:start + 10_000])
-    log.info("Synonymy edges: %d written (tau=%.2f)", len(rows), config.SYNONYM_THRESHOLD)
+    # The cutoff is derived from a density target unless pinned, so it is not
+    # config.SYNONYM_THRESHOLD (None in the derived case) but the weakest edge
+    # actually kept. build_synonym_edges logs how it was chosen.
+    log.info("Synonymy edges: %d written (weakest kept: %.4f)",
+             len(rows), min(s for _, _, s in edges))
 
 
 def _index_chunk_vectors(driver, chunks: list[Chunk], tracker: CostTracker) -> None:

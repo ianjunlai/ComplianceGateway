@@ -28,18 +28,23 @@ so the environment can be recreated byte-for-byte.
 |---|---|---|---|---|
 | Online inference (audit path) | `llama3.1:8b-instruct-q4_K_M` | Meta | Ollama | Local GPU |
 | Embeddings | `BAAI/bge-large-en-v1.5` (1024-dim) | BAAI | local | Local |
-| Offline graph extraction | `qwen-plus` | Alibaba | DashScope | Cloud, public text only |
-| Synthetic QA generation | `deepseek-r1` | DeepSeek | DashScope | Cloud, public text only |
-| Faithfulness judge | `qwen-max` | Alibaba | DashScope | Cloud, synthetic data only |
+| Offline graph extraction | `deepseek-v3.2` | DeepSeek | DashScope | Cloud, public text only |
+| Synthetic QA generation | `qwen3.7-max` | Alibaba | DashScope | Cloud, public text only |
+| Faithfulness judge | `glm-5.2` | Zhipu AI | DashScope | Cloud, synthetic data only |
 
 **Provider is not the same as vendor.** All three cloud roles use
 `PROVIDER=alibaba`, but that names the API endpoint (DashScope), not who built
-the model: DashScope hosts third-party models alongside Alibaba's own, and
-`deepseek-r1` is DeepSeek's. The judge therefore comes from a different model
-family than both the data generator and the system under evaluation
-(Llama 3.1), which is what mitigates same-source preference bias — describe it
-by model family in the thesis, not by the `PROVIDER` value, or a reader will
-conclude the generator and judge are related when they are not.
+the model: DashScope hosts third-party models alongside Alibaba's own. The
+judge (Zhipu), the data generator (Alibaba) and the system under evaluation
+(Llama 3.1) therefore come from three different model families, which is what
+mitigates same-source preference bias — describe it by model family in the
+thesis, not by the `PROVIDER` value, or a reader will conclude the generator
+and judge are related when they are not.
+
+**Report the model that answered, not the one requested.** Some names are
+floating aliases — `qwen-plus` and `qwen-plus-latest` move with releases — so
+the provider may serve a different, pinned model. `complete_json` records the
+served name in its usage dict and warns once per run when it differs.
 
 `.env.example` still ships the original OpenAI/Anthropic defaults. To reproduce
 the reported runs, set the five variables above explicitly and supply
@@ -64,39 +69,101 @@ reported and changed in one place.
 
 | Parameter | Value | Meaning |
 |---|---|---|
-| `RETRIEVAL_K` | 10 | ranked clauses retrieved per query |
-| `GENERATION_CONTEXT_K` | 5 | clauses shown to the SLM |
+| `RETRIEVAL_K` | 10 | ranked clauses retrieved per query (one list serves R@2/@5/@10) |
+| `GENERATION_CONTEXT_K` | 5 | clauses shown to the SLM **and to the judge** |
 | `GRAPH_HOPS` | 2 | Hybrid traversal depth |
 | `ENTITY_LINK_THRESHOLD` | 0.75 | min cosine similarity to link a query entity to a node |
-| `DEDUP_THRESHOLD` | 0.90 | min cosine similarity to merge two entities |
+| `ENTITY_LINK_TOP_K` | 3 | nodes linked per query entity (see deviation note below) |
 | `PPR_ALPHA` | 0.5 | HippoRAG: edge-follow probability (1 − value = restart) |
+| `SYNONYM_EDGES_PER_ENTITY` | 1.93 | HippoRAG E′: target synonym-edge density; τ is derived from it |
 | `LIGHTRAG_NEIGHBOUR_DECAY` | 0.5 | LightRAG: score multiplier for one-hop-expanded clauses |
-| `LOW_LEVEL_HITS_PER_MENTION` | 3 | LightRAG: entity hits kept per seed |
-| `MAX_CHUNK_TOKENS` | 800 | oversized-chunk split threshold (ingestion) |
+| `LIGHTRAG_RANK_BY_QUERY` | true | LightRAG: rank admitted clauses by query similarity |
+| `VECTOR_EXPAND_ENTRY_K` | 5 | vec_\* family: vector entry points before the one-hop expansion |
+| `HYBRID_FOLLOW_IMPLEMENTS` | false | whether Hybrid's traversal also follows citation edges |
+| `EXTRACTION_PROFILE` | `legal` | selects the extraction/NER prompt pair (`legal` \| `general`) |
 | generation temperature | 0 | constrained decoding, for reproducibility |
+
+`GENERATION_CONTEXT_K` governs both the SLM's context and the judge's reference
+context, and it must: a judge shown less than the SLM saw marks grounded claims
+unsupported, and one shown more credits hallucinations against clauses the model
+never read.
+
+**Entity linking deviates from the HippoRAG paper**, which links each query
+entity to its single nearest node (argmax). Linking to the top 3 was worth about
+12 points of R@5 on this corpus; the paper's setting is reproducible with
+`ENTITY_LINK_TOP_K=1`. Disclose the deviation rather than the improvement.
+
+**`SYNONYM_THRESHOLD` is unset by default** and derived from the density target
+instead. A fixed cosine cutoff is not transferable across corpus and encoder;
+the run logs the weakest edge actually kept, and that is the number to report.
+
+**Entity dedup is exact-match only** (case- and whitespace-normalised). An
+earlier embedding-similarity merge at 0.90 was removed after it collapsed
+legally and factually distinct terms — `13 may 1840`/`13 may 1846`,
+`johann wilhelm bach`/`johann christoph bach`.
 
 Fixed random seeds: synthetic QA generation and the statistical bootstrap both
 use seed 42.
 
 ## 4. Data
 
-- **Corpus** (`dataset/corpus/`): GDPR English text (articles and selected
-  recitals) and four university data-protection policies, **345 chunks total**:
+Two corpora, built by different scripts and evaluated separately.
 
-  | Source | Chunks |
-  |---|---|
-  | GDPR articles + recitals | 288 |
-  | Trinity College Dublin | 20 |
-  | Cambridge | 19 |
-  | Göttingen | 14 |
-  | Limerick | 4 |
+**(a) Three-tier corpus** (`dataset/corpus/full_corpus.json`, built by
+`dataset/build_full_corpus.py`) — **959 chunks** across three levels of
+jurisdiction:
 
-  Record each document's source URL and retrieval date in
-  `dataset/corpus/sources.md`. See `dataset/corpus/README.md` for the layout.
-- **Synthetic evaluation set** (`dataset/qa_dataset.json`): 160 queries
-  generated by `dataset/generate_qa.py`; ground truth is fixed by construction.
-  Stratified single 56 / multi 56 / trap 32 / unanswerable 16. The schema is
-  described in the thesis (§4.2.4).
+  | Tier | Source | Chunks |
+  |---|---|---|
+  | regional | GDPR articles + recitals | 288 |
+  | national | UK Data Protection Act 2018 | 285 |
+  | national | Irish Data Protection Act 2018 | 243 |
+  | national | German Federal Data Protection Act (BDSG) | 86 |
+  | institutional | Trinity College Dublin | 20 |
+  | institutional | Cambridge | 19 |
+  | institutional | Göttingen | 14 |
+  | institutional | Limerick | 4 |
+
+**Citation graph** (`dataset/corpus/full_citations.json`, built by
+`dataset/extract_citations.py`): 1,414 drafter-written edges — 1,206 `CITES`
+(within one instrument) and 208 `IMPLEMENTS` (crossing a tier). These are regex
+extractions, not LLM output, and each resolves to a chunk id that exists.
+
+The provenance distinction is the point of the experiment: `RELATES` edges are
+inferred by an LLM from co-mention, `CITES`/`IMPLEMENTS` were written by the
+legislative drafters. Measured on the graph, one hop from five vector entry
+points admits **99.1%** of chunks along `RELATES` and **7.1%** along citations.
+
+**(b) GDPR-only corpus** (`dataset/corpus/pilot_corpus.json`, 345 chunks) — the
+earlier single-tier set, retained because the first round of E1/E2 results was
+measured on it.
+
+- **Cross-tier evaluation set** (`dataset/crosstier_qa_full.json`): 78 queries
+  generated by `dataset/generate_crosstier_qa.py`. Each is built from one
+  `IMPLEMENTS` edge, so `gold_chunk_ids` is exactly the national provision and
+  the GDPR article it gives effect to — **fixed by construction, never chosen by
+  the generator**. Edges with `resolution=spread` are excluded: they point at a
+  paragraph other than the one cited, so the pair may not belong together.
+  Distribution UK 38 / DE 26 / IE 14. No human review (documented limitation).
+
+  Each query also carries a `scenario` block recording what the request
+  involves — `purpose`, `data_category`, `data_subject`, `recipient`,
+  `cross_border`, `legal_basis`. These feed the decision rubric (§Outputs) and
+  the analysis.
+
+  **The scenario is deliberately not written into `query_text`.** Spelling the
+  data category and lawful basis out in the question would hand keywords to
+  dense retrieval and narrow the gap the experiment measures. For the same
+  reason **question length is a controlled condition**: the prompt caps it at
+  60 words, because an unconstrained generator writes 99-word case studies
+  against the pre-scenario set's median of 36, and the extra prose is retrieval
+  surface. Both the generator and the runner report the median and warn.
+- **Single-tier evaluation set** (`dataset/qa_dataset.json`): 160 queries from
+  `dataset/generate_qa.py`, stratified single 56 / multi 56 / trap 32 /
+  unanswerable 16.
+
+Record each document's source URL and retrieval date in
+`dataset/corpus/sources.md`. See `dataset/corpus/README.md` for the layout.
 
 The corpus is frozen before indexing and dataset generation: changing the
 source text would shift chunk boundaries and invalidate the ground-truth
@@ -137,15 +204,26 @@ copy .env.example .env
 #    the shipped defaults point at OpenAI/Anthropic and will not reproduce
 #    the reported runs
 
-# 4. MOVING TO ANOTHER MACHINE: copy artifacts/ across FIRST (see below)
+# 4. MOVING TO ANOTHER MACHINE: copy artifacts/ across FIRST (see below).
+#    Not needed for the three-tier run, which extracts fresh into artifacts_full/.
 
-# 5. Build the graph and indexes (offline; needs corpus in dataset/corpus/)
+# 5. THE THREE-TIER EXPERIMENT (corpus -> graph -> questions -> E2 -> E1)
+#    One script, nine steps, resumable, with a check after each that can
+#    otherwise produce plausible-looking wrong data. ~2.3M tokens overnight.
+cd .. && ./run_full_experiment.sh --dry-run
+./run_full_experiment.sh
+#    -> results/<strategy>-<run-id>.json, results/full/logs/e2.log
+python -m evaluation.rescore --run-id <id> --dataset ../dataset/crosstier_qa_full.json
+
+#    --- or, for the earlier single-tier (GDPR-only) run, steps 6-8 by hand ---
+
+# 6. Build the graph and indexes (offline; needs corpus in dataset/corpus/)
 python -m ingestion.build_indexes         # -> Neo4j graph + vector indexes, artifacts/, cost report
 
-# 6. Generate the evaluation dataset -- ONLY if you do not already have one
+# 7. Generate the evaluation dataset -- ONLY if you do not already have one
 python ../dataset/generate_qa.py --n 160  # -> dataset/qa_dataset.json + verification_sample.json
 
-# 7. Run the services -- ONE inference backend at a time, see note below
+# 8. Run the services -- ONE inference backend at a time, see note below
 #    gateway
 cd ../gateway-service && mvn spring-boot:run
 #    then EITHER the consumer (EDA condition) ...
@@ -153,7 +231,7 @@ cd ../inference-service && python consumer_main.py
 #    ... OR the sync API (both synchronous conditions)
 uvicorn sync_api:app --port 8000
 
-# 8. Reasoning-quality and retrieval experiments (E1, E2)
+# 9. Reasoning-quality and retrieval experiments (E1, E2) for the single-tier set
 python -m evaluation.run_eval --strategy zero_shot  --judge --run-id <id>
 python -m evaluation.run_eval --strategy vector_rag --judge --run-id <id>
 python -m evaluation.run_eval --strategy hybrid     --judge --run-id <id>
@@ -161,8 +239,11 @@ python -m evaluation.run_eval --strategy light_rag  --judge --run-id <id>
 python -m evaluation.run_eval --strategy hippo_rag  --judge --run-id <id>
 #    -> results/<strategy>-<run-id>.json  (+ .jsonl written as it goes)
 #    interrupted? rerun the SAME command with --resume appended
+#    retrieval only, all nine strategies including the vec_* provenance family:
+python evaluation/ablation/compare_all_strategies.py --paired-ci \
+  --strategies vector_rag,hybrid,light_rag,hippo_rag,vec_relates,vec_intra,vec_implements,vec_cites,vec_both
 
-# 9. Load experiment (E3)
+# 10. Load experiment (E3)
 jmeter -n -t ../loadtest/compliance_gateway.jmx \
        -JEDA_THREADS=10 -JRAMP=10 -JDURATION=120 -l results/eda-c10.jtl
 #    one condition per run, selected by which thread count is non-zero:
@@ -196,23 +277,25 @@ cost of the whole experiment.
 ### Step 4 — moving to another machine
 
 `inference-service/artifacts/` and `.env` are both gitignored, so a fresh
-`git clone` has neither. The Neo4j graph lives in a Docker volume and is not in
-git either, so it must be rebuilt on the new machine regardless — and
-`artifacts/extraction_cache.json` is what makes that rebuild free and identical.
-**Without it, step 5 silently re-runs all 345 extractions**, re-spending the
-~430k-token, ~90-minute budget and producing a graph that differs from the one
-the reported results were measured on.
+`git clone` has neither. The Neo4j graph is not in git either, so it must be
+rebuilt on the new machine regardless.
 
-Copy by hand, before step 5:
+**For the three-tier run, only `.env` needs copying.** It extracts all 959
+chunks fresh under `deepseek-v3.2` into a separate `artifacts_full/`, so the
+GDPR-only cache would not be reused even if present.
+
+**For reproducing the single-tier GDPR run, copy `artifacts/` first.**
+`artifacts/extraction_cache.json` is what makes that rebuild free and identical;
+without it the build re-runs all 345 extractions, re-spending the ~430k-token,
+~90-minute budget and producing a graph that differs from the measured one. The
+cache is keyed by `provider:model:profile` and a mismatch is a hard error, so
+the failure is loud — but the log should still report
+**`345/345 chunks served from cache`** and make no API calls.
 
 | Path | Size | Contents |
 |---|---|---|
 | `inference-service/artifacts/` | 2.2 MB | extraction cache, HippoRAG matrices, dedup report, chunk texts |
 | `inference-service/.env` | 1 KB | API keys and model selection |
-
-Verify the transfer worked by reading step 5's log: it must report
-**`345/345 chunks served from cache`** and make no API calls. If it starts
-calling the API, stop it — the cache did not transfer.
 
 Then confirm the rebuild matches before committing hours of inference:
 
@@ -225,6 +308,14 @@ python evaluation/ablation/compare_all_strategies.py
 
 A mismatch means the graph is not the one the reported retrieval numbers came
 from, and the evaluation would not be comparable to them.
+
+**Check all three vector indexes, not just `chunk_vec`.** Chunk embeddings are
+written before the entity/relation pass, so a crash between the two leaves a
+graph that looks populated — every chunk present and embedded, `chunk_vec`
+ONLINE — while `hybrid`, `light_rag` and `hippo_rag` retrieve nothing at all,
+because entity linking has no index to query. Three strategies at 0.000 reads
+as a finding rather than a crash. `run_full_experiment.sh` step 5 asserts this;
+a manual rebuild has to check it by hand.
 
 ## 7. Outputs
 
@@ -240,3 +331,31 @@ from, and the evaluation would not be comparable to them.
 | `results/<strategy>-<run-id>.jsonl` | run_eval | one row per query, appended as it completes; the resume point |
 | `results/<strategy>-<run-id>.json` | run_eval | per-query outputs and summary metrics |
 | `docs/retrieval_ablation.md` | — | the retrieval ablation write-up; scripts in `inference-service/evaluation/ablation/` |
+
+### The two judge metrics
+
+Both are produced by `--judge`, both scored against the **same** context the SLM
+generated from, and they answer different questions. Report them side by side.
+
+| | asks | abstention |
+|---|---|---|
+| `faithfulness` | are the claims grounded in the context? | `None` — excluded from the mean |
+| `rubric_score` | was the request actually analysed? | `0.2` — scored |
+
+`rubric_score` is the fraction of five items met: `identifies_data_category`,
+`identifies_legal_basis`, `applies_national_law`, `addresses_transfer`,
+`no_invented_clause`. `rubric_by_item` in the summary breaks it down, and
+`applies_national_law` is the one the three-tier corpus exists to test — an
+answer that reasons from the GDPR alone and ignores the state fails it while
+scoring well on everything else.
+
+The abstention asymmetry is deliberate. A claim-free abstention makes no claim
+that could be unfaithful, so faithfulness excludes it; but it analysed nothing,
+so the rubric scores it near zero (0.2 is `no_invented_clause`, which an
+abstention satisfies trivially). **A strategy that abstains often will show high
+faithfulness and low rubric — that pairing is the finding, not a contradiction**,
+and it is what the earlier "retrieval raises the false-approval rate" result
+needed in order to be explained rather than just reported.
+
+The rubric returns `None` for datasets with no `scenario` block, so the
+single-tier runs are unaffected and remain comparable to their own history.

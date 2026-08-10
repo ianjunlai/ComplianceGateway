@@ -30,11 +30,32 @@ cd ComplianceGateway && git checkout supplementary-experiment
 scp inference-service/.env user@server:~/ComplianceGateway/inference-service/
 ```
 
-Then check one value in the copied `.env`:
+Then check these values in the copied `.env`. **A `.env` left over from an
+earlier deployment is the most likely thing to be wrong here** — it is
+gitignored, so `git pull` never updates it, and the model set has changed since
+the first round of experiments:
 
 ```
 SLM_MODEL=llama3.1:8b-instruct-q4_K_M      # the laptop stand-in was llama3.2:1b
+EXTRACTION_PROVIDER=alibaba
+EXTRACTION_MODEL=deepseek-v3.2             # was qwen-plus in the single-tier run
+QA_GENERATION_PROVIDER=alibaba
+QA_GENERATION_MODEL=qwen3.7-max            # was deepseek-r1
+JUDGE_PROVIDER=alibaba
+JUDGE_MODEL=glm-5.2                        # was qwen-max
 ```
+
+Preflight prints all four and makes one real call to each, so a stale file
+fails in about ten seconds with nothing spent — but it is quicker to check now.
+
+> **Free-tier quota is a separate trap.** DashScope meters each model's free
+> allowance independently, and an account left in "use free tier only" mode
+> returns `403 AllocationQuota.FreeTierOnly` once a model's allowance is gone.
+> Step 3 spends ~983k tokens on one model, which is the same order as a free
+> allowance — disable free-tier-only mode, or add funds, *before* starting, or
+> the run dies partway through the night. Nothing is wasted if it does: the
+> extraction cache is flushed as it goes and `--from 3` resumes without
+> re-paying, but the hours are lost.
 
 > **`artifacts/` is no longer copied.** The three-tier run extracts all 959 chunks fresh
 > under `EXTRACTION_MODEL=deepseek-v3.2` into a *separate* `artifacts_full/`, so the old
@@ -515,6 +536,13 @@ IE 14 distinct usable sources.
 matches what wrote `artifacts_full/extraction_cache.json`. That guard is deliberate: it
 prevents a graph built half from one model and half from another. Either set the model back
 or pass `--reextract` and pay for it again.
+
+**Preflight reports `unusable: ['extraction']` with a 403** — either the model name in
+`.env` is one whose free allowance is exhausted, or the account is in free-tier-only mode.
+Check the four model lines in §1 first: a `.env` carried over from an earlier deployment
+still names the old model set (`qwen-plus` / `deepseek-r1` / `qwen-max`), and `qwen-plus`
+is the one whose quota runs out first. The other two models answering normally is not
+evidence the key is fine for extraction — DashScope meters each model separately.
 
 **Inference is far slower than ~6 s per query, or the GPU runs out of memory** —
 `CUDA_VISIBLE_DEVICES` was not exported in that shell, so `cuda:0` landed on a card

@@ -172,10 +172,21 @@ replaced. If it stops, nothing has been spent.
 | 4–5 | load citation edges, **verify the graph** | free |
 | 6 | generate 78 cross-tier questions | ~180k tokens |
 | 7 | NER seeds (local SLM) | free |
-| 8 | E2 — retrieval, ten variants | free |
-| 9 | E1 — decisions + judge, eight strategies | ~1.25M tokens |
+| 8 | E2 — retrieval, ten variants | free, ~10 min |
+| 9 | E1 — decisions + judge, eight strategies | ~1.25M tokens, ~1.3 h |
 
-Roughly 2.4M tokens and an overnight run in total.
+Roughly 2.4M tokens and **2.5–3 hours** in total.
+
+> **The judge, not the GPU, sets the wall clock.** Measured on an A100 the
+> pipeline runs 1.5 s per query, while the two judge calls take ~13 s and ~25 s
+> — network-bound, with the GPU idle throughout. Step 9 therefore batches:
+> pipeline calls stay serial, then the batch's judging runs concurrently
+> (`JUDGE_WORKERS`, default 8). Serial, step 9 alone is about seven hours.
+>
+> Rows are written per batch rather than per query, so an interrupted run
+> re-does at most one batch. Set `JUDGE_WORKERS=1` to restore the fully
+> sequential behaviour the earlier single-tier results were produced with —
+> scores are identical either way, only the wall clock differs.
 
 **Every step that can produce plausible-looking wrong data is followed by a check that
 stops the run.** These are not decoration — each one corresponds to a failure that has

@@ -36,6 +36,11 @@ export VECTOR_EXPAND_ENTRY_K="${VECTOR_EXPAND_ENTRY_K:-5}"
 export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0}"
 WORKERS="${WORKERS:-8}"
 N_QUESTIONS="${N_QUESTIONS:-78}"
+# The judge is network-bound and ~25x slower than the GPU pipeline it scores,
+# so this, not the GPU, sets the wall clock of step 9. Measured on this corpus:
+# faithfulness ~13 s and rubric ~25 s per query against glm-5.2, against 1.5 s
+# for the pipeline. Serial, step 9 alone is about seven hours.
+JUDGE_WORKERS="${JUDGE_WORKERS:-8}"
 
 CORPUS="$REPO/dataset/corpus/full_corpus.json"
 CITATIONS="$REPO/dataset/corpus/full_citations.json"
@@ -318,7 +323,7 @@ fi
 # --------------------------------------------------------------------- 9. E1
 # The judge is fed GENERATION_CONTEXT_K=5 chunks -- exactly what the SLM saw,
 # not the RETRIEVAL_K=10 ranked list -- so ~1.2k context tokens at the median.
-if step 9 "E1 — decisions and faithfulness, 8 strategies (~1.25M tokens)"; then
+if step 9 "E1 — decisions and faithfulness, 8 strategies (~1.25M tokens, ~1.3 h)"; then
   for s in $E1_STRATEGIES; do
     out="$REPO/results/${s}-${RUN_ID}.json"
     if [[ -f "$out" ]]; then
@@ -330,6 +335,7 @@ if step 9 "E1 — decisions and faithfulness, 8 strategies (~1.25M tokens)"; the
     # .jsonl back up, and a query that failed is retried rather than skipped.
     "$PYTHON" -m evaluation.run_eval --strategy "$s" --judge \
         --dataset "$QA" --run-id "$RUN_ID" --resume \
+        --judge-workers "$JUDGE_WORKERS" \
         2>&1 | tee "$LOGS/e1-$s.log" | grep -viE "HTTP Request|Batches:" | tail -25
     # A strategy that dies must not take the other six with it -- the run is
     # overnight and a partial result set is worth far more than none. Its

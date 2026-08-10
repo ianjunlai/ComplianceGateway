@@ -32,13 +32,28 @@ RESULTS_DIR = Path(__file__).resolve().parents[2] / "results"
 
 def main() -> None:
     parser = argparse.ArgumentParser()
+    # Derived from the factory rather than restated, so a strategy added there
+    # is runnable here without a second edit. The hardcoded list silently
+    # omitted the whole vec_* family, which argparse rejects as an invalid
+    # choice -- three of the eight strategies in the full run.
+    from pipeline.strategies import VECTOR_EXPAND_VARIANTS
+
     parser.add_argument("--strategy", required=True,
-                        choices=["zero_shot", "vector_rag", "hybrid", "light_rag", "hippo_rag"])
+                        choices=["zero_shot", "vector_rag", "hybrid", "light_rag",
+                                 "hippo_rag", *VECTOR_EXPAND_VARIANTS])
     parser.add_argument("--dataset", default=str(Path(__file__).resolve().parents[2] / "dataset" / "qa_dataset.json"))
     parser.add_argument("--judge", action="store_true", help="also run the faithfulness judge (costs API calls)")
     parser.add_argument("--warmup", type=int, default=3,
                         help="discarded warm-up runs before measurement (model/index load)")
     parser.add_argument("--run-id", default=datetime.now().strftime("%Y%m%d-%H%M%S"))
+    parser.add_argument("--judge-workers", type=int, default=8,
+                        help="concurrent judge calls. The judge is network-bound and "
+                             "~25x slower than the GPU pipeline it scores, so this sets "
+                             "the wall clock of a --judge run. 1 restores the fully "
+                             "sequential behaviour earlier results were produced with.")
+    parser.add_argument("--limit", type=int, default=0,
+                        help="evaluate only the first N queries; for verifying a "
+                             "configuration before committing to a full pass")
     parser.add_argument("--resume", action="store_true",
                         help="continue a previous run's .jsonl (pass the same --run-id)")
     args = parser.parse_args()
@@ -47,7 +62,10 @@ def main() -> None:
     from pipeline.pipeline import run_pipeline
 
     queries = json.loads(Path(args.dataset).read_text(encoding="utf-8"))
-    log.info("Evaluating strategy=%s on %d queries", args.strategy, len(queries))
+    if args.limit:
+        queries = queries[:args.limit]
+    log.info("Evaluating strategy=%s on %d queries (judge=%s, judge_workers=%d)",
+             args.strategy, len(queries), args.judge, args.judge_workers)
 
     chunk_texts: dict[str, str] = {}
     if args.judge:
@@ -88,45 +106,66 @@ def main() -> None:
     if args.resume:
         log.info("%d already scored, %d to run", len(done), len(queries) - len(done))
 
+    pending = [q for q in queries if q["query_id"] not in done]
+
+    # Two stages with opposite bottlenecks, so they are batched rather than
+    # interleaved one query at a time.
+    #
+    #   pipeline  ~1.5 s, GPU-bound  -> stays strictly serial: one Ollama, one
+    #                                   embedding model, no concurrency to win
+    #   judging   ~38 s, network-bound -> the process is idle the whole time
+    #
+    # Run serially the two cost 40 s per query, and at 78 queries x 8 strategies
+    # the judge is ~82% of the entire experiment while the GPU sits idle. A
+    # batch of pipeline calls followed by a pool of judge calls cuts that to
+    # roughly the slowest single call per batch.
+    #
+    # The cost is resume granularity: rows are written per batch, not per query,
+    # so a crash re-runs at most one batch. That is seconds of pipeline work,
+    # against hours saved.
+    batch_size = max(1, args.judge_workers) if args.judge else 1
     with progress.open("a", encoding="utf-8") as fh:
-        for q in queries:
-            if q["query_id"] in done:
-                continue
-            event = AuditRequestEvent(
-                request_id=q["query_id"],
-                source_system=q.get("source_system", "eval"),
-                timestamp=datetime.now(timezone.utc).isoformat(),
-                audit_query=q["query_text"],
-            )
-            row = {
-                "query_id": q["query_id"],
-                "hop_type": q["hop_type"],
-                "gold_decision": q["gold_decision"],
-                "gold_chunk_ids": q["gold_chunk_ids"],
-            }
-            try:
-                result = run_pipeline(event)
-                row.update({
-                    "prediction": result.decision,
-                    "reasoning": result.reasoning,
-                    "retrieved_chunk_ids": result.retrieved_chunk_ids,
-                    "stage_timings_ms": result.stage_timings_ms,
-                })
-                if args.judge:
-                    row["faithfulness"] = _judge_row(q, result, chunk_texts)
-                    rubric = _rubric_row(q, result, chunk_texts)
-                    if rubric is not None:
-                        row["rubric_score"] = rubric["rubric_score"]
-                        row["rubric_items"] = rubric["items"]
-                log.info("%s gold=%s pred=%s", q["query_id"], q["gold_decision"], result.decision)
-            except Exception as e:  # noqa: BLE001 — one bad query must not end the run
-                # Recorded, never silently dropped: a query the system could not
-                # answer is a result, but it is not a wrong ANSWER and is kept
-                # out of the accuracy denominator.
-                row["error"] = f"{type(e).__name__}: {e}"
-                log.exception("%s FAILED, continuing", q["query_id"])
-            rows.append(row)
-            fh.write(json.dumps(row, ensure_ascii=False) + "\n")
+        for start in range(0, len(pending), batch_size):
+            batch = pending[start:start + batch_size]
+            staged: list[tuple[dict, dict, object]] = []   # (row, q, result|None)
+
+            for q in batch:
+                row = {
+                    "query_id": q["query_id"],
+                    "hop_type": q["hop_type"],
+                    "gold_decision": q["gold_decision"],
+                    "gold_chunk_ids": q["gold_chunk_ids"],
+                }
+                try:
+                    result = run_pipeline(AuditRequestEvent(
+                        request_id=q["query_id"],
+                        source_system=q.get("source_system", "eval"),
+                        timestamp=datetime.now(timezone.utc).isoformat(),
+                        audit_query=q["query_text"],
+                    ))
+                    row.update({
+                        "prediction": result.decision,
+                        "reasoning": result.reasoning,
+                        "retrieved_chunk_ids": result.retrieved_chunk_ids,
+                        "stage_timings_ms": result.stage_timings_ms,
+                    })
+                    log.info("%s gold=%s pred=%s",
+                             q["query_id"], q["gold_decision"], result.decision)
+                except Exception as e:  # noqa: BLE001 — one bad query must not end the run
+                    # Recorded, never silently dropped: a query the system could
+                    # not answer is a result, but it is not a wrong ANSWER and is
+                    # kept out of the accuracy denominator.
+                    row["error"] = f"{type(e).__name__}: {e}"
+                    log.exception("%s FAILED, continuing", q["query_id"])
+                    result = None
+                staged.append((row, q, result))
+
+            if args.judge:
+                _judge_batch(staged, chunk_texts, args.judge_workers)
+
+            for row, _q, _r in staged:
+                rows.append(row)
+                fh.write(json.dumps(row, ensure_ascii=False) + "\n")
             fh.flush()
 
     summary = _summarize(rows)
@@ -134,6 +173,47 @@ def main() -> None:
     out.write_text(json.dumps({"summary": summary, "rows": rows}, indent=2), encoding="utf-8")
     log.info("Summary: %s", json.dumps(summary, indent=2))
     log.info("Saved -> %s", out)
+
+
+def _judge_batch(staged: list[tuple[dict, dict, object]], chunk_texts: dict[str, str],
+                 workers: int) -> None:
+    """Score a batch's rows in parallel, writing the scores back into each row.
+
+    The two judge calls for one row stay sequential inside a worker; the
+    parallelism is across rows. Splitting them would halve the wall clock again
+    but doubles the concurrent request count against the same rate limit for a
+    much smaller return.
+
+    A judge failure is confined to its own row and leaves the prediction intact:
+    the row is already complete before this runs, so the query still counts
+    towards decision accuracy with its score fields simply absent.
+    """
+    from concurrent.futures import ThreadPoolExecutor
+
+    todo = [(row, q, r) for row, q, r in staged if r is not None]
+    if not todo:
+        return
+
+    def score(item) -> None:
+        row, q, result = item
+        try:
+            row["faithfulness"] = _judge_row(q, result, chunk_texts)
+        except Exception as e:  # noqa: BLE001
+            log.warning("%s faithfulness failed: %s", q["query_id"], e)
+        try:
+            rubric = _rubric_row(q, result, chunk_texts)
+            if rubric is not None:
+                row["rubric_score"] = rubric["rubric_score"]
+                row["rubric_items"] = rubric["items"]
+        except Exception as e:  # noqa: BLE001
+            log.warning("%s rubric failed: %s", q["query_id"], e)
+
+    if workers <= 1:
+        for item in todo:
+            score(item)
+        return
+    with ThreadPoolExecutor(max_workers=min(workers, len(todo))) as pool:
+        list(pool.map(score, todo))
 
 
 def _judge_row(q: dict, result, chunk_texts: dict[str, str]) -> float | None:

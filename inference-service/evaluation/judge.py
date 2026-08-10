@@ -49,10 +49,12 @@ def judge_faithfulness(reasoning: str, context_text: str, max_attempts: int = 3)
     # The default 2000-token cap truncates a decomposition of any length: the
     # judge restates each claim before scoring it, so output grows with the
     # reasoning it is given. Observed truncating on the first real call, and a
-    # truncation costs three attempts before the row is abandoned.
+    # truncation costs three attempts before the score is lost. 8000 for the
+    # same reason as the rubric below -- a reasoning judge's thinking length is
+    # not stable enough to size the budget to the typical case.
     data, _usage = complete_json(
         config.JUDGE_PROVIDER, config.JUDGE_MODEL, prompt,
-        max_attempts=max_attempts, max_tokens=4000,
+        max_attempts=max_attempts, max_tokens=8000,
     )
     claims = data.get("claims", [])
     supported = sum(1 for c in claims if c.get("verdict") == "SUPPORTED")
@@ -144,9 +146,15 @@ def judge_decision_rubric(reasoning: str, context_text: str, question: dict,
         cross_border="yes" if scenario.get("cross_border") else "no",
         legal_basis=scenario.get("legal_basis") or "unspecified",
     )
+    # 8000, not 4000: glm-5.2 is a reasoning model and its thinking length
+    # varies run to run. Measured completions sit around 400 tokens, but one
+    # call in three overran 4000 during timing tests, and a truncation costs
+    # three attempts plus backoff -- roughly a lost minute each time, across
+    # 624 rows. The row survives either way (the prediction is recorded before
+    # the judge runs) but the rubric score for it is lost.
     data, _usage = complete_json(
         config.JUDGE_PROVIDER, config.JUDGE_MODEL, prompt,
-        max_attempts=max_attempts, max_tokens=4000,
+        max_attempts=max_attempts, max_tokens=8000,
     )
     items = data.get("items", {})
     # Absent items count as NOT_MET rather than being dropped: dividing by the

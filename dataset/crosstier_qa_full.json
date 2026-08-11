@@ -1,0 +1,1652 @@
+[
+ {
+  "query_id": "ct-001",
+  "query_text": "A student at Georg-August-Universität Göttingen objects to the continued processing of their pseudonymised health survey responses in an ongoing longitudinal public-health study. Must the university halt processing of this student's data?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s27",
+   "gdpr-art-21"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 21(6) grants a right to object to research processing unless necessary for a public-interest task, while BDSG Section 27(2) further limits that right when it would seriously impair the research purposes.",
+  "citation": "Article 21",
+  "scenario": {
+   "purpose": "longitudinal public-health research",
+   "data_category": "health survey responses",
+   "data_subject": "STUDENT",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "public task"
+  }
+ },
+ {
+  "query_id": "ct-002",
+  "query_text": "A not-for-profit digital rights organisation, properly constituted under UK law with statutory objectives in the public interest, has been mandated by 200 current University of Cambridge students to collectively bring compensation proceedings before a court regarding a breach involving their academic records. Must the University of Cambridge recognise this representative action?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-80",
+   "uk-dpa-s188"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 80(1) establishes the right of data subjects to mandate a qualifying not-for-profit body to exercise compensation rights on their behalf, while UK DPA 2018 s188 provides the national mechanism for such representative bodies to bring collective proceedings combining multiple claims before a court.",
+  "citation": "Article 80(1)",
+  "scenario": {
+   "purpose": "collective compensation claim for data breach",
+   "data_category": "academic records",
+   "data_subject": "STUDENT",
+   "recipient": "court",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-003",
+  "query_text": "The University of Cambridge intends to transfer student academic transcripts to a partner university in India using standard data protection clauses specified by the UK Secretary of State under national regulations. No adequacy decision covers India. Should we approve this transfer?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-46",
+   "uk-dpa-s17C"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 46 establishes that transfers to third countries without adequacy decisions require appropriate safeguards such as standard data protection clauses, while UK DPA s17C confirms the Secretary of State's authority to specify such clauses for UK GDPR transfers.",
+  "citation": "Article 46",
+  "scenario": {
+   "purpose": "academic exchange programme coordination",
+   "data_category": "academic transcripts",
+   "data_subject": "STUDENT",
+   "recipient": "partner university in India",
+   "cross_border": true,
+   "legal_basis": "public task"
+  }
+ },
+ {
+  "query_id": "ct-004",
+  "query_text": "A former student requests access to archived attendance records that Georg-August-Universität Göttingen retains solely because statutory retention periods prohibit their erasure, and where providing access would require disproportionate effort. Should we grant this access request?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s34",
+   "gdpr-art-15"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 15 establishes the general right of access, while BDSG Section 34(1)(2)(a) provides the national exception denying access when data are retained only due to legal retention obligations and providing information requires disproportionate effort.",
+  "citation": "Article 15",
+  "scenario": {
+   "purpose": "statutory retention compliance",
+   "data_category": "attendance records",
+   "data_subject": "ALUMNUS",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-005",
+  "query_text": "Georg-August-Universität Göttingen discovered a breach exposing staff payroll records 48 hours ago. We must notify the supervisory authority, but can that notification later be used as evidence in administrative fine proceedings against our HR director without her consent?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s43",
+   "gdpr-art-33"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "The GDPR article establishes the obligation to notify the supervisory authority of a breach within 72 hours, while the BDSG provision prohibits using that notification in administrative offence proceedings against the notifier without their consent.",
+  "citation": "Article 33",
+  "scenario": {
+   "purpose": "breach notification to supervisory authority",
+   "data_category": "staff payroll records",
+   "data_subject": "STAFF",
+   "recipient": "supervisory authority",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-006",
+  "query_text": "The University of Cambridge plans to process application records of prospective students physically located in France through its UK-based admissions portal. Does the UK Data Protection Act 2018 apply to this processing?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-3",
+   "uk-dpa-s207"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 3 establishes territorial scope for offering services to EU data subjects, while UK DPA s207 confirms the Act applies to processing within UK GDPR's territorial scope via Article 3.",
+  "citation": "Article 3",
+  "scenario": {
+   "purpose": "undergraduate admissions processing",
+   "data_category": "application records",
+   "data_subject": "APPLICANT",
+   "recipient": "internal",
+   "cross_border": true,
+   "legal_basis": "public task"
+  }
+ },
+ {
+  "query_id": "ct-007",
+  "query_text": "The University of Cambridge plans to use a fully automated system to reject undergraduate applicants whose predicted grades fall below a threshold, with no human review before rejection letters are sent. The system would notify rejected applicants in writing and allow them to request reconsideration within one month. Should we approve this process?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-22",
+   "uk-dpa-s14"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 22 establishes the general prohibition on solely automated decisions with significant effects and the exception for decisions authorised by law with safeguards; UK DPA s14 provides the specific national safeguard mechanism (written notification and right to request reconsideration within one month) that makes such a legally-authorised automated decision permissible.",
+  "citation": "Article 22(1)",
+  "scenario": {
+   "purpose": "undergraduate admissions screening",
+   "data_category": "application records and predicted grades",
+   "data_subject": "APPLICANT",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-008",
+  "query_text": "Georg-August-Universität Göttingen is preparing a nomination for a federal government honour and needs to process a staff member's health data and religious affiliation without their knowledge to assess suitability. Is this processing permitted?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "de-bdsg-s86",
+   "gdpr-art-9-1"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 9(1) prohibits processing special category data unless an exception applies; BDSG Section 86(1) provides that exception by authorising processing of special categories without the data subject's knowledge for government awards and honours procedures.",
+  "citation": "Article 9 (1)",
+  "scenario": {
+   "purpose": "government award nomination",
+   "data_category": "health data and religious affiliation",
+   "data_subject": "STAFF",
+   "recipient": "external government body",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-009",
+  "query_text": "A former student has filed a claim in the High Court seeking an order compelling the University of Cambridge to delete attendance records they allege were retained unlawfully. Can the court issue a compliance order requiring the University to take specific steps within a set timeframe to remedy this alleged infringement?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-79",
+   "uk-dpa-s167"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 79 establishes the data subject's right to an effective judicial remedy against a controller, while UK DPA s167 provides the specific mechanism allowing courts to issue compliance orders specifying steps and timeframes.",
+  "citation": "Article 79(1)",
+  "scenario": {
+   "purpose": "judicial remedy for alleged unlawful retention",
+   "data_category": "attendance records",
+   "data_subject": "ALUMNUS",
+   "recipient": "court",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-010",
+  "query_text": "The University of Cambridge intends to transfer final examination grades of graduating students to a partner institution in a third country lacking an adequacy decision, without implementing standard contractual clauses or any other appropriate safeguards. Should this transfer proceed?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-44",
+   "uk-dpa-s149"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 44 establishes that third-country transfers require Chapter V safeguards to maintain protection levels, while UK DPA s149 confirms the Commissioner can issue enforcement notices against controllers failing to comply with transfer principles under Articles 44–49.",
+  "citation": "Article 44",
+  "scenario": {
+   "purpose": "academic collaboration with overseas partner",
+   "data_category": "academic records",
+   "data_subject": "STUDENT",
+   "recipient": "partner institution in third country",
+   "cross_border": true,
+   "legal_basis": "legitimate interests"
+  }
+ },
+ {
+  "query_id": "ct-011",
+  "query_text": "Georg-August-Universität Göttingen plans to transfer historical student health records, including disability accommodations, to the university archive for long-term preservation. No explicit consent has been obtained from the former students. Should this transfer proceed?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "de-bdsg-s28",
+   "gdpr-art-9-1"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 9(1) establishes the general prohibition on processing special category data (health records), while BDSG Section 28(1) provides the specific national derogation permitting such processing when necessary for archiving purposes in the public interest with appropriate safeguards.",
+  "citation": "Article 9 (1)",
+  "scenario": {
+   "purpose": "archiving in the public interest",
+   "data_category": "health and disability accommodation records",
+   "data_subject": "STUDENT",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "public task"
+  }
+ },
+ {
+  "query_id": "ct-012",
+  "query_text": "A registered charity active in data protection has submitted a formal complaint to the University of Cambridge on behalf of a current student regarding the handling of their examination grades, with the student's written authorisation. Must we accept this representative complaint?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-77",
+   "uk-dpa-s187"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 77 establishes the right to lodge a complaint with a supervisory authority, while UK DPA s187 specifies the conditions under which a representative body (charitable, active in data protection) may exercise that right on a data subject's behalf.",
+  "citation": "Article 77",
+  "scenario": {
+   "purpose": "handling a representative complaint about grade processing",
+   "data_category": "academic records",
+   "data_subject": "STUDENT",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-013",
+  "query_text": "Georg-August-Universität Göttingen's legal department wants to share a staff member's occupational health records with external litigation counsel to defend against the employee's wrongful termination lawsuit. May we transfer these health data to the external law firm?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "de-bdsg-s24",
+   "gdpr-art-9-2"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 9(2)(h) permits processing health data for legal claims when handled by professionals bound by secrecy, while BDSG Section 24(1)(2) and (2) authorises private bodies to repurpose special-category data for the defence of legal claims.",
+  "citation": "Article 9 (2)",
+  "scenario": {
+   "purpose": "defence of legal claims",
+   "data_category": "health data",
+   "data_subject": "STAFF",
+   "recipient": "external litigation counsel",
+   "cross_border": false,
+   "legal_basis": "legitimate interests"
+  }
+ },
+ {
+  "query_id": "ct-014",
+  "query_text": "A student advocacy group, not formally authorised by the student, has filed judicial proceedings against the University of Cambridge regarding alleged mishandling of that student's academic transcripts. Must the University of Cambridge accept this unauthorised representative action in UK courts?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-79",
+   "uk-dpa-s189"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 79 establishes the right to judicial remedy and jurisdiction rules, while UK DPA s189 shows the UK has not yet exercised the option under Article 80(2) to allow unauthorised representative actions, meaning such proceedings cannot proceed without the data subject's explicit authorisation.",
+  "citation": "Article 79",
+  "scenario": {
+   "purpose": "judicial remedy for alleged data protection infringement",
+   "data_category": "academic records",
+   "data_subject": "STUDENT",
+   "recipient": "external",
+   "cross_border": false,
+   "legal_basis": "none"
+  }
+ },
+ {
+  "query_id": "ct-015",
+  "query_text": "The University of Cambridge occupational health team plans to share a staff member's medical records with an external HR consultancy not bound by any statutory or professional secrecy obligation, to assess workplace adjustments. Is this processing permitted?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-9-2",
+   "uk-dpa-s10"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "The GDPR provision permits health data processing only when handled by or under a professional bound by secrecy, while the UK DPA requires a Schedule 1 condition to be met for Article 9(2)(h) reliance, which fails here due to the recipient's lack of secrecy obligations.",
+  "citation": "Article 9(2)",
+  "scenario": {
+   "purpose": "workplace adjustment assessment",
+   "data_category": "health data",
+   "data_subject": "STAFF",
+   "recipient": "external HR consultancy",
+   "cross_border": false,
+   "legal_basis": "none"
+  }
+ },
+ {
+  "query_id": "ct-016",
+  "query_text": "A Cambridge alumnus requests rectification of his archived dissertation grade from 1998, claiming the recorded mark is inaccurate. The original examination board minutes are the sole source and remain intact. Must the University of Cambridge grant this rectification request?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-16",
+   "uk-dpa-s15"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 16 grants the right to rectification of inaccurate data, but the UK DPA 2018 Schedule 2 Part 6 provides a derogation from Article 16 for archiving purposes, which applies to historical academic records held by the university.",
+  "citation": "Article 16",
+  "scenario": {
+   "purpose": "archiving of historical academic records",
+   "data_category": "academic records",
+   "data_subject": "ALUMNUS",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "public task"
+  }
+ },
+ {
+  "query_id": "ct-017",
+  "query_text": "Trinity College Dublin received a notice that the Data Protection Commission intends to commence legal proceedings against the university regarding our handling of student attendance records. Must we comply with this enforcement action under Irish law?",
+  "source_system": "tcd",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-58-2",
+   "ie-dpa-s107"
+  ],
+  "jurisdiction": "IE",
+  "generator_rationale": "GDPR Article 58(2) grants supervisory authorities corrective powers including legal proceedings, while the Irish DPA 2018 Section 107 defines the Commission as the competent supervisory authority with such corrective powers under Irish law.",
+  "citation": "Article 58(2)",
+  "scenario": {
+   "purpose": "regulatory enforcement",
+   "data_category": "attendance records",
+   "data_subject": "STUDENT",
+   "recipient": "supervisory authority",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-018",
+  "query_text": "The University of Cambridge proposes storing records of alleged criminal offences committed by applicants alongside their application records in a centralised admissions database accessible to all departmental admissions tutors. Should this processing be approved?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-10",
+   "uk-dpa-s11"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 10 requires criminal data processing to be under official authority control or specifically authorised by Member State law with safeguards, while the UK DPA 2018 confirms that alleged offences fall within Article 10's scope, and a university-wide accessible database of allegations lacks the required official authority control or specific statutory authorisation.",
+  "citation": "Article 10",
+  "scenario": {
+   "purpose": "admissions screening",
+   "data_category": "criminal offence allegations and application records",
+   "data_subject": "APPLICANT",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "none"
+  }
+ },
+ {
+  "query_id": "ct-020",
+  "query_text": "Georg-August-Universität Göttingen's examination office plans to transfer a student's disability-related accommodation records to a private employer who has credibly demonstrated a legitimate interest in verifying the student's fitness for a mandatory internship placement. Should this transfer proceed?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s25",
+   "gdpr-art-9-2"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 9(2) requires processing of health data to be under a professional bound by secrecy, while BDSG Section 25(3) permits transfer of special category data only when both a valid transfer ground and an Article 9(2) exception are simultaneously satisfied.",
+  "citation": "Article 9 (2)",
+  "scenario": {
+   "purpose": "internship fitness verification",
+   "data_category": "health data",
+   "data_subject": "STUDENT",
+   "recipient": "private employer",
+   "cross_border": false,
+   "legal_basis": "none"
+  }
+ },
+ {
+  "query_id": "ct-021",
+  "query_text": "A former student sues the University of Cambridge under the right to compensation for distress caused by a research data breach. The data was processed for academic research purposes. Must the Information Commissioner issue a written determination before these compensation proceedings can continue?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-82",
+   "uk-dpa-s174"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 82 establishes the right to compensation proceedings against a controller, while UK DPA s174 defines such proceedings as 'special purposes proceedings' when data is processed for academic purposes, requiring a Commissioner determination before they proceed.",
+  "citation": "Article 82",
+  "scenario": {
+   "purpose": "academic research",
+   "data_category": "research data",
+   "data_subject": "ALUMNUS",
+   "recipient": "external",
+   "cross_border": false,
+   "legal_basis": "public task"
+  }
+ },
+ {
+  "query_id": "ct-022",
+  "query_text": "The University of Cambridge must respond to an ICO information notice requesting staff attendance records. Our legal team prepared a privileged analysis of our GDPR compliance regarding this data. Must we disclose that legal advice to the Commissioner?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-27",
+   "uk-dpa-s143"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 27 establishes the representative framework for supervisory authority interactions, while UK DPA s143 exempts legally privileged communications from information notice disclosure requirements.",
+  "citation": "Article 27",
+  "scenario": {
+   "purpose": "regulatory compliance response",
+   "data_category": "attendance records",
+   "data_subject": "STAFF",
+   "recipient": "ICO",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-023",
+  "query_text": "Georg-August-Universität Göttingen plans to install cameras in the central library reading rooms to deter theft, with signage naming the controller but omitting the DPO's contact details and storage retention period. May this video surveillance of students and staff proceed as described?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s4",
+   "gdpr-art-13"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "BDSG Section 4 permits video surveillance of publicly accessible spaces for defined purposes and requires Article 13 information, which mandates providing the DPO's contact details and the storage period at the time of collection.",
+  "citation": "Article 13",
+  "scenario": {
+   "purpose": "theft deterrence in library",
+   "data_category": "video surveillance footage",
+   "data_subject": "OTHER",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "public task"
+  }
+ },
+ {
+  "query_id": "ct-024",
+  "query_text": "A former student residing in France wishes to bring proceedings against the University of Cambridge regarding alleged mishandling of her academic transcripts. Can she initiate these proceedings in a French court, or must she use the English courts?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-79",
+   "uk-dpa-s180"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 79 establishes the data subject's right to bring proceedings either where the controller is established or where the data subject has habitual residence, while UK DPA s180 specifies which domestic courts exercise this jurisdiction, confirming the framework applies but does not override the data subject's choice of forum under the Regulation.",
+  "citation": "Article 79",
+  "scenario": {
+   "purpose": "judicial remedy for alleged data protection infringement",
+   "data_category": "academic records",
+   "data_subject": "ALUMNUS",
+   "recipient": "court",
+   "cross_border": true,
+   "legal_basis": "none"
+  }
+ },
+ {
+  "query_id": "ct-025",
+  "query_text": "Georg-August-Universität Göttingen plans to use a fully automated system to approve or reject student applications based solely on algorithmic scoring of academic records. No human reviews individual cases before the rejection notice is sent. May we proceed?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s37",
+   "gdpr-art-22"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 22 prohibits solely automated decisions with legal effects unless a specific exception applies; the BDSG Section 37 exception covers only insurance contracts, not university admissions, so no national authorization rescues this operation.",
+  "citation": "Article 22 (1)",
+  "scenario": {
+   "purpose": "automated admissions screening",
+   "data_category": "academic records",
+   "data_subject": "APPLICANT",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "none"
+  }
+ },
+ {
+  "query_id": "ct-026",
+  "query_text": "A prospective employer asks the University of Cambridge to include, as a mandatory condition in its graduate recruitment contract, that applicants must exercise their data portability right to supply their full occupational health records from our staff wellbeing service. Should we permit this contractual term?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-20",
+   "uk-dpa-s185"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 20 establishes the right to data portability for automated processing based on consent or contract, while UK DPA s185 voids any contractual term requiring an individual to supply health records obtained via that portability right.",
+  "citation": "Article 20",
+  "scenario": {
+   "purpose": "graduate recruitment screening",
+   "data_category": "health data",
+   "data_subject": "STAFF",
+   "recipient": "external employer",
+   "cross_border": false,
+   "legal_basis": "contract"
+  }
+ },
+ {
+  "query_id": "ct-027",
+  "query_text": "Trinity College Dublin plans to implement encryption and access controls for the digital health records of a deceased former staff member held in the occupational health archive. Is this processing permitted under current data protection rules?",
+  "source_system": "tcd",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-32",
+   "ie-dpa-s225"
+  ],
+  "jurisdiction": "IE",
+  "generator_rationale": "The GDPR article establishes the obligation to implement appropriate security measures like encryption for personal data, while the Irish provision extends that Article 32 obligation to deceased individuals' relevant information.",
+  "citation": "Article 32",
+  "scenario": {
+   "purpose": "securing archived occupational health records",
+   "data_category": "health data",
+   "data_subject": "STAFF",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-028",
+  "query_text": "Georg-August-Universität Göttingen plans to share staff attendance records with a foreign military crisis-management body without providing the staff members any information about the transfer. Is this permitted?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s85",
+   "gdpr-art-13"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 13 requires informing data subjects when their data is collected, and BDSG Section 85's exemption from that obligation applies only to federal public bodies, not to a state university.",
+  "citation": "Article 13 (1)",
+  "scenario": {
+   "purpose": "crisis management cooperation",
+   "data_category": "attendance records",
+   "data_subject": "STAFF",
+   "recipient": "foreign military crisis-management body",
+   "cross_border": true,
+   "legal_basis": "public task"
+  }
+ },
+ {
+  "query_id": "ct-029",
+  "query_text": "A former student demands the University of Cambridge append their supplementary statement to an incomplete attendance record. The Information Commissioner has issued an enforcement notice requiring this. Must the University of Cambridge comply with both the student's request and the notice?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-16",
+   "uk-dpa-s151"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 16 grants the right to have incomplete data completed via a supplementary statement, while the UK DPA 2018 enforcement notice provision gives the Commissioner authority to compel the controller to rectify or supplement data, making compliance mandatory.",
+  "citation": "Article 16",
+  "scenario": {
+   "purpose": "rectification of incomplete attendance records",
+   "data_category": "attendance records",
+   "data_subject": "STUDENT",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-030",
+  "query_text": "A former student has filed a subject access request and subsequently initiated court proceedings against the University of Cambridge, seeking disclosure of their examination scripts and examiner comments. The court asks whether it can order the University to disclose these materials directly to the student before determining the merits of the claim. Should the court grant this order?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-15",
+   "uk-dpa-s180A"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 15 establishes the right of access to personal data including examination records, while UK DPA s180A prohibits courts from ordering disclosure to the data subject until the entitlement question has been determined in their favour.",
+  "citation": "Article 15",
+  "scenario": {
+   "purpose": "subject access request enforcement",
+   "data_category": "examination scripts and examiner comments",
+   "data_subject": "ALUMNUS",
+   "recipient": "court",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-031",
+  "query_text": "Georg-August-Universität Göttingen wants to access a staff member's private email logs to investigate suspected grade manipulation, based only on an unverified anonymous tip. Should we approve this processing of employee communication data?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s26",
+   "gdpr-art-5"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 5 requires processing to be lawful and proportionate, while BDSG Section 26 adds that employee data may only be processed to detect crimes when there is a documented reason to believe a crime was committed—an unverified anonymous tip does not meet this threshold.",
+  "citation": "Article 5",
+  "scenario": {
+   "purpose": "investigation of suspected misconduct",
+   "data_category": "employee communication logs",
+   "data_subject": "STAFF",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "none"
+  }
+ },
+ {
+  "query_id": "ct-032",
+  "query_text": "The University of Cambridge failed to encrypt staff attendance records, which were then leaked. The ICO is considering a penalty notice. Given our prompt self-notification, full cooperation, and immediate mitigation steps, must the Commissioner weigh these factors before determining the penalty amount?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-83-1",
+   "uk-dpa-s155"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 83(2) establishes the general obligation to consider mitigating factors like cooperation and notification when setting fines, while UK DPA s155 makes this mandatory for the ICO specifically when issuing penalty notices under UK law.",
+  "citation": "Article 83(1)",
+  "scenario": {
+   "purpose": "regulatory penalty assessment",
+   "data_category": "attendance records",
+   "data_subject": "STAFF",
+   "recipient": "ICO",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-033",
+  "query_text": "A not-for-profit student advocacy group, properly constituted under Irish law, submits a complaint to the Data Protection Commission on behalf of a Trinity College Dublin student regarding their exam grade records, but the student later withdraws the mandate. Must the Commission cease examining the complaint?",
+  "source_system": "tcd",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-80",
+   "ie-dpa-s148"
+  ],
+  "jurisdiction": "IE",
+  "generator_rationale": "Article 80 establishes the right of mandated not-for-profit bodies to lodge complaints on behalf of data subjects, while Section 148 specifies that withdrawal of such a complaint does not prevent the Commission from continuing to examine the subject matter if satisfied there is good and sufficient reason.",
+  "citation": "Article 80(1)",
+  "scenario": {
+   "purpose": "complaint handling regarding exam grades",
+   "data_category": "academic records",
+   "data_subject": "STUDENT",
+   "recipient": "external",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-034",
+  "query_text": "Georg-August-Universität Göttingen plans to transfer staff attendance records to a cloud provider in a country covered by a European Commission adequacy decision. The Lower Saxony supervisory authority believes this adequacy decision violates EU law. May we proceed with the transfer while the authority's court challenge is pending?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s21",
+   "gdpr-art-2"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 2 establishes that the transfer of staff attendance records falls within the Regulation's material scope, while BDSG Section 21 provides that when a supervisory authority challenges an adequacy decision's validity, it must suspend proceedings and seek a Federal Administrative Court ruling, meaning the transfer cannot proceed until validity is judicially confirmed.",
+  "citation": "Article 2",
+  "scenario": {
+   "purpose": "cloud storage of attendance records",
+   "data_category": "attendance records",
+   "data_subject": "STAFF",
+   "recipient": "third-country cloud provider",
+   "cross_border": true,
+   "legal_basis": "legitimate interests"
+  }
+ },
+ {
+  "query_id": "ct-035",
+  "query_text": "The Data Protection Commission has applied ex parte to the High Court and obtained an interim order prohibiting University of Limerick from processing attendance records of a named student pending further investigation. Must the University comply with this interim order and immediately cease processing that student's attendance data?",
+  "source_system": "ul",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-58-2",
+   "ie-dpa-s134"
+  ],
+  "jurisdiction": "IE",
+  "generator_rationale": "GDPR Article 58(2) grants supervisory authorities enforcement powers subject to Member State law safeguards, while the Irish DPA s134 provides the specific mechanism for the Commission to obtain High Court interim orders suspending or prohibiting processing.",
+  "citation": "Article 58(2)",
+  "scenario": {
+   "purpose": "regulatory enforcement compliance",
+   "data_category": "attendance records",
+   "data_subject": "STUDENT",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-036",
+  "query_text": "Georg-August-Universität Göttingen collected confidential reference letters from external academics about an applicant. Must we now send that applicant a copy of the references and the referees' identities under our transparency obligations?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s29",
+   "gdpr-art-13"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 13 establishes the general obligation to inform data subjects about collected personal data, while BDSG Section 29(1) carves out an exception where disclosure would reveal information that must be kept secret due to overriding legitimate interests of third parties such as referees.",
+  "citation": "Article 13 (3)",
+  "scenario": {
+   "purpose": "admissions reference evaluation",
+   "data_category": "reference letters",
+   "data_subject": "APPLICANT",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "public task"
+  }
+ },
+ {
+  "query_id": "ct-037",
+  "query_text": "A former student requests a full copy of their disciplinary investigation file held by University of Limerick, which was compiled during a formal misconduct inquiry. Must the University provide the complete file, or can access be restricted?",
+  "source_system": "ul",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-15",
+   "ie-dpa-s218"
+  ],
+  "jurisdiction": "IE",
+  "generator_rationale": "GDPR Article 15 establishes the general right of access to personal data, while the Irish Data Protection Act 2018 Section 218 restricts that right where necessary and proportionate for investigations conducted by regulatory authorities.",
+  "citation": "Article 15",
+  "scenario": {
+   "purpose": "disciplinary investigation",
+   "data_category": "disciplinary records",
+   "data_subject": "STUDENT",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-038",
+  "query_text": "The University of Cambridge intends to transfer student academic transcripts to a partner university in India using standard data protection clauses adopted by the UK Information Commissioner and approved by the Commission. Should we proceed?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-46",
+   "uk-dpa-s119A"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 46(2)(d) permits transfers using standard clauses adopted by a supervisory authority and approved by the Commission, while UK DPA s119A confirms the Commissioner's power to issue such documents specifying appropriate safeguards for third-country transfers.",
+  "citation": "Article 46",
+  "scenario": {
+   "purpose": "academic exchange programme",
+   "data_category": "academic transcripts",
+   "data_subject": "STUDENT",
+   "recipient": "partner university in India",
+   "cross_border": true,
+   "legal_basis": "public task"
+  }
+ },
+ {
+  "query_id": "ct-039",
+  "query_text": "Georg-August-Universität Göttingen plans to manually compile paper-based student attendance records into a new structured filing system for accreditation review. Does the GDPR apply to this processing activity?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "de-bdsg-s1",
+   "gdpr-art-2"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 2 establishes that the Regulation covers non-automated processing of personal data forming part of a filing system, while BDSG Section 1 confirms the Act applies to public bodies of the Länder when Land data protection law does not govern, together determining the applicable legal framework for this university operation.",
+  "citation": "Article 2",
+  "scenario": {
+   "purpose": "accreditation review",
+   "data_category": "attendance records",
+   "data_subject": "STUDENT",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-040",
+  "query_text": "A former Cambridge student requests a second hard copy of their academic transcript. The University of Cambridge proposes charging a £50 administrative fee for this additional copy. Is this fee permissible under current data protection rules?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-15",
+   "uk-dpa-s12"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 15(3) permits a reasonable fee for further copies, while UK DPA s12 empowers the Secretary of State to set binding fee limits that the £50 charge would exceed.",
+  "citation": "Article 15(3)",
+  "scenario": {
+   "purpose": "fulfilment of subject access request",
+   "data_category": "academic records",
+   "data_subject": "ALUMNUS",
+   "recipient": "data subject",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-041",
+  "query_text": "Georg-August-Universität Göttingen must share student transcript data with the European Data Protection Board via the federal commissioner. May the Lower Saxony supervisory authority submit its position without first consulting the specific church supervisory authority that oversees our religious-affiliated data processing rules?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s18",
+   "gdpr-art-91"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 91 permits churches to maintain their own comprehensive data protection rules under a specific supervisory authority, while BDSG Section 18 mandates that federal and Länder authorities must consult such specific supervisory authorities before submitting common positions to EU bodies.",
+  "citation": "Article 91",
+  "scenario": {
+   "purpose": "regulatory cooperation on student data standards",
+   "data_category": "academic records",
+   "data_subject": "STUDENT",
+   "recipient": "European Data Protection Board",
+   "cross_border": true,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-042",
+  "query_text": "A former student, now declared bankrupt, requests a full copy of their academic transcript and all disciplinary records held by Trinity College Dublin. The Official Assignee in Bankruptcy has notified us that fulfilling this access request would interfere with their statutory functions. Should we grant the request in full?",
+  "source_system": "tcd",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-15",
+   "ie-dpa-s173"
+  ],
+  "jurisdiction": "IE",
+  "generator_rationale": "GDPR Article 15 establishes the general right of access to personal data, while the Irish Data Protection Act 2018 Section 173 restricts that right where necessary to safeguard the Official Assignee's bankruptcy functions.",
+  "citation": "Article 15",
+  "scenario": {
+   "purpose": "subject access request fulfillment",
+   "data_category": "academic records and disciplinary records",
+   "data_subject": "ALUMNUS",
+   "recipient": "data subject",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-043",
+  "query_text": "The University of Cambridge has been asked by the Australian data protection authority to share a former student's disciplinary records to assist their investigation into a data breach at a partner institution. May the UK Information Commissioner provide this mutual assistance to the Australian authority?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-50",
+   "uk-dpa-s120"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 50 establishes the general duty of supervisory authorities to provide international mutual assistance including information exchange with third countries, while UK DPA s120 specifies that this duty applies to UK GDPR processing and defines the scope of mutual assistance and third countries.",
+  "citation": "Article 50",
+  "scenario": {
+   "purpose": "international enforcement cooperation",
+   "data_category": "disciplinary records",
+   "data_subject": "STUDENT",
+   "recipient": "foreign supervisory authority",
+   "cross_border": true,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-044",
+  "query_text": "A former Cambridge staff member requests access to handwritten interview notes from their 2018 hiring panel, stored only in an unstructured paper file. Must the University of Cambridge provide these manual unstructured personnel records under data subject access rights?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-15",
+   "uk-dpa-s24"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 15 grants the right of access, but UK DPA s24 exempts manual unstructured data held by FOI public authorities relating to personnel matters such as appointments from access rights.",
+  "citation": "Article 15(1)",
+  "scenario": {
+   "purpose": "staff recruitment",
+   "data_category": "interview notes",
+   "data_subject": "STAFF",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "none"
+  }
+ },
+ {
+  "query_id": "ct-045",
+  "query_text": "The University of Cambridge wishes to engage a private firm to issue GDPR certification for its student transcript processing. The firm was accredited solely by a commercial industry body, not by the Information Commissioner or the UK national accreditation body. May we accept this firm's certification as valid?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-42",
+   "uk-dpa-s17"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 42 establishes that certification must be issued by approved certification bodies, while UK DPA s17 specifies that accreditation of such providers is only valid when carried out by the Commissioner or the UK national accreditation body.",
+  "citation": "Article 42",
+  "scenario": {
+   "purpose": "demonstrating GDPR compliance via certification",
+   "data_category": "academic transcripts",
+   "data_subject": "STUDENT",
+   "recipient": "external certification body",
+   "cross_border": false,
+   "legal_basis": "legitimate interests"
+  }
+ },
+ {
+  "query_id": "ct-046",
+  "query_text": "The Information Commissioner's Office has asked the University of Cambridge to voluntarily participate in an assessment of whether our processing of student attendance records follows good practice. May we consent to this consensual audit and share the relevant attendance data with the ICO for that purpose?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-58-1",
+   "uk-dpa-s129"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 58(1) grants supervisory authorities investigative powers including audits, while UK DPA s129 specifically enables consensual good-practice assessments with the controller's consent and requires results to be shared back.",
+  "citation": "Article 58(1)",
+  "scenario": {
+   "purpose": "regulatory good-practice assessment",
+   "data_category": "attendance records",
+   "data_subject": "STUDENT",
+   "recipient": "Information Commissioner's Office",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-047",
+  "query_text": "A representative body has filed a claim against the University of Cambridge on behalf of a student alleging distress from a data breach of their academic records. If the court orders compensation, can the payment be directed to the representative body rather than the student directly?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-82",
+   "uk-dpa-s168"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 82 establishes the right to compensation for non-material damage from infringements, while UK DPA s168 clarifies that distress qualifies as non-material damage and permits courts to order compensation paid to a representative body acting on behalf of the data subject.",
+  "citation": "Article 82",
+  "scenario": {
+   "purpose": "compensation claim for data breach",
+   "data_category": "academic records",
+   "data_subject": "STUDENT",
+   "recipient": "external",
+   "cross_border": false,
+   "legal_basis": "none"
+  }
+ },
+ {
+  "query_id": "ct-048",
+  "query_text": "Georg-August-Universität Göttingen must challenge a binding decision by the Lower Saxony supervisory authority regarding our processing of student transcripts. Before which court must proceedings be brought, and is a preliminary administrative review required first?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "de-bdsg-s20",
+   "gdpr-art-78"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 78 establishes the right to judicial remedy against a supervisory authority's binding decision and that proceedings are brought where the authority is established; BDSG Section 20 specifies that administrative courts have jurisdiction, the local court where the authority is located is competent, and no preliminary proceedings are required.",
+  "citation": "Article 78 (1)",
+  "scenario": {
+   "purpose": "challenging supervisory authority decision",
+   "data_category": "academic records",
+   "data_subject": "STUDENT",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-049",
+  "query_text": "The University of Cambridge intends to share student transcript records with a partner university in India using standard contractual clauses adopted by the European Commission before IP completion day, with references updated solely to reflect UK withdrawal from the EU. May we proceed with this transfer?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-46",
+   "uk-dpa-sch21-p7"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 46 establishes that transfers to third countries require appropriate safeguards such as standard data protection clauses, while the UK DPA Schedule 21 Paragraph 7 confirms that pre-IP completion day EU Commission-adopted clauses remain valid if modified only to reflect UK withdrawal.",
+  "citation": "Article 46(1)",
+  "scenario": {
+   "purpose": "academic exchange programme coordination",
+   "data_category": "academic transcripts",
+   "data_subject": "STUDENT",
+   "recipient": "partner university in India",
+   "cross_border": true,
+   "legal_basis": "public task"
+  }
+ },
+ {
+  "query_id": "ct-050",
+  "query_text": "Trinity College Dublin received a subject access request from a former student seeking their personal data held within records transferred to the Commission to Inquire into Child Abuse. Must we grant full access to these records under the right of access?",
+  "source_system": "tcd",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-15",
+   "ie-dpa-s188"
+  ],
+  "jurisdiction": "IE",
+  "generator_rationale": "GDPR Article 15 establishes the general right of access by data subjects, while the Irish Data Protection Act 2018 Section 188 restricts that right for data held by or transferred from the Commission to Inquire into Child Abuse to safeguard its functions.",
+  "citation": "Article 15",
+  "scenario": {
+   "purpose": "responding to subject access request",
+   "data_category": "child abuse inquiry records",
+   "data_subject": "ALUMNUS",
+   "recipient": "data subject",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-051",
+  "query_text": "The University of Cambridge received an information notice from the Information Commissioner's Office requiring it to provide details about its processing of international applicant records. Must the University comply with this information notice?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-27",
+   "uk-dpa-s142"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "The UK DPA s142 establishes the Commissioner's power to issue information notices to controllers, while GDPR Article 27(2)(b) confirms that as a public authority the University is exempt from appointing an EU representative but remains directly subject to such notices as a controller.",
+  "citation": "Article 27",
+  "scenario": {
+   "purpose": "regulatory investigation",
+   "data_category": "application records",
+   "data_subject": "APPLICANT",
+   "recipient": "Information Commissioner's Office",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-052",
+  "query_text": "A former Trinity College Dublin staff member, now subject to a Personal Insolvency Act investigation, requests access to their HR and payroll records held by the university. Must Trinity College Dublin grant full access under the right of access?",
+  "source_system": "tcd",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-15",
+   "ie-dpa-s221"
+  ],
+  "jurisdiction": "IE",
+  "generator_rationale": "GDPR Article 15 grants the right of access to personal data, while the Irish DPA 2018 s221 restricts that right only for insolvency-related bodies performing supervisory or investigative functions, not for universities holding employment records.",
+  "citation": "Article 15",
+  "scenario": {
+   "purpose": "insolvency investigation response",
+   "data_category": "HR and payroll records",
+   "data_subject": "STAFF",
+   "recipient": "data subject",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-054",
+  "query_text": "The University of Cambridge proposes to use pseudonymised student grade records for a longitudinal study on attainment gaps, where results will inform individual academic interventions and support decisions for identified students. Is this processing permitted?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-89",
+   "uk-dpa-s19"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 89 permits research processing with safeguards like pseudonymisation, but UK DPA s19 adds that such processing fails the safeguard requirement if used for measures or decisions about particular data subjects (outside approved medical research).",
+  "citation": "Article 89(1)",
+  "scenario": {
+   "purpose": "longitudinal attainment research informing individual interventions",
+   "data_category": "academic records",
+   "data_subject": "STUDENT",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "public task"
+  }
+ },
+ {
+  "query_id": "ct-055",
+  "query_text": "A former staff member has submitted a subject access request for all personal data held by Trinity College Dublin, including emails between the university's legal team and external counsel regarding a pending employment dispute involving that individual. Should we disclose those privileged legal communications?",
+  "source_system": "tcd",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-12",
+   "ie-dpa-s162"
+  ],
+  "jurisdiction": "IE",
+  "generator_rationale": "GDPR Article 12 establishes the general obligation to respond to access requests within one month, while the Irish Data Protection Act 2018 Section 162 exempts personal data subject to legal professional privilege from those rights.",
+  "citation": "Article 12",
+  "scenario": {
+   "purpose": "responding to a subject access request",
+   "data_category": "privileged legal correspondence",
+   "data_subject": "STAFF",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-056",
+  "query_text": "A former student requests from the University of Cambridge a full copy of all personal data held by our internal credit reference unit regarding their financial standing and academic records. Must we provide both categories, or only financial standing data?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-15",
+   "uk-dpa-s13"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 15 grants a broad right of access to all personal data, but UK DPA s13 limits a credit reference agency's access obligation to financial standing data only unless the data subject indicates otherwise.",
+  "citation": "Article 15(1)",
+  "scenario": {
+   "purpose": "credit reference checking",
+   "data_category": "financial standing and academic records",
+   "data_subject": "ALUMNUS",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-057",
+  "query_text": "A former staff member has submitted a subject access request for all personal data held by University of Limerick, including records they provided as a witness to a Commission of Investigation. Should we provide full access to all categories, including their witness testimony given to the Commission?",
+  "source_system": "ul",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-15",
+   "ie-dpa-s198"
+  ],
+  "jurisdiction": "IE",
+  "generator_rationale": "GDPR Article 15 establishes the general right of access to personal data, while the Irish Data Protection Act 2018 Section 198 restricts that right for personal data provided to a Commission of Investigation to safeguard its effective operation and future witness cooperation.",
+  "citation": "Article 15",
+  "scenario": {
+   "purpose": "subject access request fulfillment",
+   "data_category": "witness testimony and employment records",
+   "data_subject": "STAFF",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-058",
+  "query_text": "A former student requests access to their personal data held by University of Limerick that was originally provided to the Residential Institutions Redress Board and is now in the Board's custody. Should we grant this access request?",
+  "source_system": "ul",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-15",
+   "ie-dpa-s193"
+  ],
+  "jurisdiction": "IE",
+  "generator_rationale": "GDPR Article 15 establishes the general right of access, while the Irish Data Protection Act 2018 Section 193 restricts that right for data in the custody of the Residential Institutions Redress Board.",
+  "citation": "Article 15",
+  "scenario": {
+   "purpose": "subject access request fulfillment",
+   "data_category": "residential institutions redress records",
+   "data_subject": "ALUMNUS",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-059",
+  "query_text": "A Trinity College Dublin alumnus has objected under the right to object to our Alumni Office processing his contact details and donation history for direct marketing of fundraising campaigns. Must we cease this processing?",
+  "source_system": "tcd",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-21",
+   "ie-dpa-s217"
+  ],
+  "jurisdiction": "IE",
+  "generator_rationale": "The GDPR right to object to direct marketing is absolute and requires cessation, while the Irish amendment confirms this right applies by referencing the GDPR's definitions and Article 21 within the postal services regulatory context, together establishing that the objection must be honoured.",
+  "citation": "Article 21",
+  "scenario": {
+   "purpose": "alumni fundraising direct marketing",
+   "data_category": "contact details and donation history",
+   "data_subject": "ALUMNUS",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "legitimate interests"
+  }
+ },
+ {
+  "query_id": "ct-060",
+  "query_text": "A Cambridge alumnus filed a complaint with the Information Commissioner's Office regarding mishandling of their transcript records. After four months with no progress update, the alumnus asks whether they can apply to the Tribunal for an order compelling the Commissioner to respond. Should we advise them this is permissible?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-77",
+   "uk-dpa-s166"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 77 establishes the right to lodge a complaint with a supervisory authority, while UK DPA s166 provides the specific mechanism to apply to the Tribunal for an order when the Commissioner fails to respond or provide progress updates within three months.",
+  "citation": "Article 77",
+  "scenario": {
+   "purpose": "complaint escalation regarding transcript processing",
+   "data_category": "academic records",
+   "data_subject": "ALUMNUS",
+   "recipient": "external",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-061",
+  "query_text": "Georg-August-Universität Göttingen collected student health certificates for exam accommodations. May we now reuse these records to conduct an internal organizational audit of our disability support services without obtaining fresh consent?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "de-bdsg-s23",
+   "gdpr-art-9-1"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "BDSG Section 23(1)(6) and 23(2) permit public bodies to reuse data for internal audits, while Article 9(2)(g) supplies the substantial public interest exception needed to lift the prohibition on processing health data.",
+  "citation": "Article 9 (1)",
+  "scenario": {
+   "purpose": "internal organizational audit",
+   "data_category": "health data",
+   "data_subject": "STUDENT",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "public task"
+  }
+ },
+ {
+  "query_id": "ct-062",
+  "query_text": "Georg-August-Universität Göttingen's data protection officer asks: May we voluntarily provide the Federal Commissioner with anonymised summaries of student grade records and the corrective measures we applied, for inclusion in the Commissioner's annual activity report submitted to the Bundestag and made public?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "de-bdsg-s15",
+   "gdpr-art-58-2"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 58(2) defines the supervisory authority's corrective powers and safeguards, while BDSG Section 15 authorises the Federal Commissioner to publish activity reports listing violation types and measures taken under that article.",
+  "citation": "Article 58 (2)",
+  "scenario": {
+   "purpose": "supervisory authority activity reporting",
+   "data_category": "academic records",
+   "data_subject": "STUDENT",
+   "recipient": "Federal Commissioner for Data Protection",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-063",
+  "query_text": "A graduating student has submitted a data portability request for their academic transcripts. Before fulfilling it, an administrator proposes deleting several low grades from the transcript file to present a cleaner record. Should the University of Cambridge approve this deletion before transmitting the portable data?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-20",
+   "uk-dpa-s173"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 20 establishes the right to data portability for data processed by automated means on a contractual basis, while UK DPA s173 makes it an offence to alter or erase information to prevent disclosure that a data subject exercising that right would be entitled to receive.",
+  "citation": "Article 20",
+  "scenario": {
+   "purpose": "fulfilment of data portability request",
+   "data_category": "academic transcripts and grades",
+   "data_subject": "STUDENT",
+   "recipient": "the requesting student",
+   "cross_border": false,
+   "legal_basis": "contract"
+  }
+ },
+ {
+  "query_id": "ct-064",
+  "query_text": "A former student at Georg-August-Universität Göttingen requests erasure of handwritten examination protocols stored in physical archives. Erasure would require disproportionate effort due to the storage medium, and the student's interest is minimal. May we restrict processing instead of erasing these records?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "de-bdsg-s35",
+   "gdpr-art-18"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 18 provides the mechanism for restriction of processing as an alternative measure, while BDSG Section 35 establishes that restriction replaces erasure when non-automated records make erasure disproportionately difficult and the data subject's interest is minimal.",
+  "citation": "Article 18",
+  "scenario": {
+   "purpose": "examination record retention",
+   "data_category": "examination protocols",
+   "data_subject": "ALUMNUS",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-065",
+  "query_text": "The University of Cambridge seeks certification for its student transcript processing system. Must we provide the certification body with full access to all processing activities, and can the Information Commissioner subsequently order that body to withdraw our certification via an enforcement notice?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-42",
+   "uk-dpa-s115"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 42 establishes that controllers must provide certification bodies with all information and access to processing activities necessary for certification, while UK DPA s115 specifies that the Commissioner's power to order a certification body to withdraw a certification is exercisable only by giving an enforcement notice.",
+  "citation": "Article 42",
+  "scenario": {
+   "purpose": "data protection certification of processing operations",
+   "data_category": "academic records",
+   "data_subject": "STUDENT",
+   "recipient": "certification body",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-066",
+  "query_text": "A Trinity College Dublin student requests access to their counselling service records. The university's health practitioner determines that releasing the full records would likely cause serious harm to the student's mental health. Should Trinity College Dublin withhold these records from the access request?",
+  "source_system": "tcd",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-15",
+   "ie-dpa-s68"
+  ],
+  "jurisdiction": "IE",
+  "generator_rationale": "GDPR Article 15 establishes the right of access to personal data, while the Irish Data Protection Act 2018 Section 68 (amending the Health Regulations) provides the specific exemption allowing withholding when disclosure would harm the data subject's physical or mental health.",
+  "citation": "Article 15",
+  "scenario": {
+   "purpose": "student counselling service administration",
+   "data_category": "health data",
+   "data_subject": "STUDENT",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-067",
+  "query_text": "A registered UK privacy advocacy charity, without any mandate from the affected students, demands the University of Cambridge hand over their examination grades to support a compensation claim. Must the University of Cambridge comply with this request?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-80",
+   "uk-dpa-s190"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 80(1) allows mandated representation and Article 80(2) permits independent action only if a Member State opts in; UK DPA 2018 s190 merely grants the Secretary of State a future power to make such regulations, meaning no such enabling regulations are yet in force, so independent (unmandated) representation for compensation claims is not currently available.",
+  "citation": "Article 80(2)",
+  "scenario": {
+   "purpose": "third-party compensation claim support",
+   "data_category": "examination grades",
+   "data_subject": "STUDENT",
+   "recipient": "external privacy advocacy charity",
+   "cross_border": false,
+   "legal_basis": "none"
+  }
+ },
+ {
+  "query_id": "ct-068",
+  "query_text": "The University of Cambridge is contesting an Information Commissioner decision made before IP completion day that followed a European Data Protection Board consistency mechanism opinion regarding our processing of student transcripts. Must the Commissioner forward that Board opinion to the tribunal handling our proceedings?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-63",
+   "uk-dpa-sch21-p17"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "Article 63 establishes the consistency mechanism and EDPB opinions, while the UK DPA 2018 Schedule 21 paragraph 17 specifically obliges the Commissioner to forward such Board opinions to courts or tribunals in proceedings brought before IP completion day.",
+  "citation": "Article 63",
+  "scenario": {
+   "purpose": "judicial review of regulatory decision",
+   "data_category": "academic records",
+   "data_subject": "STUDENT",
+   "recipient": "tribunal",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-069",
+  "query_text": "The University of Cambridge intends to compile handwritten tutor notes on student attendance into a structured digital filing system for monitoring engagement. Is this processing within the material scope of data protection law?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-2",
+   "uk-dpa-s4"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "Article 2 establishes that GDPR covers non-automated processing forming part of a filing system, while the DPA 2018 s4 confirms this Part applies to and supplements such UK GDPR processing.",
+  "citation": "Article 2",
+  "scenario": {
+   "purpose": "student engagement monitoring",
+   "data_category": "attendance records",
+   "data_subject": "STUDENT",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "public task"
+  }
+ },
+ {
+  "query_id": "ct-070",
+  "query_text": "The University of Cambridge intends to transmit final examination grades to a partner institution in a third country that the Secretary of State has specified in adequacy regulations covering only its financial services sector. The recipient is a university. Should we approve this transfer?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-45-2",
+   "uk-dpa-s17A"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 45(2) establishes that adequacy decisions can be limited to specified sectors within a third country, while UK DPA s17A provides that transfers only qualify as adequacy-based if the regulations specify the relevant sector and the transfer falls within that specification.",
+  "citation": "Article 45(2)",
+  "scenario": {
+   "purpose": "academic collaboration",
+   "data_category": "academic records",
+   "data_subject": "STUDENT",
+   "recipient": "partner university in third country",
+   "cross_border": true,
+   "legal_basis": "public task"
+  }
+ },
+ {
+  "query_id": "ct-072",
+  "query_text": "The University of Cambridge intends to transfer staff attendance records to its Singapore campus using binding corporate rules originally authorised by an EU supervisory authority before IP completion day, with references updated to reflect UK withdrawal. The Commissioner received valid notification within six months and approved them. May we proceed?",
+  "source_system": "cambridge",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "gdpr-art-46",
+   "uk-dpa-sch21-p9"
+  ],
+  "jurisdiction": "UK",
+  "generator_rationale": "GDPR Article 46 establishes that binding corporate rules can provide appropriate safeguards for third-country transfers, while the UK DPA Schedule 21 Part 9 specifies that pre-Brexit BCRs authorised by non-UK authorities remain valid if notified to and approved by the Commissioner within six months of IP completion day.",
+  "citation": "Article 46(1)",
+  "scenario": {
+   "purpose": "workforce management across campuses",
+   "data_category": "attendance records",
+   "data_subject": "STAFF",
+   "recipient": "University of Cambridge Singapore campus",
+   "cross_border": true,
+   "legal_basis": "legitimate interests"
+  }
+ },
+ {
+  "query_id": "ct-073",
+  "query_text": "A former student has objected on personal grounds to Georg-August-Universität Göttingen continuing to retain her examination records, which we process under our statutory mandate to document academic achievements. Must we honour her objection and delete the records, or may we continue processing?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s36",
+   "gdpr-art-21"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 21(1) grants the right to object to public-task processing, while BDSG Section 36 disapplies that right where an urgent public interest or a statutory requirement mandates continued processing.",
+  "citation": "Article 21 (1)",
+  "scenario": {
+   "purpose": "statutory documentation of academic achievements",
+   "data_category": "examination records",
+   "data_subject": "ALUMNUS",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "public task"
+  }
+ },
+ {
+  "query_id": "ct-074",
+  "query_text": "Georg-August-Universität Göttingen received a student complaint about transcript handling via the Bavarian supervisory authority. May the Bavarian authority directly issue a binding decision on this complaint without forwarding it to the lead supervisory authority determined by our main establishment's location?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s19",
+   "gdpr-art-65"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 65 establishes the Board's binding dispute resolution when authorities conflict over competence or procedure, while BDSG Section 19 specifies that complaints must be forwarded to the lead supervisory authority of the Land where the controller has its main establishment.",
+  "citation": "Article 65 (6)",
+  "scenario": {
+   "purpose": "complaint handling on transcript processing",
+   "data_category": "academic records",
+   "data_subject": "STUDENT",
+   "recipient": "supervisory authority",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-075",
+  "query_text": "Trinity College Dublin intends to transfer student academic transcripts to a partner university in a third country using standard data protection clauses adopted by the Commission. The Irish Data Protection Commission has applied to the High Court questioning whether these clauses provide appropriate safeguards for that destination. May we proceed with the transfer?",
+  "source_system": "tcd",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "gdpr-art-46",
+   "ie-dpa-s163"
+  ],
+  "jurisdiction": "IE",
+  "generator_rationale": "GDPR Article 46 establishes that standard data protection clauses can serve as appropriate safeguards for third-country transfers, while Section 163 of the Irish Data Protection Act 2018 empowers the Commission to challenge such clauses before the High Court, creating legal uncertainty that precludes proceeding.",
+  "citation": "Article 46(2)",
+  "scenario": {
+   "purpose": "academic exchange programme",
+   "data_category": "academic transcripts",
+   "data_subject": "STUDENT",
+   "recipient": "partner university in a third country",
+   "cross_border": true,
+   "legal_basis": "public task"
+  }
+ },
+ {
+  "query_id": "ct-076",
+  "query_text": "Georg-August-Universität Göttingen's occupational health service wants to share a staff member's medical diagnosis with an external insurance provider to process a workplace injury claim. The employee has not consented. Should we approve this transfer?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s22",
+   "gdpr-art-9-1"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 9(1) prohibits processing health data unless an exception applies; BDSG Section 22(1)(1)(b) permits health data processing only when carried out by health professionals or persons under professional secrecy obligations, which does not cover disclosure to an external insurance provider without consent.",
+  "citation": "Article 9 (1)",
+  "scenario": {
+   "purpose": "workplace injury insurance claim processing",
+   "data_category": "health data",
+   "data_subject": "STAFF",
+   "recipient": "external insurance provider",
+   "cross_border": false,
+   "legal_basis": "none"
+  }
+ },
+ {
+  "query_id": "ct-077",
+  "query_text": "Georg-August-Universität Göttingen's IT department wants to grant the data protection officer direct database access to staff attendance records for an internal audit. The DPO also serves as deputy head of IT. May we proceed with this access arrangement?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s40",
+   "gdpr-art-38"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 38 requires granting the DPO access to personal data and processing operations, but also mandates that any additional duties must not create a conflict of interest; BDSG Section 40 reinforces supervisory monitoring expectations that the DPO operate independently, which is compromised when the DPO simultaneously holds a deputy IT leadership role overseeing the very systems under audit.",
+  "citation": "Article 38 (6)",
+  "scenario": {
+   "purpose": "internal compliance audit",
+   "data_category": "staff attendance records",
+   "data_subject": "STAFF",
+   "recipient": "internal",
+   "cross_border": false,
+   "legal_basis": "legal obligation"
+  }
+ },
+ {
+  "query_id": "ct-078",
+  "query_text": "Georg-August-Universität Göttingen plans to share applicant personal data with a non-EU recruitment platform that has not designated an EU representative. Can we proceed with this transfer?",
+  "source_system": "goettingen",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s44",
+   "gdpr-art-27"
+  ],
+  "jurisdiction": "DE",
+  "generator_rationale": "GDPR Article 27 requires non-EU processors to designate an EU representative unless an exemption applies, and BDSG Section 44(3) confirms such representatives serve as authorized recipients in civil proceedings, reinforcing the designation requirement for accountability.",
+  "citation": "Article 27 (1)",
+  "scenario": {
+   "purpose": "international applicant recruitment",
+   "data_category": "application records",
+   "data_subject": "APPLICANT",
+   "recipient": "non-EU recruitment platform",
+   "cross_border": true,
+   "legal_basis": "none"
+  }
+ }
+]

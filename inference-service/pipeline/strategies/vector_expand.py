@@ -95,7 +95,9 @@ OPTIONAL MATCH (c)<-[:MENTIONED_IN]-(:Entity)-[:RELATES]-(:Entity)-[:MENTIONED_I
 # reason load_implements keeps them apart. IMPLEMENTS crosses a tier; CITES
 # stays inside one instrument. On cross-tier questions the same-instrument
 # edges pull in neighbouring provisions that score well on similarity without
-# being gold, and measured here they cost R@10 0.421 -> 0.382 when mixed in.
+# being gold, so they displace the cross-tier target rather than adding to it:
+# on the three-tier corpus, mixing them in costs R@10 0.367 -> 0.300 and
+# cross-tier completeness 0.333 -> 0.187.
 _VIA_CITES = """
 OPTIONAL MATCH (c)-[:CITES|IMPLEMENTS]-(linked:Chunk)
 """

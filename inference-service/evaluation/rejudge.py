@@ -97,7 +97,11 @@ def main() -> None:
         rows = json.loads(out.read_text(encoding="utf-8"))["rows"]
         missing = [r for r in rows if _needs(r, scenario_available)]
         total_missing += len(missing)
-        print(f"  {name:<16}{len(missing):>4} of {len(rows)} rows unscored")
+        # flush: this is the state BEFORE the strategy is processed, and stdout
+        # is block-buffered through a pipe. Without it every line lands after
+        # the log output that follows it, so a finished run reads as if nothing
+        # had been scored.
+        print(f"  {name:<16}{len(missing):>4} of {len(rows)} rows unscored", flush=True)
         if args.check or not missing:
             continue
 
@@ -141,6 +145,12 @@ def main() -> None:
             encoding="utf-8")
         log.info("%s: %d scored, %d still missing -> %s",
                  name, len(missing) - len(still), len(still), out.name)
+        if still:
+            # Not fatal -- a handful of rows lost to a flaky judge is a smaller
+            # problem than stopping -- but it must be visible, because the
+            # summary silently averages over whatever was scored.
+            log.warning("%s: %d rows remain unscored; re-run to retry them",
+                        name, len(still))
 
     if args.check:
         print(f"\n{total_missing} rows would be judged "

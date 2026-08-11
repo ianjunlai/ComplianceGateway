@@ -1,0 +1,395 @@
+{
+ "ct-001": [
+  "Georg-August-Universität Göttingen",
+  "student",
+  "pseudonymised health survey responses"
+ ],
+ "ct-002": [
+  "University of Cambridge",
+  "Court"
+ ],
+ "ct-003": [
+  "University of Cambridge",
+  "partner university",
+  "student"
+ ],
+ "ct-004": [
+  "Georg-August-Universität Göttingen (data controller)",
+  "former student (data subject)"
+ ],
+ "ct-005": [
+  "Georg-August-Universität Göttingen",
+  "staff",
+  "payroll records"
+ ],
+ "ct-006": [
+  "University of Cambridge",
+  "prospective students",
+  "France",
+  "UK"
+ ],
+ "ct-007": [
+  "University of Cambridge",
+  "Applicants",
+  "Rejected Applicants"
+ ],
+ "ct-008": [
+  "data controller: Georg-August-Universität Göttingen",
+  "actors: staff member, university (Georg-August-Universität Göttingen)",
+  "data categories: health data, religious affiliation"
+ ],
+ "ct-009": [
+  "University of Cambridge (Data Controller)",
+  "Former Student (Data Subject)"
+ ],
+ "ct-010": [
+  "University of Cambridge",
+  "graduating students",
+  "partner institution",
+  "third country"
+ ],
+ "ct-011": [
+  "data controller: Georg-August-Universität Göttingen",
+  "actors: former students",
+  "data categories: historical student health records, disability accommodations",
+  "actions: transfer, storage (for long-term preservation)",
+  "jurisdictions/destinations: university archive"
+ ],
+ "ct-012": [
+  "University of Cambridge",
+  "registered charity",
+  "current student"
+ ],
+ "ct-013": [
+  "data controller: Georg-August-Universität Göttingen",
+  "actors: staff member, external litigation counsel",
+  "data categories: occupational health records",
+  "actions: transfer",
+  "jurisdictions/destinations: internal (to external law firm)"
+ ],
+ "ct-014": [
+  "University of Cambridge",
+  "Student advocacy group"
+ ],
+ "ct-015": [
+  "University of Cambridge",
+  "occupational health team",
+  "staff member",
+  "external HR consultancy"
+ ],
+ "ct-016": [
+  "University of Cambridge (data controller)",
+  "Cambridge alumnus (data subject/student)",
+  "Examination board (actor)"
+ ],
+ "ct-017": [
+  "Data Protection Commission",
+  "Trinity College Dublin"
+ ],
+ "ct-018": [
+  "University of Cambridge",
+  "applicants",
+  "departmental admissions tutors"
+ ],
+ "ct-020": [
+  "Georg-August-Universität Göttingen",
+  "examination office",
+  "student",
+  "private employer"
+ ],
+ "ct-021": [
+  "University of Cambridge",
+  "former student"
+ ],
+ "ct-022": [
+  "University of Cambridge",
+  "ICO (Information Commissioner's Office)",
+  "staff"
+ ],
+ "ct-023": [
+  "Georg-August-Universität Göttingen",
+  "students",
+  "staff",
+  "data controller",
+  "DPO (Data Protection Officer)",
+  "cameras",
+  "central library reading rooms"
+ ],
+ "ct-024": [
+  "University of Cambridge",
+  "former student"
+ ],
+ "ct-025": [
+  "data controller: Georg-August-Universität Göttingen",
+  "actors: students",
+  "data categories: academic records, student applications",
+  "actions: approval/rejection based on algorithmic scoring, storage (academic records)",
+  "jurisdictions/destinations: none specified"
+ ],
+ "ct-026": [
+  "University of Cambridge",
+  "Prospective employer"
+ ],
+ "ct-027": [
+  "data controller: Trinity College Dublin",
+  "data subject: deceased former staff member",
+  "data categories: digital health records"
+ ],
+ "ct-028": [
+  "data controller: Georg-August-Universität Göttingen",
+  "actors: staff members, foreign military crisis-management body",
+  "data categories: staff attendance records",
+  "actions: sharing, transferring",
+  "jurisdictions/destinations: third country"
+ ],
+ "ct-029": [
+  "University of Cambridge (data controller)",
+  "former student (data subject)",
+  "Information Commissioner (regulator)"
+ ],
+ "ct-030": [
+  "University of Cambridge (data controller)",
+  "former student (data subject)",
+  "court (judicial authority)"
+ ],
+ "ct-031": [
+  "data controller: Georg-August-Universität Göttingen",
+  "actors: staff member, anonymous tipper",
+  "data categories: private email logs, grades",
+  "actions: access, investigation",
+  "jurisdictions/destinations: none specified"
+ ],
+ "ct-032": [
+  "University of Cambridge",
+  "ICO (Information Commissioner's Office)",
+  "staff"
+ ],
+ "ct-033": [
+  "Data Protection Commission",
+  "Trinity College Dublin",
+  "student advocacy group"
+ ],
+ "ct-034": [
+  "Georg-August-Universität Göttingen",
+  "Lower Saxony supervisory authority"
+ ],
+ "ct-035": [
+  "University of Limerick",
+  "Data Protection Commission",
+  "High Court",
+  "Student"
+ ],
+ "ct-036": [
+  "data controller: Georg-August-Universität Göttingen",
+  "actors: applicant, external academics, referees",
+  "data categories: confidential reference letters",
+  "actions: send copy of references and referees' identities"
+ ],
+ "ct-037": [
+  "University of Limerick (data controller)",
+  "former student (data subject)"
+ ],
+ "ct-038": [
+  "University of Cambridge",
+  "partner university",
+  "student"
+ ],
+ "ct-039": [
+  "data controller: Georg-August-Universität Göttingen",
+  "actors: students",
+  "data categories: student attendance records"
+ ],
+ "ct-040": [
+  "University of Cambridge (Data Controller)",
+  "Former Cambridge Student (Data Subject)"
+ ],
+ "ct-041": [
+  "Georg-August-Universität Göttingen",
+  "European Data Protection Board",
+  "federal commissioner",
+  "Lower Saxony supervisory authority",
+  "church supervisory authority"
+ ],
+ "ct-042": [
+  "data controller: Trinity College Dublin",
+  "student: former student (declared bankrupt)",
+  "actor: Official Assignee in Bankruptcy"
+ ],
+ "ct-043": [
+  "University of Cambridge",
+  "Australian data protection authority",
+  "former student"
+ ],
+ "ct-044": [
+  "University of Cambridge (data controller)",
+  "former Cambridge staff member (data subject)",
+  "hiring panel members (actors, potentially data controllers or processors)",
+  "handwritten interview notes (personal data, category: personnel records)"
+ ],
+ "ct-045": [
+  "University of Cambridge",
+  "private firm",
+  "student"
+ ],
+ "ct-046": [
+  "University of Cambridge",
+  "Information Commissioner's Office (ICO)",
+  "student"
+ ],
+ "ct-047": [
+  "University of Cambridge (data controller)",
+  "Student (data subject)",
+  "Representative Body (third party)"
+ ],
+ "ct-048": [
+  "Georg-August-Universität Göttingen",
+  "Lower Saxony supervisory authority"
+ ],
+ "ct-049": [
+  "University of Cambridge",
+  "partner university",
+  "student"
+ ],
+ "ct-050": [
+  "data controller: Trinity College Dublin",
+  "student (data subject): former student",
+  "Commission to Inquire into Child Abuse (recipient)",
+  "records (personal data): personal data held within records transferred"
+ ],
+ "ct-051": [
+  "University of Cambridge",
+  "Information Commissioner's Office"
+ ],
+ "ct-052": [
+  "Trinity College Dublin (data controller)",
+  "former Trinity College Dublin staff member (data subject)",
+  "Personal Insolvency Act investigation (jurisdiction/destination)"
+ ],
+ "ct-054": [
+  "University of Cambridge",
+  "student",
+  "longitudinal study"
+ ],
+ "ct-055": [
+  "Trinity College Dublin (data controller)",
+  "former staff member (data subject)",
+  "legal team (university personnel)",
+  "external counsel (third party)"
+ ],
+ "ct-056": [
+  "University of Cambridge (data controller)",
+  "former student (data subject)"
+ ],
+ "ct-057": [
+  "University of Limerick (data controller)",
+  "former staff member (data subject)",
+  "Commission of Investigation"
+ ],
+ "ct-058": [
+  "University of Limerick",
+  "Residential Institutions Redress Board",
+  "former student"
+ ],
+ "ct-059": [
+  "Trinity College Dublin",
+  "Alumni Office",
+  "alumnus"
+ ],
+ "ct-060": [
+  "alumnus",
+  "Information Commissioner's Office",
+  "Tribunal"
+ ],
+ "ct-061": [
+  "data controller: Georg-August-Universität Göttingen",
+  "actors: students",
+  "data categories: health certificates",
+  "actions: reuse, storage (internal)",
+  "jurisdictions/destinations: none specified"
+ ],
+ "ct-062": [
+  "Georg-August-Universität Göttingen",
+  "Federal Commissioner",
+  "Bundestag"
+ ],
+ "ct-063": [
+  "University of Cambridge (data controller)",
+  "Graduating student (data subject)",
+  "Administrator (actor)",
+  "Academic transcripts (personal data, data category)"
+ ],
+ "ct-064": [
+  "data controller: Georg-August-Universität Göttingen",
+  "student: former student at Georg-August-Universität Göttingen",
+  "data categories: handwritten examination protocols",
+  "actions: storage, erasure, restriction of processing"
+ ],
+ "ct-065": [
+  "University of Cambridge",
+  "student"
+ ],
+ "ct-066": [
+  "Trinity College Dublin (data controller)",
+  "student (data subject)",
+  "health practitioner (third party)"
+ ],
+ "ct-067": [
+  "University of Cambridge",
+  "registered UK privacy advocacy charity"
+ ],
+ "ct-068": [
+  "University of Cambridge",
+  "Information Commissioner",
+  "European Data Protection Board"
+ ],
+ "ct-069": [
+  "University of Cambridge",
+  "Student"
+ ],
+ "ct-070": [
+  "University of Cambridge",
+  "partner institution",
+  "Secretary of State"
+ ],
+ "ct-072": [
+  "University of Cambridge",
+  "Singapore campus",
+  "EU supervisory authority"
+ ],
+ "ct-073": [
+  "Georg-August-Universität Göttingen",
+  "former student"
+ ],
+ "ct-074": [
+  "Georg-August-Universität Göttingen",
+  "student",
+  "Bavarian supervisory authority",
+  "lead supervisory authority"
+ ],
+ "ct-075": [
+  "Trinity College Dublin",
+  "student",
+  "partner university",
+  "Commission"
+ ],
+ "ct-076": [
+  "data controller: Georg-August-Universität Göttingen",
+  "actor: occupational health service (of Georg-August-Universität Göttingen)",
+  "actor: staff member",
+  "actor: external insurance provider",
+  "data category: medical diagnosis"
+ ],
+ "ct-077": [
+  "Georg-August-Universität Göttingen",
+  "IT department",
+  "data protection officer (DPO)",
+  "staff"
+ ],
+ "ct-078": [
+  "data controller: Georg-August-Universität Göttingen",
+  "actors: applicant, non-EU recruitment platform",
+  "data categories: applicant personal data",
+  "actions: share, transfer",
+  "jurisdictions/destinations: third country"
+ ]
+}

@@ -16,6 +16,11 @@ set -uo pipefail
 
 REPO="${REPO:-$(cd "$(dirname "$0")" && pwd)}"
 PYTHON="${PYTHON:-python}"
+# The gateway's port. Exported so run_e3.sh uses the same one -- it defaults to
+# 8080 independently, and a gateway moved aside for a port clash would
+# otherwise pass the check here and fail preflight there, three hours later.
+export PORT="${PORT:-8080}"
+export SYNC_PORT="${SYNC_PORT:-8000}"
 STAMP="$(date +%m%d-%H%M)"
 LOGDIR="$REPO/results/full/logs"
 mkdir -p "$LOGDIR" "$REPO/results/e3/logs"
@@ -47,9 +52,15 @@ need "the configured SLM is pulled" bash -c \
 if [[ $SKIP_E3 -eq 0 ]]; then
   # E3 does not start these; it only swaps the Python backend between
   # conditions. Missing here means E3 fails after E1 has already run.
-  need "Kafka on 9092"        bash -c "exec 3<>/dev/tcp/localhost/9092"
-  need "gateway on 8080"      curl -sf --max-time 5 http://localhost:8080/api/v1/metrics
-  need "JMeter"               test -x "${JMETER:-$HOME/apache-jmeter-5.6.3/bin/jmeter}"
+  need "Kafka on 9092"          bash -c "exec 3<>/dev/tcp/localhost/9092"
+  need "gateway on $PORT"       curl -sf --max-time 5 "http://localhost:$PORT/api/v1/metrics"
+  need "JMeter"                 test -x "${JMETER:-$HOME/apache-jmeter-5.6.3/bin/jmeter}"
+  # The synchronous conditions route through the gateway to sync_api. run_e3.sh
+  # starts sync_api itself, so this only checks the gateway was told where to
+  # find it -- a mismatch here is what made the first attempt fail preflight
+  # after the EDA runs had already completed.
+  printf '  note  gateway sync-url must point at :%s (set GATEWAY_INFERENCE_SYNC_URL)\n' \
+    "$SYNC_PORT"
 fi
 # From the service directory: config reads .env relative to the working
 # directory, so running this from the repo root silently loads no keys and

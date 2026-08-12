@@ -49,23 +49,26 @@ class _StoredResult:
     def __init__(self, row: dict) -> None:
         self.reasoning = row.get("reasoning", "")
         self.retrieved_chunk_ids = row.get("retrieved_chunk_ids", [])
+        # Rows written before citation attachment existed have no stored
+        # context; _reference_context falls back to the truncated ranked
+        # list for those, which is what they were judged against.
+        self.context_chunk_ids = row.get("context_chunk_ids", [])
 
 
-def _needs(row: dict, scenario_available: bool) -> bool:
+def _needs(row: dict) -> bool:
     if "prediction" not in row:
         return False            # never answered; rejudging cannot invent one
-    if row.get("faithfulness", "missing") == "missing":
-        return True
     # faithfulness is legitimately None for a claim-free abstention, so its
     # presence -- not its truthiness -- is what marks the row as scored.
-    return scenario_available and "rubric_score" not in row
+    return row.get("faithfulness", "missing") == "missing"
 
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--run-id", required=True)
     ap.add_argument("--dataset", required=True,
-                    help="the question set; supplies the scenario block the rubric needs")
+                    help="the question set; supplies the gold chunks that "
+                         "zero_shot is judged against")
     ap.add_argument("--strategies", default="",
                     help="comma-separated; default is every result file for this run-id")
     ap.add_argument("--workers", type=int, default=8)
@@ -75,10 +78,6 @@ def main() -> None:
 
     questions = {q["query_id"]: q
                  for q in json.loads(Path(args.dataset).read_text(encoding="utf-8"))}
-    scenario_available = any(q.get("scenario") for q in questions.values())
-    if not scenario_available:
-        log.warning("no scenario block in %s — only faithfulness will be filled in",
-                    args.dataset)
 
     chunk_texts = json.loads(
         (Path(config.ARTIFACTS_DIR) / "chunk_texts.json").read_text(encoding="utf-8"))
@@ -95,7 +94,7 @@ def main() -> None:
     for name in names:
         out = RESULTS_DIR / f"{name}-{args.run_id}.json"
         rows = json.loads(out.read_text(encoding="utf-8"))["rows"]
-        missing = [r for r in rows if _needs(r, scenario_available)]
+        missing = [r for r in rows if _needs(r)]
         total_missing += len(missing)
         # flush: this is the state BEFORE the strategy is processed, and stdout
         # is block-buffered through a pipe. Without it every line lands after
@@ -111,7 +110,7 @@ def main() -> None:
         config.ACTIVE_STRATEGY = name
 
         def score(row: dict) -> None:
-            from evaluation.judge import judge_faithfulness, judge_decision_rubric
+            from evaluation.judge import judge_faithfulness
             q = questions.get(row["query_id"])
             if q is None:
                 log.warning("%s not in the dataset, skipping", row["query_id"])
@@ -122,18 +121,11 @@ def main() -> None:
                 row["faithfulness"] = judge_faithfulness(result.reasoning, context)["faithfulness"]
             except Exception as e:                                   # noqa: BLE001
                 log.warning("%s faithfulness failed: %s", row["query_id"], str(e)[:160])
-            try:
-                rubric = judge_decision_rubric(result.reasoning, context, q)
-                if rubric is not None:
-                    row["rubric_score"] = rubric["rubric_score"]
-                    row["rubric_items"] = rubric["items"]
-            except Exception as e:                                   # noqa: BLE001
-                log.warning("%s rubric failed: %s", row["query_id"], str(e)[:160])
 
         with ThreadPoolExecutor(max_workers=max(1, args.workers)) as pool:
             list(pool.map(score, missing))
 
-        still = [r for r in rows if _needs(r, scenario_available)]
+        still = [r for r in rows if _needs(r)]
         summary = _summarize(rows)
         out.write_text(json.dumps({"summary": summary, "rows": rows}, indent=2),
                        encoding="utf-8")

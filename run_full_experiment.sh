@@ -32,30 +32,37 @@ export NEO4J_URI="${NEO4J_URI:-bolt://localhost:7687}"
 export ARTIFACTS_DIR="${ARTIFACTS_DIR:-$SERVICE/artifacts_full}"
 export EXTRACTION_PROFILE=legal
 export ENTITY_LINK_TOP_K="${ENTITY_LINK_TOP_K:-3}"
-export VECTOR_EXPAND_ENTRY_K="${VECTOR_EXPAND_ENTRY_K:-5}"
+# Citation attachment and jurisdiction scoping apply to every strategy.
+# Exported rather than left to the defaults so the run log records them.
+export ATTACH_CITATIONS="${ATTACH_CITATIONS:-1}"
+export ATTACH_PER_CHUNK="${ATTACH_PER_CHUNK:-2}"
+export ATTACH_CONTEXT_CAP="${ATTACH_CONTEXT_CAP:-10}"
 export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0}"
 WORKERS="${WORKERS:-8}"
-N_QUESTIONS="${N_QUESTIONS:-78}"
-# The judge is network-bound and ~25x slower than the GPU pipeline it scores,
-# so this, not the GPU, sets the wall clock of step 9. Measured on this corpus:
-# faithfulness ~13 s and rubric ~25 s per query against glm-5.2, against 1.5 s
-# for the pipeline. Serial, step 9 alone is about seven hours.
+N_CROSSTIER="${N_CROSSTIER:-50}"
+N_SINGLE="${N_SINGLE:-25}"
+N_UNANSWERABLE="${N_UNANSWERABLE:-25}"
+# The judge is network-bound and far slower than the GPU pipeline it scores:
+# ~13 s per query against glm-5.2, against 1.5 s for the pipeline. This, not
+# the GPU, sets the wall clock of step 9.
 JUDGE_WORKERS="${JUDGE_WORKERS:-8}"
 
 CORPUS="$REPO/dataset/corpus/full_corpus.json"
 CITATIONS="$REPO/dataset/corpus/full_citations.json"
-QA="$REPO/dataset/crosstier_qa_full.json"
-NER="$SERVICE/evaluation/benchmark/ner_seed_cache_full.json"
+QA="$REPO/dataset/qa_v2.json"
+NER="$SERVICE/evaluation/benchmark/ner_seed_cache_v2.json"
 LOGS="$REPO/results/full/logs"
 
-# E2 is free, so every variant is measured. E1 costs a judge call per query, so
-# it covers the ones that answer a research question: the no-retrieval baseline,
-# the dense baseline, the three published paradigms, and the two citation
-# variants. vec_relates scores identically to vector_rag by construction (its
-# expansion admits 99% of the corpus) and vec_intra was the weakest; both are
-# reported from E2 alone.
-E2_STRATEGIES="vector_rag,hybrid,light_rag,hippo_rag,vec_relates,vec_intra,vec_implements,vec_cites,vec_both,vec_juris"
-E1_STRATEGIES="zero_shot vector_rag hybrid light_rag hippo_rag vec_implements vec_cites vec_juris"
+# The five paradigms, on one platform. Jurisdiction scoping and citation
+# attachment apply to all of them, so neither is an experimental condition --
+# they are properties of the deployment, motivated by law and by how a gateway
+# knows who is asking, not by a result. The vec_* family that isolated edge
+# provenance in the first round is gone: attachment now carries the citation
+# structure into every strategy, which is what those variants existed to test.
+#
+# zero_shot retrieves nothing, so it appears in E1 only.
+E2_STRATEGIES="vector_rag,hybrid,light_rag,hippo_rag"
+E1_STRATEGIES="zero_shot vector_rag hybrid light_rag hippo_rag"
 
 DRY=0; FROM=1
 while [[ $# -gt 0 ]]; do
@@ -200,7 +207,7 @@ if step 4 "load CITES / IMPLEMENTS edges"; then
 fi
 
 # ------------------------------------------------------------ 5. verify graph
-if step 5 "verify the graph before anything expensive depends on it"; then
+if step 5 "verify the graph, then pre-flight the new code paths"; then
   "$PYTHON" - <<'PY' || die "graph verification"
 import sys; sys.path.insert(0, ".")
 from pathlib import Path
@@ -258,49 +265,76 @@ print("  graph OK")
 PY
 fi
 
+# ------------------------------------------------------- 5b. pre-flight check
+# Between the graph and the expensive steps. Everything it tests fails quietly:
+# a scope that matches nothing, an attachment that never fires, a context
+# window that drops the attached provisions, a model that guesses instead of
+# abstaining. Each would be discovered the next morning as a result rather than
+# a bug. Costs a few local inference calls and no cloud tokens.
+if [[ $FROM -le 5 && $DRY -eq 0 ]]; then
+  log "     pre-flight"
+  "$PYTHON" -m evaluation.smoke_check 2>&1 | grep -viE "HTTP Request|Batches:" \
+    || die "pre-flight failed — see above; the long run would waste the night"
+fi
+
 # --------------------------------------------------------------- 6. generate QA
-if step 6 "generate $N_QUESTIONS cross-tier questions (~180k tokens)"; then
+if step 6 "generate questions across three strata (~230k tokens)"; then
   if [[ -f "$QA" ]]; then echo "  exists, skipping"; else
-    # --corpus/--edges are not optional here: the defaults point at the
-    # 414-chunk pilot, whose ids overlap the full corpus, so the wrong dataset
-    # would evaluate cleanly against the wrong gold.
-    "$PYTHON" "$REPO/dataset/generate_crosstier_qa.py" \
-        --n "$N_QUESTIONS" --corpus "$CORPUS" --edges "$CITATIONS" --out "$QA" \
-        2>&1 | tail -8 || die "QA generation"
+    "$PYTHON" "$REPO/dataset/generate_qa_v2.py" \
+        --n-crosstier "$N_CROSSTIER" --n-single "$N_SINGLE" \
+        --n-unanswerable "$N_UNANSWERABLE" \
+        --corpus "$CORPUS" --edges "$CITATIONS" --out "$QA" \
+        2>&1 | tail -12 || die "QA generation"
   fi
-  "$PYTHON" - "$QA" "$CORPUS" <<'PY' || die "QA validation"
+  "$PYTHON" - "$QA" "$CORPUS" "$SERVICE" <<'PY' || die "QA validation"
 import json, re, sys
 from collections import Counter
 qa = json.load(open(sys.argv[1], encoding="utf-8"))
 ids = {c["chunk_id"] for c in json.load(open(sys.argv[2], encoding="utf-8"))}
+sys.path.insert(0, sys.argv[3])
+
 # A gold id that names no chunk scores zero recall for every strategy at once,
 # which is indistinguishable from a real result until someone checks.
 missing = {g for q in qa for g in q["gold_chunk_ids"] if g not in ids}
 assert not missing, f"gold ids absent from the corpus: {sorted(missing)[:5]}"
-# Gold is fixed by construction here, but a question that names its own answer
-# hands it to dense retrieval and makes the graph variants look worse for a
-# reason unrelated to graph structure.
-leaks = [q for q in qa if re.search(r"\b(Article|Section)\s+\d", q["query_text"])]
-if leaks:
-    kept = [q for q in qa if q not in leaks]
-    json.dump(kept, open(sys.argv[1], "w", encoding="utf-8"),
-              ensure_ascii=False, indent=1)
-    print(f"  dropped {len(leaks)} questions naming an article/section number")
-    qa = kept
-assert all(len(q["gold_chunk_ids"]) == 2 for q in qa), "a question lost a gold chunk"
+
+# Gold is the seed provision alone, and empty for the unanswerable stratum.
+# Anything else means the generator or the schema drifted, and Recall@K would
+# be measuring a different quantity than the write-up claims.
+for q in qa:
+    want = 0 if q["hop_type"] == "unanswerable" else 1
+    assert len(q["gold_chunk_ids"]) == want, \
+        f"{q['query_id']} ({q['hop_type']}) has {len(q['gold_chunk_ids'])} gold chunks"
+
+# The institution must not appear in the question text. That single change is
+# what the redesign rests on: named there it becomes the most frequent mention
+# in the set and drags retrieval into the institutional tier, which is never
+# gold.
+named = [q["query_id"] for q in qa if re.search(
+    r"trinity|cambridge|limerick|goettingen|georg-august", q["query_text"], re.I)]
+assert not named, f"questions naming an institution: {named[:5]}"
+leaks = [q["query_id"] for q in qa if re.search(
+    r"\b(article|section|schedule|paragraph|para\.?|regulation)\s+\d",
+    q["query_text"], re.I)]
+assert not leaks, f"questions citing a clause number: {leaks[:5]}"
+
+strata = Counter(q["hop_type"] for q in qa)
+assert set(strata) == {"cross_tier", "single", "unanswerable"}, dict(strata)
 by_juris = Counter(q["jurisdiction"] for q in qa)
-assert len(by_juris) == 3, f"a jurisdiction is missing from the question set: {dict(by_juris)}"
-# The rubric silently returns None without this block, so E1 would finish with
-# no rubric column and nothing to say why.
-assert all(q.get("scenario") for q in qa), "questions carry no scenario block"
-# Question length is an experimental condition: the pre-scenario set ran a
-# median of 36 words, and a much longer question hands dense retrieval keyword
-# surface, narrowing the gap being measured.
+assert len(by_juris) == 3, f"a jurisdiction is missing: {dict(by_juris)}"
+
+# Every question must name a system the scoping map knows. One that does not
+# falls back to the whole corpus while the rest are scoped, so it would be
+# answering an easier question than the others without saying so.
+from pipeline.jurisdiction import jurisdictions_for
+unmapped = [q["query_id"] for q in qa
+            if jurisdictions_for(q.get("source_system")) is None]
+assert not unmapped, f"source_system not in the jurisdiction map: {unmapped[:5]}"
+
 words = sorted(len(q["query_text"].split()) for q in qa)
-median = words[len(words) // 2]
-assert median <= 70, f"questions average {median} words; not comparable to the earlier set"
-print(f"  {len(qa)} questions, two gold chunks each, all ids resolve; {dict(by_juris)}")
-print(f"  median {median} words, scenario block on all")
+print(f"  {len(qa)} questions; strata {dict(strata)}; jurisdictions {dict(by_juris)}")
+print(f"  median {words[len(words)//2]} words; gold sizes "
+      f"{dict(Counter(len(q['gold_chunk_ids']) for q in qa))}")
 PY
 fi
 
@@ -312,7 +346,7 @@ if step 7 "extract query seeds (local SLM, no API)"; then
 fi
 
 # --------------------------------------------------------------------- 8. E2
-if step 8 "E2 — retrieval, all ten variants (no API cost)"; then
+if step 8 "E2 — retrieval, four strategies (no API cost)"; then
   "$PYTHON" evaluation/ablation/compare_all_strategies.py \
       --dataset "$QA" --ner-cache "$NER" \
       --strategies "$E2_STRATEGIES" --paired-ci \
@@ -321,9 +355,11 @@ if step 8 "E2 — retrieval, all ten variants (no API cost)"; then
 fi
 
 # --------------------------------------------------------------------- 9. E1
-# The judge is fed GENERATION_CONTEXT_K=5 chunks -- exactly what the SLM saw,
-# not the RETRIEVAL_K=10 ranked list -- so ~1.2k context tokens at the median.
-if step 9 "E1 — decisions and faithfulness, 8 strategies (~1.25M tokens, ~1.3 h)"; then
+# The judge is fed exactly what the SLM read: the top-GENERATION_CONTEXT_K
+# prefix plus any attached provisions. Judging against the ranked list
+# instead would mark a claim unsupported when it was grounded in an attached
+# clause the model had in front of it.
+if step 9 "E1 — decisions and faithfulness, 5 strategies (~1.9M tokens)"; then
   for s in $E1_STRATEGIES; do
     out="$REPO/results/${s}-${RUN_ID}.json"
     if [[ -f "$out" ]]; then
@@ -349,6 +385,9 @@ log "done. results in $REPO/results/, logs in $LOGS"
 echo "  E2 table : $LOGS/e2.log"
 echo "  E1 files : results/*-$RUN_ID.json"
 echo
-echo "  Re-score E1 with the corrected metrics (excludes unsound UNKNOWN labels,"
-echo "  splits answerable from unanswerable, adds McNemar):"
+echo "  Compare the strategies against each other (paired CIs and McNemar, which"
+echo "  the per-strategy summaries cannot give):"
 echo "     python -m evaluation.rescore --run-id $RUN_ID --dataset $QA"
+echo
+echo "  Graph selectivity, for the corpus comparison in the write-up:"
+echo "     python -m evaluation.benchmark.selectivity"

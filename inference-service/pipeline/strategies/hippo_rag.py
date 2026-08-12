@@ -31,6 +31,7 @@ from scipy import sparse
 import config
 from pipeline.base import RetrievalStrategy, RetrievedChunk, RetrievedContext
 from pipeline.entity_linking import link_entities
+from pipeline.jurisdiction import chunk_jurisdictions
 
 
 class HippoRagStrategy(RetrievalStrategy):
@@ -58,8 +59,26 @@ class HippoRagStrategy(RetrievalStrategy):
             self.node_names = {}
         self.index_node = {v: k for k, v in self.node_index.items()}
         self.index_chunk = {v: k for k, v in chunk_index.items()}
+        self._masks: dict[tuple[str, ...], np.ndarray] = {}
 
-    def retrieve(self, query: str, seed_entities: list[str], top_k: int) -> RetrievedContext:
+    def _scope_mask(self, allowed: tuple[str, ...]) -> np.ndarray:
+        """Column mask over passages, cached per jurisdiction scope.
+
+        There are only four distinct scopes in this deployment, so the mask is
+        built once each rather than per query.
+        """
+        cached = self._masks.get(allowed)
+        if cached is None:
+            juris = chunk_jurisdictions()
+            cached = np.array(
+                [juris.get(self.index_chunk.get(i)) in allowed
+                 for i in range(self.passage_matrix.shape[1])],
+                dtype=bool)
+            self._masks[allowed] = cached
+        return cached
+
+    def retrieve(self, query: str, seed_entities: list[str], top_k: int,
+                 allowed_jurisdictions: list[str] | None = None) -> RetrievedContext:
         seed_ids = [nid for nid in link_entities(seed_entities) if nid in self.node_index]
         if not seed_ids:
             return RetrievedContext()
@@ -68,6 +87,12 @@ class HippoRagStrategy(RetrievalStrategy):
 
         # Project node scores onto passages through the mention-count matrix
         passage_scores = self.passage_matrix.T @ node_scores
+        if allowed_jurisdictions is not None:
+            # Zero rather than remove, so column indices still line up with
+            # index_chunk. The `> 0` test below then drops them, which is the
+            # same route an unreached passage already takes.
+            passage_scores = np.where(
+                self._scope_mask(tuple(allowed_jurisdictions)), passage_scores, 0.0)
         top_cols = np.argsort(-passage_scores)[:top_k]
         chunks = [
             RetrievedChunk(

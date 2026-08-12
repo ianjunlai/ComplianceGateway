@@ -23,8 +23,12 @@ import random
 from collections import defaultdict
 from pathlib import Path
 
+import time
+
 import config
 from evaluation.stats import bootstrap_ci
+from pipeline.attachment import attach_citations
+from pipeline.jurisdiction import jurisdictions_for
 from pipeline.strategies import build_strategy
 
 HERE = Path(__file__).parent
@@ -48,8 +52,7 @@ def main() -> None:
                     help="bootstrap CI for each strategy's R@5 difference against "
                          f"{BASELINE}, over the same queries")
     ap.add_argument("--strategies", default=",".join(DEFAULT_STRATEGIES),
-                    help="comma-separated; add vec_relates,vec_cites,vec_both to "
-                         "compare edge provenance at a fixed entry mechanism")
+                    help="comma-separated")
     args = ap.parse_args()
 
     strategies = [s.strip() for s in args.strategies.split(",") if s.strip()]
@@ -71,35 +74,51 @@ def main() -> None:
     hop_types = sorted({q["hop_type"] for q in items})
     r10 = {s: defaultdict(list) for s in strategies}
     r5 = {s: [] for s in strategies}
-    r2 = {s: [] for s in strategies}     # R@2 is what the HippoRAG paper reports
+    latency = {s: [] for s in strategies}
+    ctx_size = {s: [] for s in strategies}
     empties = {s: 0 for s in strategies}
 
     for name in strategies:
         strategy = build_strategy(name)
         for q in items:
-            ctx = strategy.retrieve(q["query_text"], cache[q["query_id"]], config.RETRIEVAL_K)
+            # The same scope the online pipeline would apply, derived from the
+            # requesting institution. Without it E2 would measure retrieval
+            # over the whole corpus while E1 measured it over one jurisdiction,
+            # and the two would not describe the same system.
+            scope = jurisdictions_for(q.get("source_system"))
+            t0 = time.perf_counter()
+            ctx = strategy.retrieve(q["query_text"], cache[q["query_id"]],
+                                    config.RETRIEVAL_K, allowed_jurisdictions=scope)
+            latency[name].append((time.perf_counter() - t0) * 1000)
             ids = ctx.chunk_ids
             if not ids:
                 empties[name] += 1
+            # What the generator would actually read. Attachment is part of the
+            # platform, so its cost belongs in the retrieval comparison even
+            # though it does not affect Recall@K.
+            ctx_size[name].append(
+                len(attach_citations(ctx.truncated(config.GENERATION_CONTEXT_K),
+                                     scope).chunks))
             r10[name][q["hop_type"]].append(recall_at_k(ids, q["gold_chunk_ids"], 10))
             r5[name].append(recall_at_k(ids, q["gold_chunk_ids"], 5))
-            r2[name].append(recall_at_k(ids, q["gold_chunk_ids"], 2))
         print(f"  {name} done", flush=True)
 
-    header = (f"\n{'strategy':<12}{'R@2':>8}{'R@5':>8}{'R@10':>8}"
-              + "".join(f"{h:>10}" for h in hop_types) + f"{'empty':>8}")
+    mean = lambda v: sum(v) / len(v) if v else 0.0
+    header = (f"\n{'strategy':<12}{'R@5':>8}{'R@10':>8}{'latency':>10}{'context':>9}"
+              + "".join(f"{h:>12}" for h in hop_types) + f"{'empty':>7}")
     print(header)
     print("-" * len(header.strip()))
     for name in strategies:
         allv = [v for h in hop_types for v in r10[name][h]]
-        row = (f"{name:<12}{sum(r2[name])/len(r2[name]):>8.3f}"
-               f"{sum(r5[name])/len(r5[name]):>8.3f}{sum(allv)/len(allv):>8.3f}")
+        row = (f"{name:<12}{mean(r5[name]):>8.3f}{mean(allv):>8.3f}"
+               f"{mean(latency[name]):>9.0f}ms{mean(ctx_size[name]):>9.1f}")
         for h in hop_types:
             vals = r10[name][h]
-            row += f"{sum(vals)/len(vals):>10.3f}" if vals else f"{'-':>10}"
-        row += f"{empties[name]:>8}"
+            row += f"{mean(vals):>12.3f}" if vals else f"{'-':>12}"
+        row += f"{empties[name]:>7}"
         print(row)
-    print(f"\n(R@10 broken down by hop_type; 'empty' = queries that retrieved nothing at all)")
+    print("\n(R@10 broken down by hop_type; 'context' = chunks the generator would")
+    print(" read, attachments included; 'empty' = queries that retrieved nothing)")
 
     if args.paired_ci:
         # Paired: the same queries scored by both strategies, so the CI is over

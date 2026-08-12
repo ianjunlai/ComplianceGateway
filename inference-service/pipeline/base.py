@@ -12,6 +12,10 @@ class RetrievedChunk:
     chunk_id: str
     text: str
     score: float = 0.0
+    # Set when the chunk entered the context because a retrieved clause cites
+    # it, rather than by its own similarity to the query. Carries the id of the
+    # citing clause so the prompt can present the two together.
+    attached_to: str | None = None
 
 
 @dataclass
@@ -43,7 +47,14 @@ class RetrievedContext:
         if self.graph_edges:
             parts.append("## Relationships\n" + "\n".join(f"- {e}" for e in self.graph_edges))
         if self.chunks:
-            clauses = "\n\n".join(f"[{c.chunk_id}]\n{c.text}" for c in self.chunks)
+            # An attached provision is labelled with the clause that cites it.
+            # Without the label it reads as another independently retrieved
+            # clause, and the model has no way to see that one qualifies the
+            # other -- which is the whole reason it was attached.
+            clauses = "\n\n".join(
+                f"[{c.chunk_id}]" + (f" (cited by [{c.attached_to}])"
+                                     if c.attached_to else "") + f"\n{c.text}"
+                for c in self.chunks)
             parts.append("## Legal clauses\n" + clauses)
         return "\n\n".join(parts) if parts else "(no retrieved context)"
 
@@ -54,10 +65,18 @@ class RetrievalStrategy(ABC):
     name: str = "base"
 
     @abstractmethod
-    def retrieve(self, query: str, seed_entities: list[str], top_k: int) -> RetrievedContext:
+    def retrieve(self, query: str, seed_entities: list[str], top_k: int,
+                 allowed_jurisdictions: list[str] | None = None) -> RetrievedContext:
         """Return the legal context for the audit query.
 
         seed_entities: entity mentions extracted from the query by the local
         SLM (zero-shot NER); linking to graph nodes is strategy-specific.
+
+        allowed_jurisdictions: restrict candidates to these jurisdiction codes,
+        derived from the requesting institution. Provisions of another member
+        state are inapplicable to the request, not merely less relevant, so
+        this is a property of the deployment rather than an experimental
+        condition and every strategy honours it. None disables the filter,
+        which is what warm-up and unattributed requests get.
         """
         raise NotImplementedError

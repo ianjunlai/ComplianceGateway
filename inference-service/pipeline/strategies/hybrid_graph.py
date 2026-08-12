@@ -38,6 +38,7 @@ CALL (seed) {
 WITH seed, nbrs
 UNWIND ([seed] + nbrs) AS ent
 MATCH (ent)-[:MENTIONED_IN]->(c:Chunk)
+WHERE ($allowed IS NULL OR c.jurisdiction IN $allowed)
 WITH c, collect(DISTINCT ent.name) AS entities
 RETURN c.chunk_id AS chunk_id, c.text AS text, entities,
        vector.similarity.cosine(c.embedding, $qvec) AS score
@@ -68,6 +69,7 @@ CALL (seed) {
 WITH seed, nbrs
 UNWIND ([seed] + nbrs) AS ent
 MATCH (ent)-[:MENTIONED_IN]->(c:Chunk)
+WHERE ($allowed IS NULL OR c.jurisdiction IN $allowed)
 WITH collect(DISTINCT c) AS reached
 UNWIND reached AS c
 OPTIONAL MATCH (c)-[:CITES|IMPLEMENTS]-(linked:Chunk)
@@ -91,7 +93,8 @@ ORDER BY score DESC
 class HybridGraphStrategy(RetrievalStrategy):
     name = "hybrid"
 
-    def retrieve(self, query: str, seed_entities: list[str], top_k: int) -> RetrievedContext:
+    def retrieve(self, query: str, seed_entities: list[str], top_k: int,
+                 allowed_jurisdictions: list[str] | None = None) -> RetrievedContext:
         # Step 1: embedding-based entity linking
         seed_ids = link_entities(seed_entities)
         if not seed_ids:
@@ -110,6 +113,7 @@ class HybridGraphStrategy(RetrievalStrategy):
                 seed_ids=seed_ids,
                 qvec=embed_one(query),
                 limit=top_k,
+                allowed=allowed_jurisdictions,
             )
             chunks, nodes = [], set()
             for rec in records:

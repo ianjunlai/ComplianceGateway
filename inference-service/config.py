@@ -71,6 +71,22 @@ VECTOR_EXPAND_ENTRY_K = int(os.getenv("VECTOR_EXPAND_ENTRY_K", "5"))
 # single wrong argmax leaves the traversal with no usable anchor whereas
 # top-3 keeps a correct one in reach. Set to 1 to reproduce the paper's rule.
 ENTITY_LINK_TOP_K = int(os.getenv("ENTITY_LINK_TOP_K", "3"))
+
+# Citation attachment. A provision the retrieved clause cites is added to the
+# generation context directly, rather than competing for a rank on query
+# similarity -- see pipeline/attachment.py for why ranking cannot deliver it.
+# Applied to every strategy, so it is a property of the platform rather than an
+# experimental condition.
+ATTACH_CITATIONS = os.getenv("ATTACH_CITATIONS", "1") not in ("0", "false", "False")
+# Context window for the local SLM. Ollama's default is small and truncates
+# silently from the end, which is where attached provisions are placed, so it
+# has to be set rather than inherited. 16384 covers the worst case in this
+# corpus (about 18k tokens for ten of the longest chunks) with room for the
+# prompt; on an 80 GB card the KV cache for a 14B model at this length is a
+# small fraction of memory.
+SLM_NUM_CTX = int(os.getenv("SLM_NUM_CTX", "16384"))
+ATTACH_PER_CHUNK = int(os.getenv("ATTACH_PER_CHUNK", "2"))
+ATTACH_CONTEXT_CAP = int(os.getenv("ATTACH_CONTEXT_CAP", "10"))
 ENTITY_LINK_THRESHOLD = 0.75   # cosine sim tau, used only when TOP_K > 1
 # HippoRAG E'. The paper tunes a cosine cutoff of 0.8 on 100 MuSiQue training
 # questions, with ColBERTv2/Contriever. That number transfers across neither

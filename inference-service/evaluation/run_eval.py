@@ -147,6 +147,7 @@ def main() -> None:
                         "prediction": result.decision,
                         "reasoning": result.reasoning,
                         "retrieved_chunk_ids": result.retrieved_chunk_ids,
+                        "context_chunk_ids": result.context_chunk_ids,
                         "stage_timings_ms": result.stage_timings_ms,
                     })
                     log.info("%s gold=%s pred=%s",
@@ -200,13 +201,6 @@ def _judge_batch(staged: list[tuple[dict, dict, object]], chunk_texts: dict[str,
             row["faithfulness"] = _judge_row(q, result, chunk_texts)
         except Exception as e:  # noqa: BLE001
             log.warning("%s faithfulness failed: %s", q["query_id"], e)
-        try:
-            rubric = _rubric_row(q, result, chunk_texts)
-            if rubric is not None:
-                row["rubric_score"] = rubric["rubric_score"]
-                row["rubric_items"] = rubric["items"]
-        except Exception as e:  # noqa: BLE001
-            log.warning("%s rubric failed: %s", q["query_id"], e)
 
     if workers <= 1:
         for item in todo:
@@ -231,26 +225,19 @@ def _judge_row(q: dict, result, chunk_texts: dict[str, str]) -> float | None:
 
 
 def _reference_context(q: dict, result, chunk_texts: dict[str, str]) -> str:
+    """Exactly what the model read, and nothing else.
+
+    Attached provisions are part of that context, so they must be part of the
+    reference too. Judging against the truncated ranked list instead would mark
+    a claim unsupported when it was in fact grounded in an attached clause the
+    model had in front of it.
+    """
     if config.ACTIVE_STRATEGY == "zero_shot":
         return "\n\n".join(f"[{cid}]\n{chunk_texts.get(cid, '')}"
                            for cid in q["gold_chunk_ids"])
-    ids = result.retrieved_chunk_ids[: config.GENERATION_CONTEXT_K]
+    ids = (getattr(result, "context_chunk_ids", None)
+           or result.retrieved_chunk_ids[: config.GENERATION_CONTEXT_K])
     return "\n\n".join(f"[{cid}]\n{chunk_texts.get(cid, '')}" for cid in ids)
-
-
-def _rubric_row(q: dict, result, chunk_texts: dict[str, str]) -> dict | None:
-    """Completeness against the scenario the question was built from.
-
-    Returns None for datasets without a `scenario` block, so the single-tier
-    runs are unaffected. Scored against the same context as faithfulness — an
-    item the SLM could not have addressed because the clause was never
-    retrieved is a retrieval failure, and that is exactly what this is meant
-    to attribute.
-    """
-    from evaluation.judge import judge_decision_rubric
-
-    context = _reference_context(q, result, chunk_texts)
-    return judge_decision_rubric(result.reasoning, context, q)
 
 
 def _summarize(rows: list[dict]) -> dict:
@@ -283,20 +270,13 @@ def _summarize(rows: list[dict]) -> dict:
     if faith_vals:
         summary["faithfulness"] = bootstrap_ci(faith_vals)
         summary["faithfulness_n_scored"] = len(faith_vals)  # claims-free abstentions excluded
-    rubric_vals = [r["rubric_score"] for r in rows if r.get("rubric_score") is not None]
-    if rubric_vals:
-        summary["rubric"] = bootstrap_ci(rubric_vals)
-        summary["rubric_n_scored"] = len(rubric_vals)
-        # Per item, so a low total can be attributed. "applies_national_law"
-        # failing while the rest pass is the signature the three-tier corpus
-        # was built to expose: the answer used the GDPR and ignored the state.
-        summary["rubric_by_item"] = {
-            item: round(sum(1 for r in rows
-                            if r.get("rubric_items", {}).get(item) == "MET")
-                        / len(rubric_vals), 3)
-            for item in sorted({i for r in rows for i in r.get("rubric_items", {})})
-        }
-    # per hop_type breakdown (single/multi/trap/unanswerable)
+    # What the model actually read, attachments included. A strategy that wins
+    # by attaching a great deal pays for it in context, and Recall@K cannot see
+    # that cost.
+    ctx_sizes = [len(r["context_chunk_ids"]) for r in rows if r.get("context_chunk_ids")]
+    if ctx_sizes:
+        summary["context_size"] = bootstrap_ci([float(n) for n in ctx_sizes])
+    # per hop_type breakdown (cross_tier / single / unanswerable)
     summary["by_hop_type"] = {
         ht: decision_metrics(
             [r["prediction"] for r in rows if r["hop_type"] == ht],

@@ -43,6 +43,10 @@ class AuditResultEvent(BaseModel):
     decision: str  # APPROVE | DENY | UNKNOWN | ERROR
     reasoning: str = ""
     retrieved_chunk_ids: list[str] = Field(default_factory=list)
+    # The chunks the model actually read: the top-K prefix plus any provisions
+    # attached because a retrieved clause cites them. Longer than
+    # retrieved_chunk_ids[:K] whenever attachment fired.
+    context_chunk_ids: list[str] = Field(default_factory=list)
     strategy: str
     stage_timings_ms: dict[str, int] = Field(default_factory=dict)
     completed_at: str

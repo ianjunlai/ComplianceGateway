@@ -42,7 +42,13 @@ def generate_decision(query: str, context: RetrievedContext) -> ComplianceDecisi
         model=config.SLM_MODEL,
         messages=[{"role": "user", "content": prompt}],
         format=ComplianceDecision.model_json_schema(),
-        options={"temperature": 0},
+        # num_ctx must be set explicitly. Ollama defaults to a small window and
+        # silently truncates anything beyond it -- from the end, which is
+        # exactly where the attached provisions sit. Ten chunks of this corpus
+        # run about 2.5k tokens at the median and 18k at the tail, so the
+        # default would drop the cited provision on most requests and the
+        # attachment mechanism would appear to do nothing.
+        options={"temperature": 0, "num_ctx": config.SLM_NUM_CTX},
     )
     raw = response["message"]["content"]
     try:

@@ -10,6 +10,7 @@ from pipeline.graph import get_driver, index_score_to_cosine
 
 _SEARCH_QUERY = """
 CALL db.index.vector.queryNodes($index, $k, $vec) YIELD node, score
+WITH node, score WHERE ($allowed IS NULL OR node.jurisdiction IN $allowed)
 RETURN node.chunk_id AS chunk_id, node.text AS text, score
 """
 
@@ -22,18 +23,27 @@ RETURN node.chunk_id AS chunk_id, node.text AS text, score
 # retrieval, and would confound the comparison against the graph strategies,
 # which score their candidates exactly with vector.similarity.cosine.
 _OVERFETCH = 8
+# Neo4j Community has no pre-filter on a vector index, so a jurisdiction scope
+# is applied after the index returns. Between 38% and 60% of the corpus is out
+# of scope depending on the requester, and the nearest neighbours are not
+# spread evenly across jurisdictions, so the over-fetch has to be larger when
+# filtering or a run can come back with fewer than top_k admissible chunks.
+_OVERFETCH_FILTERED = 20
 
 
 class VectorRagStrategy(RetrievalStrategy):
     name = "vector_rag"
 
-    def retrieve(self, query: str, seed_entities: list[str], top_k: int) -> RetrievedContext:
+    def retrieve(self, query: str, seed_entities: list[str], top_k: int,
+                 allowed_jurisdictions: list[str] | None = None) -> RetrievedContext:
+        over = _OVERFETCH if allowed_jurisdictions is None else _OVERFETCH_FILTERED
         with get_driver().session() as session:
             records = session.run(
                 _SEARCH_QUERY,
                 index=config.INDEX_CHUNKS,
-                k=top_k * _OVERFETCH,
+                k=top_k * over,
                 vec=embed_one(query),
+                allowed=allowed_jurisdictions,
             )
             chunks = [
                 RetrievedChunk(

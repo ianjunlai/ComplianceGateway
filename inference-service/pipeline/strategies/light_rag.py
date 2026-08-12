@@ -35,6 +35,7 @@ UNWIND $vectors AS vec
 CALL db.index.vector.queryNodes($index, $limit, vec) YIELD node, score
 WITH node, max(score) AS score
 MATCH (node)-[:MENTIONED_IN]->(c:Chunk)
+WHERE ($allowed IS NULL OR c.jurisdiction IN $allowed)
 RETURN node.node_id AS node_id, node.name AS name, score,
        c.chunk_id AS chunk_id,
        COUNT {
@@ -66,6 +67,7 @@ _NEIGHBOUR_QUERY = """
 UNWIND $node_ids AS nid
 MATCH (seed:Entity {node_id: nid})-[:RELATES]-(nbr:Entity)
 MATCH (nbr)-[:MENTIONED_IN]->(c:Chunk)
+WHERE ($allowed IS NULL OR c.jurisdiction IN $allowed)
 WITH nbr, c, count(DISTINCT seed) AS support
 RETURN nbr.name AS name, c.chunk_id AS chunk_id, c.text AS text, support
 ORDER BY support DESC, c.chunk_id
@@ -97,6 +99,7 @@ RETURN c.chunk_id AS chunk_id, c.text AS text
 _RANK_QUERY = """
 UNWIND $chunk_ids AS cid
 MATCH (c:Chunk {chunk_id: cid})
+WHERE ($allowed IS NULL OR c.jurisdiction IN $allowed)
 RETURN c.chunk_id AS chunk_id, c.text AS text,
        vector.similarity.cosine(c.embedding, $qvec) AS score
 ORDER BY score DESC
@@ -111,7 +114,8 @@ class LightRagStrategy(RetrievalStrategy):
     # evidence — a weak match ranks lower instead of poisoning a traversal.
     LOW_LEVEL_HITS_PER_MENTION = 3
 
-    def retrieve(self, query: str, seed_entities: list[str], top_k: int) -> RetrievedContext:
+    def retrieve(self, query: str, seed_entities: list[str], top_k: int,
+                 allowed_jurisdictions: list[str] | None = None) -> RetrievedContext:
         qvec = embed_one(query)
         mention_vecs = embed(seed_entities) if seed_entities else [qvec]
 
@@ -122,6 +126,7 @@ class LightRagStrategy(RetrievalStrategy):
                     vectors=mention_vecs,
                     index=config.INDEX_ENTITIES,
                     limit=self.LOW_LEVEL_HITS_PER_MENTION,
+                    allowed=allowed_jurisdictions,
                 )
             ]
             edge_hits = [
@@ -167,7 +172,8 @@ class LightRagStrategy(RetrievalStrategy):
                 best_direct = -min(chunk_keys.values(), default=(-1.0, 0.0))[0]
                 expanded_score = best_direct * config.LIGHTRAG_NEIGHBOUR_DECAY
                 for r in session.run(
-                    _NEIGHBOUR_QUERY, node_ids=sorted(expansion_seeds), limit=top_k * 4
+                    _NEIGHBOUR_QUERY, node_ids=sorted(expansion_seeds),
+                    limit=top_k * 4, allowed=allowed_jurisdictions
                 ):
                     node_best.setdefault(r["name"], expanded_score)
                     chunk_texts[r["chunk_id"]] = r["text"]
@@ -178,7 +184,8 @@ class LightRagStrategy(RetrievalStrategy):
 
             nodes = [n for n, _ in sorted(node_best.items(), key=lambda kv: -kv[1])][:top_k]
             if config.LIGHTRAG_RANK_BY_QUERY:
-                chunks = self._rank_by_query(session, list(chunk_keys), qvec, top_k)
+                chunks = self._rank_by_query(session, list(chunk_keys), qvec,
+                                             top_k, allowed_jurisdictions)
             else:
                 ranked = sorted(chunk_keys.items(), key=lambda kv: kv[1])[:top_k]
                 chunks = self._fetch_chunks(session, ranked, chunk_texts)
@@ -186,7 +193,7 @@ class LightRagStrategy(RetrievalStrategy):
         return RetrievedContext(chunks=chunks, graph_nodes=nodes, graph_edges=edges)
 
     def _rank_by_query(self, session, chunk_ids: list[str], qvec: list[float],
-                       top_k: int) -> list[RetrievedChunk]:
+                       top_k: int, allowed: list[str] | None = None) -> list[RetrievedChunk]:
         """Rank the admitted clauses by query similarity, scored in-database so
         only the top-k cross the wire."""
         if not chunk_ids:
@@ -194,7 +201,8 @@ class LightRagStrategy(RetrievalStrategy):
         return [
             RetrievedChunk(chunk_id=r["chunk_id"], text=r["text"],
                            score=index_score_to_cosine(r["score"]))
-            for r in session.run(_RANK_QUERY, chunk_ids=chunk_ids, qvec=qvec)
+            for r in session.run(_RANK_QUERY, chunk_ids=chunk_ids, qvec=qvec,
+                                 allowed=allowed)
         ][:top_k]
 
     def _fetch_chunks(self, session, ranked: list[tuple[str, tuple[float, float]]],

@@ -59,6 +59,7 @@ json_field() {  # json_field <json> <key>
 
 BACKEND_PID=""
 BACKEND_KIND=""
+BACKEND_COND=""
 BACKEND_LOG=""
 
 PREFLIGHT_BODY='{"source_system":"uni_a","audit_query":"May a university transfer student data to a US partner?"}'
@@ -70,7 +71,7 @@ stop_backend() {
   # The embedding model takes a moment to release; SIGKILL only if it lingers.
   for _ in $(seq 1 20); do kill -0 "$BACKEND_PID" 2>/dev/null || break; sleep 1; done
   kill -0 "$BACKEND_PID" 2>/dev/null && kill -9 "$BACKEND_PID" 2>/dev/null
-  BACKEND_PID=""; BACKEND_KIND=""
+  BACKEND_PID=""; BACKEND_KIND=""; BACKEND_COND=""
   sleep 3
 }
 
@@ -100,9 +101,19 @@ wait_ready() {  # wait_ready consumer|sync
   return 1
 }
 
-start_backend() {  # start_backend consumer|sync
-  local kind="$1"
-  [[ "$BACKEND_KIND" == "$kind" ]] && return 0
+start_backend() {  # start_backend consumer|sync [condition]
+  local kind="$1" cond="${2:-}"
+  # Reuse a backend of the same kind only within one condition. sync and
+  # throttled both run on sync_api, and skipping the restart between them
+  # carries the previous condition's backlog across: a C=100 run leaves about
+  # a hundred requests queued in a single-worker uvicorn, and at 14B that is
+  # several minutes of work. The next condition's preflight then queues behind
+  # it and hits the gateway's 240 s read timeout, which reads as a broken
+  # backend. Restarting also keeps each condition's measurement free of the
+  # previous one's tail.
+  if [[ "$BACKEND_KIND" == "$kind" && "$BACKEND_COND" == "$cond" ]]; then
+    return 0
+  fi
   stop_backend
   cd "$REPO/inference-service" || exit 1
   if [[ "$kind" == "consumer" ]]; then
@@ -116,6 +127,7 @@ start_backend() {  # start_backend consumer|sync
   fi
   BACKEND_PID=$!
   BACKEND_KIND="$kind"
+  BACKEND_COND="$cond"
   log "started $kind (pid $BACKEND_PID)"
   wait_ready "$kind"
 }
@@ -221,7 +233,7 @@ for rep in $(seq 1 "$REPS"); do
         continue
       fi
 
-      start_backend "$backend" \
+      start_backend "$backend" "$cond" \
         || { log "aborting: the $backend backend did not come up"; stop_backend; exit 1; }
       preflight "$cond" \
         || { log "aborting: fix the backend before spending GPU time on the matrix"; stop_backend; exit 1; }

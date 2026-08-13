@@ -26,10 +26,10 @@ CHECK=0
 #
 # MUST KEEP -- cost real money or real GPU hours, and are not deterministic:
 #   extraction_cache.json   ~983k tokens of entity/relation extraction
-#   crosstier_qa_full.json  ~180k tokens, and regenerating gives DIFFERENT
+#   qa_v2.json              ~230k tokens, and regenerating gives DIFFERENT
 #                           questions, so old results stop being comparable
-#   results/                the experiment itself
-#   ner_seed_cache_full.json  free in tokens but needs Ollama and a GPU pass
+#   results/                all three experiments
+#   ner_seed_cache_v2.json  free in tokens but needs Ollama and a GPU pass
 #
 # KEEP -- tiny, and they are the provenance the write-up cites:
 #   indexing_cost_report.json, extraction_token_usage_note.md, dedup_report.json
@@ -42,10 +42,12 @@ WANT=(
   "inference-service/artifacts_full/indexing_cost_report.json"
   "inference-service/artifacts_full/dedup_report.json"
   "inference-service/artifacts_full/extraction_token_usage_note.md"
-  "inference-service/evaluation/benchmark/ner_seed_cache_full.json"
-  "dataset/crosstier_qa_full.json"
+  "inference-service/evaluation/benchmark/ner_seed_cache_v2.json"
+  "dataset/qa_v2.json"
   "dataset/corpus/full_corpus.json"
   "dataset/corpus/full_citations.json"
+  # Everything the run produced: E1 per-strategy results and their .jsonl
+  # resume ledgers, the E2 table, the E3 .jtl files and manifest, and every log.
   "results"
 )
 

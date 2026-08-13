@@ -41,7 +41,9 @@ WANT=(
   "inference-service/artifacts_full/extraction_cache.json"
   "inference-service/artifacts_full/indexing_cost_report.json"
   "inference-service/artifacts_full/dedup_report.json"
-  "inference-service/artifacts_full/extraction_token_usage_note.md"
+  # No extraction_token_usage_note.md here: that was a hand-written note in the
+  # single-tier artifacts/ directory and never existed for this corpus. The
+  # token counts it recorded are in indexing_cost_report.json programmatically.
   "inference-service/evaluation/benchmark/ner_seed_cache_v2.json"
   "dataset/qa_v2.json"
   "dataset/corpus/full_corpus.json"

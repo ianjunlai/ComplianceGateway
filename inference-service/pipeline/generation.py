@@ -35,9 +35,46 @@ Rules:
 {query}
 """
 
+# The zero-shot condition needs its own prompt, not the one above with an empty
+# context block.
+#
+# The retrieval prompt says "based STRICTLY on the legal context provided" and
+# "UNKNOWN if the provided context is insufficient". Rendered with no context
+# those two lines make UNKNOWN the only correct answer to every question, and a
+# model that follows instructions will abstain on all of them -- measured at
+# 93% with a 14B model, against 13% with an 8B one that ignored the
+# instruction. That measures instruction-following, not what the baseline is
+# for.
+#
+# Zero-shot is meant to answer the question the retrieval conditions answer,
+# using what the model already knows instead of retrieved text. UNKNOWN stays
+# available, because the unanswerable stratum needs it, but nothing here
+# invites it.
+_ZERO_SHOT_PROMPT = """You are a GDPR compliance auditor for a federation of universities.
+Decide whether the requested data operation is compliant, using your own
+knowledge of the GDPR and of national data protection law. No legal text is
+supplied with this request.
+
+Rules:
+- APPROVE if the operation is permitted under the law as you understand it.
+- DENY if it is prohibited, or if a required safeguard would be missing.
+- UNKNOWN only where the answer turns on a detail the legislation itself leaves
+  open, for example one set by secondary legislation.
+- In `reasoning`, name the provisions you are relying on.
+
+# Audit request
+{query}
+"""
+
 
 def generate_decision(query: str, context: RetrievedContext) -> ComplianceDecision:
-    prompt = _AUDIT_PROMPT.format(context=context.to_prompt_block(), query=query)
+    # Keyed on the configured strategy rather than on whether the context came
+    # back empty: a retrieval strategy that found nothing must still be judged
+    # against the retrieval prompt, because retrieving nothing is its result.
+    if config.ACTIVE_STRATEGY == "zero_shot":
+        prompt = _ZERO_SHOT_PROMPT.format(query=query)
+    else:
+        prompt = _AUDIT_PROMPT.format(context=context.to_prompt_block(), query=query)
     response = _client().chat(
         model=config.SLM_MODEL,
         messages=[{"role": "user", "content": prompt}],

@@ -1,0 +1,2224 @@
+[
+ {
+  "query_id": "q2-001",
+  "query_text": "A university consents to the Information Commissioner conducting an assessment of whether its processing of student attendance records follows good practice. Must the Commissioner inform the university of the results of this assessment?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s129"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "UK"
+  },
+  "partner_chunk_id": "gdpr-art-58-1",
+  "citation": "Article 58(1)",
+  "attached": [
+   "gdpr-art-58-1",
+   "uk-dpa-s124A"
+  ],
+  "uses_attached": [
+   "gdpr-art-58-1"
+  ],
+  "generator_rationale": "Article 58(1) establishes the supervisory authority's investigative power to carry out data protection audits, while the main provision adds the specific obligation to inform the controller of the results of a consensual assessment."
+ },
+ {
+  "query_id": "q2-002",
+  "query_text": "A university processes staff health records to assess an employee's working capacity following prolonged sick leave, sharing results with an occupational health provider. Is this processing of special category data permitted?",
+  "source_system": "goettingen",
+  "jurisdiction": "DE",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "de-bdsg-s26"
+  ],
+  "target": {
+   "kind": "another_institution",
+   "jurisdiction": "DE"
+  },
+  "partner_chunk_id": "gdpr-art-9-1",
+  "citation": "Article 9 (1)",
+  "attached": [
+   "gdpr-art-9-1",
+   "de-bdsg-s22"
+  ],
+  "uses_attached": [
+   "gdpr-art-9-1",
+   "de-bdsg-s22"
+  ],
+  "generator_rationale": "GDPR Article 9(1) establishes the general prohibition on processing health data as a special category, while BDSG Section 26(3) provides the employment-specific derogation permitting such processing when necessary to exercise labour law rights, and Section 22(1)(b) further authorises processing for assessing employee working capacity."
+ },
+ {
+  "query_id": "q2-003",
+  "query_text": "A university intends to transfer student transcript records to a partner university in a third country using standard data protection clauses issued by the UK Information Commissioner. The clauses were issued but Parliament resolved not to approve them within the 40-day period. Is this transfer permitted?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "uk-dpa-s119A"
+  ],
+  "target": {
+   "kind": "third_country",
+   "jurisdiction": "non-EEA"
+  },
+  "partner_chunk_id": "gdpr-art-46",
+  "citation": "Article 46",
+  "attached": [
+   "gdpr-art-46",
+   "uk-dpa-s17C"
+  ],
+  "uses_attached": [
+   "gdpr-art-46",
+   "uk-dpa-s119A"
+  ],
+  "generator_rationale": "Article 46 establishes that transfers to third countries require appropriate safeguards such as standard data protection clauses, while the DPA provision specifies that clauses disapproved by Parliament within 40 days are treated as never having been issued and cannot serve as valid safeguards."
+ },
+ {
+  "query_id": "q2-004",
+  "query_text": "A university transfers health records of its staff members to a public health authority to support an epidemiological study on occupational diseases. The staff members have not given explicit consent. Is this further processing of special category data for a new purpose permitted?",
+  "source_system": "goettingen",
+  "jurisdiction": "DE",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s23"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "DE"
+  },
+  "partner_chunk_id": "gdpr-art-9-1",
+  "citation": "Article 9 (1)",
+  "attached": [
+   "gdpr-art-9-1",
+   "gdpr-art-9-2"
+  ],
+  "uses_attached": [
+   "gdpr-art-9-1",
+   "gdpr-art-9-2"
+  ],
+  "generator_rationale": "BDSG Section 23(2) requires both a subsection 1 condition and an Article 9(2) exception for further processing of special category data; while a public interest ground under subsection 1(3) may be met, no Article 9(2) exception such as explicit consent or vital interests applies here."
+ },
+ {
+  "query_id": "q2-005",
+  "query_text": "A former student submits a subject access request for all personal data held about them, including records that have been shared with the Insolvency Service during an investigation into a personal insolvency practitioner. Must the university disclose those shared records?",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "ie-dpa-s221"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "IE"
+  },
+  "partner_chunk_id": "gdpr-art-15",
+  "citation": "Article 15",
+  "attached": [
+   "gdpr-art-15",
+   "ie-dpa-s176"
+  ],
+  "uses_attached": [
+   "gdpr-art-15",
+   "ie-dpa-s221"
+  ],
+  "generator_rationale": "GDPR Article 15 establishes the general right of access, while the national provision restricts that right where data is processed by the Insolvency Service for investigations under the Personal Insolvency Act."
+ },
+ {
+  "query_id": "q2-006",
+  "query_text": "A former student submits a subject access request to a commission of investigation for all personal data they previously provided as a witness. Must the commission disclose those records?",
+  "source_system": "tcd",
+  "jurisdiction": "IE",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "ie-dpa-s198"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "IE"
+  },
+  "partner_chunk_id": "gdpr-art-15",
+  "citation": "Article 15",
+  "attached": [
+   "gdpr-art-15",
+   "ie-dpa-s39"
+  ],
+  "uses_attached": [
+   "gdpr-art-15",
+   "ie-dpa-s198"
+  ],
+  "generator_rationale": "Article 15 establishes the general right of access, while the national provision restricts that right for personal data provided to a commission of investigation to safeguard its effective operation and witness cooperation."
+ },
+ {
+  "query_id": "q2-007",
+  "query_text": "A former staff member requests access to internal emails between the legal team and external counsel discussing their dismissal. The emails contain the staff member's personal data and were created during ongoing employment tribunal proceedings. Must the institution comply with this access request?",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "ie-dpa-s162"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "IE"
+  },
+  "partner_chunk_id": "gdpr-art-12",
+  "citation": "Article 12",
+  "attached": [
+   "gdpr-art-12",
+   "gdpr-art-22"
+  ],
+  "uses_attached": [
+   "gdpr-art-12"
+  ],
+  "generator_rationale": "Article 12 establishes the general obligation to respond to access requests within one month, while the national provision exempts personal data subject to legal professional privilege from those rights."
+ },
+ {
+  "query_id": "q2-008",
+  "query_text": "A former student submits a subject access request for all personal data held about them, including records currently being processed as part of an active investigation by the Property Services Regulatory Authority. Must the Authority disclose those investigation-related records?",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "ie-dpa-s218"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "IE"
+  },
+  "partner_chunk_id": "gdpr-art-15",
+  "citation": "Article 15",
+  "attached": [
+   "gdpr-art-15",
+   "ie-dpa-s2"
+  ],
+  "uses_attached": [
+   "gdpr-art-15",
+   "ie-dpa-s2"
+  ],
+  "generator_rationale": "Article 15 establishes the general right of access, while the national provision restricts that right to the extent necessary and proportionate for the Authority to perform investigation functions under the Property Services (Regulation) Act 2011."
+ },
+ {
+  "query_id": "q2-009",
+  "query_text": "A former student requests erasure of their archived paper application records stored in physical files. The records are no longer needed for any processing purpose, but erasure would require disproportionate effort due to the specific non-automated storage method, and the student's interest in erasure is minimal.",
+  "source_system": "goettingen",
+  "jurisdiction": "DE",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s35"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "none"
+  },
+  "partner_chunk_id": "gdpr-art-18",
+  "citation": "Article 18",
+  "attached": [
+   "gdpr-art-17",
+   "gdpr-art-18"
+  ],
+  "uses_attached": [
+   "gdpr-art-17",
+   "gdpr-art-18"
+  ],
+  "generator_rationale": "GDPR Article 17(1)(a) establishes the right to erasure when data are no longer necessary, while BDSG Section 35(1) provides that for non-automated processing where erasure involves disproportionate effort and the data subject's interest is minimal, erasure is replaced by restriction of processing under Article 18."
+ },
+ {
+  "query_id": "q2-010",
+  "query_text": "A former student submits a subject access request for all personal data held about them, including records previously transferred to the Commission to Inquire Into Child Abuse. Must the university provide access to those transferred records?",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "ie-dpa-s188"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "IE"
+  },
+  "partner_chunk_id": "gdpr-art-15",
+  "citation": "Article 15",
+  "attached": [
+   "gdpr-art-15",
+   "ie-dpa-s2"
+  ],
+  "uses_attached": [
+   "gdpr-art-15",
+   "ie-dpa-s188"
+  ],
+  "generator_rationale": "Article 15 establishes the general right of access, while the national provision restricts that right for data in the custody of the Commission to Inquire Into Child Abuse to safeguard its functions."
+ },
+ {
+  "query_id": "q2-011",
+  "query_text": "A student advocacy organisation wants to lodge a complaint with the supervisory authority on behalf of enrolled students regarding the processing of their attendance records. Is the organisation permitted to do so without individual written authorisation from each student?",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "ie-dpa-s107"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "IE"
+  },
+  "partner_chunk_id": "gdpr-art-58-2",
+  "citation": "Article 58(2)",
+  "attached": [
+   "gdpr-art-58-2",
+   "ie-dpa-s110"
+  ],
+  "uses_attached": [],
+  "generator_rationale": "Section 107 defines a complainant as including a not-for-profit body lodging a complaint in accordance with Article 80(1), while Article 80(1) (referenced but not supplied) requires the data subject to have given the body a mandate, meaning individual authorisation is necessary."
+ },
+ {
+  "query_id": "q2-012",
+  "query_text": "A student submits an access request for their counselling records held by the student health service. The university intends to withhold the records on the basis that disclosure would be likely to cause serious harm to the student's physical or mental health. May the university refuse the request on this ground?",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "ie-dpa-s68"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "IE"
+  },
+  "partner_chunk_id": "gdpr-art-15",
+  "citation": "Article 15",
+  "attached": [
+   "gdpr-art-15",
+   "ie-dpa-s2"
+  ],
+  "uses_attached": [
+   "gdpr-art-15",
+   "ie-dpa-s68"
+  ],
+  "generator_rationale": "GDPR Article 15 establishes the general right of access, while the national health regulations under section 68 permit restriction only to the extent and for so long as the likelihood of serious harm pertains, requiring a proportionate partial assessment rather than blanket refusal."
+ },
+ {
+  "query_id": "q2-013",
+  "query_text": "A university intends to share biometric attendance data of its students with a public health authority to help trace a serious cross-border infectious disease outbreak. Is this processing of special category data permitted?",
+  "source_system": "goettingen",
+  "jurisdiction": "DE",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "de-bdsg-s22"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "DE"
+  },
+  "partner_chunk_id": "gdpr-art-9-1",
+  "citation": "Article 9 (1)",
+  "attached": [
+   "gdpr-art-9-1",
+   "de-bdsg-s23"
+  ],
+  "uses_attached": [
+   "gdpr-art-9-1"
+  ],
+  "generator_rationale": "GDPR Article 9(1) establishes the general prohibition on processing special category data including biometric data, while BDSG Section 22(1)(1)(c) provides the national derogation permitting such processing for public interest reasons in public health, specifically protecting against serious cross-border health threats."
+ },
+ {
+  "query_id": "q2-014",
+  "query_text": "A lecturer manually maintains a paper filing cabinet of student attendance records and shares copies with a partner university for a joint programme review. Does the data protection framework apply to this processing?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s4"
+  ],
+  "target": {
+   "kind": "another_institution",
+   "jurisdiction": "UK"
+  },
+  "partner_chunk_id": "gdpr-art-2",
+  "citation": "Article 2",
+  "attached": [
+   "gdpr-art-2"
+  ],
+  "uses_attached": [
+   "gdpr-art-2"
+  ],
+  "generator_rationale": "The DPA 2018 provision directs that Part 2 applies wherever UK GDPR applies, and Article 2 confirms the GDPR covers non-automated processing of personal data forming part of a filing system."
+ },
+ {
+  "query_id": "q2-015",
+  "query_text": "A representative body has brought proceedings on behalf of students whose attendance records were unlawfully disclosed, and the court ordered compensation for distress. May the court direct that compensation be paid to the representative body rather than directly to each affected student?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s168"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "UK"
+  },
+  "partner_chunk_id": "gdpr-art-82",
+  "citation": "Article 82",
+  "attached": [
+   "gdpr-art-82",
+   "uk-dpa-s180"
+  ],
+  "uses_attached": [
+   "gdpr-art-82"
+  ],
+  "generator_rationale": "Article 82 establishes the right to compensation for material or non-material damage from GDPR infringements, while the national provision specifies that courts may order compensation paid to the representative body rather than directly to the data subject."
+ },
+ {
+  "query_id": "q2-016",
+  "query_text": "A former student requests copies of all personal data held about them, including confidential references written by academic staff that were submitted to a partner university as part of a joint programme application. Must the university disclose the full text of those references to the student?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "uk-dpa-s15"
+  ],
+  "target": {
+   "kind": "another_institution",
+   "jurisdiction": "UK"
+  },
+  "partner_chunk_id": "gdpr-art-15",
+  "citation": "Article 15",
+  "attached": [
+   "gdpr-art-13",
+   "gdpr-art-15"
+  ],
+  "uses_attached": [
+   "gdpr-art-15"
+  ],
+  "generator_rationale": "Article 15 establishes the general right of access to personal data, while Schedule 2 Part 3 of the DPA 2018 restricts that right where disclosure would reveal information identifying another individual, such as the referee, without their consent."
+ },
+ {
+  "query_id": "q2-017",
+  "query_text": "A public archive requests copies of historical student enrollment records containing health-related disability accommodations from decades ago to preserve them for public interest research. The records would be stored under pseudonymous identifiers. Is this transfer and processing of special category data permitted?",
+  "source_system": "goettingen",
+  "jurisdiction": "DE",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "de-bdsg-s28"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "DE"
+  },
+  "partner_chunk_id": "gdpr-art-9-1",
+  "citation": "Article 9 (1)",
+  "attached": [
+   "gdpr-art-9-1",
+   "de-bdsg-s13"
+  ],
+  "uses_attached": [
+   "gdpr-art-9-1"
+  ],
+  "generator_rationale": "Article 9(1) establishes the general prohibition on processing special category data including health data, while Section 28(1) provides the national derogation permitting such processing when necessary for archiving purposes in the public interest with appropriate safeguards."
+ },
+ {
+  "query_id": "q2-018",
+  "query_text": "A federal ministry requests staff health records and political affiliation data from a university to evaluate a professor for a national order of merit, without notifying the professor. May the university disclose these special category data?",
+  "source_system": "goettingen",
+  "jurisdiction": "DE",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "de-bdsg-s86"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "DE"
+  },
+  "partner_chunk_id": "gdpr-art-9-1",
+  "citation": "Article 9 (1)",
+  "attached": [
+   "gdpr-art-9-1",
+   "de-bdsg-s1"
+  ],
+  "uses_attached": [
+   "gdpr-art-9-1"
+  ],
+  "generator_rationale": "Section 86 BDSG permits processing special category data without the data subject's knowledge for government honours procedures, while Article 9(1) GDPR establishes the general prohibition on such data that Section 86 specifically derogates from."
+ },
+ {
+  "query_id": "q2-020",
+  "query_text": "A former student requests that their full academic transcript and module grades be transmitted directly in a machine-readable format to a partner university in another EEA country where they are enrolling. The original processing was based on the performance of an educational contract and carried out by automated means.",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s180A"
+  ],
+  "target": {
+   "kind": "another_institution",
+   "jurisdiction": "EEA"
+  },
+  "partner_chunk_id": "gdpr-art-15",
+  "citation": "Article 15",
+  "attached": [
+   "gdpr-art-15",
+   "gdpr-art-20"
+  ],
+  "uses_attached": [
+   "gdpr-art-20"
+  ],
+  "generator_rationale": "Article 20 establishes the right to data portability including direct controller-to-controller transmission where processing is contract-based and automated, while the main provision confirms courts can enforce this right and inspect relevant data before ordering disclosure."
+ },
+ {
+  "query_id": "q2-021",
+  "query_text": "A prospective employer requires a job applicant to submit a copy of their full health record obtained via a subject access request as a condition of their employment contract. The applicant is a recent graduate whose medical data was held by the university's occupational health service.",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "uk-dpa-s185"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "UK"
+  },
+  "partner_chunk_id": "gdpr-art-20",
+  "citation": "Article 20",
+  "attached": [
+   "gdpr-art-15",
+   "gdpr-art-20"
+  ],
+  "uses_attached": [
+   "gdpr-art-15"
+  ],
+  "generator_rationale": "Article 15 establishes the data subject access right that the applicant would exercise, while the main provision voids any contractual term requiring an individual to supply a health record obtained through such a right."
+ },
+ {
+  "query_id": "q2-022",
+  "query_text": "A university uses solely automated processing to shortlist student applicants for a government-funded scholarship scheme authorised by statute, then notifies rejected applicants in writing. One applicant requests reconsideration within one month. Must the university comply with that request within one month of receipt?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s14"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "UK"
+  },
+  "partner_chunk_id": "gdpr-art-22",
+  "citation": "Article 22(1)",
+  "attached": [
+   "gdpr-art-12",
+   "gdpr-art-22"
+  ],
+  "uses_attached": [
+   "gdpr-art-12",
+   "gdpr-art-22"
+  ],
+  "generator_rationale": "The DPA 2018 provision establishes the right to request reconsideration of a qualifying significant automated decision and cross-references Article 12(3) for the response timeline, while Article 12(3) supplies the one-month deadline (extendable by two months) for acting on such requests."
+ },
+ {
+  "query_id": "q2-023",
+  "query_text": "A university transfers a staff member's health records to a public health authority investigating an occupational disease outbreak, without the employee's consent. The authority needs the data to protect public health.",
+  "source_system": "goettingen",
+  "jurisdiction": "DE",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s25"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "DE"
+  },
+  "partner_chunk_id": "gdpr-art-9-2",
+  "citation": "Article 9 (2)",
+  "attached": [
+   "gdpr-art-9-1",
+   "gdpr-art-9-2"
+  ],
+  "uses_attached": [
+   "gdpr-art-9-1",
+   "gdpr-art-9-2"
+  ],
+  "generator_rationale": "BDSG Section 25(3) permits transfer of special category data only if both a Section 25(1)/(2) condition and an Article 9(2) exception apply; public health investigation by an authority does not satisfy any listed Article 9(2) exception without explicit consent or a specific Member State law basis."
+ },
+ {
+  "query_id": "q2-024",
+  "query_text": "A public authority requests the Commissioner impose a penalty on a university for failing to secure student grade records. The university self-reported the breach immediately and implemented new encryption. Must the Commissioner consider these mitigating factors when determining the penalty amount?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s155"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "UK"
+  },
+  "partner_chunk_id": "gdpr-art-83-1",
+  "citation": "Article 83(1)",
+  "attached": [
+   "gdpr-art-83-1",
+   "uk-dpa-s115"
+  ],
+  "uses_attached": [
+   "gdpr-art-83-1",
+   "uk-dpa-s115"
+  ],
+  "generator_rationale": "Section 155 establishes the Commissioner's power to issue penalty notices and directs consideration of listed factors, while Article 83(2) supplies the specific criteria including cooperation, mitigation efforts, and technical measures that must be weighed."
+ },
+ {
+  "query_id": "q2-025",
+  "query_text": "A university shares student attendance records with a public authority to support an investigation into electoral fraud. Is this processing lawful under the public interest basis?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s8"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "UK"
+  },
+  "partner_chunk_id": "gdpr-art-6-1",
+  "citation": "Article 6(1)",
+  "attached": [
+   "gdpr-art-6-1",
+   "uk-dpa-s213"
+  ],
+  "uses_attached": [
+   "gdpr-art-6-1",
+   "uk-dpa-s8"
+  ],
+  "generator_rationale": "Article 6(1)(e) provides the public interest lawfulness basis, while the DPA s8 clarifies that supporting democratic engagement qualifies as a public interest task under UK law."
+ },
+ {
+  "query_id": "q2-026",
+  "query_text": "A university plans to use student attendance and grade records to identify and exclude individual students predicted to underperform, applying targeted academic interventions. The processing is framed as scientific research into student outcomes. Is this permitted under the research safeguards?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "uk-dpa-s19"
+  ],
+  "target": {
+   "kind": "internal",
+   "jurisdiction": "UK"
+  },
+  "partner_chunk_id": "gdpr-art-89",
+  "citation": "Article 89(1)",
+  "attached": [
+   "gdpr-art-89",
+   "uk-dpa-s1"
+  ],
+  "uses_attached": [
+   "gdpr-art-89",
+   "uk-dpa-s19"
+  ],
+  "generator_rationale": "Article 89(1) requires appropriate safeguards including data minimisation for research processing, while the DPA s19 provision specifies that processing for measures or decisions about particular individuals fails those safeguards unless it constitutes approved medical research, which academic interventions do not."
+ },
+ {
+  "query_id": "q2-027",
+  "query_text": "A not-for-profit student advocacy organisation, without any mandate from the affected students, lodges a complaint with the supervisory authority regarding the university's processing of student attendance records. Must the Commission accept and proceed with this complaint?",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "ie-dpa-s148"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "IE"
+  },
+  "partner_chunk_id": "gdpr-art-80",
+  "citation": "Article 80(1)",
+  "attached": [
+   "gdpr-art-80",
+   "ie-dpa-s108"
+  ],
+  "uses_attached": [
+   "gdpr-art-80",
+   "ie-dpa-s108"
+  ],
+  "generator_rationale": "Section 148 references Article 80(1) mandates for representative complaints, while Article 80(2) allows Member States to permit independent complaints by not-for-profit bodies; Ireland's Act does not exercise this option, so an unmapped complaint must be rejected."
+ },
+ {
+  "query_id": "q2-028",
+  "query_text": "A university intends to transfer student transcript records to a partner university in a third country using standard data protection clauses issued by the Information Commissioner. No adequacy decision exists for that country. Is this transfer permitted?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s17C"
+  ],
+  "target": {
+   "kind": "third_country",
+   "jurisdiction": "non-EEA"
+  },
+  "partner_chunk_id": "gdpr-art-46",
+  "citation": "Article 46",
+  "attached": [
+   "gdpr-art-46",
+   "uk-dpa-s119A"
+  ],
+  "uses_attached": [
+   "gdpr-art-46",
+   "uk-dpa-s119A"
+  ],
+  "generator_rationale": "Article 46 establishes that transfers to third countries without adequacy decisions require appropriate safeguards including standard data protection clauses, while section 119A confirms the Commissioner's authority to issue such clauses as valid safeguards under UK law."
+ },
+ {
+  "query_id": "q2-029",
+  "query_text": "A former student sues the university for compensation over a data breach affecting their academic transcript records. The university argues the processing was for academic purposes and seeks to stay the court proceedings pending a Commissioner determination. Can the court proceed with the compensation claim immediately?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "uk-dpa-s174"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "UK"
+  },
+  "partner_chunk_id": "gdpr-art-82",
+  "citation": "Article 82",
+  "attached": [
+   "gdpr-art-79",
+   "gdpr-art-82"
+  ],
+  "uses_attached": [
+   "gdpr-art-82",
+   "gdpr-art-79"
+  ],
+  "generator_rationale": "Article 82 establishes the right to compensation and court jurisdiction, while the DPA s174 defines special purposes proceedings and the Commissioner's determination process that can affect timing."
+ },
+ {
+  "query_id": "q2-030",
+  "query_text": "A public authority requests immediate transfer of student attendance records to a non-EEA country for immigration enforcement purposes. The supervisory authority has obtained an ex parte interim order from the High Court prohibiting this specific transfer. Can the transfer proceed?",
+  "source_system": "tcd",
+  "jurisdiction": "IE",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "ie-dpa-s134"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "non-EEA"
+  },
+  "partner_chunk_id": "gdpr-art-58-2",
+  "citation": "Article 58(2)",
+  "attached": [
+   "gdpr-art-58-2",
+   "gdpr-art-66"
+  ],
+  "uses_attached": [
+   "gdpr-art-66"
+  ],
+  "generator_rationale": "Article 66 establishes the urgency procedure allowing supervisory authorities to adopt provisional protective measures, while the national provision provides the specific mechanism for the High Court to issue interim orders suspending or prohibiting transfers to third countries."
+ },
+ {
+  "query_id": "q2-031",
+  "query_text": "A university intends to engage a private company to issue GDPR data protection certifications for its student records processing operations. The company claims it was accredited by a commercial standards organisation, not the Commissioner or the UK national accreditation body. Is this accreditation valid?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "uk-dpa-s17"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "UK"
+  },
+  "partner_chunk_id": "gdpr-art-42",
+  "citation": "Article 42",
+  "attached": [
+   "gdpr-art-42",
+   "uk-dpa-s181"
+  ],
+  "uses_attached": [
+   "gdpr-art-42"
+  ],
+  "generator_rationale": "Article 42 establishes that certification must be issued by bodies accredited under Article 43, while the main provision specifies that only the Commissioner or the UK national accreditation body may validly accredit certification providers."
+ },
+ {
+  "query_id": "q2-032",
+  "query_text": "A UK university transfers student attendance records to a partner university located outside the EEA that has no office, branch, or stable arrangements in the UK. Does the UK Data Protection Act 2018 apply to the partner university's processing of those records?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "uk-dpa-s207"
+  ],
+  "target": {
+   "kind": "third_country",
+   "jurisdiction": "non-EEA"
+  },
+  "partner_chunk_id": "gdpr-art-3",
+  "citation": "Article 3",
+  "attached": [
+   "gdpr-art-3",
+   "uk-dpa-s120"
+  ],
+  "uses_attached": [
+   "gdpr-art-3"
+  ],
+  "generator_rationale": "Section 207 limits the Act's territorial reach to processing within the scope of Article 3 of the UK GDPR, and Article 3 does not extend to a non-EEA controller with no UK establishment that is neither offering services to nor monitoring data subjects in the UK."
+ },
+ {
+  "query_id": "q2-033",
+  "query_text": "A university shares a student's record of alleged academic misconduct, treated as a criminal offence under institutional policy, with a public authority for safeguarding assessment purposes. The processing is not under official authority control. Is this transfer permitted?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s11"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "UK"
+  },
+  "partner_chunk_id": "gdpr-art-10",
+  "citation": "Article 10",
+  "attached": [
+   "gdpr-art-10",
+   "uk-dpa-s10"
+  ],
+  "uses_attached": [
+   "gdpr-art-10",
+   "uk-dpa-s10"
+  ],
+  "generator_rationale": "Article 10 requires Member State law authorisation for criminal offence data processing outside official authority control, while s10 DPA 2018 specifies that such authorisation exists only if a Schedule 1 condition is met, and s11 DPA 2018 confirms that alleged commission of offences falls within Article 10's scope."
+ },
+ {
+  "query_id": "q2-034",
+  "query_text": "A public university submits a formal complaint to the Federal Commissioner requesting that the Commissioner initiate legal proceedings before a judicial authority against a partner university for alleged GDPR violations involving shared student transcript data.",
+  "source_system": "goettingen",
+  "jurisdiction": "DE",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "de-bdsg-s15"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "DE"
+  },
+  "partner_chunk_id": "gdpr-art-58-2",
+  "citation": "Article 58 (2)",
+  "attached": [
+   "gdpr-art-58-2",
+   "de-bdsg-s12"
+  ],
+  "uses_attached": [
+   "gdpr-art-58-2"
+  ],
+  "generator_rationale": "Section 15 references Article 58(2) measures including legal proceedings, while Article 58(5) confirms the supervisory authority's power to bring infringements to judicial authorities and commence legal proceedings to enforce the Regulation."
+ },
+ {
+  "query_id": "q2-035",
+  "query_text": "A former student submits a subject access request to a credit reference agency that holds their loan repayment history and contact details. The agency provides only the financial standing data and omits the student's address and communication records, without the student indicating any contrary intention.",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s13"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "none"
+  },
+  "partner_chunk_id": "gdpr-art-15",
+  "citation": "Article 15(1)",
+  "attached": [
+   "gdpr-art-15",
+   "uk-dpa-s145"
+  ],
+  "uses_attached": [
+   "gdpr-art-15"
+  ],
+  "generator_rationale": "Article 15 establishes the general right of access to all personal data, while the DPA provision limits that right for credit reference agencies to financial standing data only unless the data subject indicates otherwise."
+ },
+ {
+  "query_id": "q2-036",
+  "query_text": "A university uses an automated system to reject student applications based solely on predicted grades, without human review. The system produces decisions that significantly affect applicants. Is this processing permitted?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "uk-dpa-s149"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "none"
+  },
+  "partner_chunk_id": "gdpr-art-22",
+  "citation": "Article 22",
+  "attached": [
+   "gdpr-art-12",
+   "gdpr-art-22"
+  ],
+  "uses_attached": [
+   "gdpr-art-22"
+  ],
+  "generator_rationale": "The main provision empowers enforcement notices for failures to comply with Article 22, which prohibits solely automated decision-making with significant effects unless an exception applies; no exception (contract necessity, legal authorisation, or explicit consent) is present here."
+ },
+ {
+  "query_id": "q2-037",
+  "query_text": "A not-for-profit privacy advocacy organisation, properly constituted with public interest objectives and active in data protection, has been mandated by multiple students to bring combined proceedings before a tribunal seeking compensation for unlawful processing of their academic records. May the representative body exercise the students' right to compensation through such collective proceedings?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s188"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "UK"
+  },
+  "partner_chunk_id": "gdpr-art-80",
+  "citation": "Article 80(1)",
+  "attached": [
+   "gdpr-art-80",
+   "uk-dpa-s187"
+  ],
+  "uses_attached": [
+   "gdpr-art-80",
+   "uk-dpa-s187"
+  ],
+  "generator_rationale": "Article 80(1) establishes the right of data subjects to mandate qualifying not-for-profit bodies to exercise their rights including compensation, while s188 provides the national mechanism for such bodies to bring combined collective proceedings before courts or tribunals."
+ },
+ {
+  "query_id": "q2-038",
+  "query_text": "A former student requests a second copy of their academic transcript and the institution proposes charging a fee to cover administrative costs. Is this charge permissible?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s12"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "UK"
+  },
+  "partner_chunk_id": "gdpr-art-15",
+  "citation": "Article 15(3)",
+  "attached": [
+   "gdpr-art-12",
+   "gdpr-art-15"
+  ],
+  "uses_attached": [
+   "gdpr-art-15"
+  ],
+  "generator_rationale": "Article 15(3) establishes the right to charge a reasonable fee for further copies of personal data, while the DPA 2018 provision authorises the Secretary of State to set regulatory limits on such fees."
+ },
+ {
+  "query_id": "q2-039",
+  "query_text": "A student habitually resident in Germany wishes to bring civil proceedings against a non-EU partner university that processes her transcript data, which has designated an EU-based representative under the GDPR. Can she serve proceedings on that representative?",
+  "source_system": "goettingen",
+  "jurisdiction": "DE",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "de-bdsg-s44"
+  ],
+  "target": {
+   "kind": "another_institution",
+   "jurisdiction": "non-EEA"
+  },
+  "partner_chunk_id": "gdpr-art-27",
+  "citation": "Article 27 (1)",
+  "attached": [
+   "gdpr-art-27"
+  ],
+  "uses_attached": [
+   "gdpr-art-27"
+  ],
+  "generator_rationale": "The BDSG provision establishes that a designated GDPR representative is an authorized recipient in civil proceedings, while Article 27 defines when and how controllers not established in the Union must designate such a representative."
+ },
+ {
+  "query_id": "q2-040",
+  "query_text": "A student objects on grounds relating to their particular situation to the processing of their attendance records for the purpose of carrying out legitimate postcode activity. Must the university cease processing those records?",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "ie-dpa-s217"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "IE"
+  },
+  "partner_chunk_id": "gdpr-art-21",
+  "citation": "Article 21",
+  "attached": [
+   "gdpr-art-21"
+  ],
+  "uses_attached": [
+   "gdpr-art-21"
+  ],
+  "generator_rationale": "Article 21 establishes the general right to object to processing based on public interest or legitimate interest grounds, while the national provision disapplies that right entirely for processing required for legitimate postcode activity."
+ },
+ {
+  "query_id": "q2-041",
+  "query_text": "A university intends to transfer student transcript records to a partner university in a third country using standard data protection clauses adopted by the Commission. The national supervisory authority has concerns about whether these clauses provide appropriate safeguards and is considering applying to the High Court. May the transfer proceed while such a determination is pending?",
+  "source_system": "tcd",
+  "jurisdiction": "IE",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "ie-dpa-s163"
+  ],
+  "target": {
+   "kind": "third_country",
+   "jurisdiction": "non-EEA"
+  },
+  "partner_chunk_id": "gdpr-art-46",
+  "citation": "Article 46(2)",
+  "attached": [
+   "gdpr-art-46",
+   "gdpr-art-45-1"
+  ],
+  "uses_attached": [
+   "gdpr-art-46",
+   "gdpr-art-45-1"
+  ],
+  "generator_rationale": "Article 46 establishes that standard data protection clauses can provide appropriate safeguards for third-country transfers, while the national provision empowers the supervisory authority to challenge those clauses before the High Court, meaning the transfer cannot proceed unchallenged when the authority has active concerns."
+ },
+ {
+  "query_id": "q2-042",
+  "query_text": "A university's data protection officer is asked by the Information Commissioner's Office to share anonymised summaries of student complaint patterns with a supervisory authority in a non-EEA country to support an international mutual assistance investigation into cross-border data protection enforcement.",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s120"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "non-EEA"
+  },
+  "partner_chunk_id": "gdpr-art-50",
+  "citation": "Article 50",
+  "attached": [
+   "gdpr-art-50",
+   "uk-dpa-s207"
+  ],
+  "uses_attached": [
+   "gdpr-art-50",
+   "uk-dpa-s207"
+  ],
+  "generator_rationale": "Section 120 establishes the Commissioner's duty to provide international mutual assistance for processing outside UK GDPR scope, while Article 50 supplies the equivalent framework for processing within UK GDPR scope, together determining whether the Commissioner can lawfully request such cooperation."
+ },
+ {
+  "query_id": "q2-043",
+  "query_text": "A former staff member requests access to handwritten performance notes kept in a filing cabinet by a public university. The notes are unstructured manual records held by an FOI public authority and relate to employment discipline. Must the university provide access under data subject access rights?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s24"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "UK"
+  },
+  "partner_chunk_id": "gdpr-art-15",
+  "citation": "Article 15(1)",
+  "attached": [
+   "gdpr-art-15",
+   "uk-dpa-s119A"
+  ],
+  "uses_attached": [
+   "gdpr-art-15"
+  ],
+  "generator_rationale": "The main provision exempts manual unstructured FOI data from most GDPR obligations but does not list Article 15 among the exemptions, so the right of access still applies to such records."
+ },
+ {
+  "query_id": "q2-044",
+  "query_text": "A university intends to share a student's health records with a public health authority to support a criminal investigation into alleged fraud. The student has not consented. Is this further processing of special category data permitted?",
+  "source_system": "goettingen",
+  "jurisdiction": "DE",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "de-bdsg-s24"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "DE"
+  },
+  "partner_chunk_id": "gdpr-art-9-2",
+  "citation": "Article 9 (2)",
+  "attached": [
+   "gdpr-art-9-1",
+   "gdpr-art-9-2"
+  ],
+  "uses_attached": [
+   "gdpr-art-9-1",
+   "gdpr-art-9-2"
+  ],
+  "generator_rationale": "BDSG Section 24(2) permits further processing of special category data for prosecuting criminal offences, while GDPR Article 9(1) defines health data as a special category requiring an exception under Article 9(2) to lift the prohibition."
+ },
+ {
+  "query_id": "q2-045",
+  "query_text": "A former student requests erasure of their disciplinary record, arguing the data is no longer necessary for the original purpose. The university must determine whether to erase and notify a partner university that received the record during a prior exchange programme.",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s151"
+  ],
+  "target": {
+   "kind": "another_institution",
+   "jurisdiction": "UK"
+  },
+  "partner_chunk_id": "gdpr-art-16",
+  "citation": "Article 16",
+  "attached": [
+   "gdpr-art-16",
+   "gdpr-art-17"
+  ],
+  "uses_attached": [
+   "gdpr-art-17"
+  ],
+  "generator_rationale": "Article 17 establishes the right to erasure when data is no longer necessary, while the DPA provision governs the obligation to notify third parties of erasure where reasonably practicable."
+ },
+ {
+  "query_id": "q2-046",
+  "query_text": "A student advocacy nonprofit, active in data protection and constitutionally barred from distributing assets, has been authorised by a graduate student to lodge a complaint with the supervisory authority regarding the mishandling of their thesis research data. Must the university recognise this representative body's standing to act?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s187"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "UK"
+  },
+  "partner_chunk_id": "gdpr-art-77",
+  "citation": "Article 77",
+  "attached": [
+   "gdpr-art-77",
+   "gdpr-art-78"
+  ],
+  "uses_attached": [
+   "gdpr-art-77"
+  ],
+  "generator_rationale": "The main provision sets the conditions a representative body must meet (charitable constitution, active in data protection), while Article 77 establishes the underlying right to lodge a complaint with a supervisory authority that the body exercises on the data subject's behalf."
+ },
+ {
+  "query_id": "q2-047",
+  "query_text": "A university intends to share student health records with a partner university to coordinate disability support services. The partner university is not subject to professional secrecy obligations under UK law. Is this processing of special category data permitted?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "uk-dpa-s10"
+  ],
+  "target": {
+   "kind": "another_institution",
+   "jurisdiction": "UK"
+  },
+  "partner_chunk_id": "gdpr-art-9-2",
+  "citation": "Article 9(2)",
+  "attached": [
+   "gdpr-art-9-1",
+   "gdpr-art-9-2"
+  ],
+  "uses_attached": [
+   "gdpr-art-9-1",
+   "gdpr-art-9-2"
+  ],
+  "generator_rationale": "GDPR Article 9(1) prohibits processing health data as a special category, Article 9(2)(h) provides an exception for health/social care purposes, and Article 9(3) restricts that exception to processors under professional secrecy obligations, which the DPA 2018 s10 requires as a condition for UK law authorisation."
+ },
+ {
+  "query_id": "q2-048",
+  "query_text": "A university plans to transfer student transcript records to a partner university in a non-adequate third country using standard contractual clauses adopted by the European Commission before IP completion day, with references to the EU and European Commission updated to reflect UK withdrawal but no other changes. Is this transfer permitted?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-sch21-p7"
+  ],
+  "target": {
+   "kind": "third_country",
+   "jurisdiction": "non-EEA"
+  },
+  "partner_chunk_id": "gdpr-art-46",
+  "citation": "Article 46(1)",
+  "attached": [
+   "gdpr-art-46",
+   "uk-dpa-s17A"
+  ],
+  "uses_attached": [
+   "gdpr-art-46",
+   "uk-dpa-sch21-p7"
+  ],
+  "generator_rationale": "Article 46 establishes that transfers to third countries require appropriate safeguards such as standard data protection clauses, while the DPA Schedule 21 paragraph 7 specifies that EU-adopted standard clauses remain valid post-Brexit if modified only to reflect UK withdrawal without altering their effect."
+ },
+ {
+  "query_id": "q2-049",
+  "query_text": "A public authority requests that a university provide student attendance records to assist with an investigation into suspected data protection violations. The university's data protection officer asks whether the Commissioner can compel disclosure of these records directly from the university without first issuing a formal written notice.",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "uk-dpa-s115"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "UK"
+  },
+  "partner_chunk_id": "gdpr-art-42",
+  "citation": "Article 42",
+  "attached": [
+   "gdpr-art-42",
+   "uk-dpa-s142"
+  ],
+  "uses_attached": [
+   "uk-dpa-s142"
+  ],
+  "generator_rationale": "The main provision establishes that the Commissioner's power to obtain information from controllers is exercisable only by giving an information notice under section 142, while the attached section 142 defines the formal requirements such a notice must meet, together confirming that informal compulsion is not permitted."
+ },
+ {
+  "query_id": "q2-050",
+  "query_text": "A staff member submitted a subject access request for their performance review records. Before fulfilling it, the department head deleted negative comments from the review file to avoid disclosing them. Is this deletion permitted?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "cross_tier",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "uk-dpa-s173"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "none"
+  },
+  "partner_chunk_id": "gdpr-art-20",
+  "citation": "Article 20",
+  "attached": [
+   "gdpr-art-15",
+   "gdpr-art-20"
+  ],
+  "uses_attached": [
+   "gdpr-art-15"
+  ],
+  "generator_rationale": "Article 15 establishes the data subject's right of access to personal data, while the national provision makes it an offence to alter or erase information with the intention of preventing disclosure in response to such a request."
+ },
+ {
+  "query_id": "q2-051",
+  "query_text": "A public authority requests confirmation that the Framework for Data Processing by Government has been validly issued and is currently in force before relying on its guidance for processing student personal data. Has the Secretary of State completed the required parliamentary laying procedure and the applicable waiting periods?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "single",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s192"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "UK"
+  },
+  "attached": [
+   "uk-dpa-s191",
+   "uk-dpa-s193"
+  ],
+  "uses_attached": [
+   "uk-dpa-s191",
+   "uk-dpa-s193"
+  ],
+  "generator_rationale": "Section 192 sets out the parliamentary laying and 40-day approval procedure that must be completed before the Framework document can be validly issued and come into force."
+ },
+ {
+  "query_id": "q2-052",
+  "query_text": "A university intends to transfer staff personal data to a third country that was previously listed in adequacy regulations but has since been removed from the published list following a review. Is this transfer permitted on the basis of adequacy regulations?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "single",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "uk-dpa-s17B"
+  ],
+  "target": {
+   "kind": "third_country",
+   "jurisdiction": "non-EEA"
+  },
+  "attached": [
+   "uk-dpa-s17A"
+  ],
+  "uses_attached": [
+   "uk-dpa-s17A"
+  ],
+  "generator_rationale": "The provisions state that a transfer is based on adequacy regulations only if regulations are in force specifying that country at the time of transfer, and the Secretary of State must revoke or amend regulations when adequacy is no longer ensured."
+ },
+ {
+  "query_id": "q2-053",
+  "query_text": "A commercial edtech company proposes to process the personal data of enrolled students under 18 to build behavioural profiles for targeted advertising of third-party products. Is this processing permitted?",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "single",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "ie-dpa-s30"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "none"
+  },
+  "attached": [
+   "ie-dpa-s141",
+   "ie-dpa-s192"
+  ],
+  "uses_attached": [],
+  "generator_rationale": "Section 30 makes it an offence for any company or corporate body to process a child's personal data for profiling or micro-targeting purposes."
+ },
+ {
+  "query_id": "q2-054",
+  "query_text": "Can the data protection commission publish its annual report containing aggregated statistics about complaints received from university students and staff, after the report has been laid before each House of the Oireachtas?",
+  "source_system": "tcd",
+  "jurisdiction": "IE",
+  "hop_type": "single",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "ie-dpa-s24"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "IE"
+  },
+  "attached": [
+   "ie-dpa-s129",
+   "ie-dpa-s169"
+  ],
+  "uses_attached": [],
+  "generator_rationale": "Section 24(3) permits the Commission to publish its annual report in any form and manner it considers appropriate after it has been laid before the Oireachtas."
+ },
+ {
+  "query_id": "q2-055",
+  "query_text": "A student has mandated a not-for-profit privacy advocacy organisation to bring a data protection action seeking compensation against the university for alleged infringement of their data protection rights. Is this permitted?",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "single",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "ie-dpa-s128"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "IE"
+  },
+  "attached": [
+   "ie-dpa-s119",
+   "ie-dpa-s120"
+  ],
+  "uses_attached": [
+   "ie-dpa-s120"
+  ],
+  "generator_rationale": "Section 120 permits a data subject to mandate a qualifying not-for-profit body to exercise rights under section 128, including bringing a data protection action for compensation."
+ },
+ {
+  "query_id": "q2-056",
+  "query_text": "A student has filed a complaint alleging that their personal data was processed without a valid legal basis. The Data Protection Commission, acting as lead supervisory authority, has determined that an amicable resolution cannot be reached within a reasonable time. Must the Commission proceed to make a draft decision regarding the complaint and any envisaged corrective action?",
+  "source_system": "tcd",
+  "jurisdiction": "IE",
+  "hop_type": "single",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "ie-dpa-s113"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "IE"
+  },
+  "attached": [
+   "ie-dpa-s109",
+   "ie-dpa-s110"
+  ],
+  "uses_attached": [
+   "ie-dpa-s109",
+   "ie-dpa-s113"
+  ],
+  "generator_rationale": "Section 109(4)(a) requires the Commission to comply with section 113(2) when an amicable resolution cannot be reached for a complaint where it is lead supervisory authority, and section 113(2)(a) obliges the Commission to make a draft decision including envisaged action."
+ },
+ {
+  "query_id": "q2-057",
+  "query_text": "A student has lodged a complaint with the Data Protection Commission regarding the processing of their personal data. The Commission has determined that an amicable resolution cannot be reached within a reasonable time. May the Commission serve an enforcement notice on the university requiring it to bring processing into compliance within a specified period?",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "single",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "ie-dpa-s122"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "IE"
+  },
+  "attached": [
+   "ie-dpa-s121",
+   "ie-dpa-s123"
+  ],
+  "uses_attached": [],
+  "generator_rationale": "Section 122(4)(d)(ii) explicitly permits the Commission to serve an enforcement notice requiring a controller to bring processing into compliance in a specified manner and within a specified period when an amicable resolution cannot be reached."
+ },
+ {
+  "query_id": "q2-058",
+  "query_text": "A personal data breach involving student records has occurred and is unlikely to result in a risk to the rights and freedoms of the affected students. Must the controller notify the supervisory authority of this breach?",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "single",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "ie-dpa-s194"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "IE"
+  },
+  "attached": [
+   "ie-dpa-s2",
+   "ie-dpa-s86"
+  ],
+  "uses_attached": [
+   "ie-dpa-s86"
+  ],
+  "generator_rationale": "Section 86(3) exempts the controller from the notification obligation where the breach is unlikely to result in a risk to the rights and freedoms of data subjects."
+ },
+ {
+  "query_id": "q2-059",
+  "query_text": "A university intends to create a new filing system for staff personal data. A data protection impact assessment indicates the processing would result in a high risk to individuals' rights and freedoms, and no mitigating measures reduce this risk. Must the university consult the Commissioner before proceeding with the processing?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "single",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s65"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "UK"
+  },
+  "attached": [
+   "uk-dpa-s64",
+   "uk-dpa-s71"
+  ],
+  "uses_attached": [
+   "uk-dpa-s64"
+  ],
+  "generator_rationale": "Section 65 requires prior consultation with the Commissioner when a DPIA under section 64 indicates high residual risk to individuals' rights and freedoms."
+ },
+ {
+  "query_id": "q2-060",
+  "query_text": "A university intends to process staff criminal conviction data for archiving in the public interest, carried out by a public authority with suitable safeguards and data minimisation measures in place. Is this processing permitted?",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "single",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "ie-dpa-s55"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "IE"
+  },
+  "attached": [
+   "ie-dpa-s19",
+   "ie-dpa-s42"
+  ],
+  "uses_attached": [
+   "ie-dpa-s42"
+  ],
+  "generator_rationale": "Section 55(2)(e) permits processing of criminal conviction data for archiving in the public interest when carried out by or on behalf of a public authority in accordance with section 42, which allows such processing with suitable safeguards and data minimisation."
+ },
+ {
+  "query_id": "q2-061",
+  "query_text": "A university shares staff contact details held in connection with its functions to the Secretary of State for Defence, to enable contacting reserve force members about their liability to be called out for service. Is this disclosure permitted?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "single",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "uk-dpa-s195"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "UK"
+  },
+  "attached": [
+   "uk-dpa-s107",
+   "uk-dpa-s125"
+  ],
+  "uses_attached": [],
+  "generator_rationale": "The provision authorises HMRC, not a university, to supply contact details to the Secretary of State for reserve forces purposes, and nothing in the cited provisions permits a university to make such a disclosure."
+ },
+ {
+  "query_id": "q2-062",
+  "query_text": "A university plans to notify students about an undercover investigation into academic fraud, where the investigation is being conducted by a public authority competent for the prevention of criminal offences. Must the university obtain approval from that authority before sending the notification?",
+  "source_system": "goettingen",
+  "jurisdiction": "DE",
+  "hop_type": "single",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "de-bdsg-s56"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "DE"
+  },
+  "attached": [
+   "de-bdsg-s41",
+   "de-bdsg-s45"
+  ],
+  "uses_attached": [
+   "de-bdsg-s45"
+  ],
+  "generator_rationale": "Section 56(3) requires approval only for transfers to specific intelligence and defence bodies (Constitution protection, Federal Intelligence Service, Military Counterintelligence Service, Defence Ministry), not to general criminal investigation authorities."
+ },
+ {
+  "query_id": "q2-063",
+  "query_text": "Two institutions jointly determine the purposes and means of processing student personal data for a shared research programme. They have agreed on their respective responsibilities in writing but have not addressed how data subjects will exercise their rights or receive the required transparency information. Is this joint controller arrangement compliant?",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "single",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "ie-dpa-s79"
+  ],
+  "target": {
+   "kind": "another_institution",
+   "jurisdiction": "IE"
+  },
+  "attached": [
+   "ie-dpa-s69",
+   "ie-dpa-s90"
+  ],
+  "uses_attached": [
+   "ie-dpa-s90"
+  ],
+  "generator_rationale": "Section 79(2)(a) requires that the written agreement between joint controllers must include a determination of their respective responsibilities regarding data subjects' rights and the provision of information specified in section 90(2), which this arrangement omits."
+ },
+ {
+  "query_id": "q2-064",
+  "query_text": "Can the Secretary of State make regulations under the minor and consequential provisions section that amend primary legislation without following the affirmative resolution procedure?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "single",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "uk-dpa-s211"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "none"
+  },
+  "attached": [
+   "uk-dpa-s182",
+   "uk-dpa-s214"
+  ],
+  "uses_attached": [],
+  "generator_rationale": "The main provision explicitly states that regulations under this section that amend, repeal or revoke primary legislation are subject to the affirmative resolution procedure."
+ },
+ {
+  "query_id": "q2-065",
+  "query_text": "A university intends to process staff health data and criminal conviction data to comply with a government regulation authorising such processing for reasons of substantial public interest, with safeguards including access limitations, encryption, and strict erasure time limits. Is this processing permitted?",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "single",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "ie-dpa-s51"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "none"
+  },
+  "attached": [
+   "ie-dpa-s186",
+   "ie-dpa-s36"
+  ],
+  "uses_attached": [
+   "ie-dpa-s36"
+  ],
+  "generator_rationale": "Section 51 permits processing of special category and Article 10 data when carried out in accordance with regulations made for substantial public interest, and section 36 confirms that access limitations, encryption, and erasure time limits are among the suitable and specific safeguards such regulations may require."
+ },
+ {
+  "query_id": "q2-066",
+  "query_text": "A public authority responsible for chemical safety regulation requests access to student personal data held in electronic registers for the purpose of investigating compliance with chemical storage requirements on campus.",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "single",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "ie-dpa-s209"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "IE"
+  },
+  "attached": [
+   "ie-dpa-s2"
+  ],
+  "uses_attached": [],
+  "generator_rationale": "The provision defines 'record' under the Chemicals Act 2008 to include any form in which personal data are held, confirming that such data falls within the regulatory scope of chemical safety investigations by Irish public authorities."
+ },
+ {
+  "query_id": "q2-067",
+  "query_text": "Can the university share a student's personal data with a public authority to assist in determining whether a data protection commissioner should be removed from office for serious misconduct?",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "single",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "ie-dpa-s17"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "IE"
+  },
+  "attached": [],
+  "uses_attached": [],
+  "generator_rationale": "The provision governs only the resignation, removal, and disqualification procedures for the Data Protection Commissioner and contains no basis for processing or sharing student personal data."
+ },
+ {
+  "query_id": "q2-068",
+  "query_text": "Can adherence to an approved code of conduct be used as a means of demonstrating compliance with data protection requirements when processing student personal data for law enforcement purposes?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "single",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s71A"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "none"
+  },
+  "attached": [
+   "uk-dpa-s55",
+   "uk-dpa-s56"
+  ],
+  "uses_attached": [
+   "uk-dpa-s56"
+  ],
+  "generator_rationale": "Section 56 explicitly states that adherence to a code of conduct approved under section 71A may be used by a controller as a means of demonstrating compliance with the requirements of this Part."
+ },
+ {
+  "query_id": "q2-069",
+  "query_text": "Is facial image data collected from students for campus access control classified as biometric data under data protection law?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "single",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s205"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "none"
+  },
+  "attached": [
+   "uk-dpa-s119A",
+   "uk-dpa-s125"
+  ],
+  "uses_attached": [],
+  "generator_rationale": "The main provision defines biometric data as personal data from specific technical processing relating to physical characteristics that allows unique identification, explicitly including facial images."
+ },
+ {
+  "query_id": "q2-070",
+  "query_text": "Can the Information Commissioner issue a monetary penalty notice to the Keeper of the Privy Purse, acting as data controller for student personal data processed on behalf of the Royal Household, for a failure in processing that data?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "single",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "uk-dpa-s209"
+  ],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "UK"
+  },
+  "attached": [
+   "uk-dpa-s119",
+   "uk-dpa-s156"
+  ],
+  "uses_attached": [
+   "uk-dpa-s156"
+  ],
+  "generator_rationale": "Section 156(4) explicitly prohibits the Commissioner from giving a penalty notice to a person who is a controller by virtue of section 209(4), which includes the Keeper of the Privy Purse for Royal Household data."
+ },
+ {
+  "query_id": "q2-071",
+  "query_text": "A not-for-profit data protection advocacy organisation, properly constituted under Irish law with public interest objectives, has been mandated by a student to lodge a complaint on their behalf regarding alleged infringement of their data protection rights. Must the university accept this mandated representation?",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "single",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "ie-dpa-s120"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "IE"
+  },
+  "attached": [
+   "ie-dpa-s118",
+   "ie-dpa-s119"
+  ],
+  "uses_attached": [
+   "ie-dpa-s119"
+  ],
+  "generator_rationale": "Section 120 permits a data subject to mandate a not-for-profit body with public interest objectives active in data protection to lodge complaints and exercise rights on their behalf, and the described organisation meets all subsection (2) criteria."
+ },
+ {
+  "query_id": "q2-072",
+  "query_text": "A student has submitted a complaint alleging an infringement of data protection rules regarding their personal data. Must the controller acknowledge receipt within 30 days and, without undue delay, take appropriate steps to respond and inform the student of the outcome?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "single",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s164A"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "UK"
+  },
+  "attached": [
+   "uk-dpa-s164B"
+  ],
+  "uses_attached": [],
+  "generator_rationale": "Section 164A explicitly requires controllers to acknowledge complaints within 30 days and respond without undue delay, informing the complainant of the outcome."
+ },
+ {
+  "query_id": "q2-073",
+  "query_text": "A university processes student personal data for a law enforcement purpose. Must the controller make generally available to data subjects its identity, contact details, the purposes of processing, and the existence of data subject rights including access, rectification, and erasure?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "single",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s43"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "none"
+  },
+  "attached": [
+   "uk-dpa-s204",
+   "uk-dpa-s44"
+  ],
+  "uses_attached": [
+   "uk-dpa-s44"
+  ],
+  "generator_rationale": "Section 44 imposes a duty on the controller to make specified information available to data subjects when processing personal data for a law enforcement purpose, which falls within the scope of this Chapter."
+ },
+ {
+  "query_id": "q2-074",
+  "query_text": "A university is asked whether it must carry out and publish an impact assessment of who would be affected by a data-sharing code of practice and the likely effects on them, before the code is finalised.",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "single",
+  "gold_decision": "DENY",
+  "gold_chunk_ids": [
+   "uk-dpa-s124C"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "none"
+  },
+  "attached": [
+   "uk-dpa-s121"
+  ],
+  "uses_attached": [
+   "uk-dpa-s121"
+  ],
+  "generator_rationale": "The obligation to carry out and publish an impact assessment for codes of practice falls on the Information Commissioner, not on universities or other data controllers."
+ },
+ {
+  "query_id": "q2-075",
+  "query_text": "A university administrator asks whether the maximum penalty for failing to comply with an enforcement notice issued by the Commissioner regarding student personal data is the higher maximum amount of £17,500,000 or 4% of annual worldwide turnover.",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "single",
+  "gold_decision": "APPROVE",
+  "gold_chunk_ids": [
+   "uk-dpa-s157"
+  ],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "none"
+  },
+  "attached": [
+   "uk-dpa-s155",
+   "uk-dpa-s159"
+  ],
+  "uses_attached": [],
+  "generator_rationale": "The main provision explicitly states that failure to comply with an enforcement notice carries the higher maximum amount, which is £17,500,000 or 4% of turnover for an undertaking."
+ },
+ {
+  "query_id": "q2-076",
+  "query_text": "Student academic records are being transferred to a partner university in a third country that was previously listed in adequacy regulations but has since been removed. What is the current status of that country's adequacy designation, and on what date was it revoked?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "third_country",
+   "jurisdiction": "non-EEA"
+  },
+  "missing_detail": "the actual published list of countries currently specified or no longer specified in adequacy regulations under section 17A",
+  "why_unanswerable": "The provisions require the Secretary of State to publish lists of countries with and without adequacy status, but neither the lists themselves nor any specific country designations or revocation dates are provided in the text.",
+  "attached": [
+   "uk-dpa-s17A"
+  ],
+  "provision_asked_about": "uk-dpa-s17B"
+ },
+ {
+  "query_id": "q2-077",
+  "query_text": "A former student submits a subject access request for their academic records and the controller intends to charge a fee before processing it. What is the maximum fee that may lawfully be charged for fulfilling this request?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "none"
+  },
+  "missing_detail": "the maximum amount of a fee that a controller may charge for a subject access request, which the Secretary of State may specify by regulations",
+  "why_unanswerable": "The provision states the Secretary of State may by regulations specify the maximum fee, but no such regulations are supplied, so the actual cap is unknown.",
+  "attached": [
+   "uk-dpa-s100",
+   "uk-dpa-s104"
+  ],
+  "provision_asked_about": "uk-dpa-s94"
+ },
+ {
+  "query_id": "q2-079",
+  "query_text": "A non-executive member of the Commission who was removed from office for serious misconduct wishes to know whether the published statement of reasons for removal must include the specific findings of fact underlying the misconduct determination, or whether a general description of the misconduct category suffices.",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "UK"
+  },
+  "missing_detail": "the required level of detail or content that must appear in the published statement of reasons for removal",
+  "why_unanswerable": "The provision requires the Secretary of State to give and potentially publish a statement of reasons but does not specify what information or level of detail that statement must contain.",
+  "attached": [],
+  "provision_asked_about": "uk-dpa-sch12A-p9"
+ },
+ {
+  "query_id": "q2-080",
+  "query_text": "A former staff member has submitted a fifth subject access request this year covering the same employment records. The controller wishes to charge a fee for processing this repeat request. What is the maximum fee that may be charged under the applicable regulations?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "UK"
+  },
+  "missing_detail": "the specific fee limits set by Secretary of State regulations under subsection (3)",
+  "why_unanswerable": "The provision states the Secretary of State may by regulations specify limits on fees, but no such regulations are provided or referenced in the supplied text, so the actual cap cannot be determined.",
+  "attached": [
+   "uk-dpa-s204",
+   "uk-dpa-s45"
+  ],
+  "provision_asked_about": "uk-dpa-s53"
+ },
+ {
+  "query_id": "q2-081",
+  "query_text": "A university uses an automated system to flag students for academic misconduct investigations. When a student contests the flag, a staff member reviews the case but the system's profiling score heavily influences the outcome. Does this reconsideration involve meaningful human involvement sufficient to disapply the automated decision-making safeguards?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "UK"
+  },
+  "missing_detail": "the threshold or criteria for determining when profiling influence during reconsideration negates meaningful human involvement",
+  "why_unanswerable": "The provisions state that profiling extent must be considered but neither the Act nor the supplied cross-reference defines what degree of profiling influence renders human involvement insufficiently meaningful.",
+  "attached": [
+   "uk-dpa-s50D"
+  ],
+  "provision_asked_about": "uk-dpa-s50C"
+ },
+ {
+  "query_id": "q2-082",
+  "query_text": "A university processes personal data of enrolled students and employed staff. What is the exact monetary amount of the annual data protection charge payable to the Commissioner by this controller, and by what date must it be paid each year?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "UK"
+  },
+  "missing_detail": "the specific charge amounts and payment deadlines set by secondary regulations made by the Secretary of State",
+  "why_unanswerable": "The primary legislation only authorises the Secretary of State to set charges and deadlines by secondary regulations, but no such regulations are provided, so the actual amounts and due dates cannot be determined.",
+  "attached": [
+   "uk-dpa-s1",
+   "uk-dpa-s108"
+  ],
+  "provision_asked_about": "uk-dpa-s137"
+ },
+ {
+  "query_id": "q2-083",
+  "query_text": "A university intends to share staff personal data with a public authority for a task in the public interest. Has the Secretary of State made regulations under the relevant power specifying the legal basis and adapting the application of UK GDPR rules for this particular public interest task?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "UK"
+  },
+  "missing_detail": "whether the Secretary of State has actually exercised the delegated power to make specific regulations laying down a legal basis under Article 6(3) for the particular public interest task in question",
+  "why_unanswerable": "The provision only grants the Secretary of State the power to make such regulations but does not indicate whether any regulations have actually been made for the specific public interest task at issue.",
+  "attached": [
+   "uk-dpa-s15"
+  ],
+  "provision_asked_about": "uk-dpa-s16"
+ },
+ {
+  "query_id": "q2-084",
+  "query_text": "A university has received a penalty notice from the Commissioner for failing to comply with an enforcement notice regarding student records. What is the maximum monetary amount that can be specified in this penalty notice?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "UK"
+  },
+  "missing_detail": "the maximum amount of a penalty that the Commissioner may impose under a penalty notice",
+  "why_unanswerable": "The provision states the Commissioner may require payment of 'an amount in sterling specified in the notice' and lists factors for determining the amount, but neither it nor the accompanying provisions specify any statutory maximum or cap on penalty amounts, leaving that detail to secondary legislation or other provisions not supplied.",
+  "attached": [
+   "gdpr-art-83-1",
+   "uk-dpa-s115"
+  ],
+  "provision_asked_about": "uk-dpa-s155"
+ },
+ {
+  "query_id": "q2-086",
+  "query_text": "A public authority requests confirmation of the exact number of members currently appointed to the Commission, as this figure is needed to validate the quorum of a decision affecting staff personal data. What is the precise number of members as determined by the Secretary of State?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "UK"
+  },
+  "missing_detail": "the actual number of Commission members determined by the Secretary of State",
+  "why_unanswerable": "The provision only sets a range of 3 to 14 and delegates the specific number to the Secretary of State, but no secondary legislation or determination is provided to reveal the actual figure.",
+  "attached": [],
+  "provision_asked_about": "uk-dpa-sch12A-p2"
+ },
+ {
+  "query_id": "q2-088",
+  "query_text": "A not-for-profit privacy advocacy organisation has filed a compensation claim on behalf of affected students without their individual authorisation. Has the Secretary of State made regulations enabling such bodies to exercise data subjects' compensation rights independently of a mandate?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "UK"
+  },
+  "missing_detail": "whether the Secretary of State has actually exercised the power under s190 to make regulations enabling bodies to act without a data subject's mandate under Article 80(2)",
+  "why_unanswerable": "The provision only grants the Secretary of State the power to make such regulations but does not indicate whether those regulations have actually been made.",
+  "attached": [
+   "gdpr-art-80",
+   "gdpr-art-82"
+  ],
+  "provision_asked_about": "uk-dpa-s190"
+ },
+ {
+  "query_id": "q2-089",
+  "query_text": "A university intends to transfer staff payroll data to a public authority in another UK jurisdiction under a consequential modification of legislation made by secondary regulations. Have the relevant regulations under the Act been enacted, and do they expressly permit this specific transfer?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "UK"
+  },
+  "missing_detail": "whether specific secondary regulations under the consequential powers have actually been made and what they provide regarding the particular data transfer",
+  "why_unanswerable": "The provisions only describe the power to make consequential regulations and the parliamentary procedures for them, but do not state whether any such regulations have been enacted or what their substantive content is.",
+  "attached": [
+   "uk-dpa-s182",
+   "uk-dpa-s214"
+  ],
+  "provision_asked_about": "uk-dpa-s211"
+ },
+ {
+  "query_id": "q2-090",
+  "query_text": "A university transfers staff payroll data to a partner university in a third country that was previously listed in adequacy regulations but has since been revoked. Is the transfer still lawful under the adequacy framework, or must alternative safeguards now be relied upon?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "third_country",
+   "jurisdiction": "non-EEA"
+  },
+  "missing_detail": "whether transitional or grandfathering provisions apply to transfers made after adequacy regulations are revoked, or whether revocation takes immediate effect on existing transfers",
+  "why_unanswerable": "The provisions require the Secretary of State to revoke regulations when adequacy is lost and to publish lists of revoked countries, but neither specifies whether transfers already underway or previously authorised under now-revoked regulations may continue during any transition period or must cease immediately.",
+  "attached": [
+   "uk-dpa-s74A"
+  ],
+  "provision_asked_about": "uk-dpa-s74B"
+ },
+ {
+  "query_id": "q2-091",
+  "query_text": "A university intends to transfer staff payroll data to a partner university in a third country using standard data protection clauses specified by the Secretary of State. Which exact set of standard data protection clauses, as currently specified in regulations under the relevant statutory power, must be incorporated into the transfer agreement?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "third_country",
+   "jurisdiction": "non-EEA"
+  },
+  "missing_detail": "the actual text or identity of the standard data protection clauses specified by the Secretary of State in secondary regulations",
+  "why_unanswerable": "The provisions only grant the Secretary of State the power to specify standard data protection clauses by regulations but do not themselves contain or identify which clauses have actually been specified.",
+  "attached": [
+   "gdpr-art-46",
+   "uk-dpa-s119A"
+  ],
+  "provision_asked_about": "uk-dpa-s17C"
+ },
+ {
+  "query_id": "q2-092",
+  "query_text": "A university plans to transfer staff payroll data to a public authority for pension administration purposes. On what date did the relevant provisions of the Data Protection Act 2018 come into operation, and were they in force on the date the transfer arrangement was established?",
+  "source_system": "tcd",
+  "jurisdiction": "IE",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "IE"
+  },
+  "missing_detail": "the specific commencement date(s) appointed by Ministerial order under section 1(3)",
+  "why_unanswerable": "Section 1(3) delegates commencement to Ministerial order but neither it nor any supplied provision states which date(s) were actually appointed.",
+  "attached": [
+   "ie-dpa-s14",
+   "ie-dpa-s183"
+  ],
+  "provision_asked_about": "ie-dpa-s1"
+ },
+ {
+  "query_id": "q2-093",
+  "query_text": "A university intends to transfer staff payroll data to a public authority for pension administration purposes. What specific data protection charge must the university pay to the Commissioner under the current regulations, and does any discounted rate apply?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "UK"
+  },
+  "missing_detail": "the actual amount of the charge specified in regulations made under section 137(1), which the Act only empowers the Secretary of State to set by secondary legislation",
+  "why_unanswerable": "The Act only provides the power to set charges by regulations and describes what those regulations may cover, but the actual charge amounts and any applicable discounts are left entirely to secondary legislation not provided here.",
+  "attached": [
+   "uk-dpa-s108",
+   "uk-dpa-s137"
+  ],
+  "provision_asked_about": "uk-dpa-s138"
+ },
+ {
+  "query_id": "q2-094",
+  "query_text": "A former staff member submits a subject access request for handwritten interview notes held in an unstructured personnel file by a public authority. Must the controller provide a copy of those manual unstructured records under the right of access?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "UK"
+  },
+  "missing_detail": "whether Article 15 (right of access) is among the provisions disapplied for manual unstructured data held by FOI public authorities, since the main provision lists many disapplied articles but cuts off before confirming the exhaustive list",
+  "why_unanswerable": "The main provision's list of disapplied articles is truncated and Article 15 is neither explicitly included nor excluded, while the supplied Article 15 text does not address its own applicability to manual unstructured FOI data.",
+  "attached": [
+   "gdpr-art-15",
+   "uk-dpa-s119A"
+  ],
+  "provision_asked_about": "uk-dpa-s24"
+ },
+ {
+  "query_id": "q2-095",
+  "query_text": "A not-for-profit data protection advocacy group, authorised by multiple students, has filed a collective claim combining their individual compensation claims regarding a data breach. Under what regulations may a representative body bring combined proceedings, and what rules govern the assessment and distribution of any compensation awarded?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "UK"
+  },
+  "missing_detail": "the specific regulations made by the Secretary of State under the power in section 188 governing collective proceedings, including rules on compensation assessment, settlement, and distribution",
+  "why_unanswerable": "The provision only grants the Secretary of State the power to make regulations about collective proceedings but no such regulations are supplied or referenced, so the actual procedural rules and compensation provisions cannot be determined.",
+  "attached": [
+   "gdpr-art-80",
+   "uk-dpa-s187"
+  ],
+  "provision_asked_about": "uk-dpa-s188"
+ },
+ {
+  "query_id": "q2-096",
+  "query_text": "A university transfers staff personal data to a recipient in a third country under regulations approved by the Secretary of State. Do those regulations approve all transfers to that country, or only transfers of a specified description?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "third_country",
+   "jurisdiction": "non-EEA"
+  },
+  "missing_detail": "whether the specific regulations made under this power approve all transfers or only specified/described transfers to the relevant third country",
+  "why_unanswerable": "The provision only states that regulations may approve all or only specified transfers, but does not identify which approach any particular set of regulations actually takes.",
+  "attached": [
+   "uk-dpa-s73"
+  ],
+  "provision_asked_about": "uk-dpa-section-74AA"
+ },
+ {
+  "query_id": "q2-097",
+  "query_text": "A university uses automated processing to decide whether to revoke a staff member's research funding, producing significant effects. The staff member requests reconsideration. What specific further safeguards beyond written notification and reconsideration rights must the controller implement, as prescribed by regulations made under the Secretary of State's power?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "UK"
+  },
+  "missing_detail": "the content of regulations made by the Secretary of State specifying further suitable measures to safeguard data subjects' rights in connection with qualifying significant automated decisions",
+  "why_unanswerable": "The main provision delegates to secondary regulations the power to define further safeguards, but no such regulations are supplied, so the specific additional measures required cannot be determined.",
+  "attached": [
+   "gdpr-art-12",
+   "gdpr-art-22"
+  ],
+  "provision_asked_about": "uk-dpa-s14"
+ },
+ {
+  "query_id": "q2-098",
+  "query_text": "A university plans to deploy AI-driven proctoring software that analyses students' facial expressions and eye movements during remote exams. The data protection impact assessment indicates residual high risk despite safeguards. Must the controller consult the Commission before commencing this processing, given that the Commission may have prescribed this type of processing under its regulatory powers?",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "none",
+   "jurisdiction": "IE"
+  },
+  "missing_detail": "the specific types of processing prescribed by the Commission under subsection (9) that mandatorily require prior consultation regardless of the controller's own risk assessment",
+  "why_unanswerable": "The provisions reference the Commission's power to prescribe processing types requiring consultation but neither the main provision nor the supplied cross-references list which specific processing operations have actually been prescribed.",
+  "attached": [
+   "ie-dpa-s101",
+   "ie-dpa-s69"
+  ],
+  "provision_asked_about": "ie-dpa-s84"
+ },
+ {
+  "query_id": "q2-099",
+  "query_text": "A university is transferring staff payroll data to a public authority for pension administration purposes. Under the transitional provisions, does the specific secondary legislation made by the Secretary of State preserve the lawfulness of this transfer arrangement that was established before the Act came into force?",
+  "source_system": "cambridge",
+  "jurisdiction": "UK",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "public_authority",
+   "jurisdiction": "UK"
+  },
+  "missing_detail": "the actual content of the Secretary of State's regulations made under the transitional provision power, which would specify what arrangements are preserved or modified",
+  "why_unanswerable": "The provisions only grant the Secretary of State power to make transitional regulations and describe procedural requirements, but none of them contain the actual text of any regulations specifying which pre-existing data processing arrangements are saved or how they are affected.",
+  "attached": [
+   "uk-dpa-s182",
+   "uk-dpa-s212"
+  ],
+  "provision_asked_about": "uk-dpa-s213"
+ },
+ {
+  "query_id": "q2-100",
+  "query_text": "A university intends to transfer staff personal data to a research funder in a third country. Has the Minister made regulations under the Data Protection Act 2018 restricting the transfer of this category of personal data to that third country for important reasons of public policy?",
+  "source_system": "ul",
+  "jurisdiction": "IE",
+  "hop_type": "unanswerable",
+  "gold_decision": "UNKNOWN",
+  "gold_chunk_ids": [],
+  "target": {
+   "kind": "third_country",
+   "jurisdiction": "non-EEA"
+  },
+  "missing_detail": "whether the Minister has actually made regulations under section 37(1) restricting transfers of specific categories of personal data to specific third countries",
+  "why_unanswerable": "The provision only grants the Minister the power to make such regulations but does not state whether any regulations have actually been enacted or what categories of data or third countries they cover.",
+  "attached": [
+   "ie-dpa-s2"
+  ],
+  "provision_asked_about": "ie-dpa-s37"
+ }
+]

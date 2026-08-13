@@ -1,0 +1,465 @@
+{
+ "q2-001": [
+  "university",
+  "Information Commissioner"
+ ],
+ "q2-002": [
+  "university",
+  "staff",
+  "occupational health provider"
+ ],
+ "q2-003": [
+  "university",
+  "student",
+  "partner university",
+  "third country"
+ ],
+ "q2-004": [
+  "university",
+  "public health authority"
+ ],
+ "q2-005": [
+  "former student",
+  "university",
+  "Insolvency Service"
+ ],
+ "q2-006": [
+  "former student",
+  "commission of investigation"
+ ],
+ "q2-007": [
+  "former staff member",
+  "legal team",
+  "external counsel"
+ ],
+ "q2-008": [
+  "former student",
+  "Property Services Regulatory Authority"
+ ],
+ "q2-009": [
+  "former student",
+  "data controller"
+ ],
+ "q2-010": [
+  "former student",
+  "university",
+  "Commission to Inquire Into Child Abuse"
+ ],
+ "q2-011": [
+  "student advocacy organization",
+  "supervisory authority",
+  "enrolled students"
+ ],
+ "q2-012": [
+  "student",
+  "university",
+  "student health service"
+ ],
+ "q2-013": [
+  "university",
+  "students",
+  "public health authority"
+ ],
+ "q2-014": [
+  "lecturer",
+  "student",
+  "university",
+  "partner university"
+ ],
+ "q2-015": [
+  "representative body",
+  "students",
+  "court"
+ ],
+ "q2-016": [
+  "former student",
+  "academic staff",
+  "university",
+  "partner university"
+ ],
+ "q2-017": [
+  "public archive",
+  "historical student enrollment records",
+  "health-related disability accommodations"
+ ],
+ "q2-018": [
+  "federal ministry",
+  "university",
+  "professor"
+ ],
+ "q2-020": [
+  "former student",
+  "partner university"
+ ],
+ "q2-021": [
+  "prospective employer",
+  "job applicant",
+  "university's occupational health service"
+ ],
+ "q2-022": [
+  "university",
+  "student applicants",
+  "government"
+ ],
+ "q2-023": [
+  "university",
+  "staff member",
+  "public health authority"
+ ],
+ "q2-024": [
+  "public authority",
+  "Commissioner",
+  "university",
+  "student"
+ ],
+ "q2-025": [
+  "university",
+  "public authority"
+ ],
+ "q2-026": [
+  "university",
+  "student"
+ ],
+ "q2-027": [
+  "not-for-profit student advocacy organisation",
+  "supervisory authority",
+  "university"
+ ],
+ "q2-028": [
+  "university",
+  "student",
+  "partner university",
+  "third country"
+ ],
+ "q2-029": [
+  "former student",
+  "university"
+ ],
+ "q2-030": [
+  "public authority",
+  "student",
+  "non-EEA country",
+  "supervisory authority",
+  "High Court"
+ ],
+ "q2-031": [
+  "university",
+  "private company",
+  "student records",
+  "GDPR data protection certifications",
+  "commercial standards organisation",
+  "Commissioner",
+  "UK national accreditation body"
+ ],
+ "q2-032": [
+  "UK university",
+  "partner university"
+ ],
+ "q2-033": [
+  "university",
+  "student",
+  "public authority"
+ ],
+ "q2-034": [
+  "public university",
+  "Federal Commissioner",
+  "judicial authority",
+  "partner university"
+ ],
+ "q2-035": [
+  "former student",
+  "credit reference agency"
+ ],
+ "q2-036": [
+  "university",
+  "student"
+ ],
+ "q2-037": [
+  "not-for-profit privacy advocacy organisation",
+  "students"
+ ],
+ "q2-038": [
+  "former student",
+  "institution"
+ ],
+ "q2-039": [
+  "student",
+  "non-EU partner university",
+  "EU-based representative"
+ ],
+ "q2-040": [
+  "student",
+  "university"
+ ],
+ "q2-041": [
+  "university",
+  "student",
+  "partner university",
+  "national supervisory authority",
+  "High Court"
+ ],
+ "q2-042": [
+  "university",
+  "data protection officer",
+  "Information Commissioner's Office",
+  "supervisory authority"
+ ],
+ "q2-043": [
+  "former staff member",
+  "public university",
+  "FOI public authority"
+ ],
+ "q2-044": [
+  "university",
+  "student",
+  "public health authority"
+ ],
+ "q2-045": [
+  "former student",
+  "university",
+  "partner university"
+ ],
+ "q2-046": [
+  "student advocacy nonprofit",
+  "graduate student",
+  "university",
+  "supervisory authority"
+ ],
+ "q2-047": [
+  "university",
+  "student",
+  "partner university"
+ ],
+ "q2-048": [
+  "university",
+  "student",
+  "partner university",
+  "third country"
+ ],
+ "q2-049": [
+  "public authority",
+  "university",
+  "student"
+ ],
+ "q2-050": [
+  "staff member",
+  "department head"
+ ],
+ "q2-051": [
+  "public authority",
+  "Secretary of State"
+ ],
+ "q2-052": [
+  "university",
+  "staff"
+ ],
+ "q2-053": [
+  "commercial edtech company",
+  "enrolled students under 18"
+ ],
+ "q2-054": [
+  "data protection commission",
+  "annual report",
+  "complaints",
+  "university students",
+  "staff"
+ ],
+ "q2-055": [
+  "student",
+  "not-for-profit privacy advocacy organisation",
+  "university"
+ ],
+ "q2-056": [
+  "student",
+  "Data Protection Commission"
+ ],
+ "q2-057": [
+  "student",
+  "Data Protection Commission",
+  "university"
+ ],
+ "q2-058": [
+  "controller",
+  "students",
+  "supervisory authority"
+ ],
+ "q2-059": [
+  "university",
+  "staff"
+ ],
+ "q2-060": [
+  "university",
+  "staff",
+  "public authority"
+ ],
+ "q2-061": [
+  "university",
+  "staff",
+  "Secretary of State for Defence"
+ ],
+ "q2-062": [
+  "university",
+  "students",
+  "public authority"
+ ],
+ "q2-063": [
+  "Two institutions",
+  "student"
+ ],
+ "q2-064": [
+  "Secretary of State",
+  "minor and consequential provisions section"
+ ],
+ "q2-065": [
+  "university",
+  "staff",
+  "government"
+ ],
+ "q2-066": [
+  "public authority",
+  "student"
+ ],
+ "q2-067": [
+  "university",
+  "student",
+  "public authority",
+  "data protection commissioner"
+ ],
+ "q2-068": [
+  "actors\": [\"student\", \"data controller\", \"law enforcement\"]",
+  "data_categories\": [\"personal data\"]",
+  "actions\": [\"processing\", \"demonstrating compliance\"]",
+  "jurisdictions/destinations\": []"
+ ],
+ "q2-069": [
+  "students",
+  "facial image data"
+ ],
+ "q2-070": [
+  "Information Commissioner",
+  "Keeper of the Privy Purse",
+  "student personal data",
+  "Royal Household"
+ ],
+ "q2-071": [
+  "not-for-profit data protection advocacy organisation",
+  "student",
+  "university"
+ ],
+ "q2-072": [
+  "student",
+  "controller"
+ ],
+ "q2-073": [
+  "university",
+  "student"
+ ],
+ "q2-074": [
+  "university"
+ ],
+ "q2-075": [
+  "university administrator",
+  "Commissioner",
+  "student"
+ ],
+ "q2-076": [
+  "Student",
+  "academic records",
+  "partner university",
+  "third country"
+ ],
+ "q2-077": [
+  "former student",
+  "controller"
+ ],
+ "q2-079": [
+  "non-executive member of the Commission",
+  "Commission"
+ ],
+ "q2-080": [
+  "former staff member",
+  "controller"
+ ],
+ "q2-081": [
+  "university",
+  "student",
+  "staff member"
+ ],
+ "q2-082": [
+  "university",
+  "enrolled students",
+  "employed staff"
+ ],
+ "q2-083": [
+  "university",
+  "public authority"
+ ],
+ "q2-084": [
+  "university",
+  "Commissioner"
+ ],
+ "q2-086": [
+  "public authority",
+  "Commission",
+  "Secretary of State"
+ ],
+ "q2-088": [
+  "not-for-profit privacy advocacy organisation",
+  "affected students"
+ ],
+ "q2-089": [
+  "university",
+  "public authority"
+ ],
+ "q2-090": [
+  "university",
+  "partner university"
+ ],
+ "q2-091": [
+  "university",
+  "staff payroll data",
+  "partner university",
+  "third country"
+ ],
+ "q2-092": [
+  "university",
+  "public authority"
+ ],
+ "q2-093": [
+  "university",
+  "public authority"
+ ],
+ "q2-094": [
+  "former staff member",
+  "public authority"
+ ],
+ "q2-095": [
+  "not-for-profit data protection advocacy group",
+  "students"
+ ],
+ "q2-096": [
+  "university",
+  "staff",
+  "recipient"
+ ],
+ "q2-097": [
+  "university",
+  "staff member",
+  "controller"
+ ],
+ "q2-098": [
+  "university",
+  "students",
+  "AI-driven proctoring software"
+ ],
+ "q2-099": [
+  "university",
+  "public authority"
+ ],
+ "q2-100": [
+  "university",
+  "staff",
+  "research funder",
+  "third country"
+ ]
+}

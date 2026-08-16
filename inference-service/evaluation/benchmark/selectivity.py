@@ -20,8 +20,10 @@ Run it against each graph in turn and compare:
     NEO4J_URI=bolt://localhost:7688 ARTIFACTS_DIR=... python -m evaluation.benchmark.selectivity
 """
 import argparse
+import json
 import statistics
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 _SERVICE = Path(__file__).resolve().parents[2]
@@ -65,7 +67,22 @@ def main() -> None:
                     help="random entry sets per size; the entry set is random "
                          "because selectivity is a property of the graph, not "
                          "of any one query")
+    # Printing to stdout only once cost this project the numbers themselves:
+    # the figures quoted in the write-up had to be recovered from a terminal
+    # log months later. Always leave a file behind.
+    ap.add_argument("--out", default="../results/selectivity.json",
+                    help="where to write the result; --out '' to skip")
+    ap.add_argument("--label", default=None,
+                    help="name for this corpus in the output file")
     args = ap.parse_args()
+
+    report: dict = {
+        "measured_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "label": args.label,
+        "neo4j_uri": config.NEO4J_URI,
+        "repeats": args.repeats,
+        "rows": [],
+    }
 
     with get_driver().session() as s:
         total = s.run("MATCH (c:Chunk) RETURN count(c) AS n").single()["n"]
@@ -73,6 +90,8 @@ def main() -> None:
         rels = s.run("MATCH ()-[r:RELATES]->() RETURN count(r) AS n").single()["n"]
         cites = s.run("MATCH ()-[r:CITES|IMPLEMENTS]->() "
                       "RETURN count(r) AS n").single()["n"]
+        report["graph"] = {"chunks": total, "entities": ents,
+                           "relates_edges": rels, "citation_edges": cites}
         print(f"{config.NEO4J_URI}")
         print(f"  {total} chunks, {ents} entities, {rels} RELATES, "
               f"{cites} citation edges\n")
@@ -89,9 +108,29 @@ def main() -> None:
                         for _ in range(args.repeats)]
                 mean = statistics.mean(runs)
                 print(f"{label:<18}{entry:>7}{mean:>11.1f}{100*mean/total:>13.1f}%")
+                report["rows"].append({
+                    "edges": label, "entry": entry,
+                    "admitted_mean": round(mean, 2),
+                    "admitted_pct": round(100 * mean / total, 2),
+                })
 
     print("\n  Near 100% means the hop selects nothing: the admitted set is the")
     print("  corpus, so ranking it by query similarity is dense retrieval.")
+
+    if args.out:
+        p = Path(args.out)
+        p.parent.mkdir(parents=True, exist_ok=True)
+        # Keyed by label so a second corpus adds to the file instead of
+        # replacing it -- the comparison between corpora is the whole point.
+        existing = {}
+        if p.exists():
+            try:
+                existing = json.loads(p.read_text(encoding="utf-8"))
+            except ValueError:
+                pass
+        existing[args.label or config.NEO4J_URI] = report
+        p.write_text(json.dumps(existing, indent=2), encoding="utf-8")
+        print(f"\n  wrote {p}")
 
 
 if __name__ == "__main__":

@@ -55,6 +55,11 @@ def main() -> None:
     ap.add_argument("--ner-cache", required=True)
     ap.add_argument("--limit", type=int, default=200,
                     help="queries to sample; the distribution stabilises well before this")
+    # See the note in selectivity.py: stdout-only output has already cost this
+    # project one set of measurements.
+    ap.add_argument("--out", default="../results/hop_coverage.json",
+                    help="where to write the result; --out '' to skip")
+    ap.add_argument("--label", default=None, help="name for this corpus")
     args = ap.parse_args()
 
     cache = json.loads(Path(args.ner_cache).read_text(encoding="utf-8"))
@@ -94,6 +99,32 @@ def main() -> None:
     print(f"    max    : {pct[-1]:6.1f}%  ({pct[-1] / 100 * total:.0f} chunks)")
     print("\nA median near 100% means the traversal admits the whole corpus and the "
           "\nranking step, not the graph, decides the result.")
+
+    if args.out:
+        from datetime import datetime, timezone
+        p = Path(args.out)
+        p.parent.mkdir(parents=True, exist_ok=True)
+        existing = {}
+        if p.exists():
+            try:
+                existing = json.loads(p.read_text(encoding="utf-8"))
+            except ValueError:
+                pass
+        existing[args.label or args.dataset] = {
+            "measured_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            "dataset": args.dataset,
+            "chunks": total, "entities": entities, "hops": config.GRAPH_HOPS,
+            "queries_sampled": len(queries), "queries_unlinked": unlinked,
+            "reachable_pct": {
+                "median": round(statistics.median(pct), 2),
+                "mean": round(statistics.fmean(pct), 2),
+                "p10": round(pct[len(pct) // 10], 2),
+                "p90": round(pct[-max(1, len(pct) // 10)], 2),
+                "max": round(pct[-1], 2),
+            },
+        }
+        p.write_text(json.dumps(existing, indent=2), encoding="utf-8")
+        print(f"\nwrote {p}")
 
 
 if __name__ == "__main__":

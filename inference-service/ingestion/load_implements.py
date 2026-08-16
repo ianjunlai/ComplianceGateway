@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Load the Chunk-to-Chunk citation edges into an existing graph. Separate from
-build_indexes so they can be added or removed without a rebuild."""
+"""Load the Chunk-to-Chunk citation edges into an existing graph. Separate from build_indexes so they can be added or removed without a rebuild."""
 import argparse
 import json
 import sys
@@ -13,8 +12,7 @@ from pipeline.graph import get_driver   # noqa: E402
 
 EDGES = _SERVICE.parent / "dataset" / "corpus" / "nations" / "implements_edges.json"
 
-# One statement per relationship type: Cypher cannot parameterise a type, and
-# the two mean different things.
+# One statement per relationship type: Cypher cannot parameterise a type, and the two mean different things.
 _CREATE = """
 UNWIND $rows AS row
 MATCH (a:Chunk {chunk_id: row.source}), (b:Chunk {chunk_id: row.target})

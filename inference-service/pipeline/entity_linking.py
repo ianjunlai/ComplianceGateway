@@ -1,11 +1,7 @@
-"""Link query mentions to graph nodes by cosine similarity over the entity vector
-index, since exact string match almost always fails."""
 import config
 from pipeline.embeddings import embed
 from pipeline.graph import get_driver, index_score_to_cosine
 
-# One round trip for all mentions. Each row is one mention's best node, so a
-# mention that happens to share its argmax with another contributes once.
 _LINK_QUERY = """
 UNWIND range(0, size($vectors) - 1) AS i
 CALL db.index.vector.queryNodes($index, $k, $vectors[i]) YIELD node, score

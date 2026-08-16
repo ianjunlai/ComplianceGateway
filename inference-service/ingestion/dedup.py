@@ -1,5 +1,4 @@
-"""Entity deduplication: merge only names identical after normalising case and
-whitespace. Near-identity is a SYNONYM edge instead."""
+"""Entity deduplication: merge only names identical after normalising case and whitespace. Near-identity is a SYNONYM edge instead."""
 import re
 from dataclasses import dataclass, field
 
@@ -19,8 +18,6 @@ class CanonicalEntity:
     type: str
     aliases: set[str] = field(default_factory=set)
     chunk_ids: set[str] = field(default_factory=set)
-    # chunk_id -> number of mentions in that chunk. Feeds the node-passage
-    # count matrix used to score passages from node scores.
     chunk_counts: dict[str, int] = field(default_factory=dict)
 
 

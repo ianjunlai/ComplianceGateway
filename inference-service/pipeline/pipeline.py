@@ -1,5 +1,4 @@
-"""Pipeline orchestrator: NER, retrieval, then constrained generation, each stage
-timed separately."""
+"""Pipeline orchestrator: NER, retrieval, then constrained generation, each stage timed separately."""
 from datetime import datetime, timezone
 
 import config
@@ -29,9 +28,6 @@ def run_pipeline(event: AuditRequestEvent, queue_wait_ms: int = 0) -> AuditResul
     with timer.stage("ner"):
         seeds = ner.extract_seed_entities(event.audit_query)
 
-    # Derived once from who sent the request, and applied to both retrieval and
-    # attachment so a provision of another member state cannot enter by either
-    # route.
     scope = jurisdictions_for(event.source_system)
 
     with timer.stage("retrieval"):
@@ -40,8 +36,6 @@ def run_pipeline(event: AuditRequestEvent, queue_wait_ms: int = 0) -> AuditResul
                                     top_k=config.RETRIEVAL_K,
                                     allowed_jurisdictions=scope)
 
-    # The SLM sees a fixed top-GENERATION_CONTEXT_K prefix, so the generation
-    # condition does not vary with the retrieval-evaluation K.
     gen_context = attach_citations(
         context.truncated(config.GENERATION_CONTEXT_K),
         allowed_jurisdictions=scope,

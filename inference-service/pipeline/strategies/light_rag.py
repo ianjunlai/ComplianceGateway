@@ -1,12 +1,9 @@
-"""LightRAG-style dual-level retrieval: entities for specific queries, relation
-vectors for thematic ones, then a one-hop expansion."""
 import config
 from pipeline.base import RetrievalStrategy, RetrievedChunk, RetrievedContext
 from pipeline.embeddings import embed, embed_one
 from pipeline.graph import get_driver, index_score_to_cosine
 
-# Low level: all seed mentions matched in one round trip, with the provenance
-# clauses of each matched entity.
+# Low level: all seed mentions matched in one round trip, with the provenance clauses of each matched entity.
 _ENTITY_QUERY = """
 UNWIND $vectors AS vec
 CALL db.index.vector.queryNodes($index, $limit, vec) YIELD node, score
@@ -22,8 +19,7 @@ RETURN node.node_id AS node_id, node.name AS name, score,
 ORDER BY score DESC, relation_count DESC
 """
 
-# High level: relationship vector index, returning both endpoints so the
-# expansion step can start from them.
+# High level: relationship vector index, returning both endpoints so the expansion step can start from them.
 _EDGE_QUERY = """
 CALL db.index.vector.queryRelationships($index, $k, $vec) YIELD relationship AS r, score
 RETURN r.description AS description, r.chunk_ids AS chunk_ids, score,
@@ -48,8 +44,7 @@ MATCH (c:Chunk {chunk_id: cid})
 RETURN c.chunk_id AS chunk_id, c.text AS text
 """
 
-# Final ranking: the graph decides which clauses are admissible, the query
-# vector decides which of those are relevant.
+# Final ranking: the graph decides which clauses are admissible, the query vector decides which of those are relevant.
 _RANK_QUERY = """
 UNWIND $chunk_ids AS cid
 MATCH (c:Chunk {chunk_id: cid})
@@ -87,8 +82,7 @@ class LightRagStrategy(RetrievalStrategy):
                 )
             ]
 
-            # A clause is ranked by (similarity of the element that surfaced
-            # it, how much of that element's neighbourhood it contains).
+            # A clause is ranked by (similarity of the element that surfaced it, how much of that element's neighbourhood it contains).
             node_best: dict[str, float] = {}
             chunk_keys: dict[str, tuple[float, float]] = {}
 
@@ -106,12 +100,9 @@ class LightRagStrategy(RetrievalStrategy):
                 score = index_score_to_cosine(hit["score"])
                 edges.append(hit["description"])
                 for cid in hit["chunk_ids"] or []:
-                    # An edge names its endpoints, not a neighbourhood within a
-                    # clause, so it carries no relation_count of its own.
                     claim(cid, score)
 
-            # High-order relatedness: one-hop neighbours of the matched entities
-            # and of the entities the matched edges connect
+            # High-order relatedness: one-hop neighbours of the matched entities and of the entities the matched edges connect
             expansion_seeds = {h["node_id"] for h in entity_hits}
             for hit in edge_hits:
                 expansion_seeds.update(
@@ -127,9 +118,6 @@ class LightRagStrategy(RetrievalStrategy):
                 ):
                     node_best.setdefault(r["name"], expanded_score)
                     chunk_texts[r["chunk_id"]] = r["text"]
-                    # Expanded evidence ranks below every direct hit by the
-                    # decay, and among itself by how many matched elements
-                    # reached it.
                     claim(r["chunk_id"], expanded_score, r["support"])
 
             nodes = [n for n, _ in sorted(node_best.items(), key=lambda kv: -kv[1])][:top_k]

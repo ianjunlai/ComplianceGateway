@@ -36,10 +36,6 @@ public class AuditProducerService {
     /** Publishes the event and returns the assigned request UUID. */
     public String publish(String sourceSystem, String auditQuery) {
         String requestId = UUID.randomUUID().toString();
-        // Contract: ISO-8601 UTC at millisecond precision. Java's default
-        // Instant#toString() emits nanosecond precision, which older Python
-        // fromisoformat implementations reject — truncate to keep the wire
-        // format unambiguous regardless of the consumer's Python version.
         AuditRequestEvent event = new AuditRequestEvent(
                 requestId, sourceSystem,
                 Instant.now().truncatedTo(ChronoUnit.MILLIS).toString(), auditQuery);

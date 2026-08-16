@@ -75,8 +75,7 @@ def extract_graph_elements(chunk: Chunk, tracker: CostTracker, max_attempts: int
     metric, and it must not disappear just because extraction was cached.
     """
     prompt = _prompt_template().replace("{chunk_id}", chunk.chunk_id).replace("{text}", chunk.text)
-    # The output budget has to scale with the input: entity and relation counts
-    # track passage length, and a flat cap silently becomes a length filter.
+    # The output budget has to scale with the input: entity and relation counts track passage length, and a flat cap silently becomes a length filter.
     max_output = max(8000, 8 * chunk.approx_tokens)
     with tracker.llm_call("extraction"):
         data, usage = complete_json(
@@ -112,8 +111,6 @@ def normalise_elements(data: dict) -> tuple[list[dict], list[dict], int]:
     """
     entities = []
     for e in data.get("entities", []):
-        # A bare scalar where an object was asked for is the model shortening
-        # {"name": "x", "type": ...} to "x".
         name = _text(e) if not isinstance(e, dict) else _text(e.get("name"))
         if not name:
             continue

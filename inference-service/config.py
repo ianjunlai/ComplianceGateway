@@ -1,5 +1,3 @@
-"""Central configuration for the inference service. Every experimental parameter
-is disclosed here."""
 import os
 
 from dotenv import load_dotenv
@@ -14,9 +12,6 @@ DLQ_TOPIC = "Audit_DLQ_Topic"
 CONSUMER_GROUP = "ai-inference-consumer"
 
 # --- Storage ---
-# Neo4j holds both the knowledge graph and the vectors: its native vector
-# indexes let a single Cypher statement do similarity search and traversal in
-# one round trip, and keep chunk/entity identity in one place.
 NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
 NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")
 NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "compliance123")
@@ -32,9 +27,7 @@ OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
 SLM_MODEL = os.getenv("SLM_MODEL", "llama3.1:8b-instruct-q4_K_M")
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "BAAI/bge-large-en-v1.5")
 
-# --- Offline cloud models, on public legal text only. PROVIDER selects the
-# client in common/llm_clients.py; switching provider needs only these vars
-# plus that provider's key. See .env.example.
+# --- Offline cloud models, on public legal text only.
 EXTRACTION_PROVIDER = os.getenv("EXTRACTION_PROVIDER", "openai")
 EXTRACTION_MODEL = os.getenv("EXTRACTION_MODEL", "gpt-4o")
 JUDGE_PROVIDER = os.getenv("JUDGE_PROVIDER", "anthropic")
@@ -46,11 +39,7 @@ QA_GENERATION_MODEL = os.getenv("QA_GENERATION_MODEL", "gpt-4o")
 ACTIVE_STRATEGY = os.getenv("ACTIVE_STRATEGY", "hybrid")
 RETRIEVAL_K = 10               # ranked chunks retrieved per query (one list serves Recall@5 and @10)
 GENERATION_CONTEXT_K = 5       # chunks the SLM actually sees (fixed, independent of retrieval K)
-# Hybrid traversal depth. On 2Wiki 21% of gold pairs sit 3-4 relations apart
-# and are invisible at 2, so it stays overridable.
 GRAPH_HOPS = int(os.getenv("GRAPH_HOPS", "2"))
-# Follow IMPLEMENTS one hop past the entity traversal. Off by default: every
-# reported GDPR figure was produced without it.
 HYBRID_FOLLOW_IMPLEMENTS = os.getenv("HYBRID_FOLLOW_IMPLEMENTS", "0") not in ("0", "false", "False")
 # Query entity -> graph node.
 ENTITY_LINK_TOP_K = int(os.getenv("ENTITY_LINK_TOP_K", "3"))
@@ -71,14 +60,10 @@ SYNONYM_THRESHOLD = (float(os.environ["SYNONYM_THRESHOLD"])
                      if os.getenv("SYNONYM_THRESHOLD") else None)
 PPR_ALPHA = 0.5                # HippoRAG PPR edge probability; 1 - it restarts
 LIGHTRAG_NEIGHBOUR_DECAY = 0.5  # score multiplier for one-hop-expanded evidence
-# LightRAG publishes no passage ranking, but Recall@k needs one: rank admitted
-# clauses by query similarity (True) or by the graph element that surfaced them
 # (False, the original choice and the defect hybrid_graph.py was fixed for).
 LIGHTRAG_RANK_BY_QUERY = os.getenv("LIGHTRAG_RANK_BY_QUERY", "1") not in ("0", "false", "False")
 
 # --- Artifacts (built offline by ingestion.build_indexes) ---
-# Overridable so a second corpus does not overwrite the first: the caches and
-# matrices are keyed by chunk_id alone. The benchmark run uses artifacts_2wiki/.
 ARTIFACTS_DIR = os.getenv(
     "ARTIFACTS_DIR", os.path.join(os.path.dirname(__file__), "artifacts"))
 

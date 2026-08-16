@@ -9,13 +9,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * Result store: consumes Audit_Result_Topic so that
- *  - JMeter can measure async E2E latency by polling GET /api/v1/audit/{id}
- *  - the dashboard has a data source.
- *
- * In-memory map is sufficient for the experiment (single gateway instance, bounded run length).
- */
 @Service
 public class ResultStoreService {
 

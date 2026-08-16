@@ -18,15 +18,6 @@ import java.util.Map;
 
 /**
  * Single public surface of the compliance gateway.
- *
- * Integration modes:
- *   POST /api/v1/audit                EDA          -> 202 + request_id
- *   POST /api/v1/audit/sync           sync-unbounded
- *   POST /api/v1/audit/sync-throttled sync-throttled (HTTP-layer queue)
- *
- * Support endpoints:
- *   GET  /api/v1/audit/{id}           result polling (JMeter E2E measurement)
- *   GET  /api/v1/metrics              dashboard snapshot
  */
 @RestController
 @RequestMapping("/api/v1")
@@ -102,11 +93,6 @@ public class AuditController {
 
     /**
      * Rejects a malformed payload at ingress with the offending field named.
-     *
-     * The default 400 body reports only that validation failed. Naming the
-     * field matters here because the likeliest cause is a client sending the
-     * wrong key — camelCase, say — which binds to null and is otherwise
-     * indistinguishable from an omitted field.
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)

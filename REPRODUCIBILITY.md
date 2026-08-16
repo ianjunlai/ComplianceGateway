@@ -216,8 +216,9 @@ copy .env.example .env
 #    (corpus -> graph -> citation edges -> questions -> E1 -> E2) followed by
 #    loadtest/run_e3.sh (E3). Resumable, with a check after each step that
 #    could otherwise produce plausible-looking wrong data.
-cd .. && ./run_all.sh --dry-run
+cd .. && ./run_all.sh --check     # prerequisites only, starts nothing
 ./run_all.sh
+#    --skip-e3 stops after the quality runs; run loadtest/run_e3.sh separately
 #    -> results/<strategy>-full<MMDD>.json, results/full/logs/, results/e3/
 
 #    --- or step by step ---

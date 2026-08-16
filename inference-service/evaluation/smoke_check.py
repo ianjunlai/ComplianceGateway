@@ -16,8 +16,7 @@ from pipeline.strategies import build_strategy                   # noqa: E402
 FAIL: list[str] = []
 WARN: list[str] = []
 
-# Written the way a request would arrive: no institution named, no clause
-# numbers. The requester is carried by source_system.
+# Written the way a request would arrive: no institution named, no clause numbers. The requester is carried by source_system.
 PROBES = [
     ("cambridge", "May student academic transcripts be transferred to a partner "
                   "university outside the UK using standard contractual clauses?"),
@@ -56,8 +55,7 @@ def main() -> None:
         n_cite = s.run("MATCH ()-[r:CITES|IMPLEMENTS]->() "
                        "RETURN count(r) AS n").single()["n"]
     check(n_chunk > 0, f"{n_chunk} chunks")
-    # Without jurisdiction on the nodes every scoped query matches nothing and
-    # every strategy returns an empty context, for all 100 questions.
+    # Without jurisdiction on the nodes every scoped query matches nothing and every strategy returns an empty context, for all 100 questions.
     check(n_juris == n_chunk, f"{n_juris}/{n_chunk} carry a jurisdiction")
     check(n_cite > 0, f"{n_cite} citation edges (attachment has something to follow)")
 
@@ -79,8 +77,7 @@ def main() -> None:
         ctxs[name] = ctx
         check(len(ctx.chunks) > 0, f"{name}: {len(ctx.chunks)} chunks in {ms:.0f} ms")
 
-    # Everything returned must be in scope. A leak here means one strategy is
-    # answering from a wider corpus than the others.
+    # Everything returned must be in scope. A leak here means one strategy is answering from a wider corpus than the others.
     if ctxs:
         with get_driver().session() as s:
             jur = {r["c"]: r["j"] for r in s.run(

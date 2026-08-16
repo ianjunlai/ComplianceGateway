@@ -14,8 +14,7 @@ import config                                      # noqa: E402
 from pipeline.entity_linking import link_entities  # noqa: E402
 from pipeline.graph import get_driver              # noqa: E402
 
-# Same traversal as hybrid_graph.py, counting what it admits instead of ranking
-# it. Measuring a different expansion would describe a strategy nobody runs.
+# Same traversal as hybrid_graph.py, counting what it admits instead of ranking it. Measuring a different expansion would describe a strategy nobody runs.
 _REACH_QUERY = """
 UNWIND $seed_ids AS seed_id
 MATCH (seed:Entity {node_id: seed_id})
@@ -36,8 +35,7 @@ def main() -> None:
     ap.add_argument("--ner-cache", required=True)
     ap.add_argument("--limit", type=int, default=200,
                     help="queries to sample; the distribution stabilises well before this")
-    # See the note in selectivity.py: stdout-only output has already cost this
-    # project one set of measurements.
+    # See the note in selectivity.py: stdout-only output has already cost this project one set of measurements.
     ap.add_argument("--out", default="../results/hop_coverage.json",
                     help="where to write the result; --out '' to skip")
     ap.add_argument("--label", default=None, help="name for this corpus")

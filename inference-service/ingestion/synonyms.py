@@ -1,5 +1,4 @@
-"""Synonymy edges between near-identical entity names, HippoRAG's E'. Only
-HippoRAG walks them."""
+"""Synonymy edges between near-identical entity names, HippoRAG's E'. Only HippoRAG walks them."""
 import logging
 
 import numpy as np
@@ -8,8 +7,7 @@ import config
 
 log = logging.getLogger("synonyms")
 
-# Pairwise cosine over every entity at once is |N|^2 floats; at 8k entities
-# that is 256 MB, and it grows quadratically.
+# Pairwise cosine over every entity at once is |N|^2 floats; at 8k entities that is 256 MB, and it grows quadratically.
 _BLOCK = 1024
 
 

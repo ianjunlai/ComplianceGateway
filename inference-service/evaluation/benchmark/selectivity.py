@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""How much of a corpus one hop through the entity layer admits, measured for
-entity edges and citation edges separately."""
+"""How much of a corpus one hop through the entity layer admits, measured for entity edges and citation edges separately."""
 import argparse
 import json
 import statistics
@@ -25,8 +24,7 @@ UNWIND pool AS n
 RETURN count(DISTINCT n) AS admitted
 """
 
-# The same measurement along the citations the drafters wrote, where the corpus
-# has them.
+# The same measurement along the citations the drafters wrote, where the corpus has them.
 _ADMIT_CITES = """
 MATCH (c:Chunk) WITH c, rand() AS r ORDER BY r LIMIT $entry
 WITH collect(c) AS seeds
@@ -46,9 +44,6 @@ def main() -> None:
                     help="random entry sets per size; the entry set is random "
                          "because selectivity is a property of the graph, not "
                          "of any one query")
-    # Printing to stdout only once cost this project the numbers themselves:
-    # the figures quoted in the write-up had to be recovered from a terminal
-    # log months later. Always leave a file behind.
     ap.add_argument("--out", default="../results/selectivity.json",
                     help="where to write the result; --out '' to skip")
     ap.add_argument("--label", default=None,
@@ -99,8 +94,6 @@ def main() -> None:
     if args.out:
         p = Path(args.out)
         p.parent.mkdir(parents=True, exist_ok=True)
-        # Keyed by label so a second corpus adds to the file instead of
-        # replacing it -- the comparison between corpora is the whole point.
         existing = {}
         if p.exists():
             try:

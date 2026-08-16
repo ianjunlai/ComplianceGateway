@@ -8,9 +8,6 @@ import java.util.Map;
 
 /**
  * Audit_Result_Event consumed from Audit_Result_Topic.
- * Mirror of inference-service/common/schemas.py::AuditResultEvent.
- *
- * stageTimingsMs keys: queue_wait_ms, ner_ms, retrieval_ms, generation_ms, total_ms.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record AuditResultEvent(

@@ -1,20 +1,9 @@
-"""Hybrid Vector-Graph RAG: link query entities to nodes, traverse, then rank the
-admitted clauses by query similarity."""
 import config
 from pipeline.base import RetrievalStrategy, RetrievedChunk, RetrievedContext
 from pipeline.embeddings import embed_one
 from pipeline.entity_linking import link_entities
 from pipeline.graph import get_driver, index_score_to_cosine
 
-# 2-hop expansion from seed nodes to provenance chunks, ranked by query
-# similarity.
-# Graph schema (built by ingestion.build_indexes):
-#   (:Entity {node_id, name}) -[:RELATES {type, description}]-> (:Entity)
-#   (:Entity) -[:MENTIONED_IN]-> (:Chunk {chunk_id, text, embedding})
-# vector.similarity.cosine scores the candidates in-database, so only the
-# top-k rows cross the wire rather than the whole reachable set.
-# %(hops)d is interpolated (an int from config): Cypher cannot parameterize
-# the bounds of a variable-length pattern.
 _TRAVERSAL_QUERY = """
 UNWIND $seed_ids AS seed_id
 MATCH (seed:Entity {node_id: seed_id})

@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Convert HippoRAG's released 2WikiMultihopQA subset into this project's corpus
-and QA schema."""
+"""Convert HippoRAG's released 2WikiMultihopQA subset into this project's corpus and QA schema."""
 import argparse
 import json
 import random
@@ -51,17 +50,9 @@ def main() -> None:
     print(f"source: {len(corpus)} passages, {len(qa)} questions")
 
     if args.sample:
-        # Shuffle once, then slice — so sample(20) is a prefix of sample(200)
-        # and the passages extracted for a rehearsal are still cached when the
-        # real run happens. random.sample(k=20) and random.sample(k=200) draw
-        # unrelated sets even from the same seed, which would make every
-        # rehearsal a write-off.
         qa = list(qa)
         random.Random(SEED).shuffle(qa)
         qa = qa[:args.sample]
-        # Keep every passage these questions can see, gold and distractor alike:
-        # dropping the distractors would leave a corpus where retrieval is
-        # trivial and the comparison meaningless.
         keep = {t for q in qa for t, _ in q["context"]}
         corpus = [c for c in corpus if c["title"] in keep]
         print(f"sampled: {len(corpus)} passages, {len(qa)} questions")
@@ -74,9 +65,6 @@ def main() -> None:
         rows.append({"chunk_id": cid, "source": "2wiki", "title": c["title"], "text": c["text"]})
 
     if args.restrict_to_cache:
-        # Ids are positional over the *unrestricted* corpus, so they are assigned
-        # above and filtered here — never renumbered, or they would stop matching
-        # the extraction cache they are being restricted to.
         extracted = set(json.loads(
             Path(args.restrict_to_cache).read_text(encoding="utf-8"))["chunks"])
         before = len(rows)
@@ -90,9 +78,6 @@ def main() -> None:
         gold_titles = {t for t, _ in q["supporting_facts"]}
         missing = gold_titles - chunk_id_of.keys()
         if missing:
-            # Fail loudly: a gold label that resolves to nothing scores zero
-            # recall for every strategy at once, which reads as a finding
-            # rather than as the mapping bug it is.
             unresolved.update(missing)
             continue
         queries.append({
@@ -109,9 +94,6 @@ def main() -> None:
             f"names are absent from the corpus, e.g. {list(unresolved)[:5]}. "
             f"Refusing to write a dataset whose ground truth is unreachable.")
     if unresolved:
-        # Expected under --restrict-to-cache and reported rather than raised:
-        # these questions are dropped, not answered against a corpus missing
-        # their evidence. The count belongs in the write-up.
         print(f"dropped {len(qa) - len(queries)} question(s) whose gold was not extracted")
 
     out_dir.mkdir(parents=True, exist_ok=True)

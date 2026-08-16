@@ -8,8 +8,7 @@ from functools import lru_cache
 
 log = logging.getLogger("llm_clients")
 
-# Alias resolutions already reported, so a 600-call judging pass warns once per
-# model rather than 600 times.
+# Alias resolutions already reported, so a 600-call judging pass warns once per model rather than 600 times.
 _ALIAS_SEEN: set[str] = set()
 
 _OPENAI_COMPATIBLE_BASE_URLS = {
@@ -45,11 +44,6 @@ def _client(provider: str):
 def complete_json(
     provider: str, model: str, prompt: str, *,
     max_tokens: int = 2000, temperature: float = 0, max_attempts: int = 3,
-    # NOTE: some model names are floating aliases -- "qwen-plus" and
-    # "qwen-plus-latest" both move with releases -- so the provider may answer
-    # with a different, pinned model than the one requested. The response echoes
-    # what actually served it, and that is what belongs in the write-up; the
-    # configured name is a request, not a record.
 ) -> tuple[dict, dict]:
     """Runs a JSON-producing chat completion, retried with backoff."""
     client = _client(provider)
@@ -60,9 +54,6 @@ def complete_json(
                     model=model, max_tokens=max_tokens,
                     messages=[{"role": "user", "content": prompt}],
                 )
-                # Current Claude models think by default, so content[0] is a
-                # thinking block, not the answer -- and a thinking block has no
-                # .text at all. Select the text block rather than indexing.
                 text = next(
                     (b.text for b in response.content if b.type == "text"), ""
                 )
@@ -90,9 +81,6 @@ def complete_json(
                          "completion_tokens": response.usage.completion_tokens}
                 served = getattr(response, "model", None)
                 if served and served != model:
-                    # Record what answered, not what was asked for: an alias
-                    # moves between releases and the write-up has to name the
-                    # model that produced the numbers.
                     if served not in _ALIAS_SEEN:
                         _ALIAS_SEEN.add(served)
                         log.warning("provider resolved model %r -> %r; report the latter",
@@ -104,9 +92,6 @@ def complete_json(
         except Exception as e:
             if attempt == max_attempts:
                 raise
-            # Retries are otherwise indistinguishable from a new call in the
-            # HTTP-level request log -- log explicitly so a failure can be
-            # traced back to which call it was for.
             log.warning("complete_json attempt %d/%d failed (provider=%s, model=%s): %s",
                        attempt, max_attempts, provider, model, e)
             time.sleep(2 ** attempt)

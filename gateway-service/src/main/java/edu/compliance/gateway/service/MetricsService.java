@@ -15,12 +15,6 @@ import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * Lightweight gateway-side metrics: queue depth, counters,
- * gateway-observed E2E latency, and a rolling window of recent results for
- * the dashboard. Queue depth here = submitted - completed - errors, valid
- * because the experiment runs a single gateway instance.
- *
- * Kafka-side consumer lag (broker truth) is additionally recorded by the
- * loadtest tooling; see loadtest/README.md.
  */
 @Service
 public class MetricsService {

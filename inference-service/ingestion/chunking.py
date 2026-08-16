@@ -1,5 +1,4 @@
-"""Structural chunking: one chunk is one complete legal directive, never a token
-window."""
+"""Structural chunking: one chunk is one complete legal directive, never a token window."""
 import re
 import unicodedata
 from dataclasses import dataclass

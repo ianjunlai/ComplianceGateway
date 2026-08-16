@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Attach the provisions a retrieved clause cites, instead of ranking them: a
-cited article is abstract where the query is operational, so it ranks badly."""
+"""Attach the provisions a retrieved clause cites, instead of ranking them: a cited article is abstract where the query is operational, so it ranks badly."""
 import config
 from pipeline.base import RetrievedChunk, RetrievedContext
 from pipeline.graph import get_driver

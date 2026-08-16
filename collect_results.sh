@@ -1,18 +1,5 @@
-#!/usr/bin/env bash
-# Bundle everything from a finished run that cannot be regenerated for free.
-#
-# Run on the SERVER after run_full_experiment.sh finishes. Produces one tarball
-# to scp home. The split is by cost, not by size -- the whole bundle is a few
-# megabytes; what matters is that two of the files inside represent about 1.2M
-# tokens that would otherwise be spent again.
-#
-#   ./collect_results.sh                  # -> compliance-gateway-<runid>-<date>.tar.gz
-#   ./collect_results.sh --check          # list what would go in, take nothing
 set -uo pipefail
 
-# Paths below are written relative to $REPO on purpose, so the tarball unpacks
-# straight over a clean clone; an absolute ARTIFACTS_DIR would bake this
-# machine's layout into it.
 REPO="${REPO:-$(cd "$(dirname "$0")" && pwd)}"
 RUN_ID="${RUN_ID:-$(ls "$REPO"/results/*-full*.json 2>/dev/null | head -1 |
                     sed 's/.*-\(full[0-9]*\)\.json/\1/')}"
@@ -22,34 +9,14 @@ OUT="$REPO/compliance-gateway-${RUN_ID}-$(date +%Y%m%d).tar.gz"
 CHECK=0
 [[ "${1:-}" == "--check" ]] && CHECK=1
 
-# Paths are relative to $REPO so the tarball unpacks straight over a clean clone.
-#
-# MUST KEEP -- cost real money or real GPU hours, and are not deterministic:
-#   extraction_cache.json   ~983k tokens of entity/relation extraction
-#   qa_v2.json              ~230k tokens, and regenerating gives DIFFERENT
-#                           questions, so old results stop being comparable
-#   results/                all three experiments
-#   ner_seed_cache_v2.json  free in tokens but needs Ollama and a GPU pass
-#
-# KEEP -- tiny, and they are the provenance the write-up cites:
-#   indexing_cost_report.json, extraction_token_usage_note.md, dedup_report.json
-#
-# DELIBERATELY OMITTED -- rebuilt from the extraction cache with zero API calls:
-#   chunk_texts.json, hippo_*.npz, hippo_*.json, the Neo4j store itself,
-#   full_corpus.json and full_citations.json (deterministic, and tracked in git)
 WANT=(
   "inference-service/artifacts_full/extraction_cache.json"
   "inference-service/artifacts_full/indexing_cost_report.json"
   "inference-service/artifacts_full/dedup_report.json"
-  # No extraction_token_usage_note.md here: that was a hand-written note in the
-  # single-tier artifacts/ directory and never existed for this corpus. The
-  # token counts it recorded are in indexing_cost_report.json programmatically.
   "inference-service/evaluation/benchmark/ner_seed_cache_v2.json"
   "dataset/qa_v2.json"
   "dataset/corpus/full_corpus.json"
   "dataset/corpus/full_citations.json"
-  # Everything the run produced: E1 per-strategy results and their .jsonl
-  # resume ledgers, the E2 table, the E3 .jtl files and manifest, and every log.
   "results"
 )
 
@@ -66,8 +33,7 @@ for p in "${present[@]}"; do
 done
 for p in "${missing[@]}"; do printf '%-62s %10s\n' "$p" "MISSING"; done
 
-# The cache is only reusable if the next machine asks for the same model, so
-# record what wrote it rather than leaving it to be discovered on a rebuild.
+# The cache is only reusable if the next machine asks for the same model, so record what wrote it rather than leaving it to be discovered on a rebuild.
 if [[ -f "inference-service/artifacts_full/extraction_cache.json" ]]; then
   python - <<'PY'
 import json

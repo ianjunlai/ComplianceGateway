@@ -45,8 +45,7 @@ def main() -> None:
     print(f"   seeds per query: min {min(sizes)}, "
           f"median {sorted(sizes)[len(sizes) // 2]}, max {max(sizes)}")
     if empty:
-        # A query with no seed is one no graph strategy can start from, so it
-        # belongs in the write-up rather than in a silently depressed average.
+        # A query with no seed is one no graph strategy can start from, so it belongs in the write-up rather than in a silently depressed average.
         print(f"   WARNING: {empty} query/queries produced no seeds at all")
 
 

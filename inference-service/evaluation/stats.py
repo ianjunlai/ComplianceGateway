@@ -19,8 +19,7 @@ def decision_metrics(predictions: list[str], golds: list[str]) -> dict:
     false_approvals = sum(1 for p, _ in deny_gold if p == "APPROVE")
     unanswerable = [(p, g) for p, g in zip(predictions, golds) if g == "UNKNOWN"]
 
-    # A rate with an empty denominator is undefined, and is reported as null
-    # rather than 0.0.
+    # A rate with an empty denominator is undefined, and is reported as null rather than 0.0.
     return {
         "n": n,
         "accuracy": correct / n if n else None,

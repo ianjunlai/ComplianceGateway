@@ -1,9 +1,3 @@
-"""Factory for the retrieval strategies.
-
-Five conditions are evaluated: zero_shot as the no-retrieval baseline,
-vector_rag as dense retrieval, and hybrid, light_rag and hippo_rag reproducing
-the three published GraphRAG paradigms.
-"""
 from pipeline.base import RetrievalStrategy
 
 

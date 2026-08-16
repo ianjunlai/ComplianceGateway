@@ -7,9 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.TopicBuilder;
 
 /**
- * Topic definitions. partitions = 1 is a deliberate experimental constraint:
- * Kafka parallelism equals partition count, and the edge deployment has a single
- * GPU consumer. 
+ * Topic definitions. partitions = 1 is a deliberate experimental constraint
  */
 @Configuration
 public class KafkaTopicConfig {

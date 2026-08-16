@@ -1,5 +1,3 @@
-"""EDA consumer: reads one Audit_Request_Event at a time, runs the pipeline and
-publishes the result. At-least-once delivery."""
 import json
 import logging
 import re

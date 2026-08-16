@@ -1,20 +1,3 @@
-#!/usr/bin/env bash
-# Drive the full E3 matrix: 3 conditions x 5 concurrency levels x 3 repetitions.
-#
-# Everything the plan needs is a JMeter property now, so no file is edited
-# between runs and no GUI is involved. What still needs orchestrating is the
-# inference backend: EDA is served by consumer_main.py and the two synchronous
-# conditions by sync_api, and they must never run together because they share
-# one GPU -- a measurement taken with both up describes their interference
-# rather than either integration mode.
-#
-#   ./run_e3.sh                      # the whole matrix
-#   ./run_e3.sh --dry-run            # print the plan, touch nothing
-#   ./run_e3.sh --conditions eda     # one condition
-#   ./run_e3.sh --levels 1,10        # a subset, e.g. to calibrate first
-#
-# Safe to re-run: a level whose .jtl already exists is skipped, so an
-# interrupted matrix resumes instead of starting over.
 set -uo pipefail
 
 REPO="${REPO:-$HOME/ComplianceGateway}"
@@ -75,13 +58,6 @@ stop_backend() {
   sleep 3
 }
 
-# Ready enough to be probed: the process is alive and has reached the point where
-# it accepts work. Not "warm" -- get_model() is lru_cache'd and loads on first
-# use, so the embedding model is still paid for by the first request. That cost
-# belongs to preflight, which has a timeout sized for it; what a fixed sleep here
-# cannot do is notice a backend that died on startup, e.g. a uvicorn whose port
-# was already taken, which then stays invisible until preflight blames the wrong
-# thing.
 wait_ready() {  # wait_ready consumer|sync
   local kind="$1"
   for _ in $(seq 1 60); do
@@ -103,14 +79,6 @@ wait_ready() {  # wait_ready consumer|sync
 
 start_backend() {  # start_backend consumer|sync [condition]
   local kind="$1" cond="${2:-}"
-  # Reuse a backend of the same kind only within one condition. sync and
-  # throttled both run on sync_api, and skipping the restart between them
-  # carries the previous condition's backlog across: a C=100 run leaves about
-  # a hundred requests queued in a single-worker uvicorn, and at 14B that is
-  # several minutes of work. The next condition's preflight then queues behind
-  # it and hits the gateway's 240 s read timeout, which reads as a broken
-  # backend. Restarting also keeps each condition's measurement free of the
-  # previous one's tail.
   if [[ "$BACKEND_KIND" == "$kind" && "$BACKEND_COND" == "$cond" ]]; then
     return 0
   fi
@@ -132,16 +100,6 @@ start_backend() {  # start_backend consumer|sync [condition]
   wait_ready "$kind"
 }
 
-# A run that measures nothing looks identical to a healthy one in JMeter's
-# summary: a poll returning PENDING is a 200, so a broken pipeline reports 0%
-# errors. The only honest check is whether a single request actually completes.
-#
-# The probe must travel the same path the condition will exercise. Probing the
-# EDA endpoint while sync_api is the running backend fails by construction:
-# sync_api serves POST /infer and never touches Kafka, so the request is
-# published to Audit_Request_Topic, nothing consumes it, and the poll returns
-# PENDING until it times out -- which reads as a broken backend when the backend
-# was never asked to do anything.
 preflight() {  # preflight eda|sync|throttled
   local cond="$1" body rid decision path
 
@@ -151,10 +109,6 @@ preflight() {  # preflight eda|sync|throttled
       throttled) path="/api/v1/audit/sync-throttled" ;;
       *) log "PREFLIGHT FAILED: unknown condition '$cond'"; return 1 ;;
     esac
-    # Synchronous: the decision arrives on the same response, no polling. The
-    # timeout exceeds the gateway's own inference timeout (240s) so that a
-    # backend which is merely slow stays distinguishable from one that is
-    # misrouted -- the two need different fixes.
     body=$(curl -s --max-time 300 -X POST "http://$HOST:$PORT$path" \
         -H 'Content-Type: application/json' -d "$PREFLIGHT_BODY")
     decision=$(json_field "$body" decision)
@@ -185,12 +139,7 @@ preflight() {  # preflight eda|sync|throttled
   return 1
 }
 
-# EDA only. queue_depth is submitted - completed - errors, and `submitted` is
-# incremented solely by AuditProducerService.publish on the EDA path -- a
-# synchronous request never reaches it. Draining before a sync run would
-# therefore wait on whatever the EDA runs left behind, which is both unrelated
-# to the run about to start and, if anything was ever left unaccounted, a
-# guaranteed 15-minute stall on every single sync run.
+# EDA only. queue_depth is submitted - completed - errors, and `submitted` is incremented solely by AuditProducerService.publish on the EDA path
 drain() {  # drain eda|sync|throttled
   local depth
   [[ "$1" != "eda" ]] && return 0
@@ -209,9 +158,7 @@ total=$(( ${#COND_ARR[@]} * ${#LEVEL_ARR[@]} * REPS )); done_n=0
 log "matrix: ${#COND_ARR[@]} conditions x ${#LEVEL_ARR[@]} levels x $REPS reps = $total runs"
 log "gateway http://$HOST:$PORT   output $OUT"
 
-# Repetition-major: a whole pass over every condition before repeating one, so
-# machine drift over the session lands on all conditions equally instead of
-# being absorbed entirely by whichever ran last.
+# Repetition-major
 for rep in $(seq 1 "$REPS"); do
   for cond in "${COND_ARR[@]}"; do
     case "$cond" in
@@ -249,9 +196,7 @@ for rep in $(seq 1 "$REPS"); do
       after=$(metrics); gpu_after=$(gpu_free)
 
       samples=$(( $(wc -l < "$jtl" 2>/dev/null || echo 1) - 1 ))
-      # Zero samples means every Thread Group had 0 threads -- the property name
-      # did not reach the plan. Worth stopping for: the rest of the matrix would
-      # produce empty files just as quietly.
+      # Zero samples means every Thread Group had 0 threads
       if [[ "$samples" -le 0 ]]; then
         log "ERROR: 0 samples. Does the plan still define $prop?"
         stop_backend; exit 1

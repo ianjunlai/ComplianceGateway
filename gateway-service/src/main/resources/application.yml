@@ -1,8 +1,6 @@
 server:
   port: 8080
   tomcat:
-    # Deliberately generous so the sync-unbounded condition fails on inference
-    # backpressure, not on an artificially small connector pool.
     threads:
       max: 200
 
@@ -32,11 +30,5 @@ gateway:
     timeout-ms: 240000
   throttle:
     # Sync-throttled condition: HTTP-layer queue with N permits
-    # WORST CASE for a single request = acquire-timeout-ms + inference.timeout-ms
-    # (wait for a turn, THEN the call itself can still time out) = up to 480s here.
-    # Any client timeout calling this endpoint (JMeter sampler, proxy, etc.) MUST
-    # exceed that compound bound with margin, or the client times out before the
-    # gateway can return its own clean 503 — corrupting the failure-mode stats
-    # (client-side SocketTimeoutException vs. gateway's throttle-queue-timeout).
     permits: 1
     acquire-timeout-ms: 240000

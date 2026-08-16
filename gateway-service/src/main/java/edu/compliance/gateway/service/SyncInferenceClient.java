@@ -13,16 +13,6 @@ import java.util.UUID;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Synchronous integration baselines.
- *
- * sync-unbounded: every Tomcat worker thread blocks directly on the inference
- * HTTP call — the naive integration pattern.
- *
- * sync-throttled: identical call behind a FAIR semaphore (permits=1), i.e. an
- * HTTP-layer queue. Connections remain open while queued, which is exactly the
- * failure mode the EDA condition avoids (timeouts, retry amplification).
- */
 @Service
 public class SyncInferenceClient {
 

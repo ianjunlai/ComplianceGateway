@@ -57,9 +57,6 @@ def main() -> None:
     print(f"\nwrote {cache_path}  ({len(cache)} queries)")
     print(f"  seeds per query: min {min(sizes)}, median {sorted(sizes)[len(sizes) // 2]}, max {max(sizes)}")
     if empty:
-        # Not fatal, but every empty-seed query is one the graph strategies
-        # cannot answer at all, so it belongs in the write-up rather than in a
-        # silently depressed average.
         print(f"  WARNING: {empty} query/queries produced no seeds at all")
 
 

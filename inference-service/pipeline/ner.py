@@ -64,9 +64,6 @@ def extract_seed_entities(query: str) -> list[str]:
         model=config.SLM_MODEL,
         messages=[{"role": "user", "content": _prompt_template().format(query=query)}],
         format=_NER_SCHEMA,
-        # The query is short, so the default window would do here, but the two
-        # calls share a loaded model in Ollama and a differing num_ctx forces a
-        # reload between them.
         options={"temperature": 0, "num_ctx": config.SLM_NUM_CTX},
     )
     try:

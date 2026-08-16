@@ -8,8 +8,7 @@ class RetrievedChunk:
     chunk_id: str
     text: str
     score: float = 0.0
-    # Set when the chunk entered the context because a retrieved clause cites
-    # it, rather than by its own similarity to the query.
+    # Set when the chunk entered the context because a retrieved clause cites it, rather than by its own similarity to the query.
     attached_to: str | None = None
 
 

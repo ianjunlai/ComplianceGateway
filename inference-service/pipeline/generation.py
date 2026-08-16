@@ -1,5 +1,4 @@
-"""Constrained generation via Ollama JSON-Schema structured outputs: the SLM is
-forced to emit {"decision": ..., "reasoning": ...}, at temperature 0."""
+"""Constrained generation via Ollama JSON-Schema structured outputs: the SLM is forced to emit {"decision": ..., "reasoning": ...}, at temperature 0."""
 import json
 from functools import lru_cache
 
@@ -32,8 +31,7 @@ Rules:
 {query}
 """
 
-# Zero-shot needs its own prompt, not the one above with an empty context
-# block.
+# Zero-shot needs its own prompt, not the one above with an empty context block.
 _ZERO_SHOT_PROMPT = """You are a GDPR compliance auditor for a federation of universities.
 Decide whether the requested data operation is compliant, using your own
 knowledge of the GDPR and of national data protection law. No legal text is
@@ -52,8 +50,7 @@ Rules:
 
 
 def generate_decision(query: str, context: RetrievedContext) -> ComplianceDecision:
-    # Keyed on the strategy, not on whether the context is empty: retrieving
-    # nothing is a retrieval result and is judged against the retrieval prompt.
+    # Keyed on the strategy, not on whether the context is empty: retrieving nothing is a retrieval result and is judged against the retrieval prompt.
     if config.ACTIVE_STRATEGY == "zero_shot":
         prompt = _ZERO_SHOT_PROMPT.format(query=query)
     else:
@@ -62,8 +59,6 @@ def generate_decision(query: str, context: RetrievedContext) -> ComplianceDecisi
         model=config.SLM_MODEL,
         messages=[{"role": "user", "content": prompt}],
         format=ComplianceDecision.model_json_schema(),
-        # Must be explicit: Ollama's default window truncates silently from the
-        # end, which is exactly where the attached provisions sit.
         options={"temperature": 0, "num_ctx": config.SLM_NUM_CTX},
     )
     raw = response["message"]["content"]

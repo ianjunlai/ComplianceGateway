@@ -1,5 +1,4 @@
-"""LLM-as-judge for faithfulness: split the reasoning into claims and mark each
-as supported by the context or not."""
+"""LLM-as-judge for faithfulness: split the reasoning into claims and mark each as supported by the context or not."""
 import config
 from common.llm_clients import complete_json
 
@@ -32,12 +31,6 @@ Return STRICT JSON:
 def judge_faithfulness(reasoning: str, context_text: str, max_attempts: int = 3) -> dict:
     """Returns {"faithfulness": float | None, "claims": [...]}."""
     prompt = _JUDGE_PROMPT.format(context=context_text, reasoning=reasoning)
-    # The default 2000-token cap truncates a decomposition of any length: the
-    # judge restates each claim before scoring it, so output grows with the
-    # reasoning it is given. 8000 because a reasoning judge's thinking length
-    # is not stable enough to size the budget to the typical case -- measured
-    # completions sit around 300 tokens, but one call in three overran 4000,
-    # and a truncation costs three attempts before the score is lost.
     data, _usage = complete_json(
         config.JUDGE_PROVIDER, config.JUDGE_MODEL, prompt,
         max_attempts=max_attempts, max_tokens=8000,

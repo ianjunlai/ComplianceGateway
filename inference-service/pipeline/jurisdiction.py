@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Which bodies of law bind the institution that sent a request, read from the
-request envelope rather than from the question text."""
+"""Which bodies of law bind the institution that sent a request, read from the request envelope rather than from the question text."""
 from functools import lru_cache
 
 # EU law is added to every scope: the Regulation binds all of them.

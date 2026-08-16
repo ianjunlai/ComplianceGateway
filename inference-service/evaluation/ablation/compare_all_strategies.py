@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Retrieval quality of every strategy over one question set: Recall@2/@5/@10 and
-the paired difference against vector_rag."""
+"""Retrieval quality of every strategy over one question set: Recall@2/@5/@10 and the paired difference against vector_rag."""
 
 import argparse
 import sys
@@ -49,8 +48,6 @@ def main() -> None:
 
     strategies = [s.strip() for s in args.strategies.split(",") if s.strip()]
     if BASELINE not in strategies:
-        # Every reported difference is against this baseline, so running without
-        # it would print a paired CI against a strategy that was never scored.
         raise SystemExit(f"--strategies must include {BASELINE}")
 
     cache = json.loads(Path(args.ner_cache).read_text(encoding="utf-8"))
@@ -73,8 +70,7 @@ def main() -> None:
     for name in strategies:
         strategy = build_strategy(name)
         for q in items:
-            # The same scope the online pipeline would apply, derived from the
-            # requesting institution.
+            # The same scope the online pipeline would apply, derived from the requesting institution.
             scope = jurisdictions_for(q.get("source_system"))
             t0 = time.perf_counter()
             ctx = strategy.retrieve(q["query_text"], cache[q["query_id"]],
@@ -109,9 +105,6 @@ def main() -> None:
     print(" read, attachments included; 'empty' = queries that retrieved nothing)")
 
     if args.paired_ci:
-        # Paired: the same queries scored by both strategies, so the CI is over
-        # per-query differences and is not inflated by variation in query
-        # difficulty that both strategies share.
         print(f"\nR@5 difference against {BASELINE}, 95% bootstrap CI over {len(items)} queries")
         for name in strategies:
             if name == BASELINE:

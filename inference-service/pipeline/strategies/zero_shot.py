@@ -1,4 +1,3 @@
-"""Zero-shot condition: no retrieval, the model answers from its own parameters."""
 from pipeline.base import RetrievalStrategy, RetrievedContext
 
 

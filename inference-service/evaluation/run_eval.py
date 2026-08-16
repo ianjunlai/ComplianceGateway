@@ -19,8 +19,7 @@ RESULTS_DIR = Path(__file__).resolve().parents[2] / "results"
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    # Kept in step with the factory in pipeline.strategies: a name accepted here
-    # must be one build_strategy() knows, and vice versa.
+    # Kept in step with the factory in pipeline.strategies: a name accepted here must be one build_strategy() knows, and vice versa.
     parser.add_argument("--strategy", required=True,
                         choices=["zero_shot", "vector_rag", "hybrid", "light_rag",
                                  "hippo_rag"])
@@ -64,8 +63,7 @@ def main() -> None:
         ))
         log.info("Warm-up %d/%d done (discarded)", i + 1, args.warmup)
 
-    # Appended per query: a full pass is hours of inference, so a failure at
-    # query 150 must not discard the 149 already paid for.
+    # Appended per query: a full pass is hours of inference, so a failure at query 150 must not discard the 149 already paid for.
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     progress = RESULTS_DIR / f"{args.strategy}-{args.run_id}.jsonl"
     rows: list[dict] = []
@@ -79,8 +77,7 @@ def main() -> None:
                 latest[r["query_id"]] = r
         rows = list(latest.values())
         log.info("Resuming: %d queries already attempted in %s", len(rows), progress.name)
-    # Only a query with a prediction is finished; failures are re-attempted, or
-    # one transient error would make the run impossible to complete.
+    # Only a query with a prediction is finished; failures are re-attempted, or one transient error would make the run impossible to complete.
     done = {r["query_id"] for r in rows if "prediction" in r}
     rows = [r for r in rows if "prediction" in r]
     if args.resume:
@@ -88,11 +85,6 @@ def main() -> None:
 
     pending = [q for q in queries if q["query_id"] not in done]
 
-    # Opposite bottlenecks, so the two stages are batched rather than
-    # interleaved: the pipeline is GPU-bound and strictly serial at ~1.5 s,
-    # while judging is network-bound at ~38 s and leaves the process idle. Run
-    # serially the judge would be most of the experiment. The cost is resume
-    # granularity, since rows are written per batch, not per query.
     batch_size = max(1, args.judge_workers) if args.judge else 1
     with progress.open("a", encoding="utf-8") as fh:
         for start in range(0, len(pending), batch_size):
@@ -123,9 +115,6 @@ def main() -> None:
                     log.info("%s gold=%s pred=%s",
                              q["query_id"], q["gold_decision"], result.decision)
                 except Exception as e:  # noqa: BLE001 — one bad query must not end the run
-                    # Recorded, never silently dropped: a query the system could
-                    # not answer is a result, but it is not a wrong ANSWER and is
-                    # kept out of the accuracy denominator.
                     row["error"] = f"{type(e).__name__}: {e}"
                     log.exception("%s FAILED, continuing", q["query_id"])
                     result = None
@@ -191,9 +180,6 @@ def _reference_context(q: dict, result, chunk_texts: dict[str, str]) -> str:
 
 
 def _summarize(rows: list[dict]) -> dict:
-    # Failed queries are reported as a count, not folded into the metrics: a
-    # missing prediction can never equal the gold label, so counting it would
-    # depress accuracy identically for every strategy and hide the failure.
     failed = [r for r in rows if "prediction" not in r]
     rows = [r for r in rows if "prediction" in r]
     if not rows:
@@ -210,8 +196,7 @@ def _summarize(rows: list[dict]) -> dict:
         "decision": decision_metrics(predictions, golds),
     }
     if config.ACTIVE_STRATEGY != "zero_shot":
-        # Recall carries a CI like every other aggregate: RQ2 compares recall
-        # ACROSS paradigms, and a bare mean cannot support that comparison.
+        # Recall carries a CI like every other aggregate: RQ2 compares recall ACROSS paradigms, and a bare mean cannot support that comparison.
         summary["recall@5"] = bootstrap_ci(recall_values(rows, 5))
         summary["recall@10"] = bootstrap_ci(recall_values(rows, 10))
         summary["recall_n_scored"] = len(recall_values(rows, 5))  # unanswerable excluded

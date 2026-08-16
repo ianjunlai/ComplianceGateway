@@ -1,5 +1,4 @@
-"""Offline index builder. One shared extraction pass feeds all three GraphRAG
-paradigms, and Neo4j holds both the graph and the vectors."""
+"""Offline index builder. One shared extraction pass feeds all three GraphRAG paradigms, and Neo4j holds both the graph and the vectors."""
 import argparse
 import json
 import logging
@@ -32,8 +31,6 @@ _PROPERTY_INDEXES = [
     "CREATE INDEX chunk_id_idx IF NOT EXISTS FOR (c:Chunk) ON (c.chunk_id)",
     "CREATE INDEX entity_id_idx IF NOT EXISTS FOR (e:Entity) ON (e.node_id)",
     "CREATE INDEX rel_id_idx IF NOT EXISTS FOR ()-[r:RELATES]-() ON (r.rel_id)",
-    # A jurisdiction filter is a pre-filter on the candidate set, so it runs on
-    # every query of the jurisdiction-aware strategy rather than once.
     "CREATE INDEX chunk_juris_idx IF NOT EXISTS FOR (c:Chunk) ON (c.jurisdiction)",
 ]
 
@@ -90,15 +87,11 @@ def main() -> None:
         log.info("Chunked corpus: %d chunks", len(chunks))
 
     # ---- Stage 2 (SHARED): extraction + dedup ------------------------------
-    # The profile is part of the key: replaying a legal cache on a general
-    # corpus would hit fully and build a graph of the wrong shape, silently.
+    # The profile is part of the key: replaying a legal cache on a general corpus would hit fully and build a graph of the wrong shape, silently.
     cache_key = f"{config.EXTRACTION_PROVIDER}:{config.EXTRACTION_MODEL}:{config.EXTRACTION_PROFILE}"
     cache = _load_extraction_cache(cache_key, args.reextract)
     cache_hits = _extract_all(chunks, cache, cache_key, tracker, args.workers)
 
-    # Normalised on the way out of the cache, not only on the way in: a cache
-    # written before a coercion rule existed still has to produce indexable
-    # data, and re-extracting to pick the rule up is not affordable.
     raw_entities: list[dict] = []
     raw_relations: list[dict] = []
     salvaged = 0
@@ -128,19 +121,16 @@ def main() -> None:
 
     driver = get_driver()
 
-    # Entity name vectors are needed three times -- synonymy detection, the
-    # entity index, and nothing else should pay for them twice.
+    # Entity name vectors are needed three times -- synonymy detection, the entity index, and nothing else should pay for them twice.
     entity_vectors = embed([e.name for e in entities]) if entities else []
 
     # ---- Stage 3 (SHARED): graph structure ---------------------------------
-    # Charged separately: hybrid traversal and LightRAG expansion both depend
-    # on it, so attributing it to one paradigm would distort the comparison.
+    # Charged separately: hybrid traversal and LightRAG expansion both depend on it, so attributing it to one paradigm would distort the comparison.
     with tracker.build_phase("shared_graph"):
         _create_graph(driver, entities, relations, chunks)
 
     # ---- Stage 3b: synonymy edges (HippoRAG's E') --------------------------
-    # Charged to hippo_rag, the only paradigm that walks them; Hybrid and
-    # LightRAG traverse :RELATES, so their neighbourhoods are unchanged.
+    # Charged to hippo_rag, the only paradigm that walks them; Hybrid and LightRAG traverse :RELATES, so their neighbourhoods are unchanged.
     with tracker.build_phase("hippo_rag"):
         synonym_edges = build_synonym_edges(np.asarray(entity_vectors))
         _create_synonym_edges(driver, entities, synonym_edges)
@@ -161,8 +151,7 @@ def main() -> None:
         s.run("CALL db.awaitIndexes()")  # vector indexes populate asynchronously
         embedded = s.run("MATCH (c:Chunk) WHERE c.embedding IS NOT NULL "
                          "RETURN count(c) AS n").single()["n"]
-    # A vector index is schema, not data, so it survives `DETACH DELETE` and a
-    # build that dies before writing vectors leaves it ONLINE and empty.
+    # A vector index is schema, not data, so it survives `DETACH DELETE` and a build that dies before writing vectors leaves it ONLINE and empty.
     if embedded != len(chunks):
         raise SystemExit(
             f"{embedded} of {len(chunks)} chunks carry an embedding. The vector "
@@ -221,8 +210,6 @@ def _extract_all(chunks: list[Chunk], cache: dict, cache_key: str,
         cached = cache.get(chunk.chunk_id)
         if cached is not None:
             hits += 1
-            # Replay the original token usage so the cost report stays complete
-            # on cached runs (older caches predate this field).
             if cached.get("usage"):
                 tracker.add_tokens("extraction", **cached["usage"])
     todo = [c for c in chunks if c.chunk_id not in cache]
@@ -250,9 +237,6 @@ def _extract_all(chunks: list[Chunk], cache: dict, cache_key: str,
             with lock:
                 cache[chunk.chunk_id] = data
                 done += 1
-                # Periodic rather than per-chunk: at 8 workers a write per
-                # result rewrites a growing multi-megabyte file often enough to
-                # become the bottleneck.
                 if done % 25 == 0:
                     _save_extraction_cache(cache_key, cache)
                     rate = done / (time.perf_counter() - started)
@@ -420,9 +404,6 @@ def _create_synonym_edges(driver, entities: list[CanonicalEntity],
     with driver.session() as s:
         for start in range(0, len(rows), 10_000):
             s.run(_CREATE_SYNONYMS, rows=rows[start:start + 10_000])
-    # The cutoff is derived from a density target unless pinned, so it is not
-    # config.SYNONYM_THRESHOLD (None in the derived case) but the weakest edge
-    # actually kept. build_synonym_edges logs how it was chosen.
     log.info("Synonymy edges: %d written (weakest kept: %.4f)",
              len(rows), min(s for _, _, s in edges))
 
@@ -430,8 +411,6 @@ def _create_synonym_edges(driver, entities: list[CanonicalEntity],
 def _index_chunk_vectors(driver, chunks: list[Chunk], tracker: CostTracker) -> None:
     vectors = embed([c.text for c in chunks])
     tracker.add_embeddings("hybrid", len(vectors))
-    # Logical size estimate (float32 vectors + stored text); on-disk sizes
-    # are measured separately from the docker volume
     tracker.add_storage("hybrid",
                         len(vectors) * config.VECTOR_DIM * 4
                         + sum(len(c.text.encode()) for c in chunks))
@@ -445,8 +424,7 @@ def _index_chunk_vectors(driver, chunks: list[Chunk], tracker: CostTracker) -> N
 def _index_entity_edge_vectors(driver, entities: list[CanonicalEntity],
                                relations: list[dict], tracker: CostTracker,
                                ent_vectors: list | None = None) -> None:
-    # Entity vectors (LightRAG low-level; also used by entity linking and, in
-    # the caller, by synonymy detection -- computed once and passed in)
+    # Entity vectors (LightRAG low-level; also used by entity linking and, in the caller, by synonymy detection -- computed once and passed in)
     ent_vectors = embed([e.name for e in entities]) if ent_vectors is None else ent_vectors
     tracker.add_embeddings("light_rag", len(ent_vectors))
     tracker.add_storage("light_rag", len(ent_vectors) * config.VECTOR_DIM * 4)
@@ -491,14 +469,10 @@ def _build_hippo_artifacts(
         i, j = node_index[r["source_id"]], node_index[r["target_id"]]
         rows.extend([i, j])  # treat as undirected for PPR connectivity
         cols.extend([j, i])
-    # E' synonymy, crossed exactly as an extracted relation is: on 2Wiki the
-    # paper's graph is mostly these, and they are what reaches a passage that
-    # names the same thing differently.
     for i, j, _ in (synonym_edges or []):
         rows.extend([i, j])
         cols.extend([j, i])
-    # Duplicate coordinates SUM, so a pair joined by both a relation and a
-    # synonymy edge weighs 2.
+    # Duplicate coordinates SUM, so a pair joined by both a relation and a synonymy edge weighs 2.
     adj = sparse.csr_matrix((np.ones(len(rows)), (rows, cols)), shape=(n, n))
 
     # Row-normalize -> column-stochastic transition on transpose (see hippo_rag.py)

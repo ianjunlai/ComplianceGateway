@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-"""Stand-in for the sync inference API with a configurable delay, so the load
-test's plumbing can be rehearsed without real inference."""
 import argparse
 import threading
 import time
@@ -45,8 +43,7 @@ def infer(req: SyncInferRequest):
     print(f"  <- {req.request_id[:8]} done in {elapsed_ms}ms "
           f"(served {_served}, peak concurrency {_peak_in_flight})", flush=True)
 
-    # Same shape as common.schemas.AuditResultEvent, so the gateway and any
-    # client parse it exactly as they would a real result.
+    # Same shape as common.schemas.AuditResultEvent, so the gateway and any client parse it exactly as they would a real result.
     return {
         "request_id": req.request_id,
         "source_system": req.source_system,

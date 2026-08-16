@@ -72,8 +72,7 @@ class CostTracker:
             for phase, t in self.tokens.items()
         }
         return {
-            # Which model produced these token counts -- they are not
-            # comparable across providers without it.
+            # Which model produced these token counts -- they are not comparable across providers without it.
             "extraction_provider": config.EXTRACTION_PROVIDER,
             "extraction_model": config.EXTRACTION_MODEL,
             "extraction_profile": config.EXTRACTION_PROFILE,

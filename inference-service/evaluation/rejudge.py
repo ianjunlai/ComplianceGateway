@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Fill in judge scores on rows that already have a prediction, for runs where the
-judge failed partway."""
+"""Fill in judge scores on rows that already have a prediction, for runs where the judge failed partway."""
 import argparse
 import json
 import logging
@@ -27,17 +26,12 @@ class _StoredResult:
     def __init__(self, row: dict) -> None:
         self.reasoning = row.get("reasoning", "")
         self.retrieved_chunk_ids = row.get("retrieved_chunk_ids", [])
-        # Rows written before citation attachment existed have no stored
-        # context; _reference_context falls back to the truncated ranked
-        # list for those, which is what they were judged against.
         self.context_chunk_ids = row.get("context_chunk_ids", [])
 
 
 def _needs(row: dict) -> bool:
     if "prediction" not in row:
         return False            # never answered; rejudging cannot invent one
-    # faithfulness is legitimately None for a claim-free abstention, so its
-    # presence -- not its truthiness -- is what marks the row as scored.
     return row.get("faithfulness", "missing") == "missing"
 
 
@@ -74,14 +68,10 @@ def main() -> None:
         rows = json.loads(out.read_text(encoding="utf-8"))["rows"]
         missing = [r for r in rows if _needs(r)]
         total_missing += len(missing)
-        # flush: this is the state BEFORE the strategy is processed, and stdout
-        # is block-buffered through a pipe.
         print(f"  {name:<16}{len(missing):>4} of {len(rows)} rows unscored", flush=True)
         if args.check or not missing:
             continue
 
-        # The strategy decides which context the judge is shown: zero_shot is
-        # judged against gold, everything else against what it retrieved.
         config.ACTIVE_STRATEGY = name
 
         def score(row: dict) -> None:
@@ -104,8 +94,7 @@ def main() -> None:
         summary = _summarize(rows)
         out.write_text(json.dumps({"summary": summary, "rows": rows}, indent=2),
                        encoding="utf-8")
-        # The .jsonl is the resume ledger; leaving it stale would make a later
-        # --resume rebuild the .json from unscored rows and silently undo this.
+
         jsonl = RESULTS_DIR / f"{name}-{args.run_id}.jsonl"
         jsonl.write_text(
             "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows),
@@ -113,9 +102,6 @@ def main() -> None:
         log.info("%s: %d scored, %d still missing -> %s",
                  name, len(missing) - len(still), len(still), out.name)
         if still:
-            # Not fatal -- a handful of rows lost to a flaky judge is a smaller
-            # problem than stopping -- but it must be visible, because the
-            # summary silently averages over whatever was scored.
             log.warning("%s: %d rows remain unscored; re-run to retry them",
                         name, len(still))
 

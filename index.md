@@ -70,7 +70,7 @@ both the knowledge graph and the vector indexes).
 
 Java 21 and Spring Boot for the gateway; Python for the inference service;
 Apache Kafka for the event backbone; Neo4j for the graph and vector store;
-Ollama running a quantized Llama-3.1-8B for local inference; Apache JMeter for
+Ollama running a quantized Qwen2.5-14B for local inference; Apache JMeter for
 load testing.
 
 ## Demonstration

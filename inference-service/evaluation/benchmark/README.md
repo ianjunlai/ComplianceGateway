@@ -12,7 +12,7 @@ HippoRAG *loses* (R@2 60.5 vs 64.7) — which is itself worth citing, because it
 a symptom of a broken implementation.
 
 **Success is the ordering, not the number.** Different embeddings (bge-large), extraction
-model (qwen-plus) and entity linking mean 89.1 is not reproducible here and is not the
+model and entity linking mean 89.1 is not reproducible here and is not the
 target. The claim under test is that the graph strategies rank above `vector_rag`. A
 failure is equally informative and better learned now than at the viva.
 
@@ -111,6 +111,6 @@ for every strategy at once and read as a finding.
 
 - `vector_rag` R@5 should land somewhere near ColBERTv2's 68.2 on this corpus. Near zero
   means the id mapping broke, not that dense retrieval failed.
-- The GDPR numbers must still reproduce (R@10 `0.537 / 0.537 / 0.567 / 0.179`) with the
-  profile back to `legal` and `EXTRACTION_MODEL=qwen-plus` — nothing here is allowed to
-  disturb them.
+- The compliance numbers must still reproduce (R@5 `0.446 / 0.446 / 0.351 / 0.108` for
+  vector_rag / hybrid / light_rag / hippo_rag) with the profile back to `legal` and
+  `EXTRACTION_MODEL=deepseek-v3.2` — nothing here is allowed to disturb them.

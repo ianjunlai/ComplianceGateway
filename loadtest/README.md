@@ -49,7 +49,7 @@ response before starting a full run.
 
 `source_system` values rotate from `source_systems.csv` (uni_a…uni_e) via a
 JMeter CSV Data Set Config; query bodies come from `queries.csv` — 144 rows
-exported from `../dataset/qa_dataset.json` (the unanswerable stratum is excluded:
+exported from `../dataset/qa_v2.json` (the unanswerable stratum is excluded:
 those have no gold clauses and are an E2 construct, not a load-shape one).
 
 Both CSV readers set `fileEncoding=UTF-8` explicitly. Two queries contain a
@@ -60,7 +60,7 @@ Regenerate `queries.csv` after any change to the QA set:
 
 ```python
 import json, csv, io
-rows = [q for q in json.load(open('dataset/qa_dataset.json', encoding='utf-8'))
+rows = [q for q in json.load(open('dataset/qa_v2.json', encoding='utf-8'))
         if q['hop_type'] != 'unanswerable']
 with io.open('loadtest/queries.csv', 'w', encoding='utf-8', newline='') as f:
     w = csv.writer(f, quoting=csv.QUOTE_ALL)

@@ -5,7 +5,7 @@ tarballs you unpack in your home directory and start.
 
 **Part 1 gets you to results.** Kafka, Maven, the Spring gateway and JMeter are needed
 *only* for the load experiment (E3) — `run_eval.py` calls the pipeline directly, with no
-broker and no gateway anywhere in the chain. Skip Part 2 until E1/E2 has finished.
+broker and no gateway anywhere in the chain. Skip Part 2 until the quality runs have finished.
 
 > Neither pip nor conda can install the Neo4j database or the Kafka broker — both are JVM
 > applications, not Python packages. The `neo4j` and `confluent-kafka` entries already in
@@ -14,7 +14,7 @@ broker and no gateway anywhere in the chain. Skip Part 2 until E1/E2 has finishe
 
 ---
 
-# Part 1 — E1/E2
+# Part 1 — retrieval and decision quality
 
 ## 1. Clone, and copy the one thing git does not carry
 
@@ -36,13 +36,14 @@ gitignored, so `git pull` never updates it, and the model set has changed since
 the first round of experiments:
 
 ```
-SLM_MODEL=llama3.1:8b-instruct-q4_K_M      # the laptop stand-in was llama3.2:1b
+SLM_MODEL=qwen2.5:14b-instruct-q8_0        # the laptop stand-in was llama3.2:1b
+SLM_NUM_CTX=16384                          # must be set; the default truncates
 EXTRACTION_PROVIDER=alibaba
-EXTRACTION_MODEL=deepseek-v3.2             # was qwen-plus in the single-tier run
+EXTRACTION_MODEL=deepseek-v3.2
 QA_GENERATION_PROVIDER=alibaba
-QA_GENERATION_MODEL=qwen3.7-max            # was deepseek-r1
+QA_GENERATION_MODEL=qwen3.7-max
 JUDGE_PROVIDER=alibaba
-JUDGE_MODEL=glm-5.2                        # was qwen-max
+JUDGE_MODEL=MiniMax-M2.5
 ```
 
 Preflight prints all four and makes one real call to each, so a stale file
@@ -140,13 +141,14 @@ Then:
 ```bash
 export OLLAMA_MODELS=$HOME/ollama/models        # ~5 GB, watch your home quota
 ~/ollama/bin/ollama serve &
-~/ollama/bin/ollama pull llama3.1:8b-instruct-q4_K_M
+~/ollama/bin/ollama pull qwen2.5:14b-instruct-q8_0
 ```
 
 ## 6. Run the whole experiment
 
 One script does steps 1–9: assemble the corpus, extract the citation graph, extract
-entities and build the Neo4j graph, generate the questions, then run E2 and E1.
+entities and build the Neo4j graph, generate the questions, then run the
+retrieval comparison and the decision runs.
 
 ```bash
 tmux new -s exp
@@ -170,12 +172,13 @@ replaced. If it stops, nothing has been spent.
 | 1–2 | corpus (959 chunks) and citation graph (1,414 edges) | free |
 | 3 | entity extraction + graph build | ~983k tokens, ~1 h |
 | 4–5 | load citation edges, **verify the graph** | free |
-| 6 | generate 78 cross-tier questions | ~180k tokens |
+| 6 | generate 96 questions in three strata | ~200k tokens |
 | 7 | NER seeds (local SLM) | free |
-| 8 | E2 — retrieval, ten variants | free, ~10 min |
-| 9 | E1 — decisions + judge, eight strategies | ~1.25M tokens, ~1.3 h |
+| 8 | retrieval comparison, four strategies | free, ~10 min |
+| 9 | decisions + judge, five strategies | ~900k tokens, ~1 h |
 
-Roughly 2.4M tokens and **2.5–3 hours** in total.
+Roughly 2M tokens and **2.5–3 hours** in total, then `loadtest/run_e3.sh` for
+E3, which is another 3–4 hours and spends nothing.
 
 > **The judge, not the GPU, sets the wall clock.** Measured on an A100 the
 > pipeline runs 1.5 s per query, while the two judge calls take ~13 s and ~25 s
@@ -208,27 +211,27 @@ Each step skips if its output already exists, so a re-run picks up where it stop
 ./run_full_experiment.sh --from 6      # skip corpus + extraction, start at QA generation
 ```
 
-E1 keeps a `.jsonl` per strategy and passes `--resume`, so an interrupted strategy
+Step 9 keeps a `.jsonl` per strategy and passes `--resume`, so an interrupted strategy
 continues rather than restarting, and one strategy failing does not take the other six
 with it — the script reports which were incomplete.
 
 Results land in the repo-root `results/`:
 
 ```
-results/<strategy>-<run-id>.json      E1 summary per strategy
-results/full/logs/e2.log              the E2 retrieval table
+results/<strategy>-<run-id>.json      per-strategy decisions and summary
+results/full/logs/e2.log              the retrieval comparison table
 results/full/logs/build.log           extraction and graph build
 ```
 
-Then re-score E1 with the corrected metrics — this excludes the unsound `UNKNOWN` labels,
+Then re-score with the corrected metrics — this excludes the unsound `UNKNOWN` labels,
 splits answerable from unanswerable, and adds McNemar's test:
 
 ```bash
 cd inference-service
-python -m evaluation.rescore --run-id full<MMDD> --dataset ../dataset/crosstier_qa_full.json
+python -m evaluation.rescore --run-id full<MMDD> --dataset ../dataset/qa_v2.json
 ```
 
-**Part 1 ends here.** You have the E1/E2 results.
+**Part 1 ends here.** You have the retrieval and decision results.
 
 ---
 
@@ -492,9 +495,9 @@ A few megabytes, but two files in it are worth about **1.2M tokens**:
 | Path | Why it cannot be regenerated free |
 |---|---|
 | `artifacts_full/extraction_cache.json` | ~983k tokens of entity/relation extraction |
-| `dataset/crosstier_qa_full.json` | ~180k tokens — and a re-run produces *different* questions, so earlier results stop being comparable |
+| `dataset/qa_v2.json` | ~200k tokens — and a re-run produces *different* questions, so earlier results stop being comparable |
 | `results/` | the experiment itself |
-| `ner_seed_cache_full.json` | free in tokens, but needs Ollama and a GPU pass |
+| `ner_seed_cache_v2.json` | free in tokens, but needs Ollama and a GPU pass |
 | `indexing_cost_report.json`, `extraction_token_usage_note.md`, `dedup_report.json` | tiny; the provenance the write-up cites |
 
 **Deliberately not in the bundle**, because rebuilding them costs no API calls:
@@ -519,7 +522,7 @@ python -m ingestion.load_implements --edges ../dataset/corpus/full_citations.jso
 > error rather than silently re-extracting — but that is still a wasted trip.
 > `collect_results.sh` prints the key it bundled.
 
-`dataset/` is tracked by git, so `crosstier_qa_full.json` can also just be
+`dataset/` is tracked by git, so `qa_v2.json` can also just be
 committed from the server. `results/` and `artifacts_*/` are gitignored;
 committing those needs `git add -f`, and raw `.jtl` files from E3 reach tens of
 megabytes — `gzip` them first, GitHub warns above 50 MB per file.
@@ -550,19 +553,17 @@ or pass `--reextract` and pay for it again.
 
 **Preflight reports `unusable: ['extraction']` with a 403** — either the model name in
 `.env` is one whose free allowance is exhausted, or the account is in free-tier-only mode.
-Check the four model lines in §1 first: a `.env` carried over from an earlier deployment
-still names the old model set (`qwen-plus` / `deepseek-r1` / `qwen-max`), and `qwen-plus`
-is the one whose quota runs out first. The other two models answering normally is not
-evidence the key is fine for extraction — DashScope meters each model separately.
+Check the model lines in §1 first: a `.env` carried over from an earlier deployment
+still names an older model set. One model answering normally is not evidence the key is
+fine for the others — DashScope meters each model separately.
 
 **Inference is far slower than ~6 s per query, or the GPU runs out of memory** —
 `CUDA_VISIBLE_DEVICES` was not exported in that shell, so `cuda:0` landed on a card
 somebody else is using.
 
 **A long run dies when the SSH session drops** — it was not under `tmux`. Re-run
-`./run_full_experiment.sh` (or `--from N`); completed steps are skipped and E1 resumes
+`./run_full_experiment.sh` (or `--from N`); completed steps are skipped and step 9 resumes
 per strategy.
 
-**Ollama and the embedding model compete for memory.** Only step 7 (NER seeds) and step 9
-(E1) need Ollama. If the embedding pass in step 3 is killed, stop Ollama for that step and
+**Ollama and the embedding model compete for memory.** Only steps 7 and 9 need Ollama. If the embedding pass in step 3 is killed, stop Ollama for that step and
 start it again before step 7.

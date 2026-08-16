@@ -1,9 +1,4 @@
-"""Statistical procedures for the evaluation runs.
-
-- Decision metrics with an abstention-aware scoring policy (abstention != dangerous failure)
-- McNemar's test for paired decision outcomes between two systems
-- Bootstrap 95% CIs for Recall@K
-"""
+"""Bootstrap intervals and decision metrics for the evaluation runs."""
 import random
 
 from scipy import stats as scipy_stats
@@ -25,10 +20,7 @@ def decision_metrics(predictions: list[str], golds: list[str]) -> dict:
     unanswerable = [(p, g) for p, g in zip(predictions, golds) if g == "UNKNOWN"]
 
     # A rate with an empty denominator is undefined, and is reported as null
-    # rather than 0.0. This matters for the per-stratum breakdown: the
-    # unanswerable stratum contains no APPROVE/DENY gold at all, and a printed
-    # "fpr: 0.0" there reads as "never wrongly approved" when the quantity
-    # simply does not exist for that stratum.
+    # rather than 0.0.
     return {
         "n": n,
         "accuracy": correct / n if n else None,

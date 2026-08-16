@@ -1,25 +1,6 @@
 # -*- coding: utf-8 -*-
-"""How much of the corpus a 2-hop traversal can reach.
-
-This is the mechanism behind the GDPR result, and it is measured rather than
-argued. On that corpus the traversal in hybrid_graph.py reaches 343 of 345
-clauses from typical query seeds -- 99% -- so the graph admits nearly everything
-and contributes no discrimination; whatever ranks the candidates afterwards is
-doing all the work, which is exactly why hybrid converges on plain dense
-retrieval there. A corpus where graph retrieval helps must reach a small
-fraction instead.
-
-Runs against whichever graph is currently loaded in Neo4j, so it produces the
-GDPR figure and the benchmark figure with the same code:
-
-    python -m evaluation.benchmark.hop_coverage \
-        --dataset ../dataset/qa_dataset.json \
-        --ner-cache evaluation/ablation/ner_seed_cache.json
-
-    python -m evaluation.benchmark.hop_coverage \
-        --dataset ../dataset/benchmark/2wiki_qa.json \
-        --ner-cache evaluation/benchmark/ner_seed_cache_2wiki.json
-"""
+"""How much of the corpus a two-hop traversal reaches. A median near 100% means
+the graph selects nothing."""
 import argparse
 import json
 import statistics
@@ -77,9 +58,7 @@ def main() -> None:
         for q in queries:
             seed_ids = link_entities(cache[q["query_id"]])
             if not seed_ids:
-                # A query the graph strategies cannot start from at all. Folding
-                # it in as 0% coverage would flatter the graph; it is reported
-                # separately instead.
+                # A query the graph strategies cannot start from at all.
                 unlinked += 1
                 continue
             reached = s.run(_REACH_QUERY % {"hops": config.GRAPH_HOPS},

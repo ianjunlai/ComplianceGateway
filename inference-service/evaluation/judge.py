@@ -1,13 +1,5 @@
-"""LLM-as-judge for Faithfulness.
-
-Judge and generator should be different vendor families to mitigate
-same-source bias (see config.JUDGE_PROVIDER / EXTRACTION_PROVIDER). Receives
-ONLY synthetic queries and system outputs — never real student data.
-
-Faithfulness = supported claims / total claims, judged against:
-  - the RETRIEVED context for RAG strategies;
-  - the GOLD chunks for zero_shot.
-"""
+"""LLM-as-judge for faithfulness: split the reasoning into claims and mark each
+as supported by the context or not."""
 import config
 from common.llm_clients import complete_json
 
@@ -38,13 +30,7 @@ Return STRICT JSON:
 
 
 def judge_faithfulness(reasoning: str, context_text: str, max_attempts: int = 3) -> dict:
-    """Returns {"faithfulness": float | None, "claims": [...]}.
-
-    faithfulness is None when the reasoning contains no checkable claims
-    (e.g. a bare abstention): excluded from aggregation, NOT scored 0 —
-    punishing an honest abstention as maximally unfaithful would invert
-    the metric's meaning.
-    """
+    """Returns {"faithfulness": float | None, "claims": [...]}."""
     prompt = _JUDGE_PROMPT.format(context=context_text, reasoning=reasoning)
     # The default 2000-token cap truncates a decomposition of any length: the
     # judge restates each claim before scoring it, so output grows with the

@@ -1,18 +1,5 @@
-"""Single-strategy evaluation runner (reasoning quality + retrieval efficacy).
-
-Runs the full QA set through the pipeline for ONE strategy (single-user, no
-load), records per-query outputs + per-stage timings, then computes metrics.
-Repeat with each ACTIVE_STRATEGY value; load testing is driven by JMeter instead.
-
-Progress is appended to results/<strategy>-<run_id>.jsonl as each query
-completes, and a failed query is recorded and skipped rather than ending the
-run. Both matter at this scale: one strategy is a few hours of local inference.
-
-Usage:
-    python -m evaluation.run_eval --strategy hybrid --dataset ../dataset/qa_dataset.json
-    python -m evaluation.run_eval --strategy hybrid --judge   # add faithfulness pass
-    python -m evaluation.run_eval --strategy hybrid --run-id 20260730-1200 --resume
-"""
+"""Run one strategy over the question set, one request at a time, recording
+per-query outputs and per-stage timings."""
 import argparse
 import json
 import logging
@@ -32,15 +19,11 @@ RESULTS_DIR = Path(__file__).resolve().parents[2] / "results"
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    # Derived from the factory rather than restated, so a strategy added there
-    # is runnable here without a second edit. The hardcoded list silently
-    # omitted the whole vec_* family, which argparse rejects as an invalid
-    # choice -- three of the eight strategies in the full run.
-    from pipeline.strategies import VECTOR_EXPAND_VARIANTS
-
+    # Kept in step with the factory in pipeline.strategies: a name accepted here
+    # must be one build_strategy() knows, and vice versa.
     parser.add_argument("--strategy", required=True,
                         choices=["zero_shot", "vector_rag", "hybrid", "light_rag",
-                                 "hippo_rag", *VECTOR_EXPAND_VARIANTS])
+                                 "hippo_rag"])
     parser.add_argument("--dataset", default=str(Path(__file__).resolve().parents[2] / "dataset" / "qa_dataset.json"))
     parser.add_argument("--judge", action="store_true", help="also run the faithfulness judge (costs API calls)")
     parser.add_argument("--warmup", type=int, default=3,
@@ -81,16 +64,14 @@ def main() -> None:
         ))
         log.info("Warm-up %d/%d done (discarded)", i + 1, args.warmup)
 
-    # Rows are appended to a JSONL as they complete. A full pass is hours of
-    # local inference per strategy, so a failure at query 150 must not discard
-    # the 149 already paid for; --resume picks the same file back up.
+    # Appended per query: a full pass is hours of inference, so a failure at
+    # query 150 must not discard the 149 already paid for.
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     progress = RESULTS_DIR / f"{args.strategy}-{args.run_id}.jsonl"
     rows: list[dict] = []
     if args.resume and progress.exists():
-        # A retried query appends a second line for the same id, so the file is
-        # collapsed by id keeping the latest attempt — otherwise the retry and
-        # the failure it replaced would both reach the summary.
+        # A retry appends a second line for the same id, so collapse by id and
+        # keep the latest, or both attempts reach the summary.
         latest: dict[str, dict] = {}
         for line in progress.read_text(encoding="utf-8").splitlines():
             if line:
@@ -98,9 +79,8 @@ def main() -> None:
                 latest[r["query_id"]] = r
         rows = list(latest.values())
         log.info("Resuming: %d queries already attempted in %s", len(rows), progress.name)
-    # Only a query that actually produced a prediction is finished. Previously
-    # failed queries are re-attempted: resuming past them would make a run with
-    # any transient failure impossible to complete.
+    # Only a query with a prediction is finished; failures are re-attempted, or
+    # one transient error would make the run impossible to complete.
     done = {r["query_id"] for r in rows if "prediction" in r}
     rows = [r for r in rows if "prediction" in r]
     if args.resume:
@@ -108,21 +88,11 @@ def main() -> None:
 
     pending = [q for q in queries if q["query_id"] not in done]
 
-    # Two stages with opposite bottlenecks, so they are batched rather than
-    # interleaved one query at a time.
-    #
-    #   pipeline  ~1.5 s, GPU-bound  -> stays strictly serial: one Ollama, one
-    #                                   embedding model, no concurrency to win
-    #   judging   ~38 s, network-bound -> the process is idle the whole time
-    #
-    # Run serially the two cost 40 s per query, and at 78 queries x 8 strategies
-    # the judge is ~82% of the entire experiment while the GPU sits idle. A
-    # batch of pipeline calls followed by a pool of judge calls cuts that to
-    # roughly the slowest single call per batch.
-    #
-    # The cost is resume granularity: rows are written per batch, not per query,
-    # so a crash re-runs at most one batch. That is seconds of pipeline work,
-    # against hours saved.
+    # Opposite bottlenecks, so the two stages are batched rather than
+    # interleaved: the pipeline is GPU-bound and strictly serial at ~1.5 s,
+    # while judging is network-bound at ~38 s and leaves the process idle. Run
+    # serially the judge would be most of the experiment. The cost is resume
+    # granularity, since rows are written per batch, not per query.
     batch_size = max(1, args.judge_workers) if args.judge else 1
     with progress.open("a", encoding="utf-8") as fh:
         for start in range(0, len(pending), batch_size):
@@ -178,17 +148,8 @@ def main() -> None:
 
 def _judge_batch(staged: list[tuple[dict, dict, object]], chunk_texts: dict[str, str],
                  workers: int) -> None:
-    """Score a batch's rows in parallel, writing the scores back into each row.
-
-    The two judge calls for one row stay sequential inside a worker; the
-    parallelism is across rows. Splitting them would halve the wall clock again
-    but doubles the concurrent request count against the same rate limit for a
-    much smaller return.
-
-    A judge failure is confined to its own row and leaves the prediction intact:
-    the row is already complete before this runs, so the query still counts
-    towards decision accuracy with its score fields simply absent.
-    """
+    """Score a batch's rows in parallel, writing the scores back into each
+    row."""
     from concurrent.futures import ThreadPoolExecutor
 
     todo = [(row, q, r) for row, q, r in staged if r is not None]
@@ -211,13 +172,8 @@ def _judge_batch(staged: list[tuple[dict, dict, object]], chunk_texts: dict[str,
 
 
 def _judge_row(q: dict, result, chunk_texts: dict[str, str]) -> float | None:
-    """Faithfulness reference context: zero_shot is judged against GOLD chunks.
-
-    RAG strategies are judged against the EXACT context the SLM generated from
-    (top GENERATION_CONTEXT_K of the ranked list) — judging against the full
-    RETRIEVAL_K list would credit hallucinations that happen to coincide with
-    chunks the model never saw.
-    """
+    """Faithfulness reference context: zero_shot is judged against GOLD
+    chunks."""
     from evaluation.judge import judge_faithfulness
 
     context = _reference_context(q, result, chunk_texts)
@@ -225,13 +181,7 @@ def _judge_row(q: dict, result, chunk_texts: dict[str, str]) -> float | None:
 
 
 def _reference_context(q: dict, result, chunk_texts: dict[str, str]) -> str:
-    """Exactly what the model read, and nothing else.
-
-    Attached provisions are part of that context, so they must be part of the
-    reference too. Judging against the truncated ranked list instead would mark
-    a claim unsupported when it was in fact grounded in an attached clause the
-    model had in front of it.
-    """
+    """Exactly what the model read, and nothing else."""
     if config.ACTIVE_STRATEGY == "zero_shot":
         return "\n\n".join(f"[{cid}]\n{chunk_texts.get(cid, '')}"
                            for cid in q["gold_chunk_ids"])
@@ -270,9 +220,7 @@ def _summarize(rows: list[dict]) -> dict:
     if faith_vals:
         summary["faithfulness"] = bootstrap_ci(faith_vals)
         summary["faithfulness_n_scored"] = len(faith_vals)  # claims-free abstentions excluded
-    # What the model actually read, attachments included. A strategy that wins
-    # by attaching a great deal pays for it in context, and Recall@K cannot see
-    # that cost.
+    # What the model actually read, attachments included.
     ctx_sizes = [len(r["context_chunk_ids"]) for r in rows if r.get("context_chunk_ids")]
     if ctx_sizes:
         summary["context_size"] = bootstrap_ci([float(n) for n in ctx_sizes])

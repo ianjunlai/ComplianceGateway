@@ -1,30 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Question generation for the second round.
-
-Three differences from the first round, each with a reason.
-
-The requesting institution is no longer written into the question. It moves to
-`source_system`, which is where a gateway would actually read it -- from the
-identity of the system that submitted the request, not by parsing prose. The
-first round named the university in every question, which made the institution
-the most frequent entity mention in the whole set and pulled retrieval towards
-the institutional tier, a tier that is never gold here.
-
-Gold is the seed provision alone, one chunk. The retrieval layer attaches the
-provisions a chunk cites rather than ranking them, so reaching the seed is
-sufficient: the rest follows deterministically. Defining gold as "the seed plus
-everything it cites" would instead define the target using the same citation
-edges the retriever traverses, which is circular.
-
-Three strata rather than one. Cross-tier questions are the core case and carry
-the three-tier corpus's purpose. Single-provision questions test whether the
-citation attachment displaces good single-tier hits. Unanswerable questions
-test abstention, which the first round could not measure at all because every
-question had an answer.
-
-    python dataset/generate_qa_v2.py --dry-run
-    python dataset/generate_qa_v2.py --out dataset/qa_v2.json
-"""
+"""Generate the evaluation questions in three strata: cross-tier, single-tier and
+unanswerable. Gold is the seed provision alone."""
 import argparse
 import json
 import random
@@ -47,9 +23,7 @@ EDGES = HERE / "corpus" / "full_citations.json"
 OUT = HERE / "qa_v2.json"
 SEED = 42
 
-# Which institutions sit in which state. The question never names one; it is
-# recorded in source_system, and the retrieval layer derives the applicable
-# jurisdictions from it.
+# Which institutions sit in which state.
 INSTITUTIONS = {
     "IE": ["tcd", "ul"],
     "UK": ["cambridge"],
@@ -60,10 +34,7 @@ LAW_NAME = {"IE": "the Irish Data Protection Act 2018",
             "UK": "the UK Data Protection Act 2018",
             "DE": "the German Federal Data Protection Act (BDSG)"}
 
-# Provisions that exist but leave a detail to secondary legislation. A question
-# about that detail is unanswerable from the corpus, while still being about a
-# provision the corpus contains -- which is what makes it a fair test of
-# abstention rather than an obvious out-of-domain probe.
+# Provisions that exist but leave a detail to secondary legislation.
 DEFERRAL = re.compile(
     r"(may|shall) by regulations|as (may be )?prescribed|regulations under|"
     r"the (Minister|Secretary of State) may|specified in regulations|by order|"
@@ -81,12 +52,7 @@ Rules for the question text:
 - At most 60 words, two or three sentences.
 """
 
-# Recorded as fields, never written into the question. The requesting
-# institution sets the retrieval scope; the recipient does not, because the
-# obligations under audit are the sender's and the adequacy of a destination is
-# settled by EU and national law rather than by the destination's own law. The
-# field exists so the question set's composition is visible and so transfers
-# can be reported as a stratum.
+# Recorded as fields, never written into the question.
 _TARGET_FIELDS = """  "target_kind": "internal|another_institution|public_authority|third_country|none",
   "target_jurisdiction": "IE|UK|DE|EEA|non-EEA|none",
 """
@@ -94,14 +60,7 @@ _TARGET_FIELDS = """  "target_kind": "internal|another_institution|public_author
 
 def _attachment_preview(seed_id: str, nbrs: dict, corpus: dict,
                         cap: int) -> list[tuple[str, str, str]]:
-    """What the retrieval layer would attach to this provision.
-
-    Deliberately the same rule and the same cap as pipeline.attachment: order
-    by how precisely the citation resolved, then take `cap`. Showing the
-    generator more than that would let it write a question turning on a
-    provision the system can never deliver, which no retrieval strategy could
-    then answer.
-    """
+    """What the retrieval layer would attach to this provision."""
     seen, out = {seed_id}, []
     for tgt, typ, res in sorted(nbrs.get(seed_id, []),
                                 key=lambda r: (_RESOLUTION_ORDER.get(r[2], 3), r[0])):
@@ -234,15 +193,7 @@ def main() -> None:
     def preview(cid: str):
         return _attachment_preview(cid, nbrs, corpus, config.ATTACH_PER_CHUNK)
 
-    # Cross-tier: one usable IMPLEMENTS edge per seed provision. 'spread' is
-    # excluded because it points at a paragraph other than the one cited, so
-    # the pair may not actually belong together.
-    #
-    # The sampled partner must also survive the attachment cap. A seed whose
-    # own Act cross-references it heavily can push its GDPR article out of the
-    # top two, and a question built on that pair would be unanswerable no
-    # matter how well retrieval performed -- the system would never be handed
-    # the second half. 13 of 79 seeds are excluded for this reason.
+    # Cross-tier: one usable IMPLEMENTS edge per seed provision.
     ct_edges = [e for e in edges
                 if e["type"] == "IMPLEMENTS"
                 and e["resolution"] in ("exact", "whole")
@@ -255,9 +206,7 @@ def main() -> None:
     ct_pool, crowded_out = [], 0
     for source, candidates in by_source.items():
         deliverable = {c for c, _, _ in preview(source)}
-        # A provision may give effect to several articles. Prefer one the
-        # attachment will actually deliver rather than taking the first at
-        # random and discarding the seed when it happens not to survive.
+        # A provision may give effect to several articles.
         survivors = [e for e in candidates if e["target"] in deliverable]
         if survivors:
             ct_pool.append(survivors[0])
@@ -266,9 +215,7 @@ def main() -> None:
     rng.shuffle(ct_pool)
 
     # Single: a national provision with no usable cross-tier citation, so the
-    # question does not need a GDPR article. It may still cite its own Act, and
-    # those cross-references are shown to the generator because the retrieval
-    # layer will attach them -- which is what this stratum is for.
+    # question does not need a GDPR article.
     cross_sources = {e["source"] for e in ct_edges}
     single_pool = [c for c in national if c["chunk_id"] not in cross_sources
                    and len(c["text"].split()) >= 60]
@@ -404,9 +351,7 @@ def main() -> None:
     inst_names = re.compile(
         r"trinity|cambridge|limerick|göttingen|goettingen|georg-august|"
         r"\bour university\b|\bthis university\b", re.I)
-    # Schedules and paragraphs are clause references too. A generated question
-    # naming "a Schedule 8 protected condition" hands the retriever the answer
-    # by keyword, which is exactly what the article/section rule was for.
+    # Schedules and paragraphs are clause references too.
     clause_ref = re.compile(
         r"\b(article|articles|section|sections|schedule|schedules|sch\.?|"
         r"paragraph|paragraphs|para\.?|regulation)\s+\d", re.I)

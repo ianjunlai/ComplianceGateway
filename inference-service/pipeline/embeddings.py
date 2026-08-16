@@ -1,8 +1,4 @@
-"""Local embedding model.
-
-bge-large-en-v1.5 via sentence-transformers; loaded once per process.
-Online audit queries are embedded locally and never leave the machine.
-"""
+"""Local embedding model, loaded once."""
 from functools import lru_cache
 
 import config

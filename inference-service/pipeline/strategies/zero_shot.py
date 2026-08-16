@@ -1,9 +1,4 @@
-"""Zero-Shot condition.
-
-No retrieval at all: the SLM answers from parametric knowledge only.
-Faithfulness for this condition is judged against GOLD chunks, not retrieved
-context.
-"""
+"""Zero-shot condition: no retrieval, the model answers from its own parameters."""
 from pipeline.base import RetrievalStrategy, RetrievedContext
 
 

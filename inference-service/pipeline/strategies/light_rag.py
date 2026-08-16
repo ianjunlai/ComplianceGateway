@@ -1,35 +1,12 @@
-"""LightRAG-style dual-level retrieval.
-
-Three stages, following the published paradigm:
-  1. Low-level retrieval — seed entity mentions are matched against entity
-     vectors, covering specific, detail-oriented queries.
-  2. High-level retrieval — the whole query is matched against relationship-edge
-     vectors, covering abstract, thematic queries.
-  3. High-order relatedness — the matched entities and edge endpoints are
-     expanded to their one-hop graph neighbours, so the context includes
-     structurally related clauses that neither vector search surfaced directly.
-
-Expanded evidence is scored below direct hits by LIGHTRAG_NEIGHBOUR_DECAY, so
-graph-derived clauses enrich the context without displacing exact matches.
-
-This is a controlled re-implementation sharing the extraction pass, index and
-SLM with the other strategies, not the reference library.
-"""
+"""LightRAG-style dual-level retrieval: entities for specific queries, relation
+vectors for thematic ones, then a one-hop expansion."""
 import config
 from pipeline.base import RetrievalStrategy, RetrievedChunk, RetrievedContext
 from pipeline.embeddings import embed, embed_one
 from pipeline.graph import get_driver, index_score_to_cosine
 
-# Low level: every seed mention is matched in one round trip, carrying the
-# provenance clauses of each matched entity.
-#
-# relation_count is what separates one clause of a matched entity from another.
-# Without it every clause mentioning the entity inherits the entity's score and
-# they all tie -- and this corpus's commonest entity appears in 53% of clauses,
-# so a single hub match would flood the ranking with a 184-way tie broken by
-# nothing. LightRAG orders a matched entity's clauses by how much of that
-# entity's own neighbourhood each clause also contains, which is the signal
-# reproduced here.
+# Low level: all seed mentions matched in one round trip, with the provenance
+# clauses of each matched entity.
 _ENTITY_QUERY = """
 UNWIND $vectors AS vec
 CALL db.index.vector.queryNodes($index, $limit, vec) YIELD node, score
@@ -53,16 +30,7 @@ RETURN r.description AS description, r.chunk_ids AS chunk_ids, score,
        startNode(r).node_id AS source_id, endNode(r).node_id AS target_id
 """
 
-# One-hop expansion from matched graph elements to neighbouring entities and
-# the clauses that mention them.
-#
-# The ORDER BY is load-bearing, not cosmetic: this LIMIT discards most of the
-# expansion, and without an ordering Neo4j is free to return any rows it likes
-# and to return different ones on an identical re-run -- which would make the
-# strategy's retrieved set, and every metric computed from it, unreproducible.
-# Rows are ranked by how many of the matched elements reach the neighbour, so
-# the strongest structural evidence survives the cut; chunk_id breaks ties so
-# the result is fully determined.
+# One-hop expansion to neighbouring entities and the clauses mentioning them.
 _NEIGHBOUR_QUERY = """
 UNWIND $node_ids AS nid
 MATCH (seed:Entity {node_id: nid})-[:RELATES]-(nbr:Entity)
@@ -80,22 +48,8 @@ MATCH (c:Chunk {chunk_id: cid})
 RETURN c.chunk_id AS chunk_id, c.text AS text
 """
 
-# Final ranking over the admitted set. The graph decides which clauses are
-# admissible -- reachable from an entity or relation the query matched -- and
-# the query vector decides which of those are relevant.
-#
-# LightRAG does not define a passage ranking: it retrieves entities and
-# relations and hands their names, descriptions and source excerpts to the LLM,
-# and its published evaluation is generation win-rate, never Recall@k. Scoring
-# it by gold-passage recall therefore requires inventing a ranking, and the
-# choice is ours to defend rather than the paper's to supply.
-#
-# The earlier choice -- rank a clause by the similarity of whichever entity or
-# edge surfaced it -- is the same defect hybrid_graph.py had before its fix: it
-# measures how strongly the query matched some entity, not whether the clause
-# answers the question, so every clause mentioning a well-matched entity
-# inherits its score. That ranking scored Recall@10 = 0.138 on the GDPR corpus
-# against 0.513 for query-vector ranking.
+# Final ranking: the graph decides which clauses are admissible, the query
+# vector decides which of those are relevant.
 _RANK_QUERY = """
 UNWIND $chunk_ids AS cid
 MATCH (c:Chunk {chunk_id: cid})
@@ -110,8 +64,6 @@ class LightRagStrategy(RetrievalStrategy):
     name = "light_rag"
 
     # Low-level hits kept per seed mention before merging (disclosed constant).
-    # No tau cutoff here: unlike entity linking, these hits are soft-ranked
-    # evidence — a weak match ranks lower instead of poisoning a traversal.
     LOW_LEVEL_HITS_PER_MENTION = 3
 
     def retrieve(self, query: str, seed_entities: list[str], top_k: int,
@@ -135,10 +87,8 @@ class LightRagStrategy(RetrievalStrategy):
                 )
             ]
 
-            # A clause is ranked by (similarity of the element that surfaced it,
-            # how much of that element's neighbourhood it contains). Keys are
-            # negated so the natural sort order is best-first, and a clause
-            # surfaced by several elements keeps its strongest claim.
+            # A clause is ranked by (similarity of the element that surfaced
+            # it, how much of that element's neighbourhood it contains).
             node_best: dict[str, float] = {}
             chunk_keys: dict[str, tuple[float, float]] = {}
 

@@ -1,18 +1,4 @@
-"""Indexing-cost accounting.
-
-Accounting protocol:
-  - SHARED costs (one extraction pass feeds all three paradigms): LLM wall-time
-    and token counts — reported once.
-  - PARADIGM-SPECIFIC costs: embedding counts, build wall-time, storage bytes —
-    reported per paradigm (hybrid / light_rag / hippo_rag).
-
-Cost is reported in tokens, not currency: token counts are objective and
-reproducible, whereas per-provider prices change and are not comparable across
-vendors. Convert to currency separately if needed, using the provider's
-pricing at a stated date.
-
-Report written to artifacts/indexing_cost_report.json.
-"""
+"""Meter wall time, tokens, embeddings and storage per build phase."""
 import json
 import threading
 import time

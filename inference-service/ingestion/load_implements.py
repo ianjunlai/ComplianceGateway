@@ -1,20 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Load the cross-tier IMPLEMENTS edges into an existing graph.
-
-These are Chunk -> Chunk, unlike RELATES and SYNONYM which join entities: a
-national provision gives effect to a GDPR article, and the relation holds
-between the two provisions rather than between anything they mention. That is
-also why they cannot be produced by the extraction pass -- it works one chunk
-at a time and never sees the pair.
-
-Kept separate from build_indexes so the edges can be added to, and removed
-from, a graph that is already built. The pilot measures retrieval with and
-without them, and rebuilding the whole graph between those two runs would
-change other things at the same time.
-
-    python -m ingestion.load_implements
-    python -m ingestion.load_implements --remove
-"""
+"""Load the Chunk-to-Chunk citation edges into an existing graph. Separate from
+build_indexes so they can be added or removed without a rebuild."""
 import argparse
 import json
 import sys
@@ -28,10 +14,7 @@ from pipeline.graph import get_driver   # noqa: E402
 EDGES = _SERVICE.parent / "dataset" / "corpus" / "nations" / "implements_edges.json"
 
 # One statement per relationship type: Cypher cannot parameterise a type, and
-# the two mean different things. IMPLEMENTS crosses tiers -- a national
-# provision giving effect to a GDPR article -- while CITES is a reference
-# within one instrument. Collapsing them, as an earlier version did by
-# hardcoding IMPLEMENTS, makes "cross-tier" unmeasurable afterwards.
+# the two mean different things.
 _CREATE = """
 UNWIND $rows AS row
 MATCH (a:Chunk {chunk_id: row.source}), (b:Chunk {chunk_id: row.target})
@@ -66,10 +49,7 @@ def main() -> None:
             raise SystemExit(f"edge file contains unsupported type(s) {unknown}; "
                              f"expected one of {_TYPES}")
 
-        # Only edges whose BOTH ends are in this graph can be created. Reporting
-        # the shortfall matters: a corpus subset silently drops the edges whose
-        # targets it does not contain, and a quiet 0 would look like the loader
-        # failing rather than the corpus lacking the chunks.
+        # Only edges whose BOTH ends are in this graph can be created.
         ids = {r["chunk_id"] for r in
                s.run("MATCH (c:Chunk) RETURN c.chunk_id AS chunk_id")}
         usable = [r for r in rows if r["source"] in ids and r["target"] in ids]

@@ -1,21 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Extract GDPR's internal cross-references as CITES edges.
-
-The pilot suggested that traversing citations rather than extracted entity
-relations is what makes a graph selective, but 38 questions cannot settle it.
-The GDPR corpus has 144 gold-bearing questions and a full set of baselines, so
-the claim can be tested there properly -- if the same citation structure exists
-inside a single instrument, which it does: the Regulation refers to its own
-articles constantly ("the conditions referred to in Article 6(1)").
-
-Different pattern from extract_implements.py. Inside the Regulation a bare
-"Article 6(1)" means this Regulation, so the "of the Data Protection
-Regulation" anchor that disambiguated national citations is absent. What has to
-be excluded instead is references to OTHER instruments, which GDPR names
-explicitly ("Article 6 of Directive 2002/58/EC").
-
-    python dataset/extract_gdpr_citations.py
-"""
+"""Extract the GDPR's internal cross-references as CITES edges."""
 import argparse
 import json
 import re

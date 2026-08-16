@@ -1,11 +1,4 @@
-"""Synchronous inference API — used ONLY by the gateway's synchronous
-endpoints (/audit/sync and /audit/sync-throttled).
-
-Wraps exactly the same run_pipeline() as the Kafka consumer, so the only
-difference between integration modes is how clients wait for results.
-
-Run: uvicorn sync_api:app --port 8000
-"""
+"""Synchronous inference API, called only by the gateway's synchronous endpoints."""
 from datetime import datetime, timezone
 
 from fastapi import FastAPI

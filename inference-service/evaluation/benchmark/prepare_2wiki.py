@@ -1,26 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Convert HippoRAG's released 2WikiMultihopQA subset into this project's schema.
-
-Why this benchmark, and why this copy of it. The GDPR results show no graph
-configuration beating dense retrieval, and that claim is only defensible once
-the implementations have been shown to reproduce a published advantage
-somewhere. 2Wiki is the one benchmark where that advantage is decisive --
-HippoRAG reports R@5 89.1 against ColBERTv2's 68.2, where MuSiQue's margin is
-2.7 and on HotpotQA HippoRAG loses outright. Taking the authors' own evaluation
-subset rather than resampling the source dataset removes any question about how
-the sample was drawn.
-
-Source (branch `legacy`, the NeurIPS'24 release the published numbers come from):
-    OSU-NLP-Group/HippoRAG  data/2wikimultihopqa_corpus.json   6,119 passages
-    OSU-NLP-Group/HippoRAG  data/2wikimultihopqa.json          1,000 questions
-
-Passage titles are unique across the corpus and are what `supporting_facts`
-names, so the title is the join key; chunk ids are positional so that no
-slugging rule can collapse two distinct titles into one id.
-
-    python -m evaluation.benchmark.prepare_2wiki                 # full: 1000 q, 6119 passages
-    python -m evaluation.benchmark.prepare_2wiki --sample 20     # dry run, corpus narrowed to match
-"""
+"""Convert HippoRAG's released 2WikiMultihopQA subset into this project's corpus
+and QA schema."""
 import argparse
 import json
 import random

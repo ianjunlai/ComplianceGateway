@@ -1,21 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Cache query seed entities for any QA set, under whichever prompt profile fits.
-
-build_ner_cache.py is pinned to the 2Wiki paths and refuses to run outside the
-`general` profile, which is right for that experiment and wrong for anything
-else. The cross-tier pilot is legal text, so it needs the `legal` prompt and a
-different dataset; rather than loosen the benchmark script's guard -- the guard
-is what stops a legal extractor being pointed at Wikipedia -- this takes both as
-arguments.
-
-Seeds are where every graph strategy enters the graph, so they are cached and
-shared: scoring four strategies on four different seed sets would measure seed
-luck rather than retrieval.
-
-    python -m evaluation.benchmark.build_ner_cache_generic \
-        --dataset ../dataset/crosstier_qa.json \
-        --cache evaluation/benchmark/ner_seed_cache_crosstier.json
-"""
+"""Cache query seed entities for any QA set, under either prompt profile."""
 import argparse
 import json
 import sys

@@ -1,8 +1,4 @@
-"""Cross-language event contracts.
-
-Mirror of gateway-service events (AuditRequestEvent.java / AuditResultEvent.java).
-Field names are the wire contract — change them in both places or nowhere.
-"""
+"""Event contracts shared with the Java gateway."""
 from typing import Literal, Optional
 
 from pydantic import BaseModel, Field
@@ -16,10 +12,7 @@ class AuditRequestEvent(BaseModel):
 
 
 class StageTimings(BaseModel):
-    """Per-stage instrumentation.
-
-    queue_wait_ms: gateway ingress -> consumer pickup (EDA only; 0 for sync)
-    """
+    """Per-stage instrumentation."""
     queue_wait_ms: int = 0
     ner_ms: int = 0
     retrieval_ms: int = 0
@@ -28,11 +21,7 @@ class StageTimings(BaseModel):
 
 
 class ComplianceDecision(BaseModel):
-    """Constrained-decoding target schema.
-
-    The SLM is forced to emit exactly this object via Ollama JSON-Schema
-    structured outputs.
-    """
+    """Constrained-decoding target schema."""
     decision: Literal["APPROVE", "DENY", "UNKNOWN"]
     reasoning: str
 
@@ -44,8 +33,7 @@ class AuditResultEvent(BaseModel):
     reasoning: str = ""
     retrieved_chunk_ids: list[str] = Field(default_factory=list)
     # The chunks the model actually read: the top-K prefix plus any provisions
-    # attached because a retrieved clause cites them. Longer than
-    # retrieved_chunk_ids[:K] whenever attachment fired.
+    # attached because a retrieved clause cites them.
     context_chunk_ids: list[str] = Field(default_factory=list)
     strategy: str
     stage_timings_ms: dict[str, int] = Field(default_factory=dict)

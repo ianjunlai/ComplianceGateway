@@ -1,17 +1,4 @@
-"""Synthetic QA dataset generation.
-
-GPT-4o + real corpus chunks -> audit-scenario QA pairs with gold decisions and
-gold source chunk IDs (ground truth by construction).
-
-Stratification (n = 150-200):
-    single-hop 35% | multi-hop 35% | trap 20% | unanswerable 10%
-
-Quality control: after generation, a 15% stratified sample goes to
-human verification — see verification_sample.json output.
-
-Run (needs the QA_GENERATION_PROVIDER's API key in inference-service/.env):
-    python generate_qa.py --n 160
-"""
+"""Synthetic QA generation for the first round. Superseded by generate_qa_v2.py."""
 import argparse
 import json
 import random
@@ -77,14 +64,8 @@ _OTHER_INSTRUMENT_MARKERS = ("TFEU", "Charter", "Directive", "Regulation (EC)", 
 
 
 def _reference_pairs(chunks) -> list[tuple]:
-    """(chunk, referenced chunk) pairs via explicit 'Article N' cross-references
-    to GDPR's own numbering.
-
-    Multi-hop questions must combine clauses that are genuinely connected:
-    random pairs would test the combination of unrelated text, which no graph
-    traversal could (or should) bridge — biasing the evaluation against GraphRAG in
-    exactly the category where it is supposed to help.
-    """
+    """(chunk, referenced chunk) pairs via explicit 'Article N' cross-
+    references to GDPR's own numbering."""
     by_art: dict[str, list] = {}
     for c in chunks:
         m = re.match(r"gdpr-art-(\d+[a-z]?)", c.chunk_id)
@@ -117,14 +98,8 @@ def _build_reference_graph(ref_pairs: list[tuple]) -> dict[str, list]:
 
 
 def _sample_chunks(chunks, ref_pairs, ref_graph, hop_type: str, k: int):
-    """Returns (sampled chunks, whether a genuine cross-reference pair was used).
-
-    For k > 2, a third chunk is added only if it is ITSELF genuinely
-    cross-referenced to one of the pair (via ref_graph) — padding with an
-    unrelated random chunk would let a retrieval system get penalised on
-    Recall@K for correctly NOT retrieving a clause the question never
-    actually depends on.
-    """
+    """Returns (sampled chunks, whether a genuine cross-reference pair was
+    used)."""
     if hop_type in ("multi", "trap") and ref_pairs:
         base = list(random.choice(ref_pairs))
         if k > 2:
@@ -148,14 +123,7 @@ EXPECTED_DECISION = {"trap": "DENY", "unanswerable": "UNKNOWN"}
 
 
 def _validate_item(item: dict, hop_type: str) -> str | None:
-    """Returns a rejection reason, or None if the item is usable.
-
-    Generators sometimes echo the format specification instead of choosing
-    ("APPROVE|DENY|UNKNOWN"), or pick a decision that contradicts the stratum
-    they were asked for. Such an item silently corrupts every metric computed
-    from it -- a decision outside the label set can never be matched by any
-    system, so it depresses accuracy for all strategies equally and invisibly.
-    """
+    """Returns a rejection reason, or None if the item is usable."""
     if not item.get("query_text", "").strip():
         return "empty query_text"
     decision = item.get("gold_decision", "")

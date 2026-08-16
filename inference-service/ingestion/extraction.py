@@ -1,10 +1,4 @@
-"""Graph entity/relation extraction via cloud LLM.
-
-Runs OFFLINE on public legal text only, so a cloud extraction model is
-permitted; online audit queries never touch this module.
-
-Every call is metered by cost_tracker (shared indexing cost).
-"""
+"""Entity and relation extraction via a cloud LLM, offline on public legal text."""
 import logging
 
 import config
@@ -35,12 +29,6 @@ Legal clause [{chunk_id}]:
 """
 
 # Domain-neutral counterpart, used only by the public-benchmark validity check.
-# The legal prompt above names the entity kinds it expects (actors, data
-# categories, safeguards, jurisdictions); asked to read an encyclopaedia
-# paragraph about a film director it returns almost nothing, which would starve
-# the graph strategies of the very structure the benchmark exists to test. The
-# typology below is the general-purpose one, and the output contract is
-# identical so nothing downstream can tell the two apart.
 _GENERAL_EXTRACTION_PROMPT = """You are a knowledge-graph extractor.
 From the passage below, extract:
 1. entities: people, organisations, places, works, events, dates and other
@@ -89,13 +77,6 @@ def extract_graph_elements(chunk: Chunk, tracker: CostTracker, max_attempts: int
     prompt = _prompt_template().replace("{chunk_id}", chunk.chunk_id).replace("{text}", chunk.text)
     # The output budget has to scale with the input: entity and relation counts
     # track passage length, and a flat cap silently becomes a length filter.
-    # The floor matters as much as the slope, and it is model-dependent: 4000
-    # sufficed for every GDPR clause under qwen-plus, then a 736-word biography
-    # exhausted it on 2Wiki (fixed by the slope), then a 370-word UK provision
-    # cross-referencing four Schedules exhausted it under qwen-plus-latest,
-    # which is simply more verbose. Raising a cap cannot change a response that
-    # was not being truncated, so this is safe for already-extracted corpora
-    # and costs nothing when unused.
     max_output = max(8000, 8 * chunk.approx_tokens)
     with tracker.llm_call("extraction"):
         data, usage = complete_json(
@@ -111,13 +92,7 @@ def extract_graph_elements(chunk: Chunk, tracker: CostTracker, max_attempts: int
 
 
 def _text(value) -> str:
-    """JSON scalars the schema said would be strings but weren't.
-
-    A DATE entity comes back as the number 1899 rather than "1899" often enough
-    to matter, and sentence-transformers rejects a non-str outright — one such
-    value among ten thousand aborts the whole index build. Coerced rather than
-    dropped: 1899 is a perfectly good entity name once it is a string.
-    """
+    """JSON scalars the schema said would be strings but weren't."""
     if isinstance(value, str):
         return value.strip()
     if isinstance(value, (int, float)):
@@ -138,8 +113,7 @@ def normalise_elements(data: dict) -> tuple[list[dict], list[dict], int]:
     entities = []
     for e in data.get("entities", []):
         # A bare scalar where an object was asked for is the model shortening
-        # {"name": "x", "type": ...} to "x". The name is the part dedup and the
-        # graph use, so it is salvaged rather than discarded.
+        # {"name": "x", "type": ...} to "x".
         name = _text(e) if not isinstance(e, dict) else _text(e.get("name"))
         if not name:
             continue

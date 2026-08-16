@@ -1,14 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Retrieval quality of every strategy, as actually implemented.
-
-Run before committing to the full evaluation: a strategy that cannot retrieve
-its gold clauses will not produce a meaningful decision-accuracy number either,
-and finding that out after 40 hours of local inference is expensive.
-
-Only the retrieval step runs — no generation. NER seeds come from a prebuilt
-cache, so every strategy is scored on the same seeds and the run costs no SLM
-time. Pass --strategies to add the vec_* provenance variants.
-"""
+"""Retrieval quality of every strategy over one question set: Recall@2/@5/@10 and
+the paired difference against vector_rag."""
 
 import argparse
 import sys
@@ -82,9 +74,7 @@ def main() -> None:
         strategy = build_strategy(name)
         for q in items:
             # The same scope the online pipeline would apply, derived from the
-            # requesting institution. Without it E2 would measure retrieval
-            # over the whole corpus while E1 measured it over one jurisdiction,
-            # and the two would not describe the same system.
+            # requesting institution.
             scope = jurisdictions_for(q.get("source_system"))
             t0 = time.perf_counter()
             ctx = strategy.retrieve(q["query_text"], cache[q["query_id"]],
@@ -93,9 +83,7 @@ def main() -> None:
             ids = ctx.chunk_ids
             if not ids:
                 empties[name] += 1
-            # What the generator would actually read. Attachment is part of the
-            # platform, so its cost belongs in the retrieval comparison even
-            # though it does not affect Recall@K.
+            # What the generator would actually read.
             ctx_size[name].append(
                 len(attach_citations(ctx.truncated(config.GENERATION_CONTEXT_K),
                                      scope).chunks))

@@ -1,30 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Re-score a completed E1/E2 run without re-running inference.
-
-Three things the original scoring conflates, all fixable from the per-query
-rows that run_eval already wrote:
-
-1. **Unsound UNKNOWN labels.** generate_qa.py produced two kinds of UNKNOWN.
-   Sixteen carry no gold clause: the corpus genuinely cannot answer them, and
-   UNKNOWN is the only defensible label. Twenty carry one -- the generator
-   sampled a clause, wrote a question that clause does not address, and
-   labelled it UNKNOWN *relative to that clause*, never checking whether some
-   other clause in the corpus answers it. Retrieval scores 0.000 on those
-   twenty, which measures the labelling rule rather than the system. They are
-   excluded, and the exclusion is reported rather than absorbed.
-
-2. **Accuracy over a mixed denominator.** With UNKNOWN==UNKNOWN scored as
-   correct, a strategy that abstains often banks the unanswerable stratum and
-   can rank first while being worse at every question that has an answer.
-   Answerable and unanswerable are reported separately.
-
-3. **No significance testing.** stats.mcnemar_test has been implemented all
-   along and never called, so differences between strategies were reported as
-   bare numbers. Paired tests are run here against two baselines: zero_shot
-   (does retrieval help at all?) and vector_rag (does the graph help?).
-
-    python -m evaluation.rescore --run-id server1
-"""
+"""Re-score a completed run from the stored rows, without re-running inference."""
 import argparse
 import json
 import sys

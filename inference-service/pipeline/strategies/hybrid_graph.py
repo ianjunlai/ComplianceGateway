@@ -1,18 +1,5 @@
-"""Hybrid Vector-Graph RAG — primary benchmark.
-
-Entity linking locates seed graph nodes; a 2-hop Cypher traversal (GRAPH_HOPS
-fixed at 2) expands to connected legal clauses; the query embedding ranks them.
-
-The two stages have distinct jobs, and conflating them is what an earlier
-version got wrong. The graph decides which clauses are *admissible* — reachable
-from an entity the query mentions. The query vector decides which of those are
-*relevant*. Ranking instead by graph-evidence density (how many of the expanded
-entities mention a chunk) measures nothing but hub centrality: this corpus's
-most common entity appears in 53% of clauses, so a 2-hop expansion reaches
-essentially the whole corpus and the same well-connected clauses win every
-query regardless of what was asked. Measured on 40 gold-bearing queries,
-that ranking scored Recall@10 = 0.138 against 0.513 for the ranking below.
-"""
+"""Hybrid Vector-Graph RAG: link query entities to nodes, traverse, then rank the
+admitted clauses by query similarity."""
 import config
 from pipeline.base import RetrievalStrategy, RetrievedChunk, RetrievedContext
 from pipeline.embeddings import embed_one
@@ -47,18 +34,6 @@ LIMIT $limit
 """
 
 # Same traversal, then one hop along the cross-tier citations.
-#
-# IMPLEMENTS joins two Chunks rather than two Entities -- "this national
-# provision gives effect to that GDPR article" is a relation between the
-# provisions, not between anything they mention -- so it cannot ride the
-# entity walk above and is applied to the admitted set instead. That is
-# precisely the step a compliance question needs: reach the national rule
-# through its entities, then pick up the article it implements even though the
-# two texts share almost no vocabulary.
-#
-# The union is deliberate. Chunks admitted either way compete on query
-# similarity, so an implemented article has to earn its place in the top-k
-# rather than displace a better match.
 _TRAVERSAL_WITH_IMPLEMENTS = """
 UNWIND $seed_ids AS seed_id
 MATCH (seed:Entity {node_id: seed_id})
@@ -101,10 +76,8 @@ class HybridGraphStrategy(RetrievalStrategy):
             # Fallback: no linkable entity -> degrade to empty context (SLM must abstain)
             return RetrievedContext()
 
-        # Step 2: 2-hop traversal to provenance chunks, ranked by query similarity.
-        # Named cypher, not query: `query` is this method's parameter, the user's
-        # question, and shadowing it here made embed_one() embed the Cypher text
-        # instead — a constant, so every question retrieved the same ten chunks.
+        # Step 2: 2-hop traversal to provenance chunks, ranked by query
+        # similarity.
         cypher = (_TRAVERSAL_WITH_IMPLEMENTS if config.HYBRID_FOLLOW_IMPLEMENTS
                   else _TRAVERSAL_QUERY)
         with get_driver().session() as session:

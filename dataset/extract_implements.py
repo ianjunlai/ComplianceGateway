@@ -1,30 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Extract IMPLEMENTS edges: national provision -> the GDPR article it gives effect to.
-
-This is the one thing the three-tier corpus gives graph retrieval that a
-metadata filter cannot. A jurisdiction filter is a flat WHERE clause every
-vector database supports, so handing it only to the graph strategies would
-manufacture an advantage that has nothing to do with graph structure. A typed
-cross-tier link is different: "Irish DPA section 148 gives effect to GDPR
-Article 80(1)" connects two provisions whose texts share almost no vocabulary --
-one is about complaint procedure, the other about mandated representation -- so
-embedding similarity finds the pair only by accident.
-
-Regex rather than an LLM. The citations are formulaic, the mapping is
-checkable, and an extraction pass over 614 provisions would cost API budget to
-produce something less reliable than a pattern that either matches or does not.
-
-Two precision traps are handled explicitly:
-  * The Irish and German Acts transpose BOTH Regulation 2016/679 and Directive
-    2016/680, and cite them in the same sentence. "Article 22(3) of the
-    Directive" must not resolve to GDPR Article 22.
-  * The GDPR corpus splits long articles into sub-chunks (gdpr-art-9-2), so a
-    citation to Article 9(2) resolves to that sub-chunk while a citation to
-    Article 9 alone resolves to whichever chunks exist for it.
-
-    python dataset/extract_implements.py
-    python dataset/extract_implements.py --show 20
-"""
+"""Extract IMPLEMENTS edges joining a national provision to the GDPR article it
+gives effect to."""
 import argparse
 import json
 import re
@@ -41,8 +17,7 @@ GDPR_IDS = REPO / "inference-service" / "artifacts" / "chunk_texts.json"
 OUT = HERE / "corpus" / "nations" / "implements_edges.json"
 
 # The instrument named after the article number decides whether this is a GDPR
-# citation at all. Directive 2016/680 is transposed by the same Acts and its
-# article numbering overlaps completely.
+# citation at all.
 REGULATION = (r"(?:the\s+)?(?:Data Protection Regulation|GDPR|UK GDPR"
               r"|Regulation\s*\(EU\)\s*(?:No\.?\s*)?2016/679)")
 DIRECTIVE = r"(?:the\s+)?(?:Directive|Directive\s*\(EU\)\s*2016/680)"
@@ -65,11 +40,6 @@ CITE_DIR = re.compile(r"Articles?\s+" + _ONE + r"(?:\s*(?:,|and|or)\s*" + _ONE +
                       r"\s+of\s+" + DIRECTIVE, re.I)
 # Pulls each article out of a matched span, so "Article 6(3), 8A(3)(e) or 10(1)
 # of ..." yields three edges rather than one.
-#
-# (?<![(\w]) is what keeps it honest. Without it, "Article 35(4) and (5)" also
-# yields an Article 5, because the paragraph number inside the brackets looks
-# exactly like an article number -- a bare digit. Requiring that the digit not
-# follow an opening bracket distinguishes "article 5" from "paragraph (5)".
 INNER = re.compile(r"(?<![(\w])(\d{1,3}[A-Z]?)((?:\s*\(\d+[a-z]?\))*)")
 
 
@@ -79,17 +49,8 @@ def load_gdpr_ids() -> set[str]:
 
 
 def resolve(article: str, paras: str, ids: set[str]) -> tuple[list[str], str]:
-    """Citation -> the chunk ids that actually exist for it, and how it got there.
-
-    The three outcomes differ in how much they can be trusted, so the kind is
-    recorded rather than flattened away:
-      exact      the citation named a paragraph and that sub-chunk exists
-      whole      the article is one chunk, so the citation lands on it
-      spread     the citation named a paragraph with no chunk of its own, so it
-                 falls back to every sub-chunk of that article. This is the
-                 weakest kind: a citation to Article 28(3) becomes edges to
-                 28-1 and 28-2, neither of which is the cited paragraph.
-    """
+    """Citation -> the chunk ids that actually exist for it, and how it got
+    there."""
     first_para = re.match(r"\((\d+)", paras)
     if first_para:
         specific = f"gdpr-art-{article}-{first_para.group(1)}"
@@ -126,8 +87,7 @@ def main() -> None:
         for m in CITE.finditer(masked):
             span = m.group(0)
             # The span may name several articles ("Article 6(3), 8A(3)(e) or
-            # 10(1) of ..."); take each in turn. Stop at " of ", after which
-            # the digits belong to the instrument's own name (2016/679).
+            # 10(1) of ..."); take each in turn.
             head = span[:span.lower().rfind(" of ")] if " of " in span.lower() else span
             for art, paras in INNER.findall(head):
                 per_j[c["jurisdiction"]]["cites"] += 1

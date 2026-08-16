@@ -1,7 +1,4 @@
-"""Query entity extraction: zero-shot NER by the local SLM.
-
-Extracted mentions become the seed entities passed to the retrieval strategy.
-"""
+"""Query entity extraction: zero-shot NER by the local SLM."""
 import json
 from functools import lru_cache
 
@@ -38,12 +35,7 @@ Audit request:
 {query}
 """
 
-# Domain-neutral counterpart for the public-benchmark validity check. Seeds are
-# where every graph strategy enters the graph, so a legal-primed extractor
-# reading "Who is the mother of the director of Polish-Russian War?" returns
-# seeds that link to nothing and the traversal never starts. Kept beside the
-# legal prompt rather than templated from it: the two ask for different things,
-# and merging them would blunt both.
+# Domain-neutral counterpart for the public-benchmark validity check.
 _GENERAL_NER_PROMPT = """You are an entity extractor.
 Extract the named entities the question is about: people, organisations,
 places, works (films, books, albums), and events.

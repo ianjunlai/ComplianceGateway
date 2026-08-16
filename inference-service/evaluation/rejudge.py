@@ -1,23 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Fill in judge scores on rows that already have a prediction.
-
-A judge outage does not invalidate a run: the SLM's decision and the retrieved
-chunk ids are recorded per row as they complete, and scoring them is a pure
-function of `reasoning` + the retrieved context. Only the API calls were lost.
-
-`run_eval --resume` cannot recover this. It treats a row as finished when it
-has a `prediction`, which is the right rule for resuming an interrupted pass --
-re-running the pipeline would spend GPU hours re-deriving answers that are
-already on disk -- but it means a row that was predicted and then failed to be
-scored is skipped forever. This runs the judge, and only the judge, over
-exactly those rows.
-
-    # what is missing, without calling anything
-    python -m evaluation.rejudge --run-id full0810 --dataset ../dataset/crosstier_qa_full.json --check
-
-    # fill it in
-    python -m evaluation.rejudge --run-id full0810 --dataset ../dataset/crosstier_qa_full.json
-"""
+"""Fill in judge scores on rows that already have a prediction, for runs where the
+judge failed partway."""
 import argparse
 import json
 import logging
@@ -38,13 +21,8 @@ log = logging.getLogger("rejudge")
 
 
 class _StoredResult:
-    """The parts of a pipeline result the judge needs, rebuilt from a saved row.
-
-    `_reference_context` and the judge take a result object, not a dict, so the
-    row is wrapped rather than the call sites being changed -- keeping one code
-    path for how the reference context is assembled. If that path ever diverges
-    between run_eval and here, the scores stop being comparable.
-    """
+    """The parts of a pipeline result the judge needs, rebuilt from a saved
+    row."""
 
     def __init__(self, row: dict) -> None:
         self.reasoning = row.get("reasoning", "")
@@ -97,16 +75,13 @@ def main() -> None:
         missing = [r for r in rows if _needs(r)]
         total_missing += len(missing)
         # flush: this is the state BEFORE the strategy is processed, and stdout
-        # is block-buffered through a pipe. Without it every line lands after
-        # the log output that follows it, so a finished run reads as if nothing
-        # had been scored.
+        # is block-buffered through a pipe.
         print(f"  {name:<16}{len(missing):>4} of {len(rows)} rows unscored", flush=True)
         if args.check or not missing:
             continue
 
         # The strategy decides which context the judge is shown: zero_shot is
-        # judged against gold, everything else against what it retrieved. Set it
-        # per file, exactly as run_eval would have.
+        # judged against gold, everything else against what it retrieved.
         config.ACTIVE_STRATEGY = name
 
         def score(row: dict) -> None:

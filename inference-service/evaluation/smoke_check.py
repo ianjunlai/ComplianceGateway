@@ -1,19 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Pre-flight for the long run: exercise every new code path once, cheaply.
-
-Run after the graph exists (step 5) and before the expensive steps. It costs a
-handful of local inference calls and no cloud tokens, and it touches each thing
-that changed in this round: the jurisdiction scope, the citation attachment,
-the context window, and the model's willingness to abstain.
-
-The point is not coverage. It is that each of these fails *quietly*. A scope
-that matches nothing returns an empty context; an attachment that never fires
-looks like a strategy that simply did not benefit; a context window set too
-small drops the attached provisions off the end. None of those raise, and all
-of them would be discovered the next morning as a result rather than a bug.
-
-    python -m evaluation.smoke_check
-"""
+"""Pre-flight for the long run: exercise every code path once, cheaply."""
 import sys
 import time
 from pathlib import Path
@@ -143,9 +129,7 @@ def main() -> None:
           "cites clause ids in the reasoning", warn_only=True)
     print(f"      {grounded.reasoning[:110]}")
 
-    # The 25 unanswerable questions rest entirely on this. A model that guesses
-    # rather than abstaining makes that stratum a measurement of the model, not
-    # of retrieval.
+    # The 25 unanswerable questions rest entirely on this.
     empty = generate_decision(
         "How many years must attendance records be retained?", RetrievedContext())
     check(empty.decision == "UNKNOWN",

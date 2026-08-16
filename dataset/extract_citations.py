@@ -1,29 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Extract every citation edge the corpus contains, of every kind.
-
-Supersedes extract_implements.py (national -> GDPR) and
-extract_gdpr_citations.py (inside GDPR), which between them covered two of the
-five kinds present. A survey of the corpus found the missing three are the
-larger part: statutes cite their own sections far more often than they cite
-anything external -- 204 references inside the UK Act alone.
-
-Two relationship types come out, and the distinction is the experiment:
-
-    IMPLEMENTS   crosses a tier. A national provision giving effect to a GDPR
-                 article, or a university policy invoking either. This is the
-                 structure a jurisdiction-blind retriever cannot see.
-    CITES        stays inside one instrument. Dense, and the reason a citation
-                 graph is connected at all.
-
-Regex, not an LLM: the forms are formulaic, the output is checkable against the
-chunk ids that exist, and a pattern either matches or does not. Every citation
-naming a different instrument (Directive 2016/680, Directive 2002/58/EC) is
-excluded explicitly -- their article numbering overlaps GDPR's completely, so a
-missed exclusion silently produces a confident wrong edge.
-
-    python dataset/extract_citations.py --corpus corpus/pilot_corpus.json
-    python dataset/extract_citations.py --corpus corpus/full_corpus.json
-"""
+"""Extract every citation edge in the corpus by regex: IMPLEMENTS across tiers,
+CITES inside one instrument."""
 import argparse
 import json
 import re
@@ -41,16 +18,8 @@ HERE = Path(__file__).resolve().parent
 REGULATION = (r"(?:the\s+)?(?:EU\s+)?(?:General\s+)?"
               r"(?:Data Protection Regulation|UK GDPR|GDPR"
               r"|Regulation\s*\(EU\)\s*(?:No\.?\s*)?2016/679)")
-# Named instruments that are NOT the GDPR. Their articles are numbered the same.
-#
-# The separator belongs INSIDE the lookahead. Written as `\(EU\)\s*(?!2016/679)`
-# the `\s*` backtracks to zero width, the lookahead then tests against a leading
-# space, does not match, and the negative succeeds -- so "Regulation (EU)
-# 2016/679" is excluded as foreign, which is the opposite of the intent. Only
-# the German Act writes GDPR citations in that formal style (the UK Act says
-# "the UK GDPR", the Irish "the Data Protection Regulation"), so the hole
-# removed one jurisdiction's cross-tier edges entirely and left the other two
-# looking correct.
+# Named instruments that are NOT the GDPR; their articles are numbered the
+# same.
 FOREIGN = (r"(?:Directive|Regulation\s*\(EU\)(?!\s*(?:No\.?\s*)?2016/679)|Decision"
            r"|Treaty|Charter|Convention)")
 
@@ -65,12 +34,7 @@ ART_EXPLICIT = re.compile(r"Articles?\s+" + _ART + r"(?:\s*(?:,|and|or)\s*" + _A
 # "Article 6(1)" with no instrument named. Inside GDPR that means GDPR.
 ART_BARE = re.compile(r"Articles?\s+" + _ART + r"(?:\s*(?:,|and|or)\s*" + _ART + r")*", re.I)
 ART_FOREIGN = re.compile(r"Articles?\s+" + _ART + r"[^.]{0,30}?\s+of\s+(?:the\s+)?" + FOREIGN, re.I)
-# "Article 6(1)(1)(a) GDPR", "Article 6 Paragraph 1 Subparagraph 1 lit. b) GDPR"
-# -- the instrument trails the article instead of following "of". This is how
-# the university privacy notices cite, and only how they cite; the statutes all
-# use the "of the ..." form. Applied to the institutional tier alone, because
-# the bounded gap would otherwise let an unrelated later "GDPR" pull in a
-# statute's self-reference ("under Article 15 or under section 91 ... GDPR").
+# "Article 6(1)(1)(a) GDPR", "Article 6 Paragraph 1 Subparagraph 1 lit.
 ART_TRAILING = re.compile(r"Articles?\s+" + _ART + r"[^.;]{0,60}?\s*" + REGULATION, re.I)
 
 # Each statute names its own provisions its own way.
@@ -96,20 +60,12 @@ def resolve_article(article: str, paras: str, ids: set[str]) -> tuple[list[str],
     return parts, "spread"
 
 
-# Words that introduce a subdivision spelled out rather than bracketed. Göttingen
-# writes "Article 6 Paragraph 1 Subparagraph 1 lit. b) GDPR", where 1 and 1 are
-# subdivisions of Article 6 -- read as article numbers they yield a confident
-# edge to Article 1.
+# Words that introduce a subdivision spelled out rather than bracketed.
 _QUALIFIER = re.compile(r"\b(?:paragraph|subparagraph|sentence|point|lit\.?|no\.?)\b", re.I)
 
 
 def articles_in(span: str) -> list[tuple[str, str]]:
-    """Pull each article out of a citation span, and only articles.
-
-    The negative lookbehind is what stops "Article 35(4) and (5)" also yielding
-    an Article 5: a paragraph number inside brackets is a bare digit and looks
-    identical to an article number.
-    """
+    """Pull each article out of a citation span, and only articles."""
     head = span[:span.lower().rfind(" of ")] if " of " in span.lower() else span
     qualifier = _QUALIFIER.search(head)
     if qualifier:

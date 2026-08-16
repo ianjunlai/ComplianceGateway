@@ -1,25 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Cut the three national data-protection Acts into provision-level chunks.
-
-Adds the middle tier of the compliance hierarchy. The corpus already holds the
-regional layer (GDPR) and the institutional one (four university policies);
-these are the national statutes that sit between them, and which decide what a
-given university is actually bound by:
-
-    EU        GDPR
-    national  Ireland DPA 2018      -> TCD, Limerick
-              UK DPA 2018 (2026)    -> Cambridge
-              Germany BDSG          -> Goettingen
-    school    the four policies
-
-Each Act is parsed from the source that survives parsing, which is not the same
-format in all three cases -- see docs in each parser. Output is the pre-chunked
-JSON that ingestion.build_indexes reads with --corpus-json, so no chunking rule
-in chunking.py has to learn three more statute layouts.
-
-    python dataset/chunk_nations.py
-    python dataset/chunk_nations.py --check-only     # parse and report, write nothing
-"""
+"""Cut the three national Acts into provision-level chunks, one parser each
+because the source formats differ."""
 import argparse
 import json
 import re
@@ -34,8 +15,7 @@ NATIONS = HERE / "corpus" / "nations"
 OUT = NATIONS / "nations.chunks.json"
 
 # A provision shorter than this is a heading the parser mistook for a section,
-# or a repealed one left as a stub. Either way it is not evidence, and letting
-# it through puts an empty chunk behind a gold label.
+# or a repealed one left as a stub.
 MIN_CHARS = 80
 
 
@@ -45,21 +25,10 @@ def _clean(s: str) -> str:
 
 # --------------------------------------------------------------- Ireland
 def parse_ireland(path: Path) -> list[dict]:
-    """Irish Statute Book web copy.
-
-    The section number opens a line and the section's heading is the preceding
-    non-blank line:
-
-        Short title, citation and commencement
-        1. (1) This Act may be cited as the Data Protection Act 2018.
-    """
+    """Irish Statute Book web copy."""
     lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
 
-    # The Schedules restart at 1. and would collide with sections 1-6, 27, 93
-    # and 186. They are parsed separately under their own id prefix rather than
-    # dropped: Schedule 1 lists the instruments the Act revokes and Schedule 2
-    # carries the restrictions on data-subject rights, both of which a
-    # compliance question can legitimately turn on.
+    # The Schedules restart at 1.
     body_end = next((i for i, l in enumerate(lines)
                      if re.match(r"(?i)^\s*schedule\s+1\b", l)), len(lines))
 
@@ -71,11 +40,8 @@ def parse_ireland(path: Path) -> list[dict]:
             if not m:
                 continue
             n = int(m.group(1))
-            # Sections run in ascending order. A number that goes backwards is
-            # a provision of some *other* statute quoted inside this one --
-            # section 58 reproduces the instrument establishing the National
-            # Cancer Registry Board, whose own "1. (1)" would otherwise be
-            # taken for a second section 1.
+            # A section number that goes backwards belongs to another statute
+            # quoted inside this one, not to a second section 1.
             if n <= last:
                 continue
             last = n
@@ -107,15 +73,7 @@ def parse_ireland(path: Path) -> list[dict]:
 
 # --------------------------------------------------------------- Germany
 def parse_germany(path: Path) -> list[dict]:
-    """gesetze-im-internet official English translation.
-
-    The translation drops the German section sign, so provisions are marked
-    "Section N" on its own line with the heading on the next:
-
-        Section 1
-        Scope of the Act
-        (1) This Act shall apply to ...
-    """
+    """gesetze-im-internet official English translation."""
     lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
     starts = []
     for i, line in enumerate(lines):
@@ -139,15 +97,7 @@ def parse_germany(path: Path) -> list[dict]:
 
 # --------------------------------------------------------------- UK
 def parse_uk(path: Path) -> list[dict]:
-    """legislation.gov.uk XML, point-in-time snapshot.
-
-    XML rather than either text copy, and not for convenience: the web copy
-    interleaves ~3,900 editorial annotations (F-numbers, commencement notes,
-    dot leaders standing in for repealed text) with the provisions, and the
-    2026 snapshot arrives with every newline stripped. Here the boundary is
-    <P1group> and the amendment commentary lives in <Commentary>, outside the
-    <Text> nodes, so the split comes from the markup instead of a regex.
-    """
+    """legislation.gov.uk XML, point-in-time snapshot."""
     root = ET.parse(path).getroot()
     nsuri = root.tag.split("}")[0].strip("{") if "}" in root.tag else ""
 
@@ -155,15 +105,7 @@ def parse_uk(path: Path) -> list[dict]:
         return f"{{{nsuri}}}{name}" if nsuri else name
 
     def identify(group):
-        """The stable identifier is P1's id, not its Pnumber.
-
-        <P1group> marks both a section of the body and a paragraph of a
-        Schedule, and the paragraph numbering restarts inside every Schedule.
-        Keying on Pnumber therefore collides section 1 with Schedule 12A
-        paragraph 1 and Schedule 21 paragraph 1 -- 27 numbers collide that way.
-        The id ('section-1', 'schedule-21-paragraph-1') already distinguishes
-        them, so use it and fall back to Pnumber only when it is absent.
-        """
+        """The stable identifier is P1's id, not its Pnumber."""
         for p1 in group.findall(q("P1")):
             ident = p1.get("id") or ""
             m = re.match(r"section-(\d+[A-Za-z]?)$", ident)
@@ -174,11 +116,8 @@ def parse_uk(path: Path) -> list[dict]:
                 return f"uk-dpa-sch{m.group(1)}-p{m.group(2)}", m.group(1)
             if ident:
                 return "uk-dpa-" + re.sub(r"[^A-Za-z0-9]+", "-", ident), None
-        # No id at all: these are provisions this Act inserts into OTHER
-        # statutes -- "442A" belongs to the Companies Act, not to a DPA that
-        # ends at section 215. They carry no id precisely because they are not
-        # part of this Act, and keying them by Pnumber collided them with the
-        # real sections 2 and 61.
+        # Provisions this Act inserts into OTHER statutes carry no id; keying
+        # them by Pnumber collided them with the real sections 2 and 61.
         return None, None
 
     out = []
@@ -191,10 +130,8 @@ def parse_uk(path: Path) -> list[dict]:
             title = _clean("".join(t.itertext()))
             break
         body = " ".join("".join(t.itertext()) for t in group.iter(q("Text")))
-        # A repealed provision is rendered as a run of dot leaders. Where a
-        # whole section has gone the chunk is dropped below; where one
-        # subsection has gone the leaders sit mid-provision and only the
-        # leaders should go, since the rest of the section is still law.
+        # Repealed text is a run of dot leaders. Strip the leaders only: the
+        # rest of the section is still law.
         body = _clean(re.sub(r"(?:\.\s){4,}\.?", "", body))
         if not re.search(r"[A-Za-z]{3}", body):
             continue
@@ -244,10 +181,8 @@ def main() -> None:
     if dupes:
         problems.append(f"duplicate chunk_id: {sorted(dupes)[:8]}")
 
-    # Apparatus that should not have survived any of the three parsers. The
-    # F-number test looks for the bracketed form legislation.gov.uk uses
-    # ("[F12the UK GDPR]"); a bare \bF\d+\b also matches ordinary legal prose
-    # and flagged 31 clean provisions when it was written that way.
+    # Apparatus none of the three parsers should have let through. Match the
+    # bracketed F-number form only; a bare \bF\d+\b flags clean prose.
     residue = [c["chunk_id"] for c in everything
                if re.search(r"\[F\d+|\.\s\.\s\.\s\.\s\.|Textual Amendments"
                             r"|Commencement Information", c["text"])]

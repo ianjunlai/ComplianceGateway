@@ -1,25 +1,5 @@
-"""Semantic chunking of legal documents.
-
-Structural chunking: one chunk = one complete legal directive (Article /
-Clause / Recital), never token-window chunking. Oversized articles fall back
-to a paragraph split at MAX_CHUNK_TOKENS (disclosed parameter).
-
-GDPR is chunked automatically from its Article/Recital numbering (regular and
-predictable enough to parse reliably). University policies vary too much in
-numbering style to parse safely, so their chunk boundaries are marked by hand:
-a line "### <chunk_id_suffix>" placed before every clause meant to become its
-own chunk. Everything between one marker and the next is that chunk's text,
-including any sub-item numbering that should stay together (e.g. Cambridge's
-1.6.1-1.6.4 under 1.6) -- simply don't mark those sub-items.
-
-Input corpus layout (dataset/corpus/):
-    gdpr/gdpr_articles.txt                           plain-text GDPR, "Article N ..." headed
-    gdpr/gdpr_recitals.txt                           optional: recitals as "(N) ..." paragraphs
-    universities/data_protection_policy_<Name>.txt   one manually marked-up file per institution
-
-Chunk ID convention (stable, used as ground-truth keys in the QA set):
-    gdpr-art-46        gdpr-rec-108        cambridge-policy-3.3        tcd-policy-8
-"""
+"""Structural chunking: one chunk is one complete legal directive, never a token
+window."""
 import re
 import unicodedata
 from dataclasses import dataclass
@@ -49,10 +29,8 @@ class Chunk:
     source: str        # "gdpr" | national act, e.g. "uk_dpa_2018" | university id
     title: str
     text: str
-    # Where the provision sits in the hierarchy of law, and which state it binds.
-    # Both default to "" so the single-tier GDPR chunkers below need no change;
-    # the three-tier corpus JSON supplies them. Stored on the node so a strategy
-    # can filter by jurisdiction in Cypher instead of parsing chunk_id prefixes.
+    # Where the provision sits in the hierarchy of law, and which state it
+    # binds.
     tier: str = ""          # "regional" | "national" | "institutional"
     jurisdiction: str = ""  # "EU" | "UK" | "IE" | "DE"
 
@@ -98,13 +76,7 @@ def chunk_gdpr_recitals(path: Path) -> list[Chunk]:
 
 
 def chunk_university_policy(path: Path, uni_id: str) -> list[Chunk]:
-    """Split a university policy on its hand-placed "### <id>" markers.
-
-    Each marker's own line is removed; everything from there to the next
-    marker (or end of file) becomes that chunk's text, verbatim. Text before
-    the first marker, if any, is discarded — mark a "### preamble" line there
-    if it should be kept.
-    """
+    """Split a university policy on its hand-placed "### <id>" markers."""
     text = path.read_text(encoding="utf-8")
     matches = list(_POLICY_MARKER_RE.finditer(text))
     chunks: list[Chunk] = []

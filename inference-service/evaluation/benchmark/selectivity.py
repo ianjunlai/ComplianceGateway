@@ -1,24 +1,6 @@
 # -*- coding: utf-8 -*-
-"""How much of a corpus one hop through the entity layer admits.
-
-This is the diagnostic that explains why an entity graph helps on one corpus
-and not on another, and it can be measured before any retrieval experiment is
-run. If a single hop from a handful of entry chunks admits nearly the whole
-corpus, the graph is performing no selection: ranking the admitted set by
-similarity to the query reproduces dense retrieval, and no traversal policy
-built on those edges can do better.
-
-The cause is the register of the source text. Legislation is written in a
-shared vocabulary -- "personal data" appears in roughly half the clauses of the
-GDPR corpus -- so co-mention edges extracted from it connect nearly everything
-to nearly everything. A benchmark built on proper nouns does not have this
-property, because a person or a film is discriminative by nature.
-
-Run it against each graph in turn and compare:
-
-    NEO4J_URI=bolt://localhost:7687 python -m evaluation.benchmark.selectivity
-    NEO4J_URI=bolt://localhost:7688 ARTIFACTS_DIR=... python -m evaluation.benchmark.selectivity
-"""
+"""How much of a corpus one hop through the entity layer admits, measured for
+entity edges and citation edges separately."""
 import argparse
 import json
 import statistics
@@ -33,8 +15,6 @@ import config                                    # noqa: E402
 from pipeline.graph import get_driver            # noqa: E402
 
 # chunk -> entity it mentions -> related entity -> the chunks mentioning that.
-# One hop of RELATES; the MENTIONED_IN steps are the projection back to the
-# chunk layer and are not a second hop of the relation.
 _ADMIT = """
 MATCH (c:Chunk) WITH c, rand() AS r ORDER BY r LIMIT $entry
 WITH collect(c) AS seeds
@@ -46,8 +26,7 @@ RETURN count(DISTINCT n) AS admitted
 """
 
 # The same measurement along the citations the drafters wrote, where the corpus
-# has them. Included because the contrast between the two is the point: at the
-# same depth the two kinds of edge admit very different fractions.
+# has them.
 _ADMIT_CITES = """
 MATCH (c:Chunk) WITH c, rand() AS r ORDER BY r LIMIT $entry
 WITH collect(c) AS seeds

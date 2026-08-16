@@ -1,20 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Cache query seed entities for the benchmark questions.
-
-Seeds are where every graph strategy enters the graph, so they have to be
-identical across strategies or the comparison measures seed luck. Caching them
-also keeps the comparison script free of Ollama, matching how the GDPR ablation
-works (`evaluation/ablation/ner_seed_cache.json`).
-
-Run with the general profile -- the legal NER prompt asked "Who is the mother of
-the director of Polish-Russian War?" returns compliance vocabulary that links to
-nothing:
-
-    EXTRACTION_PROFILE=general python -m evaluation.benchmark.build_ner_cache
-
-Resumable: an existing cache is extended, never rebuilt, so an interrupted run
-costs only what it had not yet done.
-"""
+"""Cache query seed entities for the benchmark questions, so later runs need no
+local SLM."""
 import argparse
 import json
 import sys

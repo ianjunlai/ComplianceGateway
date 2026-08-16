@@ -1,29 +1,5 @@
-"""Entity deduplication across chunks and documents.
-
-Merges entities whose names are the same after normalising case and whitespace,
-and nothing else. This is what both source papers specify: LightRAG's Dedupe
-function "identifies and merges identical entities and relations from different
-segments", and HippoRAG never merges at all -- it keeps every distinct noun
-phrase as its own node and expresses near-identity as an extra SYNONYM edge
-above a similarity threshold, so that probability can flow between two mentions
-without their identities being destroyed.
-
-An earlier version merged on embedding cosine above 0.90, which is neither
-paper's rule and turned out to be actively destructive on encyclopaedic text.
-Measured on the 2WikiMultiHopQA corpus it collapsed, among 260 cross-name
-merges:
-
-    13 may 1840          -> 13 may 1846            (different dates)
-    15 january 1892      -> 15 january 1882        (different dates)
-    johann wilhelm bach  -> johann christoph bach  (different people)
-    john milton glover   -> john montgomery glover (different people)
-
-2Wiki asks when people were born and died and which of two things came first,
-so fusing two dates or two brothers removes precisely the distinction the
-question tests, and no retrieval step downstream can recover it. Cross-document
-alignment of genuinely synonymous names is now the SYNONYM edge's job (see
-ingestion.synonyms), which is reversible in a way that a merge is not.
-"""
+"""Entity deduplication: merge only names identical after normalising case and
+whitespace. Near-identity is a SYNONYM edge instead."""
 import re
 from dataclasses import dataclass, field
 
@@ -51,14 +27,7 @@ class CanonicalEntity:
 def deduplicate_entities(
     raw_entities: list[dict],  # [{"name","type","chunk_id"}]
 ) -> tuple[list[CanonicalEntity], dict[str, str], list[dict]]:
-    """Group raw extractions by normalised name.
-
-    Returns (canonical entities, raw name -> node_id map for relation rewiring,
-    merge log). The merge log records only the surface forms that differed
-    before normalisation -- with exact matching there is no risky merge to
-    audit, but the variants are still worth seeing, since a long tail of
-    case-only duplicates says something about extraction consistency.
-    """
+    """Group raw extractions by normalised name."""
     if not raw_entities:
         return [], {}, []
 

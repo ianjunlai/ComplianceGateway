@@ -1,8 +1,4 @@
-"""Naive Vector RAG condition.
-
-Plain dense retrieval over chunk embeddings — no graph traversal, even though
-the vectors live in the graph database.
-"""
+"""Dense vector RAG over the chunk index. No graph steps."""
 import config
 from pipeline.base import RetrievalStrategy, RetrievedChunk, RetrievedContext
 from pipeline.embeddings import embed_one
@@ -24,10 +20,7 @@ RETURN node.chunk_id AS chunk_id, node.text AS text, score
 # which score their candidates exactly with vector.similarity.cosine.
 _OVERFETCH = 8
 # Neo4j Community has no pre-filter on a vector index, so a jurisdiction scope
-# is applied after the index returns. Between 38% and 60% of the corpus is out
-# of scope depending on the requester, and the nearest neighbours are not
-# spread evenly across jurisdictions, so the over-fetch has to be larger when
-# filtering or a run can come back with fewer than top_k admissible chunks.
+# is applied after the index returns.
 _OVERFETCH_FILTERED = 20
 
 

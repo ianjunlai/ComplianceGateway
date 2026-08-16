@@ -1,18 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Assemble the complete three-tier corpus: no sampling.
-
-The pilot sampled 414 of the 959 available chunks, and the survey showed what
-that costs: of 75 internal cross-references in the Irish Act, only 4 landed on
-a chunk the sample happened to contain. Intra-document citations are the
-densest part of the citation graph and they are exactly what sampling destroys,
-because a statute cites its own neighbours and a 15% sample keeps almost none
-of them.
-
-So the full corpus, and the sampling question disappears with it -- no reviewer
-has to be told why Ireland had four internal edges.
-
-    python dataset/build_full_corpus.py
-"""
+"""Assemble the complete three-tier corpus from the GDPR, the national Acts and
+the university policies. No sampling."""
 import argparse
 import json
 import sys
@@ -30,9 +18,7 @@ NATIONS = HERE / "corpus" / "nations" / "nations.chunks.json"
 GDPR_TEXTS = REPO / "inference-service" / "artifacts" / "chunk_texts.json"
 OUT = HERE / "corpus" / "full_corpus.json"
 
-# Which national law binds which institution. Carried on the chunk so a
-# jurisdiction-aware retriever has something to filter on, and so a question
-# about Cambridge can be checked against the UK Act rather than the German one.
+# Which national law binds which institution.
 INSTITUTIONS = {"tcd": "IE", "ul": "IE", "cambridge": "UK", "goettingen": "DE"}
 
 
@@ -86,10 +72,8 @@ def main() -> None:
             lens = sorted(len(r["text"]) for r in s)
             print(f"{tier:<16}{j:>14}{len(s):>9}{lens[len(lens) // 2]:>14}")
 
-    # What the extraction will cost, and what is already paid for. Read the
-    # cache that will actually be used rather than assuming the pilot's:
-    # ARTIFACTS_DIR is per-corpus and the cache is keyed by provider/model/
-    # profile, so changing EXTRACTION_MODEL makes every chunk billable again.
+    # Read the cache that will actually be used: it is keyed by
+    # provider/model/profile, so a changed model makes every chunk billable.
     cache_file = Path(config.ARTIFACTS_DIR) / "extraction_cache.json"
     cached: set[str] = set()
     if cache_file.exists():

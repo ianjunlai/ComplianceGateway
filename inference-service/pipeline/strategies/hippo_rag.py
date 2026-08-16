@@ -1,27 +1,5 @@
-"""HippoRAG-style retrieval.
-
-Follows the published pipeline: query entities are linked to KG nodes, those
-nodes seed a Personalized PageRank run over the entity graph, and the resulting
-node distribution is projected onto passages to rank them. No LLM in the
-retrieval loop — pure sparse-matrix arithmetic.
-
-Two details from the paper that materially affect ranking:
-  * Node specificity — each seed node's starting mass is divided by the number
-    of passages it occurs in, an IDF-like signal that stops ubiquitous entities
-    ("personal data") from dominating rare, discriminative ones.
-  * Passage projection — passage score = PPR distribution x node-passage count
-    matrix, so a passage supported by several activated entities outranks one
-    supported by a single high-scoring entity.
-
-Artifacts loaded from config.ARTIFACTS_DIR (built by ingestion.build_indexes):
-    hippo_adjacency.npz       scipy CSR, row-normalized entity graph
-    hippo_passage_matrix.npz  scipy CSR, |entities| x |chunks| mention counts
-    hippo_chunk_index.json    chunk_id -> matrix column index
-    hippo_nodes.json          node_id -> matrix row index
-    hippo_node_names.json     node_id -> human-readable entity name
-    hippo_node_chunks.json    node_id -> [provenance chunk_id]
-    chunk_texts.json          chunk_id -> text
-"""
+"""HippoRAG-style retrieval: query entities seed a Personalized PageRank run over
+the entity graph, and the node distribution is projected onto passages."""
 import json
 import os
 
@@ -62,11 +40,7 @@ class HippoRagStrategy(RetrievalStrategy):
         self._masks: dict[tuple[str, ...], np.ndarray] = {}
 
     def _scope_mask(self, allowed: tuple[str, ...]) -> np.ndarray:
-        """Column mask over passages, cached per jurisdiction scope.
-
-        There are only four distinct scopes in this deployment, so the mask is
-        built once each rather than per query.
-        """
+        """Column mask over passages, cached per jurisdiction scope."""
         cached = self._masks.get(allowed)
         if cached is None:
             juris = chunk_jurisdictions()
@@ -89,8 +63,7 @@ class HippoRagStrategy(RetrievalStrategy):
         passage_scores = self.passage_matrix.T @ node_scores
         if allowed_jurisdictions is not None:
             # Zero rather than remove, so column indices still line up with
-            # index_chunk. The `> 0` test below then drops them, which is the
-            # same route an unreached passage already takes.
+            # index_chunk.
             passage_scores = np.where(
                 self._scope_mask(tuple(allowed_jurisdictions)), passage_scores, 0.0)
         top_cols = np.argsort(-passage_scores)[:top_k]

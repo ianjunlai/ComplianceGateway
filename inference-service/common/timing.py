@@ -4,14 +4,7 @@ from contextlib import contextmanager
 
 
 class StageTimer:
-    """Collects wall-clock durations per named stage.
-
-    Usage:
-        timer = StageTimer()
-        with timer.stage("retrieval"):
-            ...
-        timer.as_millis()  # {"retrieval_ms": 123, "total_ms": 123}
-    """
+    """Collects wall-clock durations per named stage."""
 
     def __init__(self) -> None:
         self._durations: dict[str, float] = {}

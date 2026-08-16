@@ -1,20 +1,5 @@
-"""Offline multi-paradigm index builder.
-
-One shared extraction pass feeds all three GraphRAG paradigms, and one database
-holds the result: Neo4j stores the knowledge graph and, through native vector
-indexes, the embeddings as well.
-
-  1. chunking (semantic, structural)
-  2. GPT-4o entity/relation extraction + embedding-based dedup   [SHARED]
-  3. graph structure: Chunk / Entity nodes, MENTIONED_IN + RELATES edges [SHARED]
-  4a. Hybrid + Vector RAG: chunk embeddings -> chunk vector index
-  4b. LightRAG:            entity and relationship embeddings -> vector indexes
-  4c. HippoRAG:            sparse adjacency + node-passage matrices -> artifacts/
-
-Every phase is metered by CostTracker -> artifacts/indexing_cost_report.json.
-
-Run:  python -m ingestion.build_indexes
-"""
+"""Offline index builder. One shared extraction pass feeds all three GraphRAG
+paradigms, and Neo4j holds both the graph and the vectors."""
 import argparse
 import json
 import logging
@@ -105,9 +90,8 @@ def main() -> None:
         log.info("Chunked corpus: %d chunks", len(chunks))
 
     # ---- Stage 2 (SHARED): extraction + dedup ------------------------------
-    # The profile is part of the key: a cache built by the legal extractor must
-    # never be replayed for a general-domain corpus, and the failure would
-    # otherwise be silent -- a full cache hit and a graph of the wrong shape.
+    # The profile is part of the key: replaying a legal cache on a general
+    # corpus would hit fully and build a graph of the wrong shape, silently.
     cache_key = f"{config.EXTRACTION_PROVIDER}:{config.EXTRACTION_MODEL}:{config.EXTRACTION_PROFILE}"
     cache = _load_extraction_cache(cache_key, args.reextract)
     cache_hits = _extract_all(chunks, cache, cache_key, tracker, args.workers)
@@ -155,10 +139,8 @@ def main() -> None:
         _create_graph(driver, entities, relations, chunks)
 
     # ---- Stage 3b: synonymy edges (HippoRAG's E') --------------------------
-    # Charged to hippo_rag: it is the only paradigm that walks them. Hybrid and
-    # LightRAG traverse :RELATES explicitly, so their neighbourhoods are
-    # unchanged and the comparison stays about retrieval, not about who got a
-    # denser graph.
+    # Charged to hippo_rag, the only paradigm that walks them; Hybrid and
+    # LightRAG traverse :RELATES, so their neighbourhoods are unchanged.
     with tracker.build_phase("hippo_rag"):
         synonym_edges = build_synonym_edges(np.asarray(entity_vectors))
         _create_synonym_edges(driver, entities, synonym_edges)
@@ -179,11 +161,8 @@ def main() -> None:
         s.run("CALL db.awaitIndexes()")  # vector indexes populate asynchronously
         embedded = s.run("MATCH (c:Chunk) WHERE c.embedding IS NOT NULL "
                          "RETURN count(c) AS n").single()["n"]
-    # A vector index survives `MATCH (n) DETACH DELETE n` -- it is schema, not
-    # data -- so a build that dies before writing vectors leaves an index that
-    # is ONLINE and empty. Retrieval then returns nothing without raising, and
-    # every strategy scores zero at once, which reads as a finding rather than
-    # as a broken build. Cheap to assert, expensive to discover later.
+    # A vector index is schema, not data, so it survives `DETACH DELETE` and a
+    # build that dies before writing vectors leaves it ONLINE and empty.
     if embedded != len(chunks):
         raise SystemExit(
             f"{embedded} of {len(chunks)} chunks carry an embedding. The vector "
@@ -236,12 +215,7 @@ def _load_prechunked(path: Path) -> list[Chunk]:
 def _extract_all(chunks: list[Chunk], cache: dict, cache_key: str,
                  tracker: CostTracker, workers: int) -> int:
     """Fill `cache` for every chunk, in parallel when asked, and return the
-    number served from cache.
-
-    Failures are collected rather than raised in flight: one bad chunk should
-    not discard the hundreds already paid for. The cache is written before
-    raising, so a re-run resumes instead of starting over.
-    """
+    number served from cache."""
     hits = 0
     for chunk in chunks:
         cached = cache.get(chunk.chunk_id)
@@ -319,10 +293,8 @@ def _load_extraction_cache(cache_key: str, reextract: bool = False) -> dict:
                     len(payload.get("chunks", {})), payload.get("cache_key"))
         return {}
     if stored != cache_key:
-        # Stop rather than quietly re-extract. Discarding a cache is a decision
-        # worth hundreds of thousands of tokens and a graph the existing
-        # results no longer describe, and the usual cause is an edited .env
-        # rather than an intent to rebuild.
+        # Stop rather than re-extract: discarding a cache costs hundreds of
+        # thousands of tokens, and the usual cause is an edited .env.
         raise SystemExit(
             f"Extraction cache at {EXTRACTION_CACHE_FILE} was built with "
             f"{payload.get('cache_key')!r} but this run is configured for {cache_key!r}, "
@@ -362,10 +334,8 @@ def _rewire_relations(raw_relations: list[dict], name_to_node: dict[str, str]) -
             dropped_missing_entity += 1
             continue
         if src == tgt:
-            # e.g. a relation whose two ends carry the same name, so exact-match
-            # dedup gave them one node. Genuine in the source text ("X succeeded
-            # X") rather than an artefact of merging, now that merging is
-            # name-identity only.
+            # Both ends resolve to one node, e.g. "X succeeded X". Genuine in
+            # the source text, not an artefact, since merging is name-identity.
             dropped_self_loop += 1
             continue
         key = (src, tgt, r.get("type", "RELATES"))
@@ -482,8 +452,6 @@ def _index_entity_edge_vectors(driver, entities: list[CanonicalEntity],
     tracker.add_storage("light_rag", len(ent_vectors) * config.VECTOR_DIM * 4)
 
     # Edge vectors (LightRAG high-level): embed the relation descriptions.
-    # Fallback text uses canonical entity names (not raw extraction strings --
-    # relations are deduplicated onto node IDs and no longer carry those).
     id_to_name = {e.node_id: e.name for e in entities}
     edge_texts = [
         r["description"] or f'{id_to_name[r["source_id"]]} {r["type"]} {id_to_name[r["target_id"]]}'
@@ -512,13 +480,8 @@ def _build_hippo_artifacts(
     entities: list[CanonicalEntity], relations: list[dict], chunks: list[Chunk],
     tracker: CostTracker, synonym_edges: list[tuple[int, int, float]] | None = None,
 ) -> None:
-    """Row-normalized adjacency matrix, node-passage count matrix, and provenance maps.
-
-    The node-passage matrix holds how many times each entity occurs in each
-    chunk; passage ranking multiplies the PPR node distribution by it, so a
-    chunk backed by several activated entities outranks one backed by a single
-    lucky match.
-    """
+    """Row-normalized adjacency matrix, node-passage count matrix, and
+    provenance maps."""
     ARTIFACTS.mkdir(parents=True, exist_ok=True)
     node_index = {e.node_id: i for i, e in enumerate(entities)}
     n = len(entities)
@@ -528,17 +491,14 @@ def _build_hippo_artifacts(
         i, j = node_index[r["source_id"]], node_index[r["target_id"]]
         rows.extend([i, j])  # treat as undirected for PPR connectivity
         cols.extend([j, i])
-    # E' — synonymy. The walk crosses these exactly as it crosses an extracted
-    # relation, which is the point: on 2Wiki the paper's graph is mostly
-    # synonymy edges, and they are what lets probability reach a passage that
+    # E' synonymy, crossed exactly as an extracted relation is: on 2Wiki the
+    # paper's graph is mostly these, and they are what reaches a passage that
     # names the same thing differently.
     for i, j, _ in (synonym_edges or []):
         rows.extend([i, j])
         cols.extend([j, i])
-    # Duplicate coordinates are SUMMED here, so a pair joined by both an
-    # extracted relation and a synonymy edge ends up weighted 2. Left as is:
-    # two independent reasons to believe two nodes are related is a stronger
-    # link than one, and collapsing it to 1 would discard that.
+    # Duplicate coordinates SUM, so a pair joined by both a relation and a
+    # synonymy edge weighs 2.
     adj = sparse.csr_matrix((np.ones(len(rows)), (rows, cols)), shape=(n, n))
 
     # Row-normalize -> column-stochastic transition on transpose (see hippo_rag.py)

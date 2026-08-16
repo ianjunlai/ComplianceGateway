@@ -1,11 +1,5 @@
-"""EDA-mode AI consumer.
-
-Pulls Audit_Request_Events one at a time (concurrency = 1: the poll loop is
-strictly serial), runs the GraphRAG pipeline, publishes Audit_Result_Events.
-
-Delivery semantics: at-least-once — offset is committed only AFTER the result
-(or DLQ record) is produced. Failed messages go to Audit_DLQ_Topic.
-"""
+"""EDA consumer: reads one Audit_Request_Event at a time, runs the pipeline and
+publishes the result. At-least-once delivery."""
 import json
 import logging
 import re
@@ -33,14 +27,7 @@ def _queue_wait_ms(event: AuditRequestEvent) -> int:
 
 
 def _on_kafka_error(err: KafkaError) -> None:
-    """Surface librdkafka-level events into the application log.
-
-    Broker and group-coordinator request timeouts are reported only through
-    this callback. Without it they are invisible here, yet they are what breaks
-    offset commits: OffsetCommit goes to the group coordinator, so a coordinator
-    that stops answering both loses the commit and eventually evicts the
-    consumer from the group — the exact condition behind a redelivery loop.
-    """
+    """Surface librdkafka-level events into the application log."""
     if err.fatal():
         log.error("Kafka client error (fatal): %s", err)
     else:
@@ -48,19 +35,7 @@ def _on_kafka_error(err: KafkaError) -> None:
 
 
 def _on_commit(err: KafkaError, partitions: list) -> None:
-    """Outcome of an offset commit.
-
-    Commits stay asynchronous, and this callback is what makes them auditable.
-    A commit lost to a coordinator timeout otherwise leaves no trace at all: the
-    consumer proceeds as if it had committed, the message is redelivered after
-    the next rebalance, and it is reprocessed — republishing its result each
-    time — for as long as the condition lasts.
-
-    Committing synchronously would catch the failure inline, but confluent-kafka
-    exposes no timeout on commit(): with the coordinator unreachable it blocks
-    the poll loop indefinitely, which was observed here to stall the consumer
-    outright. A logged duplicate is recoverable; a stalled consumer is not.
-    """
+    """Outcome of an offset commit."""
     if err:
         log.error(
             "Offset commit FAILED (%s) for %s — the affected message will be "
@@ -78,12 +53,8 @@ def main() -> None:
             "auto.offset.reset": "earliest",
             # generous poll interval: one SLM inference can take minutes under load
             "max.poll.interval.ms": 600_000,
-            # Inference runs in THIS process, and saturates the CPU for the whole
-            # of it. The client's background I/O threads are starved alongside
-            # everything else, so heartbeats can stall for an entire inference:
-            # session.timeout.ms must exceed the worst-case inference time, or
-            # the consumer is evicted mid-request and its uncommitted message is
-            # redelivered and reprocessed, publishing that result twice.
+            # Inference runs in THIS process, and saturates the CPU for the
+            # whole of it.
             "session.timeout.ms": 300_000,
             "heartbeat.interval.ms": 10_000,
             # Docker Desktop's port forwarding drops connections left idle
@@ -103,10 +74,7 @@ def main() -> None:
     consumer.subscribe([config.REQUEST_TOPIC])
     log.info("Consumer started. strategy=%s topic=%s", config.ACTIVE_STRATEGY, config.REQUEST_TOPIC)
 
-    # Offsets already handled in this process. At-least-once delivery makes a
-    # repeat legitimate, but a repeat means the previous commit did not land and
-    # the duplicate result inflates the throughput and latency figures — so it
-    # must be recorded, not absorbed silently.
+    # Offsets already handled in this process.
     processed: set[tuple[int, int]] = set()
 
     try:
@@ -170,11 +138,6 @@ def _to_dlq(producer: Producer, raw: str, error: Exception) -> None:
     producer.produce(config.DLQ_TOPIC, value=json.dumps(dlq_record).encode())
 
     # Also emit an ERROR result so the gateway error-rate accounting sees it.
-    # The fields are read off the raw JSON rather than the validated model: the
-    # common failure is a message that IS valid JSON but fails schema validation
-    # (e.g. a null field from a mis-bound gateway payload). Re-validating here
-    # would fail identically, emit nothing, and leave the request PENDING forever
-    # with the gateway still reporting zero errors.
     try:
         payload = json.loads(raw)
         request_id = payload.get("request_id")

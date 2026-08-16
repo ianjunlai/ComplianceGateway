@@ -1,8 +1,5 @@
-"""Pipeline orchestrator: NER -> retrieval -> constrained generation,
-with per-stage timing. Shared verbatim by the EDA consumer (consumer_main.py)
-and the sync baseline API (sync_api.py) so all integration modes run
-identical inference.
-"""
+"""Pipeline orchestrator: NER, retrieval, then constrained generation, each stage
+timed separately."""
 from datetime import datetime, timezone
 
 import config
@@ -44,11 +41,7 @@ def run_pipeline(event: AuditRequestEvent, queue_wait_ms: int = 0) -> AuditResul
                                     allowed_jurisdictions=scope)
 
     # The SLM sees a fixed top-GENERATION_CONTEXT_K prefix, so the generation
-    # condition does not vary with the retrieval-evaluation K. Provisions cited
-    # by those chunks are then attached, which grows the context beyond K --
-    # deliberately, because a cited provision is what ranking systematically
-    # demotes. retrieved_chunk_ids below stays the unattached ranked list, so
-    # Recall@K continues to measure retrieval rather than the attachment.
+    # condition does not vary with the retrieval-evaluation K.
     gen_context = attach_citations(
         context.truncated(config.GENERATION_CONTEXT_K),
         allowed_jurisdictions=scope,
@@ -66,9 +59,7 @@ def run_pipeline(event: AuditRequestEvent, queue_wait_ms: int = 0) -> AuditResul
         decision=decision.decision,
         reasoning=decision.reasoning,
         retrieved_chunk_ids=context.chunk_ids,
-        # What the model actually read, attachments included. Recorded
-        # separately because a strategy that wins by attaching a great deal is
-        # paying for it in context, and that cost is invisible in Recall@K.
+        # What the model actually read, attachments included.
         context_chunk_ids=gen_context.chunk_ids,
         strategy=strategy.name,
         stage_timings_ms=timings,

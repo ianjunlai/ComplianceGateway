@@ -1,28 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Stand-in for the sync inference API, for rehearsing the load test.
-
-E3 measures the *gateway's* behaviour under concurrency — 202 versus 200 versus
-503 versus 504, the semaphore, the polling loop, the JMeter extractors. None of
-that depends on how long the SLM takes, but all of it is unverifiable on
-hardware where one real inference costs minutes: this project's own laptop
-degraded from 160 s to over 26 min per request once the sync API and Ollama
-were competing for memory.
-
-This serves the same contract as `inference-service/sync_api.py` with a
-configurable delay instead of a pipeline, so the plumbing can be debugged in
-seconds and the real backend is only needed when actual latency figures are
-being collected. Nothing in the gateway changes: it already calls
-`gateway.inference.sync-url`, so pointing that at this process is the whole
-switch.
-
-It also records the peak number of requests in flight, which is what
-distinguishes the throttled condition from the unbounded one — a claim that
-would otherwise rest on inference timings alone.
-
-    python loadtest/stub_inference.py --delay 3
-    python loadtest/stub_inference.py --delay 250   # long enough to trip the
-                                                    # gateway's 240 s acquire timeout
-"""
+"""Stand-in for the sync inference API with a configurable delay, so the load
+test's plumbing can be rehearsed without real inference."""
 import argparse
 import threading
 import time

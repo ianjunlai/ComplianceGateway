@@ -1,0 +1,66 @@
+{
+ "cambridge": [
+  {
+   "id": "q2-038",
+   "text": "A former student requests a second copy of their academic transcript and the institution proposes charging a fee to cover administrative costs. Is this charge permissible?",
+   "kind": "cross_tier"
+  },
+  {
+   "id": "q2-069",
+   "text": "Is facial image data collected from students for campus access control classified as biometric data under data protection law?",
+   "kind": "single"
+  },
+  {
+   "id": "q2-077",
+   "text": "A former student submits a subject access request for their academic records and the controller intends to charge a fee before processing it. What is the maximum fee that may lawfully be charged for fulfilling this request?",
+   "kind": "unanswerable"
+  }
+ ],
+ "tcd": [
+  {
+   "id": "q2-030",
+   "text": "A public authority requests immediate transfer of student attendance records to a non-EEA country for immigration enforcement purposes. The supervisory authority has obtained an ex parte interim order from the High Court prohibiting this specific transfer. Can the transfer proceed?",
+   "kind": "cross_tier"
+  },
+  {
+   "id": "q2-054",
+   "text": "Can the data protection commission publish its annual report containing aggregated statistics about complaints received from university students and staff, after the report has been laid before each House of the Oireachtas?",
+   "kind": "single"
+  },
+  {
+   "id": "q2-092",
+   "text": "A university plans to transfer staff payroll data to a public authority for pension administration purposes. On what date did the relevant provisions of the Data Protection Act 2018 come into operation, and were they in force on the date the transfer arrangement was established?",
+   "kind": "unanswerable"
+  }
+ ],
+ "ul": [
+  {
+   "id": "q2-010",
+   "text": "A former student submits a subject access request for all personal data held about them, including records previously transferred to the Commission to Inquire Into Child Abuse. Must the university provide access to those transferred records?",
+   "kind": "cross_tier"
+  },
+  {
+   "id": "q2-053",
+   "text": "A commercial edtech company proposes to process the personal data of enrolled students under 18 to build behavioural profiles for targeted advertising of third-party products. Is this processing permitted?",
+   "kind": "single"
+  },
+  {
+   "id": "q2-100",
+   "text": "A university intends to transfer staff personal data to a research funder in a third country. Has the Minister made regulations under the Data Protection Act 2018 restricting the transfer of this category of personal data to that third country for important reasons of public policy?",
+   "kind": "unanswerable"
+  }
+ ],
+ "goettingen": [
+  {
+   "id": "q2-013",
+   "text": "A university intends to share biometric attendance data of its students with a public health authority to help trace a serious cross-border infectious disease outbreak. Is this processing of special category data permitted?",
+   "kind": "cross_tier"
+  },
+  {
+   "id": "q2-062",
+   "text": "A university plans to notify students about an undercover investigation into academic fraud, where the investigation is being conducted by a public authority competent for the prevention of criminal offences. Must the university obtain approval from that authority before sending the notification?",
+   "kind": "single"
+  },
+  null
+ ]
+}

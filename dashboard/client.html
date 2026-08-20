@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compliance Audit Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="client">
+
+<header>
+  <div>
+    <h1>Compliance Audit Portal</h1>
+    <p class="sub">Submit a data-transfer request for automated GDPR review.</p>
+  </div>
+  <div class="ident">
+    <label for="source-system">Signed in as</label>
+    <select id="source-system">
+      <option value="cambridge">University of Cambridge (UK)</option>
+      <option value="tcd">Trinity College Dublin (IE)</option>
+      <option value="ul">University of Limerick (IE)</option>
+      <option value="goettingen">Universität Göttingen (DE)</option>
+    </select>
+    <span id="scope-hint" class="scope"></span>
+  </div>
+</header>
+
+<main>
+  <section class="card">
+    <h2>New audit request</h2>
+
+    <label class="field-label" for="query">Describe the data operation</label>
+    <textarea id="query" rows="4"
+      placeholder="e.g. A university shares student attendance records with a public authority…"></textarea>
+
+    <div class="examples">
+      <span class="examples-label">Examples:</span>
+      <button class="example" data-ex="0" type="button"></button>
+      <button class="example" data-ex="1" type="button"></button>
+      <button class="example" data-ex="2" type="button"></button>
+    </div>
+
+    <div class="actions">
+      <button id="submit" type="button">Submit for review</button>
+      <span id="status" class="status"></span>
+    </div>
+  </section>
+
+  <section class="card" id="result-card" hidden>
+    <h2>Decision</h2>
+    <div id="decision" class="decision-badge"></div>
+    <p id="reasoning" class="reasoning"></p>
+
+    <h3>Provisions the auditor was shown</h3>
+    <div id="chunks" class="chips"></div>
+    <p class="hint">Click a provision to read its text.</p>
+    <pre id="clause-text" class="clause" hidden></pre>
+
+  </section>
+
+  <section class="card">
+    <h2>My recent requests</h2>
+    <table id="history">
+      <thead>
+        <tr><th>Submitted</th><th>Request</th><th>Decision</th><th>Time</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <p class="hint" id="history-empty">Nothing submitted yet from this browser.</p>
+  </section>
+</main>
+
+<footer>
+  <label for="gateway">Gateway</label>
+  <input id="gateway" size="34" spellcheck="false">
+  <span class="hint">
+    Requests are queued on the broker and answered by a language model running on
+    the institution's own hardware.
+  </span>
+</footer>
+
+<script src="client.js"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 title: AI Compliance Gateway
 description: >-
   Event-driven GraphRAG compliance auditing for federated education systems,
-  running a local Small Language Model under edge constraints.
+  running a small language model on the institution's own hardware.
 theme: jekyll-theme-cayman
 # The site home is index.md; README.md remains the repository readme.

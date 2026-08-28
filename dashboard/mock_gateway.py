@@ -5,7 +5,7 @@ against the exact shape the gateway produces.
 
     python dashboard/mock_gateway.py 8080
 """
-import json, re, sys, threading, time, uuid
+import json, re, socket, sys, threading, time, uuid
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -16,9 +16,18 @@ ROWS = {r["query_id"]: r for r in json.loads(
     (ROOT / "results" / "hybrid-full0812.json").read_text(encoding="utf-8"))["rows"]}
 
 PENDING, DONE = {}, {}
-DELAY = 3.0
+# Each replay waits as long as that audit actually took on the lab GPU, taken
+# from the recorded run rather than invented. A constant delay would contradict
+# the per-stage timings the same row carries, and the monitoring page shows
+# both. Falls back only if a row has no total.
+FALLBACK_DELAY = 3.0
 COUNT = {"submitted": 0, "completed": 0, "errors": 0}
 RECENT = []
+
+
+def recorded_delay(qid):
+    total = (ROWS[qid].get("stage_timings_ms") or {}).get("total_ms")
+    return total / 1000 if total else FALLBACK_DELAY
 
 
 def match(query, source):
@@ -50,7 +59,8 @@ def in_scope(ids, source):
 
 
 def finish(rid, qid, source):
-    time.sleep(DELAY)
+    elapsed = recorded_delay(qid)
+    time.sleep(elapsed)
     r = ROWS[qid]
     DONE[rid] = {
         "request_id": rid, "source_system": source,
@@ -61,7 +71,7 @@ def finish(rid, qid, source):
     }
     PENDING.pop(rid, None)
     COUNT["completed"] += 1
-    RECENT.insert(0, dict(DONE[rid], e2e_ms=int(DELAY * 1000)))
+    RECENT.insert(0, dict(DONE[rid], e2e_ms=int(elapsed * 1000)))
     del RECENT[20:]
 
 
@@ -104,7 +114,23 @@ class H(BaseHTTPRequestHandler):
         pass
 
 
+class DualStackServer(ThreadingHTTPServer):
+    """Listen on IPv4 and IPv6 alike.
+
+    On Windows "localhost" resolves to ::1 first. Bound to 0.0.0.0 only, every
+    request from the page spends about two seconds failing over to IPv4 before
+    it is served -- which reads as the model being slow, and swamps the replay
+    delay this server exists to reproduce.
+    """
+    address_family = socket.AF_INET6
+
+    def server_bind(self):
+        self.socket.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_V6ONLY, 0)
+        super().server_bind()
+
+
 if __name__ == "__main__":
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8080
-    print(f"mock gateway on http://localhost:{port}/api/v1  (delay {DELAY}s)")
-    ThreadingHTTPServer(("0.0.0.0", port), H).serve_forever()
+    print(f"mock gateway on http://localhost:{port}/api/v1")
+    print("replaying recorded runs; each request waits that audit's measured time")
+    DualStackServer(("::", port), H).serve_forever()
